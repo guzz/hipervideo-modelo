@@ -81,15 +81,19 @@
 			this.$on('mudou-qualidade', function (qualidade) {
 				self.timecode = self.video.time
 				self.qual = this.queQualidade(qualidade)
-				self.hipervideo.load()
-				self.continuarTemp()
+				setTimeout(function () {
+					self.hipervideo.load()
+					self.continuarTemp()
+				}, 500)
 			})
 
 			this.$on('mudou-acess', function (val) {
 				self.timecode = self.video.time
 				self.lib = val
-				self.hipervideo.load()
-				self.continuarTemp()
+				setTimeout(function () {
+					self.hipervideo.load()
+					self.continuarTemp()
+				}, 500)
 			})
 
 			var tempoCorrido = function(array) {

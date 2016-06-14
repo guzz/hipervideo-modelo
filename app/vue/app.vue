@@ -124,83 +124,85 @@
 </style>
 
 <template>
-	<div id="full" allowfullscreen="true">
-		<div class="demo-layout-waterfall mdl-layout mdl-js-layout" :class="{ 'home-open': home }">
-		  <header class="mdl-layout__header mdl-layout__header--waterfall header-top" :class="{ hide: isVideo, 'home-menu': home }">
-		    <!-- Top row, always visible -->
-		    <div class="mdl-layout__header-row">
-		      <!-- Title -->
-		      <span class="mdl-layout-title">Title</span>
-		      <div class="mdl-layout-spacer"></div>
-		      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
-		                  mdl-textfield--floating-label mdl-textfield--align-right">
-		        <label class="mdl-button mdl-js-button mdl-button--icon"
-		               for="waterfall-exp">
-		          <i class="material-icons">search</i>
-		        </label>
-		        <div class="mdl-textfield__expandable-holder">
-		          <input class="mdl-textfield__input" type="text" name="sample"
-		                 id="waterfall-exp">
-		        </div>
-		      </div>
-		    </div>
-		    <!-- Bottom row, not visible on scroll -->
-		    <div class="mdl-layout__header-row header__down">
-		      <div class="mdl-layout-spacer"></div>
-		    </div>
-		  </header>
-		  <div class="mdl-layout__drawer" :class="{'is-visible': drawer}">
-		  	<button @click="connectTrello" v-if="!isConnected" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored connecte-se">
-				  CONECTE-SE
-				</button>
-				<img :src="user.img" v-if="isConnected" class="gravatar" transition="fade">
-				<div class="user-info">
-					<p class="user-name" v-if="isConnected" transition="fade">@{{user.nome}}</p>
-		    	<p class="user-email" v-if="isConnected" transition="fade">{{user.email}}</p>
-				</div>
-				<hr></hr>
-				<h4 class="info-menu">Qualidade</h4>
-				<input class="mdl-slider mdl-js-slider" type="range" min="0" max="2" :value="qualidade" tabindex="0" step="1" @input="mudaQual">
-				<div class="qual-label">
-					<span :class="{ active: isBaixa }">Baixa</span>
-					<span :class="{ active: isMedia }" class="span">Média</span>
-					<span :class="{ active: isAlta }">Alta</span>
-				</div>
-				<hr></hr>
-				<h4 class="info-menu">Acessibilidade</h4>
-				<ul class="demo-list-control mdl-list acess">
-				  <li class="mdl-list__item">
-				    <span class="mdl-list__item-primary-content">
-				      Libras
-				    </span>
-				    <span class="mdl-list__item-secondary-action">
-				      <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="list-switch-1"  id="label-switch-1">
-				        <input type="checkbox" id="list-switch-1" class="mdl-switch__input" :checked="isLibras" @click="acessLibras"/>
-				      </label>
-				    </span>
-				  </li>
-				  <li class="mdl-list__item">
-				    <span class="mdl-list__item-primary-content">
-				      Audio Descrição
-				    </span>
-				      <span class="mdl-list__item-secondary-action">
-				        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="list-switch-2"  id="label-switch-2">
-				          <input type="checkbox" id="list-switch-2" class="mdl-switch__input" :checked="isAudio" @click="acessAudio"/>
-				        </label>
-				    </span>
-				  </li>
-				</ul>
-		  </div>
-		  <div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button" @click="openDrawer"><i class="material-icons">menu</i></div>
-		  <main class="mdl-layout__content view" :is="view" transition="vie" :class="[className]" :db="db" :params="params" v-ref:view >
+	<div>
+		<div id="full" allowfullscreen="true">
+			<div class="demo-layout-waterfall mdl-layout mdl-js-layout" :class="{ 'home-open': home }">
+			  <header class="mdl-layout__header mdl-layout__header--waterfall header-top" :class="{ hide: isVideo, 'home-menu': home }">
+			    <!-- Top row, always visible -->
+			    <div class="mdl-layout__header-row">
+			      <!-- Title -->
+			      <span class="mdl-layout-title">Title</span>
+			      <div class="mdl-layout-spacer"></div>
+			      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+			                  mdl-textfield--floating-label mdl-textfield--align-right">
+			        <label class="mdl-button mdl-js-button mdl-button--icon"
+			               for="waterfall-exp">
+			          <i class="material-icons">search</i>
+			        </label>
+			        <div class="mdl-textfield__expandable-holder">
+			          <input class="mdl-textfield__input" type="text" name="sample"
+			                 id="waterfall-exp">
+			        </div>
+			      </div>
+			    </div>
+			    <!-- Bottom row, not visible on scroll -->
+			    <div class="mdl-layout__header-row header__down">
+			      <div class="mdl-layout-spacer"></div>
+			    </div>
+			  </header>
+			  <div class="mdl-layout__drawer" :class="{'is-visible': drawer}">
+			  	<button @click="connectTrello" v-if="!isConnected" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored connecte-se">
+					  CONECTE-SE
+					</button>
+					<img :src="user.img" v-if="isConnected" class="gravatar" transition="fade">
+					<div class="user-info">
+						<p class="user-name" v-if="isConnected" transition="fade">@{{user.nome}}</p>
+			    	<p class="user-email" v-if="isConnected" transition="fade">{{user.email}}</p>
+					</div>
+					<hr></hr>
+					<h4 class="info-menu">Qualidade</h4>
+					<input class="mdl-slider mdl-js-slider" type="range" min="0" max="2" :value="qualidade" tabindex="0" step="1" @input="mudaQual">
+					<div class="qual-label">
+						<span :class="{ active: isBaixa }">Baixa</span>
+						<span :class="{ active: isMedia }" class="span">Média</span>
+						<span :class="{ active: isAlta }">Alta</span>
+					</div>
+					<hr></hr>
+					<h4 class="info-menu">Acessibilidade</h4>
+					<ul class="demo-list-control mdl-list acess">
+					  <li class="mdl-list__item">
+					    <span class="mdl-list__item-primary-content">
+					      Libras
+					    </span>
+					    <span class="mdl-list__item-secondary-action">
+					      <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="list-switch-1"  id="label-switch-1">
+					        <input type="checkbox" id="list-switch-1" class="mdl-switch__input" :checked="isLibras" @click="acessLibras"/>
+					      </label>
+					    </span>
+					  </li>
+					  <li class="mdl-list__item">
+					    <span class="mdl-list__item-primary-content">
+					      Audio Descrição
+					    </span>
+					      <span class="mdl-list__item-secondary-action">
+					        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="list-switch-2"  id="label-switch-2">
+					          <input type="checkbox" id="list-switch-2" class="mdl-switch__input" :checked="isAudio" @click="acessAudio"/>
+					        </label>
+					    </span>
+					  </li>
+					</ul>
+			  </div>
+			  <div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button" @click="openDrawer"><i class="material-icons">menu</i></div>
+			  <main class="mdl-layout__content view" :is="view" transition="vie" :class="[className]" :db="db" :params="params" v-ref:view >
 
-		  </main>
-		  <div class="mdl-layout__obfuscator" :class="{'is-visible': drawer}" @click="openDrawer"></div>
+			  </main>
+			  <div class="mdl-layout__obfuscator" :class="{'is-visible': drawer}" @click="openDrawer"></div>
+			</div>
 		</div>
-	</div>
-	<div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar" aria-live="assertive" aria-atomic="true" aria-relevant="text" >
-	  <div class="mdl-snackbar__text"></div>
-	  <button class="mdl-snackbar__action" type="button"></button>
+		<div id="demo-snackbar-example" class="mdl-js-snackbar mdl-snackbar" aria-live="assertive" aria-atomic="true" aria-relevant="text" >
+		  <div class="mdl-snackbar__text"></div>
+		  <button class="mdl-snackbar__action" type="button"></button>
+		</div>
 	</div>
 </template>
 

@@ -372,7 +372,6 @@
 
 		},
 		beforeDestroy: function(){
-      this.$off('mudou-acess')
 			this.$off('hipervideo-canplay')
 			var self = this
 			this.videoTag.removeEventListener( "play", function() {
