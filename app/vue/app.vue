@@ -124,7 +124,6 @@
 </style>
 
 <template>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<div id="full" allowfullscreen="true">
 		<div class="demo-layout-waterfall mdl-layout mdl-js-layout" :class="{ 'home-open': home }">
 		  <header class="mdl-layout__header mdl-layout__header--waterfall header-top" :class="{ hide: isVideo, 'home-menu': home }">

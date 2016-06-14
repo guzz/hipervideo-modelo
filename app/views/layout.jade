@@ -9,12 +9,17 @@ html
     link(rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css")
     //- LeafLet
     link(rel='stylesheet', href='/styles/plugins.css') 
+    link(rel="stylesheet" type="text/css" href="/js/libs/slick.css")
+    //- Add the new slick-theme.css if you want the default styling
+    link(rel="stylesheet" type="text/css" href="/js/libs/slick-theme.css")
     //- Bibliotecas pre render
-    script(type="text/javascript", src="/js/libs/jquery.min.js")
+    script(type="text/javascript", src="http://code.jquery.com/jquery-1.11.0.min.js")
+    script(type="text/javascript", src="http://code.jquery.com/jquery-migrate-1.2.1.min.js")
     script(type="text/javascript", src="/js/libs/popcorn.min.js")
     script(type="text/javascript", src="/js/libs/d3.min.js")
     script(type="text/javascript", src="/js/libs/jquery.magnific-popup.min.js")
     script(src="https://trello.com/1/client.js?key=47ba9fe4f814b2a8ebaaa862a6c86a74")
+    script(type="text/javascript" src="/js/libs/slick.min.js")
     script(type='text/javascript').
         jQuery.noConflict();
         var useragent = !{JSON.stringify(useragent)};

@@ -68,14 +68,14 @@
 
     <in-mapa :conteudo="conteudo" v-if="conteudo && hasMap"></in-mapa>
 
+    <!-- <in-databars v-for="stat in conteudo.stats" :stat="stat" v-if="conteudo && hasDatabars"></in-databars> -->
+
     <h2 v-if="conteudo && conteudo.title"> 
       {{conteudo.title}} 
     </h2>
     <div class="info-texto">
       {{{html_texto | marked}}}
     </div>
-
-    <div :is="in-databars" :databars="conteudo.databars" v-if="conteudo && hasDatabars"></div>
     
     <h3 v-if="conteudo && conteudo.imagens"> IMAGENS </h3>
     <div class="image-list"></div>
@@ -122,7 +122,7 @@
     },
     computed: {
       hasDatabars: function(){
-        return this.conteudo.databars !== undefined
+        return this.conteudo.stats !== undefined
       },
       hasMap: function(){
         return this.conteudo.mapa !== undefined
@@ -131,41 +131,45 @@
     attached: function() {
       var self = this
 
-      // $$$('.image-list').slick({
-      //   infinite: false,
-      //   slidesToShow: 1,
-      //   slidesToScroll: 1
-      // });
+      jQuery('.image-list').slick({
+        infinite: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        adaptiveHeight: true
+      });
 
-      // $$$('.video-list').slick({
-      //   infinite: false,
-      //   slidesToShow: 3,
-      //   slidesToScroll: 3
-      // })
+      jQuery('.video-list').slick({
+        infinite: false,
+        slidesToShow: 3,
+        slidesToScroll: 3
+      })
 
       this.$on('create-scrollbar', function() {
         $$$('#conteudo_info').perfectScrollbar({
           suppressScrollX: true
         });
 
-        if (this.$parent.conteudo.texto !== "") {
-          this.html_texto = this.$parent.conteudo.texto;
+        if (self.conteudo.texto !== "") {
+          self.html_texto = self.conteudo.texto;
         } else {
-          this.html_texto = this.$parent.component.fields.excerpt
+          self.html_texto = self.$parent.component.fields.excerpt
         }
 
-        if (this.$parent.conteudo.imagens) {
-          for (var i = this.$parent.conteudo.imagens.length - 1; i >= 0; i--) {
-            $$$('.image-list').slick('slickAdd','<img src="' + this.$parent.conteudo.imagens[i].src + '">');
-            self.imageIndex ++;
-          };
-        }
+        Trello.get("/cards/"+self.$parent.db.eventos[parseInt(self.conteudo.id)].card+"/attachments", function(attach) {
+          // console.log(attach)
+          if (attach.length > 0) {
+            for (var i = attach.length - 1; i >= 0; i--) {
+              jQuery('.image-list').slick('slickAdd','<img src="' + attach[i].url + '">');
+              self.imageIndex ++;
+            };
+          }
+        })        
 
-        if (this.$parent.conteudo.video_list) {
-          var playlistUrl = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=25&playlistId=' + this.$parent.conteudo.video_list + '&key=AIzaSyCwNv14d5bNQ4MwaodqT6z45-6A5y4kzus';
+        if (self.$parent.conteudo.video_list) {
+          var playlistUrl = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=25&playlistId=' + self.conteudo.video_list + '&key=AIzaSyBmFsHCZeHcrFIb9Fskr718noTVpqRysKc';
           var videoURL= 'http://www.youtube.com/watch?v=';
           $$$.getJSON(playlistUrl, function(data) {
-            console.log(data);
+            // console.log(data);
             var list_data=[];
             $$$.each(data.items, function(i, item) {
               var video_data = {};
@@ -175,30 +179,30 @@
               list_data.push(video_data);
             });
             for (var i = list_data.length - 1; i >= 0; i--) {
-              $$$('.video-list').slick('slickAdd','<div><a href="'+ list_data[i].url +'" target="_blank" title="'+ list_data[i].title +'" style="text-decoration: none; text-align: center;" class="popup-iframe"><img alt="'+ list_data[i].title +'" src="http://img.youtube.com/vi/'+ list_data[i].id +'/0.jpg"</a><p>' + list_data[i].title + '</p></div>');
+              jQuery('.video-list').slick('slickAdd','<div><a href="'+ list_data[i].url +'" target="_blank" title="'+ list_data[i].title +'" style="text-decoration: none; text-align: center;" class="popup-iframe"><img alt="'+ list_data[i].title +'" src="http://img.youtube.com/vi/'+ list_data[i].id +'/0.jpg"</a><p>' + list_data[i].title + '</p></div>');
               self.videoIndex ++;
               jQuery('.popup-iframe').magnificPopup({type:'iframe'});
             };
-          });
+          })
         }
 
         $$$('#conteudo_info').perfectScrollbar('update');
         
       })
 
-      // this.$on('destroy-scrollbar', function() {
-      //   $$$('#conteudo_info').perfectScrollbar('destroy');
-      //   for (var i = 0; i < this.imageIndex; i++) {
-      //     $$$('.image-list').slick('slickRemove', 0);
-      //   }
-      //   console.log('videoIndex no destroy ' + this.videoIndex);
-      //   for (var i = 0; i < this.videoIndex + 1; i++) {
-      //     console.log('no destroy i = '+ i + ' e videoIndex = ' + this.videoIndex);
-      //     $$$('.video-list').slick('slickRemove', 0);
-      //   }
-      //   this.imageIndex = 0;
-      //   this.videoIndex = 0;
-      // })
+      this.$on('destroy-scrollbar', function() {
+        $$$('#conteudo_info').perfectScrollbar('destroy');
+        for (var i = 0; i < this.imageIndex; i++) {
+          jQuery('.image-list').slick('slickRemove', 0);
+        }
+        // console.log('videoIndex no destroy ' + this.videoIndex);
+        for (var i = 0; i < this.videoIndex + 1; i++) {
+          // console.log('no destroy i = '+ i + ' e videoIndex = ' + this.videoIndex);
+          jQuery('.video-list').slick('slickRemove', 0);
+        }
+        this.imageIndex = 0;
+        this.videoIndex = 0;
+      })
 
       this.$on('so-scrollbar', function() {
         $$$('#conteudo_info').perfectScrollbar({

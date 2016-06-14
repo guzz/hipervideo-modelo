@@ -184,7 +184,7 @@ module.exports = {
 		'video-view': require('./views/video-view.vue')
 	}
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js\"></script>\n\t<div id=\"full\" allowfullscreen=\"true\">\n\t\t<div class=\"demo-layout-waterfall mdl-layout mdl-js-layout\" :class=\"{ 'home-open': home }\">\n\t\t  <header class=\"mdl-layout__header mdl-layout__header--waterfall header-top\" :class=\"{ hide: isVideo, 'home-menu': home }\">\n\t\t    <!-- Top row, always visible -->\n\t\t    <div class=\"mdl-layout__header-row\">\n\t\t      <!-- Title -->\n\t\t      <span class=\"mdl-layout-title\">Title</span>\n\t\t      <div class=\"mdl-layout-spacer\"></div>\n\t\t      <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--expandable\n\t\t                  mdl-textfield--floating-label mdl-textfield--align-right\">\n\t\t        <label class=\"mdl-button mdl-js-button mdl-button--icon\" for=\"waterfall-exp\">\n\t\t          <i class=\"material-icons\">search</i>\n\t\t        </label>\n\t\t        <div class=\"mdl-textfield__expandable-holder\">\n\t\t          <input class=\"mdl-textfield__input\" type=\"text\" name=\"sample\" id=\"waterfall-exp\">\n\t\t        </div>\n\t\t      </div>\n\t\t    </div>\n\t\t    <!-- Bottom row, not visible on scroll -->\n\t\t    <div class=\"mdl-layout__header-row header__down\">\n\t\t      <div class=\"mdl-layout-spacer\"></div>\n\t\t    </div>\n\t\t  </header>\n\t\t  <div class=\"mdl-layout__drawer\" :class=\"{'is-visible': drawer}\">\n\t\t  \t<button @click=\"connectTrello\" v-if=\"!isConnected\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored connecte-se\">\n\t\t\t\t  CONECTE-SE\n\t\t\t\t</button>\n\t\t\t\t<img :src=\"user.img\" v-if=\"isConnected\" class=\"gravatar\" transition=\"fade\">\n\t\t\t\t<div class=\"user-info\">\n\t\t\t\t\t<p class=\"user-name\" v-if=\"isConnected\" transition=\"fade\">@{{user.nome}}</p>\n\t\t    \t<p class=\"user-email\" v-if=\"isConnected\" transition=\"fade\">{{user.email}}</p>\n\t\t\t\t</div>\n\t\t\t\t<hr>\n\t\t\t\t<h4 class=\"info-menu\">Qualidade</h4>\n\t\t\t\t<input class=\"mdl-slider mdl-js-slider\" type=\"range\" min=\"0\" max=\"2\" :value=\"qualidade\" tabindex=\"0\" step=\"1\" @input=\"mudaQual\">\n\t\t\t\t<div class=\"qual-label\">\n\t\t\t\t\t<span :class=\"{ active: isBaixa }\">Baixa</span>\n\t\t\t\t\t<span :class=\"{ active: isMedia }\" class=\"span\">Média</span>\n\t\t\t\t\t<span :class=\"{ active: isAlta }\">Alta</span>\n\t\t\t\t</div>\n\t\t\t\t<hr>\n\t\t\t\t<h4 class=\"info-menu\">Acessibilidade</h4>\n\t\t\t\t<ul class=\"demo-list-control mdl-list acess\">\n\t\t\t\t  <li class=\"mdl-list__item\">\n\t\t\t\t    <span class=\"mdl-list__item-primary-content\">\n\t\t\t\t      Libras\n\t\t\t\t    </span>\n\t\t\t\t    <span class=\"mdl-list__item-secondary-action\">\n\t\t\t\t      <label class=\"mdl-switch mdl-js-switch mdl-js-ripple-effect\" for=\"list-switch-1\" id=\"label-switch-1\">\n\t\t\t\t        <input type=\"checkbox\" id=\"list-switch-1\" class=\"mdl-switch__input\" :checked=\"isLibras\" @click=\"acessLibras\">\n\t\t\t\t      </label>\n\t\t\t\t    </span>\n\t\t\t\t  </li>\n\t\t\t\t  <li class=\"mdl-list__item\">\n\t\t\t\t    <span class=\"mdl-list__item-primary-content\">\n\t\t\t\t      Audio Descrição\n\t\t\t\t    </span>\n\t\t\t\t      <span class=\"mdl-list__item-secondary-action\">\n\t\t\t\t        <label class=\"mdl-switch mdl-js-switch mdl-js-ripple-effect\" for=\"list-switch-2\" id=\"label-switch-2\">\n\t\t\t\t          <input type=\"checkbox\" id=\"list-switch-2\" class=\"mdl-switch__input\" :checked=\"isAudio\" @click=\"acessAudio\">\n\t\t\t\t        </label>\n\t\t\t\t    </span>\n\t\t\t\t  </li>\n\t\t\t\t</ul>\n\t\t  </div>\n\t\t  <div aria-expanded=\"false\" role=\"button\" tabindex=\"0\" class=\"mdl-layout__drawer-button\" @click=\"openDrawer\"><i class=\"material-icons\">menu</i></div>\n\t\t  <main class=\"mdl-layout__content view\" :is=\"view\" transition=\"vie\" :class=\"[className]\" :db=\"db\" :params=\"params\" v-ref:view=\"\">\n\n\t\t  </main>\n\t\t  <div class=\"mdl-layout__obfuscator\" :class=\"{'is-visible': drawer}\" @click=\"openDrawer\"></div>\n\t\t</div>\n\t</div>\n\t<div id=\"demo-snackbar-example\" class=\"mdl-js-snackbar mdl-snackbar\" aria-live=\"assertive\" aria-atomic=\"true\" aria-relevant=\"text\">\n\t  <div class=\"mdl-snackbar__text\"></div>\n\t  <button class=\"mdl-snackbar__action\" type=\"button\"></button>\n\t</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div id=\"full\" allowfullscreen=\"true\">\n\t\t<div class=\"demo-layout-waterfall mdl-layout mdl-js-layout\" :class=\"{ 'home-open': home }\">\n\t\t  <header class=\"mdl-layout__header mdl-layout__header--waterfall header-top\" :class=\"{ hide: isVideo, 'home-menu': home }\">\n\t\t    <!-- Top row, always visible -->\n\t\t    <div class=\"mdl-layout__header-row\">\n\t\t      <!-- Title -->\n\t\t      <span class=\"mdl-layout-title\">Title</span>\n\t\t      <div class=\"mdl-layout-spacer\"></div>\n\t\t      <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--expandable\n\t\t                  mdl-textfield--floating-label mdl-textfield--align-right\">\n\t\t        <label class=\"mdl-button mdl-js-button mdl-button--icon\" for=\"waterfall-exp\">\n\t\t          <i class=\"material-icons\">search</i>\n\t\t        </label>\n\t\t        <div class=\"mdl-textfield__expandable-holder\">\n\t\t          <input class=\"mdl-textfield__input\" type=\"text\" name=\"sample\" id=\"waterfall-exp\">\n\t\t        </div>\n\t\t      </div>\n\t\t    </div>\n\t\t    <!-- Bottom row, not visible on scroll -->\n\t\t    <div class=\"mdl-layout__header-row header__down\">\n\t\t      <div class=\"mdl-layout-spacer\"></div>\n\t\t    </div>\n\t\t  </header>\n\t\t  <div class=\"mdl-layout__drawer\" :class=\"{'is-visible': drawer}\">\n\t\t  \t<button @click=\"connectTrello\" v-if=\"!isConnected\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored connecte-se\">\n\t\t\t\t  CONECTE-SE\n\t\t\t\t</button>\n\t\t\t\t<img :src=\"user.img\" v-if=\"isConnected\" class=\"gravatar\" transition=\"fade\">\n\t\t\t\t<div class=\"user-info\">\n\t\t\t\t\t<p class=\"user-name\" v-if=\"isConnected\" transition=\"fade\">@{{user.nome}}</p>\n\t\t    \t<p class=\"user-email\" v-if=\"isConnected\" transition=\"fade\">{{user.email}}</p>\n\t\t\t\t</div>\n\t\t\t\t<hr>\n\t\t\t\t<h4 class=\"info-menu\">Qualidade</h4>\n\t\t\t\t<input class=\"mdl-slider mdl-js-slider\" type=\"range\" min=\"0\" max=\"2\" :value=\"qualidade\" tabindex=\"0\" step=\"1\" @input=\"mudaQual\">\n\t\t\t\t<div class=\"qual-label\">\n\t\t\t\t\t<span :class=\"{ active: isBaixa }\">Baixa</span>\n\t\t\t\t\t<span :class=\"{ active: isMedia }\" class=\"span\">Média</span>\n\t\t\t\t\t<span :class=\"{ active: isAlta }\">Alta</span>\n\t\t\t\t</div>\n\t\t\t\t<hr>\n\t\t\t\t<h4 class=\"info-menu\">Acessibilidade</h4>\n\t\t\t\t<ul class=\"demo-list-control mdl-list acess\">\n\t\t\t\t  <li class=\"mdl-list__item\">\n\t\t\t\t    <span class=\"mdl-list__item-primary-content\">\n\t\t\t\t      Libras\n\t\t\t\t    </span>\n\t\t\t\t    <span class=\"mdl-list__item-secondary-action\">\n\t\t\t\t      <label class=\"mdl-switch mdl-js-switch mdl-js-ripple-effect\" for=\"list-switch-1\" id=\"label-switch-1\">\n\t\t\t\t        <input type=\"checkbox\" id=\"list-switch-1\" class=\"mdl-switch__input\" :checked=\"isLibras\" @click=\"acessLibras\">\n\t\t\t\t      </label>\n\t\t\t\t    </span>\n\t\t\t\t  </li>\n\t\t\t\t  <li class=\"mdl-list__item\">\n\t\t\t\t    <span class=\"mdl-list__item-primary-content\">\n\t\t\t\t      Audio Descrição\n\t\t\t\t    </span>\n\t\t\t\t      <span class=\"mdl-list__item-secondary-action\">\n\t\t\t\t        <label class=\"mdl-switch mdl-js-switch mdl-js-ripple-effect\" for=\"list-switch-2\" id=\"label-switch-2\">\n\t\t\t\t          <input type=\"checkbox\" id=\"list-switch-2\" class=\"mdl-switch__input\" :checked=\"isAudio\" @click=\"acessAudio\">\n\t\t\t\t        </label>\n\t\t\t\t    </span>\n\t\t\t\t  </li>\n\t\t\t\t</ul>\n\t\t  </div>\n\t\t  <div aria-expanded=\"false\" role=\"button\" tabindex=\"0\" class=\"mdl-layout__drawer-button\" @click=\"openDrawer\"><i class=\"material-icons\">menu</i></div>\n\t\t  <main class=\"mdl-layout__content view\" :is=\"view\" transition=\"vie\" :class=\"[className]\" :db=\"db\" :params=\"params\" v-ref:view=\"\">\n\n\t\t  </main>\n\t\t  <div class=\"mdl-layout__obfuscator\" :class=\"{'is-visible': drawer}\" @click=\"openDrawer\"></div>\n\t\t</div>\n\t</div>\n\t<div id=\"demo-snackbar-example\" class=\"mdl-js-snackbar mdl-snackbar\" aria-live=\"assertive\" aria-atomic=\"true\" aria-relevant=\"text\">\n\t  <div class=\"mdl-snackbar__text\"></div>\n\t  <button class=\"mdl-snackbar__action\" type=\"button\"></button>\n\t</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -412,13 +412,12 @@ var __vueify_style__ = require("vueify-insert-css").insert("/* line 4, stdin */\
 
 var $$$ = require('jquery');
 var _ = require('underscore');
-var marked = require('marked');
 var perfectScrollbar = require('perfect-scrollbar');
 
 module.exports = {
 
 	replace: true,
-
+	props: ['stat'],
 	data: function data() {
 		return {
 			_entries: null,
@@ -427,12 +426,12 @@ module.exports = {
 	},
 
 	ready: function ready() {
-		console.log('content-databars ready!');
+		// console.log('content-databars ready!')
 	},
 
 	attached: function attached() {
 
-		console.log('content-databars attached!');
+		// console.log('content-databars attached!')
 
 		// load spreadsheet
 
@@ -443,9 +442,9 @@ module.exports = {
 
 		loadData: function loadData() {
 			var self = this;
-			var url = 'https://spreadsheets.google.com/feeds/list/' + this.databars + '/od6/public/values?alt=json-in-script&callback=?';
+			var url = 'https://spreadsheets.google.com/feeds/list/' + this.stat.conteudo + '/od6/public/values?alt=json-in-script&callback=?';
 
-			console.log('spreadsheet will load now');
+			// console.log('spreadsheet will load now')
 
 			$$$.getJSON(url).success(function (data) {
 
@@ -469,10 +468,12 @@ module.exports = {
 				self.buildChart();
 			}).error(function (message) {
 
-				console.log('spreadsheet error: ' + message);
+				// console.log('spreadsheet error: ' + message)
+
 			}).complete(function () {
 
-				console.log('completed spreadsheet load!');
+				// console.log('completed spreadsheet load!')
+
 			});
 		},
 
@@ -496,7 +497,7 @@ module.exports = {
 
 			var yAxis = d3.svg.axis().scale(y).orient("left").tickFormat(d3.format(".2s"));
 
-			self._svg = d3.select(this.$$.chart).append("svg").attr("width", width + margin.left + margin.right).attr("height", height + margin.top + margin.bottom).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+			self._svg = d3.select(this.$el.chart).append("svg").attr("width", width + margin.left + margin.right).attr("height", height + margin.top + margin.bottom).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 			data = self._entries;
 
@@ -555,11 +556,8 @@ module.exports = {
 			labels.append("text").attr("x", width - 24).attr("y", 9).attr("dy", ".35em").style("text-anchor", "end").text(function (d) {
 				return d;
 			});
+			console.log(self._svg);
 		}
-	},
-
-	filters: {
-		'marked': marked
 	}
 };
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div>\n\t\t<div v-el:chart=\"\" class=\"info-chart-databars\"></div>\n\t</div>\n"
@@ -578,7 +576,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":20,"marked":22,"perfect-scrollbar":23,"underscore":46,"vue":48,"vue-hot-reload-api":47,"vueify-insert-css":49}],4:[function(require,module,exports){
+},{"jquery":20,"perfect-scrollbar":23,"underscore":46,"vue":48,"vue-hot-reload-api":47,"vueify-insert-css":49}],4:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.content_mapa {\n  position: relative;\n  width: 100%;\n  height: 400px;\n  background: #333; }\n\n/* line 8, stdin */\n.leaflet-top, .leaflet-bottom {\n  z-index: 1; }\n")
 'use strict';
 
@@ -999,7 +997,7 @@ module.exports = {
   },
   computed: {
     hasDatabars: function hasDatabars() {
-      return this.conteudo.databars !== undefined;
+      return this.conteudo.stats !== undefined;
     },
     hasMap: function hasMap() {
       return this.conteudo.mapa !== undefined;
@@ -1008,41 +1006,45 @@ module.exports = {
   attached: function attached() {
     var self = this;
 
-    // $$$('.image-list').slick({
-    //   infinite: false,
-    //   slidesToShow: 1,
-    //   slidesToScroll: 1
-    // });
+    jQuery('.image-list').slick({
+      infinite: false,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      adaptiveHeight: true
+    });
 
-    // $$$('.video-list').slick({
-    //   infinite: false,
-    //   slidesToShow: 3,
-    //   slidesToScroll: 3
-    // })
+    jQuery('.video-list').slick({
+      infinite: false,
+      slidesToShow: 3,
+      slidesToScroll: 3
+    });
 
     this.$on('create-scrollbar', function () {
       $$$('#conteudo_info').perfectScrollbar({
         suppressScrollX: true
       });
 
-      if (this.$parent.conteudo.texto !== "") {
-        this.html_texto = this.$parent.conteudo.texto;
+      if (self.conteudo.texto !== "") {
+        self.html_texto = self.conteudo.texto;
       } else {
-        this.html_texto = this.$parent.component.fields.excerpt;
+        self.html_texto = self.$parent.component.fields.excerpt;
       }
 
-      if (this.$parent.conteudo.imagens) {
-        for (var i = this.$parent.conteudo.imagens.length - 1; i >= 0; i--) {
-          $$$('.image-list').slick('slickAdd', '<img src="' + this.$parent.conteudo.imagens[i].src + '">');
-          self.imageIndex++;
-        };
-      }
+      Trello.get("/cards/" + self.$parent.db.eventos[parseInt(self.conteudo.id)].card + "/attachments", function (attach) {
+        // console.log(attach)
+        if (attach.length > 0) {
+          for (var i = attach.length - 1; i >= 0; i--) {
+            jQuery('.image-list').slick('slickAdd', '<img src="' + attach[i].url + '">');
+            self.imageIndex++;
+          };
+        }
+      });
 
-      if (this.$parent.conteudo.video_list) {
-        var playlistUrl = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=25&playlistId=' + this.$parent.conteudo.video_list + '&key=AIzaSyCwNv14d5bNQ4MwaodqT6z45-6A5y4kzus';
+      if (self.$parent.conteudo.video_list) {
+        var playlistUrl = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=25&playlistId=' + self.conteudo.video_list + '&key=AIzaSyBmFsHCZeHcrFIb9Fskr718noTVpqRysKc';
         var videoURL = 'http://www.youtube.com/watch?v=';
         $$$.getJSON(playlistUrl, function (data) {
-          console.log(data);
+          // console.log(data);
           var list_data = [];
           $$$.each(data.items, function (i, item) {
             var video_data = {};
@@ -1052,7 +1054,7 @@ module.exports = {
             list_data.push(video_data);
           });
           for (var i = list_data.length - 1; i >= 0; i--) {
-            $$$('.video-list').slick('slickAdd', '<div><a href="' + list_data[i].url + '" target="_blank" title="' + list_data[i].title + '" style="text-decoration: none; text-align: center;" class="popup-iframe"><img alt="' + list_data[i].title + '" src="http://img.youtube.com/vi/' + list_data[i].id + '/0.jpg"</a><p>' + list_data[i].title + '</p></div>');
+            jQuery('.video-list').slick('slickAdd', '<div><a href="' + list_data[i].url + '" target="_blank" title="' + list_data[i].title + '" style="text-decoration: none; text-align: center;" class="popup-iframe"><img alt="' + list_data[i].title + '" src="http://img.youtube.com/vi/' + list_data[i].id + '/0.jpg"</a><p>' + list_data[i].title + '</p></div>');
             self.videoIndex++;
             jQuery('.popup-iframe').magnificPopup({ type: 'iframe' });
           };
@@ -1062,19 +1064,19 @@ module.exports = {
       $$$('#conteudo_info').perfectScrollbar('update');
     });
 
-    // this.$on('destroy-scrollbar', function() {
-    //   $$$('#conteudo_info').perfectScrollbar('destroy');
-    //   for (var i = 0; i < this.imageIndex; i++) {
-    //     $$$('.image-list').slick('slickRemove', 0);
-    //   }
-    //   console.log('videoIndex no destroy ' + this.videoIndex);
-    //   for (var i = 0; i < this.videoIndex + 1; i++) {
-    //     console.log('no destroy i = '+ i + ' e videoIndex = ' + this.videoIndex);
-    //     $$$('.video-list').slick('slickRemove', 0);
-    //   }
-    //   this.imageIndex = 0;
-    //   this.videoIndex = 0;
-    // })
+    this.$on('destroy-scrollbar', function () {
+      $$$('#conteudo_info').perfectScrollbar('destroy');
+      for (var i = 0; i < this.imageIndex; i++) {
+        jQuery('.image-list').slick('slickRemove', 0);
+      }
+      // console.log('videoIndex no destroy ' + this.videoIndex);
+      for (var i = 0; i < this.videoIndex + 1; i++) {
+        // console.log('no destroy i = '+ i + ' e videoIndex = ' + this.videoIndex);
+        jQuery('.video-list').slick('slickRemove', 0);
+      }
+      this.imageIndex = 0;
+      this.videoIndex = 0;
+    });
 
     this.$on('so-scrollbar', function () {
       $$$('#conteudo_info').perfectScrollbar({
@@ -1097,7 +1099,7 @@ module.exports = {
   }
 
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div style=\"height: 100%;\">\n  <div class=\"border context-bg\"></div>\n  <div id=\"conteudo_info\">\n\n    <in-mapa :conteudo=\"conteudo\" v-if=\"conteudo &amp;&amp; hasMap\"></in-mapa>\n\n    <h2 v-if=\"conteudo &amp;&amp; conteudo.title\"> \n      {{conteudo.title}} \n    </h2>\n    <div class=\"info-texto\">\n      {{{html_texto | marked}}}\n    </div>\n\n    <div :is=\"in-databars\" :databars=\"conteudo.databars\" v-if=\"conteudo &amp;&amp; hasDatabars\"></div>\n    \n    <h3 v-if=\"conteudo &amp;&amp; conteudo.imagens\"> IMAGENS </h3>\n    <div class=\"image-list\"></div>\n    <h3 v-if=\"conteudo &amp;&amp; conteudo.video_list\"> VÍDEOS </h3>\n    <div class=\"video-list\"></div>\n    <h3 v-if=\"conteudo &amp;&amp; conteudo.arquivos\"> LINKS </h3>\n    <div class=\"link context-bg\" v-for=\"cont in conteudo.arquivos\">\n      <a :href=\"cont.link\" target=\"_blank\" class=\"context-bg\">\n        {{cont.nome | uppercase}}\n      </a>\n    </div>\n    <h3 v-if=\"conteudo &amp;&amp; conteudo.discursoes\"> DISCUSSÃO </h3>\n    <div class=\"link context-bg\" v-for=\"cont in conteudo.discursoes\">\n      <a :href=\"cont.link\" target=\"_blank\" class=\"context-bg\">\n        {{cont.nome | uppercase}}\n      </a>\n    </div>\n    <div class=\"link\" :class=\"conteudo.icon + '-bg'\" v-if=\"conteudo &amp;&amp; conteudo.hipervideo\">\n      <a :href=\"conteudo.hipervideo.link\" :class=\"conteudo.icon + '-bg'\">\n        {{conteudo.hipervideo.nome | uppercase}}\n      </a>\n    </div>\n  </div>\n  <a class=\"back\" :href=\"'#/' + params.video\">voltar ao vídeo</a>\n  </div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div style=\"height: 100%;\">\n  <div class=\"border context-bg\"></div>\n  <div id=\"conteudo_info\">\n\n    <in-mapa :conteudo=\"conteudo\" v-if=\"conteudo &amp;&amp; hasMap\"></in-mapa>\n\n    <!-- <in-databars v-for=\"stat in conteudo.stats\" :stat=\"stat\" v-if=\"conteudo && hasDatabars\"></in-databars> -->\n\n    <h2 v-if=\"conteudo &amp;&amp; conteudo.title\"> \n      {{conteudo.title}} \n    </h2>\n    <div class=\"info-texto\">\n      {{{html_texto | marked}}}\n    </div>\n    \n    <h3 v-if=\"conteudo &amp;&amp; conteudo.imagens\"> IMAGENS </h3>\n    <div class=\"image-list\"></div>\n    <h3 v-if=\"conteudo &amp;&amp; conteudo.video_list\"> VÍDEOS </h3>\n    <div class=\"video-list\"></div>\n    <h3 v-if=\"conteudo &amp;&amp; conteudo.arquivos\"> LINKS </h3>\n    <div class=\"link context-bg\" v-for=\"cont in conteudo.arquivos\">\n      <a :href=\"cont.link\" target=\"_blank\" class=\"context-bg\">\n        {{cont.nome | uppercase}}\n      </a>\n    </div>\n    <h3 v-if=\"conteudo &amp;&amp; conteudo.discursoes\"> DISCUSSÃO </h3>\n    <div class=\"link context-bg\" v-for=\"cont in conteudo.discursoes\">\n      <a :href=\"cont.link\" target=\"_blank\" class=\"context-bg\">\n        {{cont.nome | uppercase}}\n      </a>\n    </div>\n    <div class=\"link\" :class=\"conteudo.icon + '-bg'\" v-if=\"conteudo &amp;&amp; conteudo.hipervideo\">\n      <a :href=\"conteudo.hipervideo.link\" :class=\"conteudo.icon + '-bg'\">\n        {{conteudo.hipervideo.nome | uppercase}}\n      </a>\n    </div>\n  </div>\n  <a class=\"back\" :href=\"'#/' + params.video\">voltar ao vídeo</a>\n  </div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -2002,6 +2004,7 @@ module.exports = {
 	},
 	methods: {
 		infoOpen: function infoOpen(info) {
+			var self = this;
 			var node = _.findWhere(this.events, { "id": info });
 			this.$broadcast('info-open');
 			this.videoPause();
@@ -2011,8 +2014,9 @@ module.exports = {
 			}
 			this.conteudo.title = node.title;
 			this.conteudo.id = node.id;
-			this.conteudo.icon = node.icon;
-			this.$broadcast('create-scrollbar');
+			setTimeout(function () {
+				self.$broadcast('create-scrollbar');
+			}, 500);
 		},
 		infoClose: function infoClose() {
 			this.$broadcast('info-close');

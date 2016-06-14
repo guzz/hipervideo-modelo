@@ -33,13 +33,12 @@
 
 	var $$$ = require('jquery')
 	var _ = require('underscore')
-	var marked = require('marked')
 	var perfectScrollbar = require('perfect-scrollbar')
 
 	module.exports = {
 
 		replace: true,
-
+		props: ['stat'],
 		data: function(){
 			return {
 				_entries: null,
@@ -48,12 +47,12 @@
 		},
 
 		ready: function(){
-			console.log('content-databars ready!')
+			// console.log('content-databars ready!')
 		},
 
 		attached: function(){
 
-			console.log('content-databars attached!')
+			// console.log('content-databars attached!')
 
 			// load spreadsheet
 
@@ -65,9 +64,9 @@
 
 			loadData: function(){
 				var self = this;
-				var url = 'https://spreadsheets.google.com/feeds/list/' + this.databars + '/od6/public/values?alt=json-in-script&callback=?';
+				var url = 'https://spreadsheets.google.com/feeds/list/' + this.stat.conteudo + '/od6/public/values?alt=json-in-script&callback=?';
 
-				console.log('spreadsheet will load now')
+				// console.log('spreadsheet will load now')
 
 				$$$.getJSON(url).success(function(data) {
 
@@ -92,11 +91,11 @@
 
 				}).error(function(message) {
 
-					console.log('spreadsheet error: ' + message)
+					// console.log('spreadsheet error: ' + message)
 
 				}).complete(function() {
 
-					console.log('completed spreadsheet load!')
+					// console.log('completed spreadsheet load!')
 
 				})
 			},
@@ -130,7 +129,7 @@
 					.orient("left")
 					.tickFormat(d3.format(".2s"));
 
-				self._svg = d3.select(this.$$.chart).append("svg")
+				self._svg = d3.select(this.$el.chart).append("svg")
 					.attr("width", width + margin.left + margin.right)
 					.attr("height", height + margin.top + margin.bottom)
 					.append("g")
@@ -196,13 +195,10 @@
 						.attr("dy", ".35em")
 						.style("text-anchor", "end")
 						.text(function(d) { return d; });
+					console.log(self._svg)
 
 
 			}
-		},
-
-		filters: {
-			'marked': marked
 		}
 	}
 

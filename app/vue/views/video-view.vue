@@ -425,6 +425,7 @@
 		},
 		methods: {
 			infoOpen: function(info){
+				var self = this
 				var node = _.findWhere(this.events,{"id": info});
 				this.$broadcast('info-open');
 				this.videoPause();
@@ -434,8 +435,9 @@
 				}
 				this.conteudo.title = node.title;
 				this.conteudo.id = node.id;
-				this.conteudo.icon = node.icon;
-				this.$broadcast('create-scrollbar');
+				setTimeout(function() {
+					self.$broadcast('create-scrollbar')
+				}, 500)
 			},
 			infoClose: function(){
 				this.$broadcast('info-close');
