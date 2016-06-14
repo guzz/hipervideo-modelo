@@ -54,11 +54,11 @@
 				on: function(id,info){
 					ga('send', 'event', 'EventoInfo', 'open', id + '::info-' + info)
 					Vue.nextTick(function () {
-						if(app.$.view){
-							app.$.view.infoOpen(info)
+						if(app.$refs.view){
+							app.$refs.view.infoOpen(info)
 						} else {
 							app.$once('video-view-ready',function(){
-								app.$.view.infoOpen(info)
+								app.$refs.view.infoOpen(info)
 							})
 						}
 					})
@@ -84,7 +84,7 @@
 					var current_is_info = cur_route.length > 1 && cur_route[1] == 'info';
 
 					if(last_is_info && !current_is_info){
-						app.$.view.infoClose()
+						app.$refs.view.infoClose()
 					}
 
 					return // prevent transition on the same id

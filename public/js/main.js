@@ -1,5 +1,5 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.header-top {\n  -webkit-transition: width .3s ease;\n  -moz-transition: width .3s ease;\n  -ms-transition: width .3s ease;\n  -o-transition: width .3s ease;\n  transition: width .3s ease;\n  -webkit-transition: height .6s ease;\n  -moz-transition: height .6s ease;\n  -ms-transition: height .6s ease;\n  -o-transition: height .6s ease;\n  transition: height .6s ease; }\n  /* line 13, stdin */\n  .header-top.home-menu {\n    width: 5%;\n    min-height: 0;\n    height: 0; }\n    /* line 17, stdin */\n    .header-top.home-menu .mdl-layout-title {\n      display: none; }\n  /* line 21, stdin */\n  .header-top.hide {\n    display: none; }\n\n/* line 25, stdin */\n.fade-transition {\n  -webkit-transition: opacity .6s ease;\n  transition: opacity .6s ease;\n  opacity: 1; }\n\n/* line 29, stdin */\n.fade-enter, .fade-leave {\n  opacity: 0; }\n\n/* line 32, stdin */\n.header__down {\n  min-height: 500px; }\n  @media screen and (max-width: 1024px) {\n    /* line 32, stdin */\n    .header__down {\n      min-height: 190px; } }\n  @media screen and (max-width: 1366px) {\n    /* line 32, stdin */\n    .header__down {\n      min-height: 350px; } }\n\n@media screen and (max-width: 1024px) {\n  /* line 41, stdin */\n  .mdl-layout__header {\n    display: block; } }\n\n/* line 46, stdin */\n.mdl-layout__drawer {\n  width: 390px;\n  -webkit-transform: translateX(-400px);\n          transform: translateX(-400px); }\n  @media screen and (max-width: 1024px) {\n    /* line 46, stdin */\n    .mdl-layout__drawer {\n      width: 240px;\n      -webkit-transform: translateX(-250px);\n              transform: translateX(-250px); } }\n\n/* line 54, stdin */\n.gravatar {\n  margin: 10px auto;\n  width: 150px !important;\n  height: 150px !important;\n  font-size: 150px !important;\n  border-radius: 150px; }\n\n/* line 61, stdin */\n.user-info {\n  padding-left: 25px; }\n\n/* line 64, stdin */\n.user-name {\n  font-size: 35px;\n  margin-bottom: 10px; }\n\n/* line 68, stdin */\n.connecte-se {\n  height: 200px;\n  font-size: 40px;\n  margin: 10px 10px 0; }\n\n/* line 73, stdin */\n.info-menu {\n  text-align: center;\n  margin-top: 0; }\n\n/* line 77, stdin */\n.qual-label {\n  padding-left: 20px;\n  margin-bottom: 20px; }\n  /* line 80, stdin */\n  .qual-label span {\n    -webkit-transition: all .1s ease;\n    -moz-transition: all .1s ease;\n    -ms-transition: all .1s ease;\n    -o-transition: all .1s ease;\n    transition: all .1s ease; }\n  /* line 87, stdin */\n  .qual-label .active {\n    font-weight: 900;\n    font-size: 16px; }\n  /* line 91, stdin */\n  .qual-label .span {\n    margin: 0 123px; }\n\n/* line 96, stdin */\n.acess {\n  margin-top: 0;\n  padding-top: 0; }\n  /* line 99, stdin */\n  .acess li {\n    min-height: 37px;\n    padding: 0 20px; }\n\n/* line 104, stdin */\n.mdl-layout__drawer-button {\n  -webkit-transition: height .3s ease;\n  -moz-transition: height .3s ease;\n  -ms-transition: height .3s ease;\n  -o-transition: height .3s ease;\n  transition: height .3s ease; }\n  /* line 110, stdin */\n  .home-open .mdl-layout__drawer-button {\n    background: #607d8b;\n    margin: 0;\n    padding: 10px;\n    height: 97%; }\n    @media screen and (min-width: 1440px) {\n      /* line 110, stdin */\n      .home-open .mdl-layout__drawer-button {\n        padding: 20px;\n        height: 95.5%; } }\n")
+var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.context-bg {\n  background-color: red; }\n\n/* line 5, stdin */\n.header-top {\n  -webkit-transition: width .3s ease;\n  -moz-transition: width .3s ease;\n  -ms-transition: width .3s ease;\n  -o-transition: width .3s ease;\n  transition: width .3s ease;\n  -webkit-transition: height .6s ease;\n  -moz-transition: height .6s ease;\n  -ms-transition: height .6s ease;\n  -o-transition: height .6s ease;\n  transition: height .6s ease; }\n  /* line 16, stdin */\n  .header-top.home-menu {\n    width: 5%;\n    min-height: 0;\n    height: 0; }\n    /* line 20, stdin */\n    .header-top.home-menu .mdl-layout-title {\n      display: none; }\n  /* line 24, stdin */\n  .header-top.hide {\n    display: none; }\n\n/* line 28, stdin */\n.fade-transition {\n  -webkit-transition: opacity .6s ease;\n  transition: opacity .6s ease;\n  opacity: 1; }\n\n/* line 32, stdin */\n.fade-enter, .fade-leave {\n  opacity: 0; }\n\n/* line 35, stdin */\n.header__down {\n  min-height: 500px; }\n  @media screen and (max-width: 1024px) {\n    /* line 35, stdin */\n    .header__down {\n      min-height: 190px; } }\n  @media screen and (max-width: 1366px) {\n    /* line 35, stdin */\n    .header__down {\n      min-height: 350px; } }\n\n@media screen and (max-width: 1024px) {\n  /* line 44, stdin */\n  .mdl-layout__header {\n    display: block; } }\n\n/* line 49, stdin */\n.mdl-layout__drawer {\n  width: 390px;\n  -webkit-transform: translateX(-400px);\n          transform: translateX(-400px); }\n  @media screen and (max-width: 1024px) {\n    /* line 49, stdin */\n    .mdl-layout__drawer {\n      width: 240px;\n      -webkit-transform: translateX(-250px);\n              transform: translateX(-250px); } }\n\n/* line 57, stdin */\n.gravatar {\n  margin: 10px auto;\n  width: 150px !important;\n  height: 150px !important;\n  font-size: 150px !important;\n  border-radius: 150px; }\n\n/* line 64, stdin */\n.user-info {\n  padding-left: 25px; }\n\n/* line 67, stdin */\n.user-name {\n  font-size: 35px;\n  margin-bottom: 10px; }\n\n/* line 71, stdin */\n.connecte-se {\n  height: 200px;\n  font-size: 40px;\n  margin: 10px 10px 0; }\n\n/* line 76, stdin */\n.info-menu {\n  text-align: center;\n  margin-top: 0; }\n\n/* line 80, stdin */\n.qual-label {\n  padding-left: 20px;\n  margin-bottom: 20px; }\n  /* line 83, stdin */\n  .qual-label span {\n    -webkit-transition: all .1s ease;\n    -moz-transition: all .1s ease;\n    -ms-transition: all .1s ease;\n    -o-transition: all .1s ease;\n    transition: all .1s ease; }\n  /* line 90, stdin */\n  .qual-label .active {\n    font-weight: 900;\n    font-size: 16px; }\n  /* line 94, stdin */\n  .qual-label .span {\n    margin: 0 123px; }\n\n/* line 99, stdin */\n.acess {\n  margin-top: 0;\n  padding-top: 0; }\n  /* line 102, stdin */\n  .acess li {\n    min-height: 37px;\n    padding: 0 20px; }\n\n/* line 107, stdin */\n.mdl-layout__drawer-button {\n  -webkit-transition: height .3s ease;\n  -moz-transition: height .3s ease;\n  -ms-transition: height .3s ease;\n  -o-transition: height .3s ease;\n  transition: height .3s ease; }\n  /* line 113, stdin */\n  .home-open .mdl-layout__drawer-button {\n    background: #607d8b;\n    margin: 0;\n    padding: 10px;\n    height: 97%; }\n    @media screen and (min-width: 1440px) {\n      /* line 113, stdin */\n      .home-open .mdl-layout__drawer-button {\n        padding: 20px;\n        height: 95.5%; } }\n")
 'use strict';
 
 var _ = require('underscore');
@@ -184,14 +184,14 @@ module.exports = {
 		'video-view': require('./views/video-view.vue')
 	}
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js\"></script>\n\t<div id=\"full\" allowfullscreen=\"true\">\n\t\t<div class=\"demo-layout-waterfall mdl-layout mdl-js-layout\" :class=\"{ 'home-open': home }\">\n\t\t  <header class=\"mdl-layout__header mdl-layout__header--waterfall header-top\" :class=\"{ hide: isVideo, 'home-menu': home }\">\n\t\t    <!-- Top row, always visible -->\n\t\t    <div class=\"mdl-layout__header-row\">\n\t\t      <!-- Title -->\n\t\t      <span class=\"mdl-layout-title\">Title</span>\n\t\t      <div class=\"mdl-layout-spacer\"></div>\n\t\t      <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--expandable\n\t\t                  mdl-textfield--floating-label mdl-textfield--align-right\">\n\t\t        <label class=\"mdl-button mdl-js-button mdl-button--icon\" for=\"waterfall-exp\">\n\t\t          <i class=\"material-icons\">search</i>\n\t\t        </label>\n\t\t        <div class=\"mdl-textfield__expandable-holder\">\n\t\t          <input class=\"mdl-textfield__input\" type=\"text\" name=\"sample\" id=\"waterfall-exp\">\n\t\t        </div>\n\t\t      </div>\n\t\t    </div>\n\t\t    <!-- Bottom row, not visible on scroll -->\n\t\t    <div class=\"mdl-layout__header-row header__down\">\n\t\t      <div class=\"mdl-layout-spacer\"></div>\n\t\t    </div>\n\t\t  </header>\n\t\t  <div class=\"mdl-layout__drawer\" :class=\"{'is-visible': drawer}\">\n\t\t  \t<button @click=\"connectTrello\" v-if=\"!isConnected\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored connecte-se\">\n\t\t\t\t  CONECTE-SE\n\t\t\t\t</button>\n\t\t\t\t<img :src=\"user.img\" v-if=\"isConnected\" class=\"gravatar\" transition=\"fade\">\n\t\t\t\t<div class=\"user-info\">\n\t\t\t\t\t<p class=\"user-name\" v-if=\"isConnected\" transition=\"fade\">@{{user.nome}}</p>\n\t\t    \t<p class=\"user-email\" v-if=\"isConnected\" transition=\"fade\">{{user.email}}</p>\n\t\t\t\t</div>\n\t\t\t\t<hr>\n\t\t\t\t<h4 class=\"info-menu\">Qualidade</h4>\n\t\t\t\t<input class=\"mdl-slider mdl-js-slider\" type=\"range\" min=\"0\" max=\"2\" :value=\"qualidade\" tabindex=\"0\" step=\"1\" @input=\"mudaQual\">\n\t\t\t\t<div class=\"qual-label\">\n\t\t\t\t\t<span :class=\"{ active: isBaixa }\">Baixa</span>\n\t\t\t\t\t<span :class=\"{ active: isMedia }\" class=\"span\">Média</span>\n\t\t\t\t\t<span :class=\"{ active: isAlta }\">Alta</span>\n\t\t\t\t</div>\n\t\t\t\t<hr>\n\t\t\t\t<h4 class=\"info-menu\">Acessibilidade</h4>\n\t\t\t\t<ul class=\"demo-list-control mdl-list acess\">\n\t\t\t\t  <li class=\"mdl-list__item\">\n\t\t\t\t    <span class=\"mdl-list__item-primary-content\">\n\t\t\t\t      Libras\n\t\t\t\t    </span>\n\t\t\t\t    <span class=\"mdl-list__item-secondary-action\">\n\t\t\t\t      <label class=\"mdl-switch mdl-js-switch mdl-js-ripple-effect\" for=\"list-switch-1\" id=\"label-switch-1\">\n\t\t\t\t        <input type=\"checkbox\" id=\"list-switch-1\" class=\"mdl-switch__input\" :checked=\"isLibras\" @click=\"acessLibras\">\n\t\t\t\t      </label>\n\t\t\t\t    </span>\n\t\t\t\t  </li>\n\t\t\t\t  <li class=\"mdl-list__item\">\n\t\t\t\t    <span class=\"mdl-list__item-primary-content\">\n\t\t\t\t      Audio Descrição\n\t\t\t\t    </span>\n\t\t\t\t      <span class=\"mdl-list__item-secondary-action\">\n\t\t\t\t        <label class=\"mdl-switch mdl-js-switch mdl-js-ripple-effect\" for=\"list-switch-2\" id=\"label-switch-2\">\n\t\t\t\t          <input type=\"checkbox\" id=\"list-switch-2\" class=\"mdl-switch__input\" :checked=\"isAudio\" @click=\"acessAudio\">\n\t\t\t\t        </label>\n\t\t\t\t    </span>\n\t\t\t\t  </li>\n\t\t\t\t</ul>\n\t\t  </div>\n\t\t  <div aria-expanded=\"false\" role=\"button\" tabindex=\"0\" class=\"mdl-layout__drawer-button\" @click=\"openDrawer\"><i class=\"material-icons\">menu</i></div>\n\t\t  <main class=\"mdl-layout__content view\" :is=\"view\" transition=\"vie\" :class=\"[className]\" v-ref:view=\"\">\n\n\t\t  </main>\n\t\t  <div class=\"mdl-layout__obfuscator\" :class=\"{'is-visible': drawer}\" @click=\"openDrawer\"></div>\n\t\t</div>\n\t</div>\n\t<div id=\"demo-snackbar-example\" class=\"mdl-js-snackbar mdl-snackbar\" aria-live=\"assertive\" aria-atomic=\"true\" aria-relevant=\"text\">\n\t  <div class=\"mdl-snackbar__text\"></div>\n\t  <button class=\"mdl-snackbar__action\" type=\"button\"></button>\n\t</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<script type=\"text/javascript\" src=\"http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js\"></script>\n\t<div id=\"full\" allowfullscreen=\"true\">\n\t\t<div class=\"demo-layout-waterfall mdl-layout mdl-js-layout\" :class=\"{ 'home-open': home }\">\n\t\t  <header class=\"mdl-layout__header mdl-layout__header--waterfall header-top\" :class=\"{ hide: isVideo, 'home-menu': home }\">\n\t\t    <!-- Top row, always visible -->\n\t\t    <div class=\"mdl-layout__header-row\">\n\t\t      <!-- Title -->\n\t\t      <span class=\"mdl-layout-title\">Title</span>\n\t\t      <div class=\"mdl-layout-spacer\"></div>\n\t\t      <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--expandable\n\t\t                  mdl-textfield--floating-label mdl-textfield--align-right\">\n\t\t        <label class=\"mdl-button mdl-js-button mdl-button--icon\" for=\"waterfall-exp\">\n\t\t          <i class=\"material-icons\">search</i>\n\t\t        </label>\n\t\t        <div class=\"mdl-textfield__expandable-holder\">\n\t\t          <input class=\"mdl-textfield__input\" type=\"text\" name=\"sample\" id=\"waterfall-exp\">\n\t\t        </div>\n\t\t      </div>\n\t\t    </div>\n\t\t    <!-- Bottom row, not visible on scroll -->\n\t\t    <div class=\"mdl-layout__header-row header__down\">\n\t\t      <div class=\"mdl-layout-spacer\"></div>\n\t\t    </div>\n\t\t  </header>\n\t\t  <div class=\"mdl-layout__drawer\" :class=\"{'is-visible': drawer}\">\n\t\t  \t<button @click=\"connectTrello\" v-if=\"!isConnected\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored connecte-se\">\n\t\t\t\t  CONECTE-SE\n\t\t\t\t</button>\n\t\t\t\t<img :src=\"user.img\" v-if=\"isConnected\" class=\"gravatar\" transition=\"fade\">\n\t\t\t\t<div class=\"user-info\">\n\t\t\t\t\t<p class=\"user-name\" v-if=\"isConnected\" transition=\"fade\">@{{user.nome}}</p>\n\t\t    \t<p class=\"user-email\" v-if=\"isConnected\" transition=\"fade\">{{user.email}}</p>\n\t\t\t\t</div>\n\t\t\t\t<hr>\n\t\t\t\t<h4 class=\"info-menu\">Qualidade</h4>\n\t\t\t\t<input class=\"mdl-slider mdl-js-slider\" type=\"range\" min=\"0\" max=\"2\" :value=\"qualidade\" tabindex=\"0\" step=\"1\" @input=\"mudaQual\">\n\t\t\t\t<div class=\"qual-label\">\n\t\t\t\t\t<span :class=\"{ active: isBaixa }\">Baixa</span>\n\t\t\t\t\t<span :class=\"{ active: isMedia }\" class=\"span\">Média</span>\n\t\t\t\t\t<span :class=\"{ active: isAlta }\">Alta</span>\n\t\t\t\t</div>\n\t\t\t\t<hr>\n\t\t\t\t<h4 class=\"info-menu\">Acessibilidade</h4>\n\t\t\t\t<ul class=\"demo-list-control mdl-list acess\">\n\t\t\t\t  <li class=\"mdl-list__item\">\n\t\t\t\t    <span class=\"mdl-list__item-primary-content\">\n\t\t\t\t      Libras\n\t\t\t\t    </span>\n\t\t\t\t    <span class=\"mdl-list__item-secondary-action\">\n\t\t\t\t      <label class=\"mdl-switch mdl-js-switch mdl-js-ripple-effect\" for=\"list-switch-1\" id=\"label-switch-1\">\n\t\t\t\t        <input type=\"checkbox\" id=\"list-switch-1\" class=\"mdl-switch__input\" :checked=\"isLibras\" @click=\"acessLibras\">\n\t\t\t\t      </label>\n\t\t\t\t    </span>\n\t\t\t\t  </li>\n\t\t\t\t  <li class=\"mdl-list__item\">\n\t\t\t\t    <span class=\"mdl-list__item-primary-content\">\n\t\t\t\t      Audio Descrição\n\t\t\t\t    </span>\n\t\t\t\t      <span class=\"mdl-list__item-secondary-action\">\n\t\t\t\t        <label class=\"mdl-switch mdl-js-switch mdl-js-ripple-effect\" for=\"list-switch-2\" id=\"label-switch-2\">\n\t\t\t\t          <input type=\"checkbox\" id=\"list-switch-2\" class=\"mdl-switch__input\" :checked=\"isAudio\" @click=\"acessAudio\">\n\t\t\t\t        </label>\n\t\t\t\t    </span>\n\t\t\t\t  </li>\n\t\t\t\t</ul>\n\t\t  </div>\n\t\t  <div aria-expanded=\"false\" role=\"button\" tabindex=\"0\" class=\"mdl-layout__drawer-button\" @click=\"openDrawer\"><i class=\"material-icons\">menu</i></div>\n\t\t  <main class=\"mdl-layout__content view\" :is=\"view\" transition=\"vie\" :class=\"[className]\" :db=\"db\" :params=\"params\" v-ref:view=\"\">\n\n\t\t  </main>\n\t\t  <div class=\"mdl-layout__obfuscator\" :class=\"{'is-visible': drawer}\" @click=\"openDrawer\"></div>\n\t\t</div>\n\t</div>\n\t<div id=\"demo-snackbar-example\" class=\"mdl-js-snackbar mdl-snackbar\" aria-live=\"assertive\" aria-atomic=\"true\" aria-relevant=\"text\">\n\t  <div class=\"mdl-snackbar__text\"></div>\n\t  <button class=\"mdl-snackbar__action\" type=\"button\"></button>\n\t</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   var id = "/media/bambuzal/Softwares/vue-models/hipervideo-model/app/vue/app.vue"
   module.hot.dispose(function () {
-    require("vueify-insert-css").cache["/* line 2, stdin */\n.header-top {\n  -webkit-transition: width .3s ease;\n  -moz-transition: width .3s ease;\n  -ms-transition: width .3s ease;\n  -o-transition: width .3s ease;\n  transition: width .3s ease;\n  -webkit-transition: height .6s ease;\n  -moz-transition: height .6s ease;\n  -ms-transition: height .6s ease;\n  -o-transition: height .6s ease;\n  transition: height .6s ease; }\n  /* line 13, stdin */\n  .header-top.home-menu {\n    width: 5%;\n    min-height: 0;\n    height: 0; }\n    /* line 17, stdin */\n    .header-top.home-menu .mdl-layout-title {\n      display: none; }\n  /* line 21, stdin */\n  .header-top.hide {\n    display: none; }\n\n/* line 25, stdin */\n.fade-transition {\n  -webkit-transition: opacity .6s ease;\n  transition: opacity .6s ease;\n  opacity: 1; }\n\n/* line 29, stdin */\n.fade-enter, .fade-leave {\n  opacity: 0; }\n\n/* line 32, stdin */\n.header__down {\n  min-height: 500px; }\n  @media screen and (max-width: 1024px) {\n    /* line 32, stdin */\n    .header__down {\n      min-height: 190px; } }\n  @media screen and (max-width: 1366px) {\n    /* line 32, stdin */\n    .header__down {\n      min-height: 350px; } }\n\n@media screen and (max-width: 1024px) {\n  /* line 41, stdin */\n  .mdl-layout__header {\n    display: block; } }\n\n/* line 46, stdin */\n.mdl-layout__drawer {\n  width: 390px;\n  -webkit-transform: translateX(-400px);\n          transform: translateX(-400px); }\n  @media screen and (max-width: 1024px) {\n    /* line 46, stdin */\n    .mdl-layout__drawer {\n      width: 240px;\n      -webkit-transform: translateX(-250px);\n              transform: translateX(-250px); } }\n\n/* line 54, stdin */\n.gravatar {\n  margin: 10px auto;\n  width: 150px !important;\n  height: 150px !important;\n  font-size: 150px !important;\n  border-radius: 150px; }\n\n/* line 61, stdin */\n.user-info {\n  padding-left: 25px; }\n\n/* line 64, stdin */\n.user-name {\n  font-size: 35px;\n  margin-bottom: 10px; }\n\n/* line 68, stdin */\n.connecte-se {\n  height: 200px;\n  font-size: 40px;\n  margin: 10px 10px 0; }\n\n/* line 73, stdin */\n.info-menu {\n  text-align: center;\n  margin-top: 0; }\n\n/* line 77, stdin */\n.qual-label {\n  padding-left: 20px;\n  margin-bottom: 20px; }\n  /* line 80, stdin */\n  .qual-label span {\n    -webkit-transition: all .1s ease;\n    -moz-transition: all .1s ease;\n    -ms-transition: all .1s ease;\n    -o-transition: all .1s ease;\n    transition: all .1s ease; }\n  /* line 87, stdin */\n  .qual-label .active {\n    font-weight: 900;\n    font-size: 16px; }\n  /* line 91, stdin */\n  .qual-label .span {\n    margin: 0 123px; }\n\n/* line 96, stdin */\n.acess {\n  margin-top: 0;\n  padding-top: 0; }\n  /* line 99, stdin */\n  .acess li {\n    min-height: 37px;\n    padding: 0 20px; }\n\n/* line 104, stdin */\n.mdl-layout__drawer-button {\n  -webkit-transition: height .3s ease;\n  -moz-transition: height .3s ease;\n  -ms-transition: height .3s ease;\n  -o-transition: height .3s ease;\n  transition: height .3s ease; }\n  /* line 110, stdin */\n  .home-open .mdl-layout__drawer-button {\n    background: #607d8b;\n    margin: 0;\n    padding: 10px;\n    height: 97%; }\n    @media screen and (min-width: 1440px) {\n      /* line 110, stdin */\n      .home-open .mdl-layout__drawer-button {\n        padding: 20px;\n        height: 95.5%; } }\n"] = false
+    require("vueify-insert-css").cache["/* line 2, stdin */\n.context-bg {\n  background-color: red; }\n\n/* line 5, stdin */\n.header-top {\n  -webkit-transition: width .3s ease;\n  -moz-transition: width .3s ease;\n  -ms-transition: width .3s ease;\n  -o-transition: width .3s ease;\n  transition: width .3s ease;\n  -webkit-transition: height .6s ease;\n  -moz-transition: height .6s ease;\n  -ms-transition: height .6s ease;\n  -o-transition: height .6s ease;\n  transition: height .6s ease; }\n  /* line 16, stdin */\n  .header-top.home-menu {\n    width: 5%;\n    min-height: 0;\n    height: 0; }\n    /* line 20, stdin */\n    .header-top.home-menu .mdl-layout-title {\n      display: none; }\n  /* line 24, stdin */\n  .header-top.hide {\n    display: none; }\n\n/* line 28, stdin */\n.fade-transition {\n  -webkit-transition: opacity .6s ease;\n  transition: opacity .6s ease;\n  opacity: 1; }\n\n/* line 32, stdin */\n.fade-enter, .fade-leave {\n  opacity: 0; }\n\n/* line 35, stdin */\n.header__down {\n  min-height: 500px; }\n  @media screen and (max-width: 1024px) {\n    /* line 35, stdin */\n    .header__down {\n      min-height: 190px; } }\n  @media screen and (max-width: 1366px) {\n    /* line 35, stdin */\n    .header__down {\n      min-height: 350px; } }\n\n@media screen and (max-width: 1024px) {\n  /* line 44, stdin */\n  .mdl-layout__header {\n    display: block; } }\n\n/* line 49, stdin */\n.mdl-layout__drawer {\n  width: 390px;\n  -webkit-transform: translateX(-400px);\n          transform: translateX(-400px); }\n  @media screen and (max-width: 1024px) {\n    /* line 49, stdin */\n    .mdl-layout__drawer {\n      width: 240px;\n      -webkit-transform: translateX(-250px);\n              transform: translateX(-250px); } }\n\n/* line 57, stdin */\n.gravatar {\n  margin: 10px auto;\n  width: 150px !important;\n  height: 150px !important;\n  font-size: 150px !important;\n  border-radius: 150px; }\n\n/* line 64, stdin */\n.user-info {\n  padding-left: 25px; }\n\n/* line 67, stdin */\n.user-name {\n  font-size: 35px;\n  margin-bottom: 10px; }\n\n/* line 71, stdin */\n.connecte-se {\n  height: 200px;\n  font-size: 40px;\n  margin: 10px 10px 0; }\n\n/* line 76, stdin */\n.info-menu {\n  text-align: center;\n  margin-top: 0; }\n\n/* line 80, stdin */\n.qual-label {\n  padding-left: 20px;\n  margin-bottom: 20px; }\n  /* line 83, stdin */\n  .qual-label span {\n    -webkit-transition: all .1s ease;\n    -moz-transition: all .1s ease;\n    -ms-transition: all .1s ease;\n    -o-transition: all .1s ease;\n    transition: all .1s ease; }\n  /* line 90, stdin */\n  .qual-label .active {\n    font-weight: 900;\n    font-size: 16px; }\n  /* line 94, stdin */\n  .qual-label .span {\n    margin: 0 123px; }\n\n/* line 99, stdin */\n.acess {\n  margin-top: 0;\n  padding-top: 0; }\n  /* line 102, stdin */\n  .acess li {\n    min-height: 37px;\n    padding: 0 20px; }\n\n/* line 107, stdin */\n.mdl-layout__drawer-button {\n  -webkit-transition: height .3s ease;\n  -moz-transition: height .3s ease;\n  -ms-transition: height .3s ease;\n  -o-transition: height .3s ease;\n  transition: height .3s ease; }\n  /* line 113, stdin */\n  .home-open .mdl-layout__drawer-button {\n    background: #607d8b;\n    margin: 0;\n    padding: 10px;\n    height: 97%; }\n    @media screen and (min-width: 1440px) {\n      /* line 113, stdin */\n      .home-open .mdl-layout__drawer-button {\n        padding: 20px;\n        height: 95.5%; } }\n"] = false
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
@@ -588,20 +588,18 @@ var $$$ = require('jquery');
 module.exports = {
 
   replace: true,
-
+  props: ['conteudo'],
   data: function data() {
     return {
-      db: this.$parent.db,
-      geo: this.$parent.geo,
-      _mapa: null,
-      isOpen: false
+      _mapa: null
     };
   },
 
   attached: function attached() {
-    console.log('content-mapa attached!');
-    this._mapa = L.map(this.$$.mapa, { zoomControl: false }).setView([this.mapa.geo[0], this.mapa.geo[1]], this.mapa.geo[2]);
-    console.log('test');
+    // console.log('content-mapa attached!')
+    var m = document.getElementById('mapa');
+    this._mapa = L.map(m, { zoomControl: false }).setView([this.conteudo.mapa.geo[0], this.conteudo.mapa.geo[1]], this.conteudo.mapa.geo[2]);
+    // console.log('test');
 
     new L.Control.Zoom({ position: 'topright' }).addTo(this._mapa);
 
@@ -618,10 +616,10 @@ module.exports = {
   methods: {
     loadData: function loadData() {
       var self = this;
-      if (typeof this.mapa.locais === 'string') {
-        var url = 'https://spreadsheets.google.com/feeds/list/' + self.mapa.locais + '/od6/public/values?alt=json-in-script&callback=?';
+      if (typeof this.conteudo.mapa.locais === 'string') {
+        var url = 'https://spreadsheets.google.com/feeds/list/' + self.conteudo.mapa.locais + '/od6/public/values?alt=json-in-script&callback=?';
 
-        console.log('mapa-spreadsheet will load now');
+        // console.log('mapa-spreadsheet will load now')
 
         $$$.getJSON(url).success(function (data) {
 
@@ -643,35 +641,37 @@ module.exports = {
 
           var markers = [];
 
-          console.log(self._mapa);
+          // console.log(self._mapa);
 
           for (var i = 0; i < entries.length; i++) {
-            console.log(entries[i].lat);
+            // console.log(entries[i].lat);
             markers.push(L.marker([parseFloat(entries[i].lat), parseFloat(entries[i].lon)]).bindPopup('<a href="' + entries[i].site + '" target="_blank">' + entries[i].nome + '</a>'));
           }
 
           L.layerGroup(markers).addTo(self._mapa);
         }).error(function (message) {
 
-          console.log('mapa-spreadsheet error: ' + message);
+          // console.log('mapa-spreadsheet error: ' + message)
+
         }).complete(function () {
 
-          console.log('completed mapa-spreadsheet load!');
+          // console.log('completed mapa-spreadsheet load!')
+
         });
-      } else if (typeof this.mapa.locais === 'object') {
-        var entries = self.mapa.locais;
-        var markers = [];
+      } else if (typeof this.conteudo.mapa.locais === 'object') {
+          var entries = self.conteudo.mapa.locais;
+          var markers = [];
 
-        for (var i = 0; i < entries.length; i++) {
-          markers.push(L.marker([entries[i].lat, entries[i].lon]).bindPopup('<a href="' + entries[i].site + '" target="_blank">' + entries[i].nome + '</a>'));
+          for (var i = 0; i < entries.length; i++) {
+            markers.push(L.marker([entries[i].lat, entries[i].lon]).bindPopup('<a href="' + entries[i].site + '" target="_blank">' + entries[i].nome + '</a>'));
+          }
+
+          L.layerGroup(markers).addTo(self._mapa);
         }
-
-        L.layerGroup(markers).addTo(self._mapa);
-      }
     }
   }
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div class=\"content_mapa\" v-el:mapa=\"\"></div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div id=\"mapa\" class=\"content_mapa\" v-el:mapa=\"\"></div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -868,6 +868,7 @@ var _marked = require('marked');
 
 module.exports = {
 	replace: true,
+	props: ['fields'],
 	filters: {
 		marked: function marked(value) {
 			return _marked(value);
@@ -896,17 +897,17 @@ require('perfect-scrollbar/jquery')($$$);
 
 module.exports = {
 	replace: true,
+	props: ['content', 'video', 'conteudo'],
 	data: function data() {
 		return {
-			video: this.$parent.video,
 			html_resumo: null
 		};
 	},
 	computed: {
 		perc: function perc() {
-			var start = this.$data.start;
-			var end = this.$data.end;
-			var time = this.$data.video.time;
+			var start = this.content.start;
+			var end = this.content.end;
+			var time = this.video.time;
 			return 75 - Math.floor(75 * (time - start) / (end - start));
 		}
 	},
@@ -917,8 +918,8 @@ module.exports = {
 	},
 	methods: {
 		onTimerClick: function onTimerClick() {
-			this.$dispatch('block-timer-clicked', this, this.$data.id);
-			if (this.$parent.conteudo && this.$parent.conteudo.id === this.$data.id) {
+			this.$dispatch('block-timer-clicked', this, this.content.id);
+			if (this.conteudo && this.conteudo.id === this.content.id) {
 				window.location.href = "/#/" + this.$parent.params.video;
 			}
 		}
@@ -929,7 +930,7 @@ module.exports = {
 		'databars': require('../components/sidebar-block-databars.vue')
 	}
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div class=\"sidebar_block\" transition=\"blc\">\n\t\t<div class=\"sidebar_block__header context-bg\">\n\t\t\t{{title | uppercase}}\n\t\t\t<svg width=\"28\" height=\"28\" class=\"timer clickable\" @click=\"onTimerClick\" :class=\"{fixed: start === null}\">\n\t\t\t\t<circle class=\"base\" cx=\"14\" cy=\"14\" r=\"12\"></circle>\n\t\t\t\t<circle :class=\"{fadeout: perc < 3}\" class=\"progress\" cx=\"14\" cy=\"14\" r=\"12\" :stroke-dashoffset=\"perc\"></circle>\n\t\t\t\t<g class=\"close\">\n\t\t\t\t\t<line x1=\"-4\" y1=\"-4\" x2=\"4\" y2=\"4\"></line>\n\t\t\t\t\t<line x1=\"-4\" y1=\"4\" x2=\"4\" y2=\"-4\"></line>\n\t\t\t\t</g>\n\t\t\t</svg>\n\t\t</div>\n\t\t<div id=\"sidebar_block__content\" class=\"sidebar_block__content\">\n\t\t\t<div :is=\"type\" :fields=\"fields\"></div>\n\t\t</div>\n\t\t<p v-if=\"!ap\" style=\"padding-left: 10px;\"><strong><a style=\"font-weight: 900; text-decoration: none;\" :href=\"'#/' + videoID + '/info/' + id\">SAIBA MAIS</a></strong></p>\n\t</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div class=\"sidebar_block\" transition=\"blc\">\n\t\t<div class=\"sidebar_block__header context-bg\" style=\"background: red;\">\n\t\t\t{{content.title | uppercase}}\n\t\t\t<svg width=\"28\" height=\"28\" class=\"timer clickable\" @click=\"onTimerClick\" :class=\"{fixed: start === null}\">\n\t\t\t\t<circle class=\"base\" cx=\"14\" cy=\"14\" r=\"12\"></circle>\n\t\t\t\t<circle :class=\"{fadeout: perc < 3}\" class=\"progress\" cx=\"14\" cy=\"14\" r=\"12\" :stroke-dashoffset=\"perc\"></circle>\n\t\t\t\t<g class=\"close\">\n\t\t\t\t\t<line x1=\"-4\" y1=\"-4\" x2=\"4\" y2=\"4\"></line>\n\t\t\t\t\t<line x1=\"-4\" y1=\"4\" x2=\"4\" y2=\"-4\"></line>\n\t\t\t\t</g>\n\t\t\t</svg>\n\t\t</div>\n\t\t<div id=\"sidebar_block__content\" class=\"sidebar_block__content\">\n\t\t\t<div :is=\"content.type\" :fields=\"content.fields\"></div>\n\t\t</div>\n\t\t<p v-if=\"!content.ap\" style=\"padding-left: 10px;\"><strong><a style=\"font-weight: 900; text-decoration: none;\" :href=\"'#/' + content.videoID + '/info/' + content.id\">SAIBA MAIS</a></strong></p>\n\t</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -988,10 +989,9 @@ var marked = require('marked');
 module.exports = {
 
   replace: true,
-
+  props: ['params', 'conteudo'],
   data: function data() {
     return {
-      conteudo: {},
       html_texto: '',
       videoIndex: 0,
       imageIndex: 0
@@ -1097,7 +1097,7 @@ module.exports = {
   }
 
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div style=\"height: 100%;\">\n  <div class=\"border context-bg\"></div>\n  <div id=\"conteudo_info\">\n\n    <div :is=\"in-mapa\" :mapa=\"conteudo.mapa\" v-if=\"conteudo &amp;&amp; hasMap\"></div>\n\n    <h2 v-if=\"conteudo &amp;&amp; conteudo.title\"> \n      {{conteudo.title}} \n    </h2>\n    <div class=\"info-texto\">\n      {{{html_texto | marked}}}\n    </div>\n\n    <div :is=\"in-databars\" :databars=\"conteudo.databars\" v-if=\"conteudo &amp;&amp; hasDatabars\"></div>\n    \n    <h3 v-if=\"conteudo &amp;&amp; conteudo.imagens\"> IMAGENS </h3>\n    <div class=\"image-list\"></div>\n    <h3 v-if=\"conteudo &amp;&amp; conteudo.video_list\"> VÍDEOS </h3>\n    <div class=\"video-list\"></div>\n    <h3 v-if=\"conteudo &amp;&amp; conteudo.arquivos\"> LINKS </h3>\n    <div class=\"link context-bg\" v-for=\"cont in conteudo.arquivos\">\n      <a :href=\"cont.link\" target=\"_blank\" class=\"context-bg\">\n        {{cont.nome | uppercase}}\n      </a>\n    </div>\n    <h3 v-if=\"conteudo &amp;&amp; conteudo.discursoes\"> DISCUSSÃO </h3>\n    <div class=\"link context-bg\" v-for=\"cont in conteudo.discursoes\">\n      <a :href=\"cont.link\" target=\"_blank\" class=\"context-bg\">\n        {{cont.nome | uppercase}}\n      </a>\n    </div>\n    <div class=\"link\" :class=\"conteudo.icon + '-bg'\" v-if=\"conteudo &amp;&amp; conteudo.hipervideo\">\n      <a :href=\"conteudo.hipervideo.link\" :class=\"conteudo.icon + '-bg'\">\n        {{conteudo.hipervideo.nome | uppercase}}\n      </a>\n    </div>\n  </div>\n  <a class=\"back\" :href=\"'#/' + id\">voltar ao vídeo</a>\n  </div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div style=\"height: 100%;\">\n  <div class=\"border context-bg\"></div>\n  <div id=\"conteudo_info\">\n\n    <in-mapa :conteudo=\"conteudo\" v-if=\"conteudo &amp;&amp; hasMap\"></in-mapa>\n\n    <h2 v-if=\"conteudo &amp;&amp; conteudo.title\"> \n      {{conteudo.title}} \n    </h2>\n    <div class=\"info-texto\">\n      {{{html_texto | marked}}}\n    </div>\n\n    <div :is=\"in-databars\" :databars=\"conteudo.databars\" v-if=\"conteudo &amp;&amp; hasDatabars\"></div>\n    \n    <h3 v-if=\"conteudo &amp;&amp; conteudo.imagens\"> IMAGENS </h3>\n    <div class=\"image-list\"></div>\n    <h3 v-if=\"conteudo &amp;&amp; conteudo.video_list\"> VÍDEOS </h3>\n    <div class=\"video-list\"></div>\n    <h3 v-if=\"conteudo &amp;&amp; conteudo.arquivos\"> LINKS </h3>\n    <div class=\"link context-bg\" v-for=\"cont in conteudo.arquivos\">\n      <a :href=\"cont.link\" target=\"_blank\" class=\"context-bg\">\n        {{cont.nome | uppercase}}\n      </a>\n    </div>\n    <h3 v-if=\"conteudo &amp;&amp; conteudo.discursoes\"> DISCUSSÃO </h3>\n    <div class=\"link context-bg\" v-for=\"cont in conteudo.discursoes\">\n      <a :href=\"cont.link\" target=\"_blank\" class=\"context-bg\">\n        {{cont.nome | uppercase}}\n      </a>\n    </div>\n    <div class=\"link\" :class=\"conteudo.icon + '-bg'\" v-if=\"conteudo &amp;&amp; conteudo.hipervideo\">\n      <a :href=\"conteudo.hipervideo.link\" :class=\"conteudo.icon + '-bg'\">\n        {{conteudo.hipervideo.nome | uppercase}}\n      </a>\n    </div>\n  </div>\n  <a class=\"back\" :href=\"'#/' + params.video\">voltar ao vídeo</a>\n  </div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -1543,11 +1543,11 @@ if (module.hot) {(function () {  module.hot.accept()
 				on: function(id,info){
 					ga('send', 'event', 'EventoInfo', 'open', id + '::info-' + info)
 					Vue.nextTick(function () {
-						if(app.$.view){
-							app.$.view.infoOpen(info)
+						if(app.$refs.view){
+							app.$refs.view.infoOpen(info)
 						} else {
 							app.$once('video-view-ready',function(){
-								app.$.view.infoOpen(info)
+								app.$refs.view.infoOpen(info)
 							})
 						}
 					})
@@ -1573,7 +1573,7 @@ if (module.hot) {(function () {  module.hot.accept()
 					var current_is_info = cur_route.length > 1 && cur_route[1] == 'info';
 
 					if(last_is_info && !current_is_info){
-						app.$.view.infoClose()
+						app.$refs.view.infoClose()
 					}
 
 					return // prevent transition on the same id
@@ -1835,7 +1835,7 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 })()}
 },{"jquery":20,"marked":22,"vue":48,"vue-hot-reload-api":47,"vueify-insert-css":49}],16:[function(require,module,exports){
-var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.sidebar {\n  width: 22%; }\n  @media screen and (min-width: 1600px) {\n    /* line 2, stdin */\n    .sidebar {\n      width: 15%; } }\n  @media screen and (min-width: 1600px) {\n    /* line 7, stdin */\n    .sidebar.has-info {\n      width: 16%; } }\n\n/* line 13, stdin */\n.sidebar_content {\n  position: relative;\n  height: 100%;\n  z-index: 20; }\n\n/* line 18, stdin */\n.sidebar_back {\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0.5);\n  width: 300px;\n  height: 100%;\n  top: 0;\n  left: 0;\n  -webkit-transition: all 0.6s;\n  transition: all 0.6s;\n  -webkit-transform: translate3d(-300px, 0, 0);\n  -moz-transform: translate3d(-300px, 0, 0);\n  -o-transform: translate3d(-300px, 0, 0);\n  -ms-transform: translate3d(-300px, 0, 0);\n  transform: translate3d(-300px, 0, 0);\n  z-index: 10; }\n  /* line 32, stdin */\n  .sidebar.is-open .sidebar_back {\n    -webkit-transform: translate3d(0, 0, 0);\n    -moz-transform: translate3d(0, 0, 0);\n    -o-transform: translate3d(0, 0, 0);\n    -ms-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0); }\n\n/* line 41, stdin */\n.sidebar-right {\n  position: absolute;\n  right: 0;\n  top: 57px;\n  width: 300px; }\n\n/* line 48, stdin */\n.infopanel {\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0.8);\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  z-index: 10;\n  -webkit-transition: all 0.6s;\n  transition: all 0.6s;\n  -webkit-transform: translate3d(127%, 0, 0);\n  -moz-transform: translate3d(127%, 0, 0);\n  -o-transform: translate3d(127%, 0, 0);\n  -ms-transform: translate3d(127%, 0, 0);\n  transform: translate3d(127%, 0, 0); }\n  /* line 62, stdin */\n  .infopanel.is-open {\n    -webkit-transform: translate3d(300px, 0, 0);\n    -moz-transform: translate3d(300px, 0, 0);\n    -o-transform: translate3d(300px, 0, 0);\n    -ms-transform: translate3d(300px, 0, 0);\n    transform: translate3d(300px, 0, 0); }\n  /* line 69, stdin */\n  .infopanel .border {\n    position: absolute;\n    height: 100%;\n    width: 10px;\n    top: 0;\n    left: 0; }\n  /* line 76, stdin */\n  .infopanel .back {\n    position: absolute;\n    top: 10%;\n    left: 79%;\n    color: #fff;\n    font-size: 24px; }\n\n/* line 85, stdin */\n.debug {\n  position: absolute;\n  width: 400px;\n  left: 50%;\n  top: 40%;\n  margin-left: -200px;\n  text-align: center; }\n  /* line 92, stdin */\n  .debug .btn {\n    cursor: pointer;\n    padding: 10px;\n    background: #ccc;\n    display: inline-block;\n    margin: 4px;\n    color: black;\n    font-size: 10px; }\n\n/* line 103, stdin */\n#video-controls {\n  position: fixed;\n  top: 0;\n  width: 100%;\n  display: block;\n  z-index: 25; }\n  /* line 110, stdin */\n  #video-controls.hover .rangeslider, #video-controls.hover .rangeslider__fill {\n    top: 0px;\n    height: 3px; }\n\n/* line 117, stdin */\n.sidebar_opener {\n  position: relative;\n  -webkit-transition: all 0.6s ease 0.6s;\n  transition: all 0.6s ease 0.6s;\n  overflow: hidden; }\n  /* line 121, stdin */\n  .sidebar_opener.sidebar-enter, .sidebar_opener.sidebar-leave {\n    -webkit-transform: translate3d(-100px, 0, 0);\n    -moz-transform: translate3d(-100px, 0, 0);\n    -o-transform: translate3d(-100px, 0, 0);\n    -ms-transform: translate3d(-100px, 0, 0);\n    transform: translate3d(-100px, 0, 0); }\n  /* line 128, stdin */\n  .sidebar_opener.sidebar-leave {\n    -webkit-transition: all 0.3s ease 0;\n    transition: all 0.3s ease 0; }\n  /* line 131, stdin */\n  .sidebar_opener .sidebar_opener__inside {\n    display: inline-block;\n    color: #fff;\n    padding: 10px;\n    height: 28px;\n    line-height: 28px;\n    -webkit-transition: all 0.6s ease;\n    transition: all 0.6s ease; }\n\n/* line 141, stdin */\n.infopanel {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  padding: 5% 20% 3% 3%;\n  width: 79%; }\n  @media screen and (min-width: 1600px) {\n    /* line 141, stdin */\n    .infopanel {\n      width: 85%; } }\n\n/* line 152, stdin */\n.is-cartela {\n  height: auto !important; }\n\n/* line 156, stdin */\n.sidebar_cartela {\n  -webkit-transition: all 0.5s ease 0.5s;\n  transition: all 0.5s ease 0.5s;\n  position: fixed;\n  bottom: 60px;\n  left: 0;\n  min-width: 40%; }\n  /* line 162, stdin */\n  .sidebar_cartela.expand-enter, .sidebar_cartela.expand-leave {\n    left: -800px; }\n\n/* line 167, stdin */\n.not-loading {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -150;\n  opacity: 0;\n  padding-top: 22%;\n  text-align: center;\n  background-color: rgba(50, 50, 50, 0.6);\n  -webkit-transition: opacity 0.5s;\n  transition: opacity 0.5s; }\n\n/* line 181, stdin */\n.loading {\n  opacity: 1;\n  color: white;\n  z-index: 150; }\n\n/* line 187, stdin */\n.pausado {\n  opacity: 0.3 !important; }\n")
+var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.sidebar {\n  width: 22%;\n  margin-top: 200px; }\n  @media screen and (min-width: 1600px) {\n    /* line 2, stdin */\n    .sidebar {\n      width: 15%; } }\n  @media screen and (min-width: 1600px) {\n    /* line 8, stdin */\n    .sidebar.has-info {\n      width: 16%; } }\n\n/* line 14, stdin */\n.sidebar_content {\n  position: relative;\n  height: 100%;\n  z-index: 20; }\n\n/* line 19, stdin */\n.sidebar_back {\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0.5);\n  width: 300px;\n  height: 100%;\n  top: 0;\n  left: 0;\n  -webkit-transition: all 0.6s;\n  transition: all 0.6s;\n  -webkit-transform: translate3d(-300px, 0, 0);\n  -moz-transform: translate3d(-300px, 0, 0);\n  -o-transform: translate3d(-300px, 0, 0);\n  -ms-transform: translate3d(-300px, 0, 0);\n  transform: translate3d(-300px, 0, 0);\n  z-index: 10; }\n  /* line 33, stdin */\n  .sidebar.is-open .sidebar_back {\n    -webkit-transform: translate3d(0, 0, 0);\n    -moz-transform: translate3d(0, 0, 0);\n    -o-transform: translate3d(0, 0, 0);\n    -ms-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0); }\n\n/* line 42, stdin */\n.sidebar-right {\n  position: absolute;\n  right: 0;\n  top: 57px;\n  width: 300px; }\n\n/* line 49, stdin */\n.infopanel {\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0.8);\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  z-index: 10;\n  -webkit-transition: all 0.6s;\n  transition: all 0.6s;\n  -webkit-transform: translate3d(127%, 0, 0);\n  -moz-transform: translate3d(127%, 0, 0);\n  -o-transform: translate3d(127%, 0, 0);\n  -ms-transform: translate3d(127%, 0, 0);\n  transform: translate3d(127%, 0, 0); }\n  /* line 63, stdin */\n  .infopanel.is-open {\n    -webkit-transform: translate3d(300px, 0, 0);\n    -moz-transform: translate3d(300px, 0, 0);\n    -o-transform: translate3d(300px, 0, 0);\n    -ms-transform: translate3d(300px, 0, 0);\n    transform: translate3d(300px, 0, 0); }\n  /* line 70, stdin */\n  .infopanel .border {\n    position: absolute;\n    height: 100%;\n    width: 10px;\n    top: 0;\n    left: 0; }\n  /* line 77, stdin */\n  .infopanel .back {\n    position: absolute;\n    top: 10%;\n    left: 79%;\n    color: #fff;\n    font-size: 24px; }\n\n/* line 86, stdin */\n.debug {\n  position: absolute;\n  width: 400px;\n  left: 50%;\n  top: 40%;\n  margin-left: -200px;\n  text-align: center; }\n  /* line 93, stdin */\n  .debug .btn {\n    cursor: pointer;\n    padding: 10px;\n    background: #ccc;\n    display: inline-block;\n    margin: 4px;\n    color: black;\n    font-size: 10px; }\n\n/* line 104, stdin */\n#video-controls {\n  position: fixed;\n  top: 0;\n  width: 100%;\n  display: block;\n  z-index: 25; }\n  /* line 111, stdin */\n  #video-controls.hover .rangeslider, #video-controls.hover .rangeslider__fill {\n    top: 0px;\n    height: 3px; }\n\n/* line 118, stdin */\n.sidebar_opener {\n  position: relative;\n  -webkit-transition: all 0.6s ease 0.6s;\n  transition: all 0.6s ease 0.6s;\n  overflow: hidden; }\n  /* line 122, stdin */\n  .sidebar_opener.sidebar-enter, .sidebar_opener.sidebar-leave {\n    -webkit-transform: translate3d(-100px, 0, 0);\n    -moz-transform: translate3d(-100px, 0, 0);\n    -o-transform: translate3d(-100px, 0, 0);\n    -ms-transform: translate3d(-100px, 0, 0);\n    transform: translate3d(-100px, 0, 0); }\n  /* line 129, stdin */\n  .sidebar_opener.sidebar-leave {\n    -webkit-transition: all 0.3s ease 0;\n    transition: all 0.3s ease 0; }\n  /* line 132, stdin */\n  .sidebar_opener .sidebar_opener__inside {\n    display: inline-block;\n    color: #fff;\n    padding: 10px;\n    height: 28px;\n    line-height: 28px;\n    -webkit-transition: all 0.6s ease;\n    transition: all 0.6s ease; }\n\n/* line 142, stdin */\n.infopanel {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  padding: 5% 20% 3% 3%;\n  width: 79%; }\n  @media screen and (min-width: 1600px) {\n    /* line 142, stdin */\n    .infopanel {\n      width: 85%; } }\n\n/* line 153, stdin */\n.is-cartela {\n  height: auto !important; }\n\n/* line 157, stdin */\n.sidebar_cartela {\n  -webkit-transition: all 0.5s ease 0.5s;\n  transition: all 0.5s ease 0.5s;\n  position: fixed;\n  bottom: 60px;\n  left: 0;\n  min-width: 40%; }\n  /* line 163, stdin */\n  .sidebar_cartela.expand-enter, .sidebar_cartela.expand-leave {\n    left: -800px; }\n\n/* line 168, stdin */\n.not-loading {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -150;\n  opacity: 0;\n  padding-top: 22%;\n  text-align: center;\n  background-color: rgba(50, 50, 50, 0.6);\n  -webkit-transition: opacity 0.5s;\n  transition: opacity 0.5s; }\n\n/* line 182, stdin */\n.loading {\n  opacity: 1;\n  color: white;\n  z-index: 150; }\n\n/* line 188, stdin */\n.pausado {\n  opacity: 0.3 !important; }\n")
 'use strict';
 
 var Vue = require('vue');
@@ -1846,11 +1846,9 @@ var perfectScrollbar = require('perfect-scrollbar');
 module.exports = {
 	// replace para pegar com v-with objetos do parent
 	replace: true,
+	props: ['params', 'db'],
 	data: function data() {
 		return {
-			id: this.$parent.params.video,
-			params: this.$parent.params,
-			db: this.$parent.db,
 			events: null,
 			counter: 0,
 			contentBlocks: [],
@@ -1893,11 +1891,11 @@ module.exports = {
 
 		// POPCORN
 
-		this.videoTag = document.getElementById('hipVid-' + self.id);
+		this.videoTag = document.getElementById('hipVid-' + self.params.video);
 
 		this.videoTag.addEventListener("loadeddata", function () {
 
-			self.video.popcorn = Popcorn("#hipVid-" + self.id);
+			self.video.popcorn = Popcorn("#hipVid-" + self.params.video);
 
 			// attach events if data already loaded
 
@@ -1910,7 +1908,7 @@ module.exports = {
 
 			if (!self.seeking) {
 				self.$broadcast('hipervideo-play');
-				$$$('#hipVid-' + self.id).removeClass('pausado');
+				$$$('#hipVid-' + self.params.video).removeClass('pausado');
 			}
 		}, false);
 
@@ -1918,7 +1916,7 @@ module.exports = {
 
 			if (!self.seeking) {
 				self.$broadcast('hipervideo-pause');
-				$$$('#hipVid-' + self.id).addClass('pausado');
+				$$$('#hipVid-' + self.params.video).addClass('pausado');
 			}
 		}, false);
 
@@ -1962,7 +1960,7 @@ module.exports = {
 
 			if (!self.seeking) {
 				self.$broadcast('hipervideo-play');
-				$$$('#hipVid-' + self.id).removeClass('pausado');
+				$$$('#hipVid-' + self.params.video).removeClass('pausado');
 			}
 		}, false);
 
@@ -1971,13 +1969,13 @@ module.exports = {
 
 			if (!self.seeking) {
 				self.$broadcast('hipervideo-pause');
-				$$$('#hipVid-' + self.id).addClass('pausado');
+				$$$('#hipVid-' + self.params.video).addClass('pausado');
 			}
 		}, false);
 
 		this.videoTag.removeEventListener("loadeddata", function () {
 
-			self.video.popcorn = Popcorn("#hipVid-" + self.id);
+			self.video.popcorn = Popcorn("#hipVid-" + self.params.video);
 
 			// attach events if data already loaded
 
@@ -2004,8 +2002,7 @@ module.exports = {
 	},
 	methods: {
 		infoOpen: function infoOpen(info) {
-			var i = parseInt(info);
-			var node = _.findWhere(this.events.nodes, { "id": i });
+			var node = _.findWhere(this.events, { "id": info });
 			this.$broadcast('info-open');
 			this.videoPause();
 			this.conteudo = node.conteudo;
@@ -2042,7 +2039,7 @@ module.exports = {
 				start: null,
 				end: null,
 				fields: {
-					excerpt: this.db.descricao
+					excerpt: this.db.headers.descricao
 				}
 			});
 		},
@@ -2085,7 +2082,7 @@ module.exports = {
 			}
 		},
 		keyEvents: function keyEvents(e) {
-			var video = document.getElementById('hipVid-' + this.id);
+			var video = document.getElementById('hipVid-' + this.params.video);
 			switch (e.which) {
 				case 32:
 					if (video.paused && !this.hasInfo) {
@@ -2193,14 +2190,14 @@ module.exports = {
 		'in-sidebar-info': require('../components/sidebar-info.vue')
 	}
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div>\n\n\t\t<!-- VIDEO -->\n\n\t\t<in-bg-video v-ref:hipervideo=\"\"></in-bg-video>\n\n\t\t<!-- NAV-VIDEO -->\n\n\t\t<nav class=\"hover\" id=\"video-controls\">\n\t\t\t<in-topbar-slider></in-topbar-slider>\n\t\t\t<input type=\"range\" id=\"seek-bar-{{id}}\" min=\"0\" max=\"1000\" data-rangeslider=\"\" style=\"display: none;\">\n\t\t</nav>\n\n\t\t<!-- SIDEBAR -->\n\n\t\t<div class=\"sidebar\" :class=\"{'is-open': hasBlocks || hasInfo || fixedSidebar, 'has-info': hasInfo}\">\n\n\t\t\t<!-- CONTENT -->\n\n\t\t\t<div class=\"sidebar_content\">\n\t\t\t\t<in-sidebar-block v-for=\"content in contentBlocks\" transition=\"sidebar\"></in-sidebar-block>\n\t\t\t\t<div class=\"sidebar_opener clickable\" @click=\"openDefaultBlock\" v-show=\"!hasBlocks &amp;&amp; !fixedSidebar &amp;&amp; !hasInfo\" transition=\"sidebar\">\n\t\t\t\t\t<div class=\"sidebar_opener__inside context-bg\">abrir</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<!-- CARTELAS -->\n\n\t\t\t<!-- <div v-show=\"cartela\" class=\"sidebar_cartela\" transition=\"expand\">\n\t\t\t\t<div class=\"sidebar_block__header context-bg\" style=\"font-size: 100%;\">\n\t\t\t\t\t<div id=\"cartela_nome\">\n\t\t\t\t\t\t{{contentCartela.title | uppercase}}\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"sidebar_block__header\" style=\"background: #fff;\">\n\t\t\t\t\t<div id=\"cartela_funcao\">\n\t\t\t\t\t\t{{contentCartela.funcao}}\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div> -->\n\n\t\t\t<!-- BACKGROUND -->\n\n\t\t\t<div class=\"sidebar_back\"></div>\n\t\t</div>\n\n\t\t<!-- INFO -->\n\t\n\t\t<div id=\"infopanel\" class=\"infopanel\" :class=\"{'is-open': hasInfo}\">\n\t    <in-sidebar-info :id=\"id\" :conteudo=\"conteudo\"></in-sidebar-info>\n\t  </div>\n\n\t\t<div id=\"loading\" class=\"not-loading\"><i class=\"fa fa-refresh fa-3x fa-spin\"></i></div>\n\t\n\t\t\n\t</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div>\n\n\t\t<!-- VIDEO -->\n\n\t\t<in-bg-video v-ref:hipervideo=\"\"></in-bg-video>\n\n\t\t<!-- NAV-VIDEO -->\n\n\t\t<nav class=\"hover\" id=\"video-controls\">\n\t\t\t<in-topbar-slider></in-topbar-slider>\n\t\t\t<input type=\"range\" id=\"seek-bar-{{params.video}}\" min=\"0\" max=\"1000\" data-rangeslider=\"\" style=\"display: none;\">\n\t\t</nav>\n\n\t\t<!-- SIDEBAR -->\n\n\t\t<div class=\"sidebar\" :class=\"{'is-open': hasBlocks || hasInfo || fixedSidebar, 'has-info': hasInfo}\">\n\n\t\t\t<!-- CONTENT -->\n\n\t\t\t<div class=\"sidebar_content\">\n\t\t\t\t<in-sidebar-block v-for=\"content in contentBlocks\" :content=\"content\" :video=\"video\" :conteudo=\"conteudo\" transition=\"sidebar\"></in-sidebar-block>\n\t\t\t\t<div class=\"sidebar_opener clickable\" @click=\"openDefaultBlock\" v-show=\"!hasBlocks &amp;&amp; !fixedSidebar &amp;&amp; !hasInfo\" transition=\"sidebar\">\n\t\t\t\t\t<div class=\"sidebar_opener__inside context-bg\">abrir</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<!-- CARTELAS -->\n\n\t\t\t<!-- <div v-show=\"cartela\" class=\"sidebar_cartela\" transition=\"expand\">\n\t\t\t\t<div class=\"sidebar_block__header context-bg\" style=\"font-size: 100%;\">\n\t\t\t\t\t<div id=\"cartela_nome\">\n\t\t\t\t\t\t{{contentCartela.title | uppercase}}\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"sidebar_block__header\" style=\"background: #fff;\">\n\t\t\t\t\t<div id=\"cartela_funcao\">\n\t\t\t\t\t\t{{contentCartela.funcao}}\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div> -->\n\n\t\t\t<!-- BACKGROUND -->\n\n\t\t\t<div class=\"sidebar_back\"></div>\n\t\t</div>\n\n\t\t<!-- INFO -->\n\t\n\t\t<div id=\"infopanel\" class=\"infopanel\" :class=\"{'is-open': hasInfo}\">\n\t    <in-sidebar-info :params=\"params\" :conteudo=\"conteudo\"></in-sidebar-info>\n\t  </div>\n\n\t\t<div id=\"loading\" class=\"not-loading\"><i class=\"fa fa-refresh fa-3x fa-spin\"></i></div>\n\t\n\t\t\n\t</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   var id = "/media/bambuzal/Softwares/vue-models/hipervideo-model/app/vue/views/video-view.vue"
   module.hot.dispose(function () {
-    require("vueify-insert-css").cache["/* line 2, stdin */\n.sidebar {\n  width: 22%; }\n  @media screen and (min-width: 1600px) {\n    /* line 2, stdin */\n    .sidebar {\n      width: 15%; } }\n  @media screen and (min-width: 1600px) {\n    /* line 7, stdin */\n    .sidebar.has-info {\n      width: 16%; } }\n\n/* line 13, stdin */\n.sidebar_content {\n  position: relative;\n  height: 100%;\n  z-index: 20; }\n\n/* line 18, stdin */\n.sidebar_back {\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0.5);\n  width: 300px;\n  height: 100%;\n  top: 0;\n  left: 0;\n  -webkit-transition: all 0.6s;\n  transition: all 0.6s;\n  -webkit-transform: translate3d(-300px, 0, 0);\n  -moz-transform: translate3d(-300px, 0, 0);\n  -o-transform: translate3d(-300px, 0, 0);\n  -ms-transform: translate3d(-300px, 0, 0);\n  transform: translate3d(-300px, 0, 0);\n  z-index: 10; }\n  /* line 32, stdin */\n  .sidebar.is-open .sidebar_back {\n    -webkit-transform: translate3d(0, 0, 0);\n    -moz-transform: translate3d(0, 0, 0);\n    -o-transform: translate3d(0, 0, 0);\n    -ms-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0); }\n\n/* line 41, stdin */\n.sidebar-right {\n  position: absolute;\n  right: 0;\n  top: 57px;\n  width: 300px; }\n\n/* line 48, stdin */\n.infopanel {\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0.8);\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  z-index: 10;\n  -webkit-transition: all 0.6s;\n  transition: all 0.6s;\n  -webkit-transform: translate3d(127%, 0, 0);\n  -moz-transform: translate3d(127%, 0, 0);\n  -o-transform: translate3d(127%, 0, 0);\n  -ms-transform: translate3d(127%, 0, 0);\n  transform: translate3d(127%, 0, 0); }\n  /* line 62, stdin */\n  .infopanel.is-open {\n    -webkit-transform: translate3d(300px, 0, 0);\n    -moz-transform: translate3d(300px, 0, 0);\n    -o-transform: translate3d(300px, 0, 0);\n    -ms-transform: translate3d(300px, 0, 0);\n    transform: translate3d(300px, 0, 0); }\n  /* line 69, stdin */\n  .infopanel .border {\n    position: absolute;\n    height: 100%;\n    width: 10px;\n    top: 0;\n    left: 0; }\n  /* line 76, stdin */\n  .infopanel .back {\n    position: absolute;\n    top: 10%;\n    left: 79%;\n    color: #fff;\n    font-size: 24px; }\n\n/* line 85, stdin */\n.debug {\n  position: absolute;\n  width: 400px;\n  left: 50%;\n  top: 40%;\n  margin-left: -200px;\n  text-align: center; }\n  /* line 92, stdin */\n  .debug .btn {\n    cursor: pointer;\n    padding: 10px;\n    background: #ccc;\n    display: inline-block;\n    margin: 4px;\n    color: black;\n    font-size: 10px; }\n\n/* line 103, stdin */\n#video-controls {\n  position: fixed;\n  top: 0;\n  width: 100%;\n  display: block;\n  z-index: 25; }\n  /* line 110, stdin */\n  #video-controls.hover .rangeslider, #video-controls.hover .rangeslider__fill {\n    top: 0px;\n    height: 3px; }\n\n/* line 117, stdin */\n.sidebar_opener {\n  position: relative;\n  -webkit-transition: all 0.6s ease 0.6s;\n  transition: all 0.6s ease 0.6s;\n  overflow: hidden; }\n  /* line 121, stdin */\n  .sidebar_opener.sidebar-enter, .sidebar_opener.sidebar-leave {\n    -webkit-transform: translate3d(-100px, 0, 0);\n    -moz-transform: translate3d(-100px, 0, 0);\n    -o-transform: translate3d(-100px, 0, 0);\n    -ms-transform: translate3d(-100px, 0, 0);\n    transform: translate3d(-100px, 0, 0); }\n  /* line 128, stdin */\n  .sidebar_opener.sidebar-leave {\n    -webkit-transition: all 0.3s ease 0;\n    transition: all 0.3s ease 0; }\n  /* line 131, stdin */\n  .sidebar_opener .sidebar_opener__inside {\n    display: inline-block;\n    color: #fff;\n    padding: 10px;\n    height: 28px;\n    line-height: 28px;\n    -webkit-transition: all 0.6s ease;\n    transition: all 0.6s ease; }\n\n/* line 141, stdin */\n.infopanel {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  padding: 5% 20% 3% 3%;\n  width: 79%; }\n  @media screen and (min-width: 1600px) {\n    /* line 141, stdin */\n    .infopanel {\n      width: 85%; } }\n\n/* line 152, stdin */\n.is-cartela {\n  height: auto !important; }\n\n/* line 156, stdin */\n.sidebar_cartela {\n  -webkit-transition: all 0.5s ease 0.5s;\n  transition: all 0.5s ease 0.5s;\n  position: fixed;\n  bottom: 60px;\n  left: 0;\n  min-width: 40%; }\n  /* line 162, stdin */\n  .sidebar_cartela.expand-enter, .sidebar_cartela.expand-leave {\n    left: -800px; }\n\n/* line 167, stdin */\n.not-loading {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -150;\n  opacity: 0;\n  padding-top: 22%;\n  text-align: center;\n  background-color: rgba(50, 50, 50, 0.6);\n  -webkit-transition: opacity 0.5s;\n  transition: opacity 0.5s; }\n\n/* line 181, stdin */\n.loading {\n  opacity: 1;\n  color: white;\n  z-index: 150; }\n\n/* line 187, stdin */\n.pausado {\n  opacity: 0.3 !important; }\n"] = false
+    require("vueify-insert-css").cache["/* line 2, stdin */\n.sidebar {\n  width: 22%;\n  margin-top: 200px; }\n  @media screen and (min-width: 1600px) {\n    /* line 2, stdin */\n    .sidebar {\n      width: 15%; } }\n  @media screen and (min-width: 1600px) {\n    /* line 8, stdin */\n    .sidebar.has-info {\n      width: 16%; } }\n\n/* line 14, stdin */\n.sidebar_content {\n  position: relative;\n  height: 100%;\n  z-index: 20; }\n\n/* line 19, stdin */\n.sidebar_back {\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0.5);\n  width: 300px;\n  height: 100%;\n  top: 0;\n  left: 0;\n  -webkit-transition: all 0.6s;\n  transition: all 0.6s;\n  -webkit-transform: translate3d(-300px, 0, 0);\n  -moz-transform: translate3d(-300px, 0, 0);\n  -o-transform: translate3d(-300px, 0, 0);\n  -ms-transform: translate3d(-300px, 0, 0);\n  transform: translate3d(-300px, 0, 0);\n  z-index: 10; }\n  /* line 33, stdin */\n  .sidebar.is-open .sidebar_back {\n    -webkit-transform: translate3d(0, 0, 0);\n    -moz-transform: translate3d(0, 0, 0);\n    -o-transform: translate3d(0, 0, 0);\n    -ms-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0); }\n\n/* line 42, stdin */\n.sidebar-right {\n  position: absolute;\n  right: 0;\n  top: 57px;\n  width: 300px; }\n\n/* line 49, stdin */\n.infopanel {\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0.8);\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  z-index: 10;\n  -webkit-transition: all 0.6s;\n  transition: all 0.6s;\n  -webkit-transform: translate3d(127%, 0, 0);\n  -moz-transform: translate3d(127%, 0, 0);\n  -o-transform: translate3d(127%, 0, 0);\n  -ms-transform: translate3d(127%, 0, 0);\n  transform: translate3d(127%, 0, 0); }\n  /* line 63, stdin */\n  .infopanel.is-open {\n    -webkit-transform: translate3d(300px, 0, 0);\n    -moz-transform: translate3d(300px, 0, 0);\n    -o-transform: translate3d(300px, 0, 0);\n    -ms-transform: translate3d(300px, 0, 0);\n    transform: translate3d(300px, 0, 0); }\n  /* line 70, stdin */\n  .infopanel .border {\n    position: absolute;\n    height: 100%;\n    width: 10px;\n    top: 0;\n    left: 0; }\n  /* line 77, stdin */\n  .infopanel .back {\n    position: absolute;\n    top: 10%;\n    left: 79%;\n    color: #fff;\n    font-size: 24px; }\n\n/* line 86, stdin */\n.debug {\n  position: absolute;\n  width: 400px;\n  left: 50%;\n  top: 40%;\n  margin-left: -200px;\n  text-align: center; }\n  /* line 93, stdin */\n  .debug .btn {\n    cursor: pointer;\n    padding: 10px;\n    background: #ccc;\n    display: inline-block;\n    margin: 4px;\n    color: black;\n    font-size: 10px; }\n\n/* line 104, stdin */\n#video-controls {\n  position: fixed;\n  top: 0;\n  width: 100%;\n  display: block;\n  z-index: 25; }\n  /* line 111, stdin */\n  #video-controls.hover .rangeslider, #video-controls.hover .rangeslider__fill {\n    top: 0px;\n    height: 3px; }\n\n/* line 118, stdin */\n.sidebar_opener {\n  position: relative;\n  -webkit-transition: all 0.6s ease 0.6s;\n  transition: all 0.6s ease 0.6s;\n  overflow: hidden; }\n  /* line 122, stdin */\n  .sidebar_opener.sidebar-enter, .sidebar_opener.sidebar-leave {\n    -webkit-transform: translate3d(-100px, 0, 0);\n    -moz-transform: translate3d(-100px, 0, 0);\n    -o-transform: translate3d(-100px, 0, 0);\n    -ms-transform: translate3d(-100px, 0, 0);\n    transform: translate3d(-100px, 0, 0); }\n  /* line 129, stdin */\n  .sidebar_opener.sidebar-leave {\n    -webkit-transition: all 0.3s ease 0;\n    transition: all 0.3s ease 0; }\n  /* line 132, stdin */\n  .sidebar_opener .sidebar_opener__inside {\n    display: inline-block;\n    color: #fff;\n    padding: 10px;\n    height: 28px;\n    line-height: 28px;\n    -webkit-transition: all 0.6s ease;\n    transition: all 0.6s ease; }\n\n/* line 142, stdin */\n.infopanel {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  padding: 5% 20% 3% 3%;\n  width: 79%; }\n  @media screen and (min-width: 1600px) {\n    /* line 142, stdin */\n    .infopanel {\n      width: 85%; } }\n\n/* line 153, stdin */\n.is-cartela {\n  height: auto !important; }\n\n/* line 157, stdin */\n.sidebar_cartela {\n  -webkit-transition: all 0.5s ease 0.5s;\n  transition: all 0.5s ease 0.5s;\n  position: fixed;\n  bottom: 60px;\n  left: 0;\n  min-width: 40%; }\n  /* line 163, stdin */\n  .sidebar_cartela.expand-enter, .sidebar_cartela.expand-leave {\n    left: -800px; }\n\n/* line 168, stdin */\n.not-loading {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -150;\n  opacity: 0;\n  padding-top: 22%;\n  text-align: center;\n  background-color: rgba(50, 50, 50, 0.6);\n  -webkit-transition: opacity 0.5s;\n  transition: opacity 0.5s; }\n\n/* line 182, stdin */\n.loading {\n  opacity: 1;\n  color: white;\n  z-index: 150; }\n\n/* line 188, stdin */\n.pausado {\n  opacity: 0.3 !important; }\n"] = false
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {

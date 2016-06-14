@@ -107,8 +107,8 @@
 
 <template>
 	<div class="sidebar_block" transition="blc">
-		<div class="sidebar_block__header context-bg" >
-			{{title | uppercase}}
+		<div class="sidebar_block__header context-bg" style="background: red;">
+			{{content.title | uppercase}}
 			<svg width="28" height="28" class="timer clickable" @click="onTimerClick" :class="{fixed: start === null}">
 				<circle class="base" cx="14" cy="14" r="12"></circle>
 				<circle :class="{fadeout: perc < 3}" class="progress" cx="14" cy="14" r="12" :stroke-dashoffset="perc"></circle>
@@ -119,9 +119,9 @@
 			</svg>
 		</div>
 		<div id="sidebar_block__content" class="sidebar_block__content">
-			<div :is="type" :fields="fields"></div>
+			<div :is="content.type" :fields="content.fields"></div>
 		</div>
-		<p v-if="!ap" style="padding-left: 10px;"><strong><a style="font-weight: 900; text-decoration: none;" :href="'#/' + videoID + '/info/' + id">SAIBA MAIS</a></strong></p>
+		<p v-if="!content.ap" style="padding-left: 10px;"><strong><a style="font-weight: 900; text-decoration: none;" :href="'#/' + content.videoID + '/info/' + content.id">SAIBA MAIS</a></strong></p>
 	</div>
 </template>
 
@@ -132,17 +132,17 @@
 	
 	module.exports = {
 		replace: true,
+		props: ['content', 'video', 'conteudo'],
 		data: function(){
 			return {
-				video: this.$parent.video,
 				html_resumo: null
 			}
 		},
 		computed: {
 			perc: function () {
-				var start = this.$data.start;
-				var end = this.$data.end;
-				var time = this.$data.video.time;
+				var start = this.content.start;
+				var end = this.content.end;
+				var time = this.video.time;
 				return 75 - Math.floor(75 * (time - start) / (end - start));
 			}
 		},
@@ -153,8 +153,8 @@
 		},
 		methods: {
 			onTimerClick: function(){
-				this.$dispatch('block-timer-clicked', this, this.$data.id)
-				if (this.$parent.conteudo && this.$parent.conteudo.id === this.$data.id) {
+				this.$dispatch('block-timer-clicked', this, this.content.id)
+				if (this.conteudo && this.conteudo.id === this.content.id) {
 					window.location.href = "/#/" + this.$parent.params.video;
 				}
 			}

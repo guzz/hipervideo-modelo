@@ -1,4 +1,7 @@
 <style lang="scss">
+	.context-bg {
+		background-color: red;
+	}
 	.header-top {
 		-webkit-transition: width .3s ease;
 		   -moz-transition: width .3s ease;
@@ -190,7 +193,7 @@
 				</ul>
 		  </div>
 		  <div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button" @click="openDrawer"><i class="material-icons">menu</i></div>
-		  <main class="mdl-layout__content view" :is="view" transition="vie" :class="[className]" v-ref:view >
+		  <main class="mdl-layout__content view" :is="view" transition="vie" :class="[className]" :db="db" :params="params" v-ref:view >
 
 		  </main>
 		  <div class="mdl-layout__obfuscator" :class="{'is-visible': drawer}" @click="openDrawer"></div>

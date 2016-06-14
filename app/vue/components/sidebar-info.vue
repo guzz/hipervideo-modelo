@@ -66,7 +66,7 @@
   <div class="border context-bg"></div>
   <div id="conteudo_info">
 
-    <div :is="in-mapa" :mapa="conteudo.mapa" v-if="conteudo && hasMap"></div>
+    <in-mapa :conteudo="conteudo" v-if="conteudo && hasMap"></in-mapa>
 
     <h2 v-if="conteudo && conteudo.title"> 
       {{conteudo.title}} 
@@ -99,7 +99,7 @@
       </a>
     </div>
   </div>
-  <a class="back" :href="'#/' + id">voltar ao vídeo</a>
+  <a class="back" :href="'#/' + params.video">voltar ao vídeo</a>
   </div>
 </template>
 
@@ -112,10 +112,9 @@
   module.exports = {
 
     replace: true,
-
+    props: ['params', 'conteudo'],
     data: function(){
       return {
-        conteudo: {},
         html_texto: '',
         videoIndex: 0,
         imageIndex: 0

@@ -14,6 +14,7 @@
 
 	module.exports = {
 		replace: true,
+		props: ['fields'],
 		filters: {
 			marked: function(value) {
       	return marked(value)

@@ -1,6 +1,7 @@
 <style lang="scss">
 	.sidebar {
 		width: 22%;
+		margin-top: 200px;
 		@media screen and (min-width: 1600px) {
 			width: 15%;
 		}
@@ -201,7 +202,7 @@
 
 		<nav class="hover" id="video-controls">
 			<in-topbar-slider></in-topbar-slider>
-			<input type="range" id="seek-bar-{{id}}" min="0" max="1000" data-rangeslider="" style="display: none;">
+			<input type="range" id="seek-bar-{{params.video}}" min="0" max="1000" data-rangeslider="" style="display: none;">
 		</nav>
 
 		<!-- SIDEBAR -->
@@ -211,7 +212,7 @@
 			<!-- CONTENT -->
 
 			<div class="sidebar_content">
-				<in-sidebar-block v-for="content in contentBlocks" transition="sidebar"></in-sidebar-block>
+				<in-sidebar-block v-for="content in contentBlocks" :content="content" :video="video" :conteudo="conteudo" transition="sidebar"></in-sidebar-block>
 				<div class="sidebar_opener clickable" @click="openDefaultBlock" v-show="!hasBlocks && !fixedSidebar && !hasInfo" transition="sidebar">
 					<div class="sidebar_opener__inside context-bg">abrir</div>
 				</div>
@@ -240,7 +241,7 @@
 		<!-- INFO -->
 	
 		<div id="infopanel" class="infopanel" :class="{'is-open': hasInfo}">
-	    <in-sidebar-info :id="id" :conteudo="conteudo"></in-sidebar-info>
+	    <in-sidebar-info :params="params" :conteudo="conteudo"></in-sidebar-info>
 	  </div>
 
 		<div id="loading" class="not-loading"><i class="fa fa-refresh fa-3x fa-spin"></i></div>
@@ -259,11 +260,9 @@
 	module.exports = {
 		// replace para pegar com v-with objetos do parent
 		replace: true,
+		props: ['params', 'db'],
 		data: function(){
 			return {
-				id: this.$parent.params.video,
-				params: this.$parent.params,
-				db: this.$parent.db,
 				events: null,
 				counter: 0,
 				contentBlocks: [],
@@ -306,11 +305,11 @@
 
 			// POPCORN
 
-			this.videoTag = document.getElementById('hipVid-' + self.id);
+			this.videoTag = document.getElementById('hipVid-' + self.params.video);
 
 			this.videoTag.addEventListener( "loadeddata", function() {
 
-				self.video.popcorn = Popcorn("#hipVid-" + self.id);
+				self.video.popcorn = Popcorn("#hipVid-" + self.params.video);
 
 				// attach events if data already loaded
 
@@ -324,7 +323,7 @@
 
 				if (!self.seeking) {
 					self.$broadcast('hipervideo-play')
-					$$$('#hipVid-' + self.id).removeClass('pausado')
+					$$$('#hipVid-' + self.params.video).removeClass('pausado')
 				}
 
 			}, false );
@@ -333,7 +332,7 @@
 
 				if (!self.seeking) {
 					self.$broadcast('hipervideo-pause')
-					$$$('#hipVid-' + self.id).addClass('pausado')
+					$$$('#hipVid-' + self.params.video).addClass('pausado')
 				}
 
 			}, false );
@@ -380,7 +379,7 @@
 
 				if (!self.seeking) {
 					self.$broadcast('hipervideo-play')
-					$$$('#hipVid-' + self.id).removeClass('pausado')
+					$$$('#hipVid-' + self.params.video).removeClass('pausado')
 				}
 
 			}, false );
@@ -390,14 +389,14 @@
 
 				if (!self.seeking) {
 					self.$broadcast('hipervideo-pause')
-					$$$('#hipVid-' + self.id).addClass('pausado')
+					$$$('#hipVid-' + self.params.video).addClass('pausado')
 				}
 
 			}, false );
 
 			this.videoTag.removeEventListener( "loadeddata", function() {
 
-				self.video.popcorn = Popcorn("#hipVid-" + self.id);
+				self.video.popcorn = Popcorn("#hipVid-" + self.params.video);
 
 				// attach events if data already loaded
 
@@ -426,8 +425,7 @@
 		},
 		methods: {
 			infoOpen: function(info){
-				var i = parseInt(info)
-				var node = _.findWhere(this.events.nodes,{"id": i});
+				var node = _.findWhere(this.events,{"id": info});
 				this.$broadcast('info-open');
 				this.videoPause();
 				this.conteudo = node.conteudo;
@@ -464,7 +462,7 @@
 					start: null,
 					end: null,
 					fields: {
-						excerpt: this.db.descricao
+						excerpt: this.db.headers.descricao
 					}
 				})
 			},
@@ -507,7 +505,7 @@
 				}
 			},
 			keyEvents: function(e) {
-				var video = document.getElementById('hipVid-' + this.id);
+				var video = document.getElementById('hipVid-' + this.params.video);
 				switch(e.which) {
 					case 32 : 
 						if (video.paused && !this.hasInfo) {
