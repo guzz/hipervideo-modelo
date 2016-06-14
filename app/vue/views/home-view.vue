@@ -77,6 +77,10 @@
     		font-size: 43px;
 		    margin-left: 11px;
 		    z-index: 1;
+		    @media screen and (min-width: 1440px) {
+					font-size: 63px;
+    			margin-left: 21px;
+				}
     	}
     	@media screen and (min-width: 1440px) {
 				font-size: 100px;
