@@ -94,7 +94,7 @@
 <div class="page-content">
 	<div class="mdl-grid">
 
-	  <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone" id="hip-{{hipId[$index]}}" v-for="hipervideo in db" transition="fade">
+	  <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone" id="hip-{{hipId[$index]}}" v-for="hipervideo in database" transition="fade">
 	  	<div class="demo-card-wide mdl-card mdl-shadow--2dp">
 			  <div class="mdl-card__title display-home" :class="{ativo: home}">
 			    <h2 class="mdl-card__title-text">{{hipervideo.headers.nome}}</h2>
@@ -135,9 +135,9 @@
 	var marked = require('marked')
 	module.exports = {
 		replace: true,
+		props: ['database'],
 		data: function(){
 			return {
-				db: this.$parent.database,
 				home: false
 			}
 		},
@@ -159,7 +159,7 @@
 		computed: {
       hipId: {
       	get: function() {
-      		var hip = this.$data.db
+      		var hip = this.database
 					var ids = []
 					for (var i = 0, antes = 0; i < hip.length; i++) {
 						var hipid = hip[i].headers.id

@@ -39,7 +39,7 @@
 		<i id="pauseplay" class="fa fa-5x" :class="{'fa-play': playing, 'fa-pause': !playing}"></i>
 	</div>
 	<video :poster="db.headers.img" class="hipVid" :id="'hipVid-' + db.headers.id">
-		<source :src="db.headers.url + '_' + lib + '_' + qual + '.mp4'" type="video/mp4" id="mp4">
+		<source :src="db.headers.url + '_' + acessibilidade + '_' + queQualidade + '.mp4'" type="video/mp4" id="mp4">
 	</video>
 </template>
 
@@ -49,10 +49,9 @@
 	var $$$ = require('jquery')
 
 	module.exports = {
+		props: ['db', 'video', 'qualidade', 'acessibilidade'],
 		data: function(){
 			return {
-				db: this.$parent.db,
-				video: this.$parent.video,
 				qual: 'baixa',
 				lib: 'normal',
 				timecodeAntigo: 0,
@@ -61,39 +60,39 @@
 				playing: true
 			}
 		},
+		watch : {
+			qualidade: function () {
+				this.updateVideo()
+			},
+			acessibilidade: function () {
+				this.updateVideo()
+			}
+		},
+		computed: {
+			queQualidade: function () {
+				if (this.qualidade === 0) {
+					return "baixa"
+				} else if (this.qualidade === 1) {
+					return "media"
+				} else if (this.qualidade === 2) {
+					return "alta"
+				}
+			}
+		},
 		created: function() {
-			this.qual = this.queQualidade(this.$parent.$parent.qualidade)
-			this.lib = this.$parent.$parent.acessibilidade
+			// this.qual = this.queQualidade(this.qualidade)
 		},
 		attached: function() {
 			
 			var self = this;
 
-			this.hipervideo = this.$parent.videoTag
+			this.hipervideo = this.video.tag
 			this.hipervideo.load()
 			var seekBar = $$$('#seek-bar-'+this.db.headers.id).get(0)
 			var selector = $$$('.rangeslider').get(0)
 
 			this.$on('pong', function() {
 				self.playing = true;
-			})
-
-			this.$on('mudou-qualidade', function (qualidade) {
-				self.timecode = self.video.time
-				self.qual = this.queQualidade(qualidade)
-				setTimeout(function () {
-					self.hipervideo.load()
-					self.continuarTemp()
-				}, 500)
-			})
-
-			this.$on('mudou-acess', function (val) {
-				self.timecode = self.video.time
-				self.lib = val
-				setTimeout(function () {
-					self.hipervideo.load()
-					self.continuarTemp()
-				}, 500)
 			})
 
 			var tempoCorrido = function(array) {
@@ -224,15 +223,10 @@
 			continuarTemp: function() {
 				this.hipervideo.currentTime = this.video.time
 			},
-			queQualidade: function(qual) {
-				switch(qual) {
-					case 0:
-						return "baixa"
-					case 1:
-						return "media"
-					case 2:
-						return "alta"
-				}
+			updateVideo: function () {
+				this.timecode = this.video.time
+				this.hipervideo.load()
+				this.continuarTemp()
 			}
 		}
 	}

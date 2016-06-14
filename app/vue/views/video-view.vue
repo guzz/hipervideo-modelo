@@ -196,7 +196,7 @@
 
 		<!-- VIDEO -->
 
-		<in-bg-video v-ref:hipervideo></in-bg-video>
+		<in-bg-video :db="db" :video="video" :qualidade="qualidade" :acessibilidade="acessibilidade" v-ref:hipervideo></in-bg-video>
 
 		<!-- NAV-VIDEO -->
 
@@ -260,7 +260,7 @@
 	module.exports = {
 		// replace para pegar com v-with objetos do parent
 		replace: true,
-		props: ['params', 'db'],
+		props: ['params', 'db', 'qualidade', 'acessibilidade'],
 		data: function(){
 			return {
 				events: null,
@@ -270,12 +270,12 @@
 				cartela: false,
 				fixedSidebar: false,
 				conteudo: {},
-				videoTag: null,
 				seeking: false,
 				video: {
 					popcorn: null,
 					time: 0,
 					duration: 0,
+					tag: null,
 					progress: 0
 				}
 			}
@@ -305,9 +305,9 @@
 
 			// POPCORN
 
-			this.videoTag = document.getElementById('hipVid-' + self.params.video);
+			this.video.tag = document.getElementById('hipVid-' + self.params.video);
 
-			this.videoTag.addEventListener( "loadeddata", function() {
+			this.video.tag.addEventListener( "loadeddata", function() {
 
 				self.video.popcorn = Popcorn("#hipVid-" + self.params.video);
 
@@ -319,7 +319,7 @@
 
 			}, false );
 
-			this.videoTag.addEventListener( "play", function() {
+			this.video.tag.addEventListener( "play", function() {
 
 				if (!self.seeking) {
 					self.$broadcast('hipervideo-play')
@@ -328,7 +328,7 @@
 
 			}, false );
 
-			this.videoTag.addEventListener( "pause", function() {
+			this.video.tag.addEventListener( "pause", function() {
 
 				if (!self.seeking) {
 					self.$broadcast('hipervideo-pause')
@@ -337,7 +337,7 @@
 
 			}, false );
 
-			this.videoTag.addEventListener( "ended", function() {
+			this.video.tag.addEventListener( "ended", function() {
 				console.log(self.seeking);
 
 				creditos.className = 'finalizado';
@@ -374,7 +374,7 @@
 		beforeDestroy: function(){
 			this.$off('hipervideo-canplay')
 			var self = this
-			this.videoTag.removeEventListener( "play", function() {
+			this.video.tag.removeEventListener( "play", function() {
 
 				if (!self.seeking) {
 					self.$broadcast('hipervideo-play')
@@ -383,7 +383,7 @@
 
 			}, false );
 
-			this.videoTag.removeEventListener( "pause", function() {
+			this.video.tag.removeEventListener( "pause", function() {
 				console.log(self.seeking);
 
 				if (!self.seeking) {
@@ -393,7 +393,7 @@
 
 			}, false );
 
-			this.videoTag.removeEventListener( "loadeddata", function() {
+			this.video.tag.removeEventListener( "loadeddata", function() {
 
 				self.video.popcorn = Popcorn("#hipVid-" + self.params.video);
 
@@ -404,7 +404,7 @@
 				}
 
 			}, false );
-			this.videoTag.removeEventListener( "ended", function() {
+			this.video.tag.removeEventListener( "ended", function() {
 
 				creditos.className = 'finalizado';
 				self.videoPause();

@@ -193,7 +193,7 @@
 					</ul>
 			  </div>
 			  <div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button" @click="openDrawer"><i class="material-icons">menu</i></div>
-			  <main class="mdl-layout__content view" :is="view" transition="vie" :class="[className]" :db="db" :params="params" v-ref:view >
+			  <main class="mdl-layout__content view" :is="view" transition="vie" :class="[className]" :db="db" :database="database" :params="params" :qualidade="qualidade" :acessibilidade="acessibilidade" v-ref:view >
 
 			  </main>
 			  <div class="mdl-layout__obfuscator" :class="{'is-visible': drawer}" @click="openDrawer"></div>
@@ -236,13 +236,11 @@
 		},
 		watch : {
 			qualidade: function (qualidade) {
-				this.$broadcast('mudou-qualidade', qualidade);
 				document.cookie = "qualidade = " + qualidade;
 			},
 			acessibilidade: function (val) {
-				this.$broadcast('mudou-acess', val);
 				document.cookie = "acessibilidade = " + val;
-			},
+			}
 		},
 		computed: {
       isAlta: function() {

@@ -31,11 +31,9 @@ module.exports = {
 	},
 	watch: {
 		qualidade: function qualidade(_qualidade) {
-			this.$broadcast('mudou-qualidade', _qualidade);
 			document.cookie = "qualidade = " + _qualidade;
 		},
 		acessibilidade: function acessibilidade(val) {
-			this.$broadcast('mudou-acess', val);
 			document.cookie = "acessibilidade = " + val;
 		}
 	},
@@ -184,7 +182,7 @@ module.exports = {
 		'video-view': require('./views/video-view.vue')
 	}
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div>\n\t\t<div id=\"full\" allowfullscreen=\"true\">\n\t\t\t<div class=\"demo-layout-waterfall mdl-layout mdl-js-layout\" :class=\"{ 'home-open': home }\">\n\t\t\t  <header class=\"mdl-layout__header mdl-layout__header--waterfall header-top\" :class=\"{ hide: isVideo, 'home-menu': home }\">\n\t\t\t    <!-- Top row, always visible -->\n\t\t\t    <div class=\"mdl-layout__header-row\">\n\t\t\t      <!-- Title -->\n\t\t\t      <span class=\"mdl-layout-title\">Title</span>\n\t\t\t      <div class=\"mdl-layout-spacer\"></div>\n\t\t\t      <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--expandable\n\t\t\t                  mdl-textfield--floating-label mdl-textfield--align-right\">\n\t\t\t        <label class=\"mdl-button mdl-js-button mdl-button--icon\" for=\"waterfall-exp\">\n\t\t\t          <i class=\"material-icons\">search</i>\n\t\t\t        </label>\n\t\t\t        <div class=\"mdl-textfield__expandable-holder\">\n\t\t\t          <input class=\"mdl-textfield__input\" type=\"text\" name=\"sample\" id=\"waterfall-exp\">\n\t\t\t        </div>\n\t\t\t      </div>\n\t\t\t    </div>\n\t\t\t    <!-- Bottom row, not visible on scroll -->\n\t\t\t    <div class=\"mdl-layout__header-row header__down\">\n\t\t\t      <div class=\"mdl-layout-spacer\"></div>\n\t\t\t    </div>\n\t\t\t  </header>\n\t\t\t  <div class=\"mdl-layout__drawer\" :class=\"{'is-visible': drawer}\">\n\t\t\t  \t<button @click=\"connectTrello\" v-if=\"!isConnected\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored connecte-se\">\n\t\t\t\t\t  CONECTE-SE\n\t\t\t\t\t</button>\n\t\t\t\t\t<img :src=\"user.img\" v-if=\"isConnected\" class=\"gravatar\" transition=\"fade\">\n\t\t\t\t\t<div class=\"user-info\">\n\t\t\t\t\t\t<p class=\"user-name\" v-if=\"isConnected\" transition=\"fade\">@{{user.nome}}</p>\n\t\t\t    \t<p class=\"user-email\" v-if=\"isConnected\" transition=\"fade\">{{user.email}}</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<hr>\n\t\t\t\t\t<h4 class=\"info-menu\">Qualidade</h4>\n\t\t\t\t\t<input class=\"mdl-slider mdl-js-slider\" type=\"range\" min=\"0\" max=\"2\" :value=\"qualidade\" tabindex=\"0\" step=\"1\" @input=\"mudaQual\">\n\t\t\t\t\t<div class=\"qual-label\">\n\t\t\t\t\t\t<span :class=\"{ active: isBaixa }\">Baixa</span>\n\t\t\t\t\t\t<span :class=\"{ active: isMedia }\" class=\"span\">Média</span>\n\t\t\t\t\t\t<span :class=\"{ active: isAlta }\">Alta</span>\n\t\t\t\t\t</div>\n\t\t\t\t\t<hr>\n\t\t\t\t\t<h4 class=\"info-menu\">Acessibilidade</h4>\n\t\t\t\t\t<ul class=\"demo-list-control mdl-list acess\">\n\t\t\t\t\t  <li class=\"mdl-list__item\">\n\t\t\t\t\t    <span class=\"mdl-list__item-primary-content\">\n\t\t\t\t\t      Libras\n\t\t\t\t\t    </span>\n\t\t\t\t\t    <span class=\"mdl-list__item-secondary-action\">\n\t\t\t\t\t      <label class=\"mdl-switch mdl-js-switch mdl-js-ripple-effect\" for=\"list-switch-1\" id=\"label-switch-1\">\n\t\t\t\t\t        <input type=\"checkbox\" id=\"list-switch-1\" class=\"mdl-switch__input\" :checked=\"isLibras\" @click=\"acessLibras\">\n\t\t\t\t\t      </label>\n\t\t\t\t\t    </span>\n\t\t\t\t\t  </li>\n\t\t\t\t\t  <li class=\"mdl-list__item\">\n\t\t\t\t\t    <span class=\"mdl-list__item-primary-content\">\n\t\t\t\t\t      Audio Descrição\n\t\t\t\t\t    </span>\n\t\t\t\t\t      <span class=\"mdl-list__item-secondary-action\">\n\t\t\t\t\t        <label class=\"mdl-switch mdl-js-switch mdl-js-ripple-effect\" for=\"list-switch-2\" id=\"label-switch-2\">\n\t\t\t\t\t          <input type=\"checkbox\" id=\"list-switch-2\" class=\"mdl-switch__input\" :checked=\"isAudio\" @click=\"acessAudio\">\n\t\t\t\t\t        </label>\n\t\t\t\t\t    </span>\n\t\t\t\t\t  </li>\n\t\t\t\t\t</ul>\n\t\t\t  </div>\n\t\t\t  <div aria-expanded=\"false\" role=\"button\" tabindex=\"0\" class=\"mdl-layout__drawer-button\" @click=\"openDrawer\"><i class=\"material-icons\">menu</i></div>\n\t\t\t  <main class=\"mdl-layout__content view\" :is=\"view\" transition=\"vie\" :class=\"[className]\" :db=\"db\" :params=\"params\" v-ref:view=\"\">\n\n\t\t\t  </main>\n\t\t\t  <div class=\"mdl-layout__obfuscator\" :class=\"{'is-visible': drawer}\" @click=\"openDrawer\"></div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div id=\"demo-snackbar-example\" class=\"mdl-js-snackbar mdl-snackbar\" aria-live=\"assertive\" aria-atomic=\"true\" aria-relevant=\"text\">\n\t\t  <div class=\"mdl-snackbar__text\"></div>\n\t\t  <button class=\"mdl-snackbar__action\" type=\"button\"></button>\n\t\t</div>\n\t</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div>\n\t\t<div id=\"full\" allowfullscreen=\"true\">\n\t\t\t<div class=\"demo-layout-waterfall mdl-layout mdl-js-layout\" :class=\"{ 'home-open': home }\">\n\t\t\t  <header class=\"mdl-layout__header mdl-layout__header--waterfall header-top\" :class=\"{ hide: isVideo, 'home-menu': home }\">\n\t\t\t    <!-- Top row, always visible -->\n\t\t\t    <div class=\"mdl-layout__header-row\">\n\t\t\t      <!-- Title -->\n\t\t\t      <span class=\"mdl-layout-title\">Title</span>\n\t\t\t      <div class=\"mdl-layout-spacer\"></div>\n\t\t\t      <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--expandable\n\t\t\t                  mdl-textfield--floating-label mdl-textfield--align-right\">\n\t\t\t        <label class=\"mdl-button mdl-js-button mdl-button--icon\" for=\"waterfall-exp\">\n\t\t\t          <i class=\"material-icons\">search</i>\n\t\t\t        </label>\n\t\t\t        <div class=\"mdl-textfield__expandable-holder\">\n\t\t\t          <input class=\"mdl-textfield__input\" type=\"text\" name=\"sample\" id=\"waterfall-exp\">\n\t\t\t        </div>\n\t\t\t      </div>\n\t\t\t    </div>\n\t\t\t    <!-- Bottom row, not visible on scroll -->\n\t\t\t    <div class=\"mdl-layout__header-row header__down\">\n\t\t\t      <div class=\"mdl-layout-spacer\"></div>\n\t\t\t    </div>\n\t\t\t  </header>\n\t\t\t  <div class=\"mdl-layout__drawer\" :class=\"{'is-visible': drawer}\">\n\t\t\t  \t<button @click=\"connectTrello\" v-if=\"!isConnected\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored connecte-se\">\n\t\t\t\t\t  CONECTE-SE\n\t\t\t\t\t</button>\n\t\t\t\t\t<img :src=\"user.img\" v-if=\"isConnected\" class=\"gravatar\" transition=\"fade\">\n\t\t\t\t\t<div class=\"user-info\">\n\t\t\t\t\t\t<p class=\"user-name\" v-if=\"isConnected\" transition=\"fade\">@{{user.nome}}</p>\n\t\t\t    \t<p class=\"user-email\" v-if=\"isConnected\" transition=\"fade\">{{user.email}}</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<hr>\n\t\t\t\t\t<h4 class=\"info-menu\">Qualidade</h4>\n\t\t\t\t\t<input class=\"mdl-slider mdl-js-slider\" type=\"range\" min=\"0\" max=\"2\" :value=\"qualidade\" tabindex=\"0\" step=\"1\" @input=\"mudaQual\">\n\t\t\t\t\t<div class=\"qual-label\">\n\t\t\t\t\t\t<span :class=\"{ active: isBaixa }\">Baixa</span>\n\t\t\t\t\t\t<span :class=\"{ active: isMedia }\" class=\"span\">Média</span>\n\t\t\t\t\t\t<span :class=\"{ active: isAlta }\">Alta</span>\n\t\t\t\t\t</div>\n\t\t\t\t\t<hr>\n\t\t\t\t\t<h4 class=\"info-menu\">Acessibilidade</h4>\n\t\t\t\t\t<ul class=\"demo-list-control mdl-list acess\">\n\t\t\t\t\t  <li class=\"mdl-list__item\">\n\t\t\t\t\t    <span class=\"mdl-list__item-primary-content\">\n\t\t\t\t\t      Libras\n\t\t\t\t\t    </span>\n\t\t\t\t\t    <span class=\"mdl-list__item-secondary-action\">\n\t\t\t\t\t      <label class=\"mdl-switch mdl-js-switch mdl-js-ripple-effect\" for=\"list-switch-1\" id=\"label-switch-1\">\n\t\t\t\t\t        <input type=\"checkbox\" id=\"list-switch-1\" class=\"mdl-switch__input\" :checked=\"isLibras\" @click=\"acessLibras\">\n\t\t\t\t\t      </label>\n\t\t\t\t\t    </span>\n\t\t\t\t\t  </li>\n\t\t\t\t\t  <li class=\"mdl-list__item\">\n\t\t\t\t\t    <span class=\"mdl-list__item-primary-content\">\n\t\t\t\t\t      Audio Descrição\n\t\t\t\t\t    </span>\n\t\t\t\t\t      <span class=\"mdl-list__item-secondary-action\">\n\t\t\t\t\t        <label class=\"mdl-switch mdl-js-switch mdl-js-ripple-effect\" for=\"list-switch-2\" id=\"label-switch-2\">\n\t\t\t\t\t          <input type=\"checkbox\" id=\"list-switch-2\" class=\"mdl-switch__input\" :checked=\"isAudio\" @click=\"acessAudio\">\n\t\t\t\t\t        </label>\n\t\t\t\t\t    </span>\n\t\t\t\t\t  </li>\n\t\t\t\t\t</ul>\n\t\t\t  </div>\n\t\t\t  <div aria-expanded=\"false\" role=\"button\" tabindex=\"0\" class=\"mdl-layout__drawer-button\" @click=\"openDrawer\"><i class=\"material-icons\">menu</i></div>\n\t\t\t  <main class=\"mdl-layout__content view\" :is=\"view\" transition=\"vie\" :class=\"[className]\" :db=\"db\" :database=\"database\" :params=\"params\" :qualidade=\"qualidade\" :acessibilidade=\"acessibilidade\" v-ref:view=\"\">\n\n\t\t\t  </main>\n\t\t\t  <div class=\"mdl-layout__obfuscator\" :class=\"{'is-visible': drawer}\" @click=\"openDrawer\"></div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div id=\"demo-snackbar-example\" class=\"mdl-js-snackbar mdl-snackbar\" aria-live=\"assertive\" aria-atomic=\"true\" aria-relevant=\"text\">\n\t\t  <div class=\"mdl-snackbar__text\"></div>\n\t\t  <button class=\"mdl-snackbar__action\" type=\"button\"></button>\n\t\t</div>\n\t</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -208,10 +206,9 @@ var Vue = require('vue');
 var $$$ = require('jquery');
 
 module.exports = {
+	props: ['db', 'video', 'qualidade', 'acessibilidade'],
 	data: function data() {
 		return {
-			db: this.$parent.db,
-			video: this.$parent.video,
 			qual: 'baixa',
 			lib: 'normal',
 			timecodeAntigo: 0,
@@ -220,39 +217,39 @@ module.exports = {
 			playing: true
 		};
 	},
+	watch: {
+		qualidade: function qualidade() {
+			this.updateVideo();
+		},
+		acessibilidade: function acessibilidade() {
+			this.updateVideo();
+		}
+	},
+	computed: {
+		queQualidade: function queQualidade() {
+			if (this.qualidade === 0) {
+				return "baixa";
+			} else if (this.qualidade === 1) {
+				return "media";
+			} else if (this.qualidade === 2) {
+				return "alta";
+			}
+		}
+	},
 	created: function created() {
-		this.qual = this.queQualidade(this.$parent.$parent.qualidade);
-		this.lib = this.$parent.$parent.acessibilidade;
+		// this.qual = this.queQualidade(this.qualidade)
 	},
 	attached: function attached() {
 
 		var self = this;
 
-		this.hipervideo = this.$parent.videoTag;
+		this.hipervideo = this.video.tag;
 		this.hipervideo.load();
 		var seekBar = $$$('#seek-bar-' + this.db.headers.id).get(0);
 		var selector = $$$('.rangeslider').get(0);
 
 		this.$on('pong', function () {
 			self.playing = true;
-		});
-
-		this.$on('mudou-qualidade', function (qualidade) {
-			self.timecode = self.video.time;
-			self.qual = this.queQualidade(qualidade);
-			setTimeout(function () {
-				self.hipervideo.load();
-				self.continuarTemp();
-			}, 500);
-		});
-
-		this.$on('mudou-acess', function (val) {
-			self.timecode = self.video.time;
-			self.lib = val;
-			setTimeout(function () {
-				self.hipervideo.load();
-				self.continuarTemp();
-			}, 500);
 		});
 
 		var tempoCorrido = function tempoCorrido(array) {
@@ -382,19 +379,14 @@ module.exports = {
 		continuarTemp: function continuarTemp() {
 			this.hipervideo.currentTime = this.video.time;
 		},
-		queQualidade: function queQualidade(qual) {
-			switch (qual) {
-				case 0:
-					return "baixa";
-				case 1:
-					return "media";
-				case 2:
-					return "alta";
-			}
+		updateVideo: function updateVideo() {
+			this.timecode = this.video.time;
+			this.hipervideo.load();
+			this.continuarTemp();
 		}
 	}
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div class=\"hipVid-status\" :class=\"{'is-play': playing}\">\n\t\t<i id=\"pauseplay\" class=\"fa fa-5x\" :class=\"{'fa-play': playing, 'fa-pause': !playing}\"></i>\n\t</div>\n\t<video :poster=\"db.headers.img\" class=\"hipVid\" :id=\"'hipVid-' + db.headers.id\">\n\t\t<source :src=\"db.headers.url + '_' + lib + '_' + qual + '.mp4'\" type=\"video/mp4\" id=\"mp4\">\n\t</video>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div class=\"hipVid-status\" :class=\"{'is-play': playing}\">\n\t\t<i id=\"pauseplay\" class=\"fa fa-5x\" :class=\"{'fa-play': playing, 'fa-pause': !playing}\"></i>\n\t</div>\n\t<video :poster=\"db.headers.img\" class=\"hipVid\" :id=\"'hipVid-' + db.headers.id\">\n\t\t<source :src=\"db.headers.url + '_' + acessibilidade + '_' + queQualidade + '.mp4'\" type=\"video/mp4\" id=\"mp4\">\n\t</video>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -1729,9 +1721,9 @@ var $$$ = require('jquery');
 var _marked = require('marked');
 module.exports = {
 	replace: true,
+	props: ['database'],
 	data: function data() {
 		return {
-			db: this.$parent.database,
 			home: false
 		};
 	},
@@ -1753,7 +1745,7 @@ module.exports = {
 	computed: {
 		hipId: {
 			get: function get() {
-				var hip = this.$data.db;
+				var hip = this.database;
 				var ids = [];
 				for (var i = 0, antes = 0; i < hip.length; i++) {
 					var hipid = hip[i].headers.id;
@@ -1824,7 +1816,7 @@ module.exports = {
 		}
 	}
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"page-content\">\n\t<div class=\"mdl-grid\">\n\n\t  <div class=\"mdl-cell mdl-cell--3-col mdl-cell--4-col-phone\" id=\"hip-{{hipId[$index]}}\" v-for=\"hipervideo in db\" transition=\"fade\">\n\t  \t<div class=\"demo-card-wide mdl-card mdl-shadow--2dp\">\n\t\t\t  <div class=\"mdl-card__title display-home\" :class=\"{ativo: home}\">\n\t\t\t    <h2 class=\"mdl-card__title-text\">{{hipervideo.headers.nome}}</h2>\n\t\t\t  </div>\n\t\t\t  <div class=\"mdl-card__supporting-text display-home\" :class=\"{ativo: home}\">\n\t\t\t    {{{ hipervideo.headers.descricao | marked }}}\n\t\t\t  </div>\n\t\t\t  <dir class=\"play-div\">\n\t\t\t  \t<img v-if=\"hipervideo.headers.img\" :src=\"hipervideo.headers.img\" class=\"play-img\">\n\t\t\t  \t<a class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\" href=\"/#/{{hipId[$index]}}\">\n\t\t\t  \t\t<i class=\"material-icons dot\">play_arrow</i>\n\t\t\t      <i class=\"material-icons\">play_circle_outline</i>\n\t\t\t    </a>\n\t\t\t  </dir>\n\t\t\t  <div class=\"mdl-card__actions mdl-card--border display-home\" :class=\"{ativo: !home}\" style=\"padding:0;\">\n\t\t\t    <a class=\"mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect\" href=\"/#/home/{{hipId[$index]}}\" style=\"width:100%;\">\n\t\t\t      {{hipervideo.headers.nome}}\n\t\t\t    </a>\n\t\t\t  </div>\n\t\t\t  <div class=\"mdl-card__menu\">\n\t\t\t    <a class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\" v-if=\"!home\" href=\"/#/home/{{hipId[$index]}}\">\n\t\t\t      <i class=\"material-icons\">add</i>\n\t\t\t    </a>\n\t\t\t    <a class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\" v-if=\"home\" href=\"/#/home\">\n\t\t\t      <i class=\"material-icons\">close</i>\n\t\t\t    </a>\n\t\t\t  </div>\n\t\t\t</div>\n\t  </div>\n\n\t</div>\n\t\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div class=\"page-content\">\n\t<div class=\"mdl-grid\">\n\n\t  <div class=\"mdl-cell mdl-cell--3-col mdl-cell--4-col-phone\" id=\"hip-{{hipId[$index]}}\" v-for=\"hipervideo in database\" transition=\"fade\">\n\t  \t<div class=\"demo-card-wide mdl-card mdl-shadow--2dp\">\n\t\t\t  <div class=\"mdl-card__title display-home\" :class=\"{ativo: home}\">\n\t\t\t    <h2 class=\"mdl-card__title-text\">{{hipervideo.headers.nome}}</h2>\n\t\t\t  </div>\n\t\t\t  <div class=\"mdl-card__supporting-text display-home\" :class=\"{ativo: home}\">\n\t\t\t    {{{ hipervideo.headers.descricao | marked }}}\n\t\t\t  </div>\n\t\t\t  <dir class=\"play-div\">\n\t\t\t  \t<img v-if=\"hipervideo.headers.img\" :src=\"hipervideo.headers.img\" class=\"play-img\">\n\t\t\t  \t<a class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\" href=\"/#/{{hipId[$index]}}\">\n\t\t\t  \t\t<i class=\"material-icons dot\">play_arrow</i>\n\t\t\t      <i class=\"material-icons\">play_circle_outline</i>\n\t\t\t    </a>\n\t\t\t  </dir>\n\t\t\t  <div class=\"mdl-card__actions mdl-card--border display-home\" :class=\"{ativo: !home}\" style=\"padding:0;\">\n\t\t\t    <a class=\"mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect\" href=\"/#/home/{{hipId[$index]}}\" style=\"width:100%;\">\n\t\t\t      {{hipervideo.headers.nome}}\n\t\t\t    </a>\n\t\t\t  </div>\n\t\t\t  <div class=\"mdl-card__menu\">\n\t\t\t    <a class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\" v-if=\"!home\" href=\"/#/home/{{hipId[$index]}}\">\n\t\t\t      <i class=\"material-icons\">add</i>\n\t\t\t    </a>\n\t\t\t    <a class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\" v-if=\"home\" href=\"/#/home\">\n\t\t\t      <i class=\"material-icons\">close</i>\n\t\t\t    </a>\n\t\t\t  </div>\n\t\t\t</div>\n\t  </div>\n\n\t</div>\n\t\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -1852,7 +1844,7 @@ var perfectScrollbar = require('perfect-scrollbar');
 module.exports = {
 	// replace para pegar com v-with objetos do parent
 	replace: true,
-	props: ['params', 'db'],
+	props: ['params', 'db', 'qualidade', 'acessibilidade'],
 	data: function data() {
 		return {
 			events: null,
@@ -1862,12 +1854,12 @@ module.exports = {
 			cartela: false,
 			fixedSidebar: false,
 			conteudo: {},
-			videoTag: null,
 			seeking: false,
 			video: {
 				popcorn: null,
 				time: 0,
 				duration: 0,
+				tag: null,
 				progress: 0
 			}
 		};
@@ -1897,9 +1889,9 @@ module.exports = {
 
 		// POPCORN
 
-		this.videoTag = document.getElementById('hipVid-' + self.params.video);
+		this.video.tag = document.getElementById('hipVid-' + self.params.video);
 
-		this.videoTag.addEventListener("loadeddata", function () {
+		this.video.tag.addEventListener("loadeddata", function () {
 
 			self.video.popcorn = Popcorn("#hipVid-" + self.params.video);
 
@@ -1910,7 +1902,7 @@ module.exports = {
 			}
 		}, false);
 
-		this.videoTag.addEventListener("play", function () {
+		this.video.tag.addEventListener("play", function () {
 
 			if (!self.seeking) {
 				self.$broadcast('hipervideo-play');
@@ -1918,7 +1910,7 @@ module.exports = {
 			}
 		}, false);
 
-		this.videoTag.addEventListener("pause", function () {
+		this.video.tag.addEventListener("pause", function () {
 
 			if (!self.seeking) {
 				self.$broadcast('hipervideo-pause');
@@ -1926,7 +1918,7 @@ module.exports = {
 			}
 		}, false);
 
-		this.videoTag.addEventListener("ended", function () {
+		this.video.tag.addEventListener("ended", function () {
 			console.log(self.seeking);
 
 			creditos.className = 'finalizado';
@@ -1961,7 +1953,7 @@ module.exports = {
 	beforeDestroy: function beforeDestroy() {
 		this.$off('hipervideo-canplay');
 		var self = this;
-		this.videoTag.removeEventListener("play", function () {
+		this.video.tag.removeEventListener("play", function () {
 
 			if (!self.seeking) {
 				self.$broadcast('hipervideo-play');
@@ -1969,7 +1961,7 @@ module.exports = {
 			}
 		}, false);
 
-		this.videoTag.removeEventListener("pause", function () {
+		this.video.tag.removeEventListener("pause", function () {
 			console.log(self.seeking);
 
 			if (!self.seeking) {
@@ -1978,7 +1970,7 @@ module.exports = {
 			}
 		}, false);
 
-		this.videoTag.removeEventListener("loadeddata", function () {
+		this.video.tag.removeEventListener("loadeddata", function () {
 
 			self.video.popcorn = Popcorn("#hipVid-" + self.params.video);
 
@@ -1988,7 +1980,7 @@ module.exports = {
 				self.attachPopcornEvents();
 			}
 		}, false);
-		this.videoTag.removeEventListener("ended", function () {
+		this.video.tag.removeEventListener("ended", function () {
 
 			creditos.className = 'finalizado';
 			self.videoPause();
@@ -2197,7 +2189,7 @@ module.exports = {
 		'in-sidebar-info': require('../components/sidebar-info.vue')
 	}
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div>\n\n\t\t<!-- VIDEO -->\n\n\t\t<in-bg-video v-ref:hipervideo=\"\"></in-bg-video>\n\n\t\t<!-- NAV-VIDEO -->\n\n\t\t<nav class=\"hover\" id=\"video-controls\">\n\t\t\t<in-topbar-slider></in-topbar-slider>\n\t\t\t<input type=\"range\" id=\"seek-bar-{{params.video}}\" min=\"0\" max=\"1000\" data-rangeslider=\"\" style=\"display: none;\">\n\t\t</nav>\n\n\t\t<!-- SIDEBAR -->\n\n\t\t<div class=\"sidebar\" :class=\"{'is-open': hasBlocks || hasInfo || fixedSidebar, 'has-info': hasInfo}\">\n\n\t\t\t<!-- CONTENT -->\n\n\t\t\t<div class=\"sidebar_content\">\n\t\t\t\t<in-sidebar-block v-for=\"content in contentBlocks\" :content=\"content\" :video=\"video\" :conteudo=\"conteudo\" transition=\"sidebar\"></in-sidebar-block>\n\t\t\t\t<div class=\"sidebar_opener clickable\" @click=\"openDefaultBlock\" v-show=\"!hasBlocks &amp;&amp; !fixedSidebar &amp;&amp; !hasInfo\" transition=\"sidebar\">\n\t\t\t\t\t<div class=\"sidebar_opener__inside context-bg\">abrir</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<!-- CARTELAS -->\n\n\t\t\t<!-- <div v-show=\"cartela\" class=\"sidebar_cartela\" transition=\"expand\">\n\t\t\t\t<div class=\"sidebar_block__header context-bg\" style=\"font-size: 100%;\">\n\t\t\t\t\t<div id=\"cartela_nome\">\n\t\t\t\t\t\t{{contentCartela.title | uppercase}}\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"sidebar_block__header\" style=\"background: #fff;\">\n\t\t\t\t\t<div id=\"cartela_funcao\">\n\t\t\t\t\t\t{{contentCartela.funcao}}\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div> -->\n\n\t\t\t<!-- BACKGROUND -->\n\n\t\t\t<div class=\"sidebar_back\"></div>\n\t\t</div>\n\n\t\t<!-- INFO -->\n\t\n\t\t<div id=\"infopanel\" class=\"infopanel\" :class=\"{'is-open': hasInfo}\">\n\t    <in-sidebar-info :params=\"params\" :conteudo=\"conteudo\"></in-sidebar-info>\n\t  </div>\n\n\t\t<div id=\"loading\" class=\"not-loading\"><i class=\"fa fa-refresh fa-3x fa-spin\"></i></div>\n\t\n\t\t\n\t</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div>\n\n\t\t<!-- VIDEO -->\n\n\t\t<in-bg-video :db=\"db\" :video=\"video\" :qualidade=\"qualidade\" :acessibilidade=\"acessibilidade\" v-ref:hipervideo=\"\"></in-bg-video>\n\n\t\t<!-- NAV-VIDEO -->\n\n\t\t<nav class=\"hover\" id=\"video-controls\">\n\t\t\t<in-topbar-slider></in-topbar-slider>\n\t\t\t<input type=\"range\" id=\"seek-bar-{{params.video}}\" min=\"0\" max=\"1000\" data-rangeslider=\"\" style=\"display: none;\">\n\t\t</nav>\n\n\t\t<!-- SIDEBAR -->\n\n\t\t<div class=\"sidebar\" :class=\"{'is-open': hasBlocks || hasInfo || fixedSidebar, 'has-info': hasInfo}\">\n\n\t\t\t<!-- CONTENT -->\n\n\t\t\t<div class=\"sidebar_content\">\n\t\t\t\t<in-sidebar-block v-for=\"content in contentBlocks\" :content=\"content\" :video=\"video\" :conteudo=\"conteudo\" transition=\"sidebar\"></in-sidebar-block>\n\t\t\t\t<div class=\"sidebar_opener clickable\" @click=\"openDefaultBlock\" v-show=\"!hasBlocks &amp;&amp; !fixedSidebar &amp;&amp; !hasInfo\" transition=\"sidebar\">\n\t\t\t\t\t<div class=\"sidebar_opener__inside context-bg\">abrir</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<!-- CARTELAS -->\n\n\t\t\t<!-- <div v-show=\"cartela\" class=\"sidebar_cartela\" transition=\"expand\">\n\t\t\t\t<div class=\"sidebar_block__header context-bg\" style=\"font-size: 100%;\">\n\t\t\t\t\t<div id=\"cartela_nome\">\n\t\t\t\t\t\t{{contentCartela.title | uppercase}}\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"sidebar_block__header\" style=\"background: #fff;\">\n\t\t\t\t\t<div id=\"cartela_funcao\">\n\t\t\t\t\t\t{{contentCartela.funcao}}\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div> -->\n\n\t\t\t<!-- BACKGROUND -->\n\n\t\t\t<div class=\"sidebar_back\"></div>\n\t\t</div>\n\n\t\t<!-- INFO -->\n\t\n\t\t<div id=\"infopanel\" class=\"infopanel\" :class=\"{'is-open': hasInfo}\">\n\t    <in-sidebar-info :params=\"params\" :conteudo=\"conteudo\"></in-sidebar-info>\n\t  </div>\n\n\t\t<div id=\"loading\" class=\"not-loading\"><i class=\"fa fa-refresh fa-3x fa-spin\"></i></div>\n\t\n\t\t\n\t</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
