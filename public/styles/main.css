@@ -1,0 +1,74 @@
+.link {
+  font-weight: 900;
+  margin-bottom: 10px; }
+  .link a {
+    display: block;
+    padding: 8px;
+    text-decoration: none;
+    line-height: 22px; }
+
+.clickable {
+  cursor: pointer; }
+
+.disable-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+@font-face {
+  font-family: 'fonte-normal';
+  src: url("/fonts/SANS_regular.ttf"); }
+
+@font-face {
+  font-family: 'fonte-bold';
+  src: url("/fonts/SANS_bold.ttf"); }
+
+html {
+  font-size: 16px; }
+
+html, body {
+  height: 100%;
+  overflow: hidden; }
+
+body {
+  background: black;
+  color: #fff;
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 400; }
+
+a {
+  color: #fff; }
+
+strong {
+  font-weight: 900; }
+
+.is-video-mulher .context-bg {
+  background: #ed1e79; }
+
+.is-video-adolescente .context-bg {
+  background: #00a300; }
+
+.is-video-crianca .context-bg {
+  background: #0cc; }
+
+.is-video-prisional .context-bg {
+  background: #f00; }
+
+.is-video-deficiencia .context-bg {
+  background: #00c; }
+
+.noty_text {
+  letter-spacing: 0;
+  font-size: 16px; }
+
+.noty_buttons {
+  text-align: center !important;
+  border: none !important;
+  background: none !important; }
+  .noty_buttons button {
+    font-size: 16px;
+    padding: 10 20px; }

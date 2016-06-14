@@ -1,0 +1,130 @@
+{
+  "headers": 
+    {
+      "id": "o-hipervideo",
+      "nome": "O Hipervídeo",
+      "descricao": "Descrição do Hipervídeo",
+      "url": "https://s3-sa-east-1.amazonaws.com/avnaweb/DAPES/Novos_Converts/dapes_ssa_final"
+    },
+  "plugins": 
+    [
+      {
+        "tipo": "mapa",
+        "geo": [-22.9212988, -43.1812203, 16],
+        "locais": [
+          {
+            "nome": "Jardim Digital",
+            "lat": -22.9212988,
+            "lon": -43.1812203,
+            "site": "http://jardimdigital.com.br"
+          }
+        ]
+      },
+      {
+        "tipo": "capitulos",
+        "capitulo": [
+          {
+            "nome": "Introdução",
+            "timecode": 117.873826,
+            "id": 1
+          },
+          {
+            "nome": "Centro de Parto Normal",
+            "id": 2,
+            "timecode": 449
+          }
+        ]
+      },
+      {
+        "tipo": "cores",
+        "primaria": "#954db3",
+        "secundaria": "#83bf65",
+        "background": "#011627"
+      },
+      {
+        "tipo": "conexoes",
+        "edges": [
+          {"source": 0,"target": 1},
+          {"source": 0,"target": 2}
+        ]
+      }
+    ],
+  "eventos": 
+    [
+      {
+        "title": "CONANDA",
+        "timecode": {
+          "start": 500,
+          "end": 530
+        },
+        "component": {
+          "type": "text",
+          "fields": {
+            "excerpt": "Conselho Nacional dos Direitos da Criança e do Adolescente"
+          }
+        },
+        "conteudo": {
+          "texto": "**O Conselho Nacional dos Direitos da Criança e do Adolescente – CONANDA**, é um órgão colegiado permanente de caráter deliberativo e composição paritária, previsto no artigo 88 da lei no 8.069/90 – Estatuto da Criança e do Adolescente (ECA). Integra a estrutura báicsa da Secretaria de Direitos Humanos da Presidência da República (SDH/PR).Algumas das principais pautas do CONANDA são:\n\n- o combate à violência e exploração sexual praticada contra crianças e adolescentes;\n\n- a prevenção e erradicação do trabalho infantil e proteção do trabalhador adolescente;\n\n- a promoção e a defesa dos direitos de crianças e adolescentes indígenas, quilombolas, crianças e adolescentes com deficiência;\n\n- criação de parâmetros de funcionamento e ação para as diversas partes integrantes do sistema de garantia de direitos; e\n\n- o acompanhamento de projetos de lei em tramitação no CN referentes aos direitos de crianças e adolescentes.\n\n",
+          "arquivos": [
+            {
+              "nome": "Referência",
+              "link": "http://www.sdh.gov.br/sobre/participacao-social/conselho-nacional-dos-direitos-da-crianca-e-do-adolescente-conanda"
+            }
+          ],
+          "mapa": {
+            "geo": [-12.9627283, -38.4917117, 18],
+            "locais": "1lRwPcZ3fEffamlrjMxnqLlI8LiETnyK8JeBdP_E1s5E"
+          },
+          "stats": [
+            {
+              "tipo": "databars",
+              "conteudo": "1g5qlvrvMShdOMNsrRHaQCUYsPh4b-4ldkfDw-tOSzdw"
+            }
+          ]
+        }
+      },
+      {
+        "title": "SHONANDA",
+        "timecode": {
+          "start": 500,
+          "end": 530
+        },
+        "component": {
+          "type": "text",
+          "fields": {
+            "excerpt": "Conselho Nacional dos Direitos da Criança e do Adolescente"
+          }
+        },
+        "conteudo": {
+          "texto": "**O Conselho Nacional dos Direitos da Criança e do Adolescente – CONANDA**, é um órgão colegiado permanente de caráter deliberativo e composição paritária, previsto no artigo 88 da lei no 8.069/90 – Estatuto da Criança e do Adolescente (ECA). Integra a estrutura báicsa da Secretaria de Direitos Humanos da Presidência da República (SDH/PR).Algumas das principais pautas do CONANDA são:\n\n- o combate à violência e exploração sexual praticada contra crianças e adolescentes;\n\n- a prevenção e erradicação do trabalho infantil e proteção do trabalhador adolescente;\n\n- a promoção e a defesa dos direitos de crianças e adolescentes indígenas, quilombolas, crianças e adolescentes com deficiência;\n\n- criação de parâmetros de funcionamento e ação para as diversas partes integrantes do sistema de garantia de direitos; e\n\n- o acompanhamento de projetos de lei em tramitação no CN referentes aos direitos de crianças e adolescentes.\n\n",
+          "arquivos": [
+            {
+              "nome": "Referência",
+              "link": "http://www.sdh.gov.br/sobre/participacao-social/conselho-nacional-dos-direitos-da-crianca-e-do-adolescente-conanda"
+            }
+          ],
+          "mapa": {
+            "geo": [-12.9627283, -38.4917117, 18],
+            "locais": "1lRwPcZ3fEffamlrjMxnqLlI8LiETnyK8JeBdP_E1s5E"
+          },
+          "stats": [
+            {
+              "tipo": "databars",
+              "conteudo": "1g5qlvrvMShdOMNsrRHaQCUYsPh4b-4ldkfDw-tOSzdw"
+            }
+          ]
+        }
+      }
+    ],
+  "cartelas": 
+    [
+      {
+        "title": "Breno Botelho",
+        "funcao": "Gerente de Unidade Básica de Saúde",
+        "timecode": {
+          "start": 300,
+          "end": 330
+        }
+      }
+    ]
+}
