@@ -92,6 +92,9 @@
 
 <template>
 <div class="page-content">
+	<div class="mdl-grid" style="background-color: red; height: 565px;">
+		<div class="mdl-cell mdl-cell--12-col"></div>
+	</div>
 	<div class="mdl-grid">
 
 	  <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone" id="hip-{{hipId[$index]}}" v-for="hipervideo in database" transition="fade">
@@ -135,7 +138,7 @@
 	var marked = require('marked')
 	module.exports = {
 		replace: true,
-		props: ['database'],
+		props: ['database', 'ready'],
 		data: function(){
 			return {
 				home: false
@@ -225,6 +228,8 @@
 		    fn(m)
 
 			}
+
+			this.ready = true
 
 		},
 		components: {

@@ -201,7 +201,7 @@
 		<!-- NAV-VIDEO -->
 
 		<nav class="hover" id="video-controls">
-			<in-topbar-slider></in-topbar-slider>
+			<in-topbar-slider :db="db"></in-topbar-slider>
 			<input type="range" id="seek-bar-{{params.video}}" min="0" max="1000" data-rangeslider="" style="display: none;">
 		</nav>
 
@@ -260,7 +260,7 @@
 	module.exports = {
 		// replace para pegar com v-with objetos do parent
 		replace: true,
-		props: ['params', 'db', 'qualidade', 'acessibilidade'],
+		props: ['params', 'db', 'qualidade', 'acessibilidade', 'ready'],
 		data: function(){
 			return {
 				events: null,
@@ -370,6 +370,8 @@
 			$$$(window).bind('mousemove', this.handleMouseMove);
 			$$$(document).bind('keydown', this.keyEvents)
 
+			this.ready = true
+
 		},
 		beforeDestroy: function(){
 			this.$off('hipervideo-canplay')
@@ -413,7 +415,7 @@
 			this.$off('block-timer-clicked')
 			this.$off('video-timeupdate')
 			this.$off('graph-node-clicked')
-			location.reload()
+			// location.reload()
     },
 		ready: function(){
 			this.$dispatch('video-view-ready');
@@ -608,10 +610,7 @@
 		components: {
 			'in-sidebar-block': require('../components/sidebar-block.vue'),
 			'in-topbar-slider': require('../components/topbar-slider.vue'),
-			'in-topbar-capitulos': require('../components/topbar-capitulos.vue'),
 			'in-bg-video': require('../components/bg-video.vue'),
-			'in-sidebar-chapter': require('../components/sidebar-chapter.vue'),
-			'in-sidebar-block': require('../components/sidebar-block.vue'),
 			'in-sidebar-info': require('../components/sidebar-info.vue')
 		}
 	}

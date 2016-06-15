@@ -140,7 +140,7 @@
 				tempoTotal(duracao)
 			})
 
-			this.hipervideo.volume = 0
+			this.hipervideo.volume = 1
 		  
 			// Update the seek bar as the video plays
 			this.hipervideo.addEventListener("timeupdate", function() {

@@ -3,7 +3,9 @@
 	var Vue = require('vue')
 	var Router = require('director').Router
 	var app = new Vue(require('./app.vue'))
+	var VueTouch = require('vue-touch')
 	Vue.config.debug = true
+	Vue.use(VueTouch)
 
 	// ROUTES
 
@@ -177,34 +179,6 @@
 		})
 	}
 
-	// DATA: load api folder before router initialization
-	// Trello.get("/boards/O62BDMJt/lists", function(hipervideos) {
-	// 	console.log('trello api')
-	// 	for (var i = 0; i < hipervideos.length; i++) {
-	// 		console.log(i)
-	// 		Trello.get("/lists/"+hipervideos[i].id+"/cards", function(hip) {
-	// 			console.log(i + " - cards")
-	// 			var head = _.findWhere(hip, { "name": "headers" })
-	// 			Trello.get("/cards/"+head.id+"/attachments", function(attach) {
-	// 				console.log(i + " - attachs")
-	// 				var headers = getHeaders(hip)
-	// 				if (attach.length !== 0) {
-	// 					headers.img = attach[0].url
-	// 				}
-	// 				var plugins = getElement(hip, "plugins")
-	// 				var eventos = getElement(hip, "eventos")
-	// 				var cartelas = getElement(hip, "cartelas")
-	// 				var obj = {
-	// 					headers: headers,
-	// 					plugins: plugins,
-	// 					eventos: eventos,
-	// 					cartelas: cartelas
-	// 				}
-	// 				app.$data.database.push(obj)
-	// 			})
-	// 		})
-	// 	}
-	// })
 	getHiper('O62BDMJt')
 
 	var router = new Router(routes)
