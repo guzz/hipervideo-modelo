@@ -2,6 +2,19 @@
 	.context-bg {
 		background-color: red;
 	}
+	.app_load {
+		position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    z-index: 4;
+	}
+	#p1 {
+		margin: 22% auto;
+	}
 	.header-top {
 		-webkit-transition: width .3s ease;
 		   -moz-transition: width .3s ease;
@@ -31,6 +44,13 @@
 	}
 	.fade-enter, .fade-leave {
 		opacity: 0;
+	}
+	.grow-transition {
+		min-height: inherit;
+	}
+	.grow-enter, .grow-leave {
+		min-height: 0;
+		height: 0;
 	}
 	.header__down {
 		min-height: 500px;
@@ -125,9 +145,12 @@
 
 <template>
 	<div>
+	<div class="app_load"  v-if="!ready" transition="fade">
+		<div id="p1" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+	</div>
 		<div id="full" allowfullscreen="true">
 			<div class="demo-layout-waterfall mdl-layout mdl-js-layout" :class="{ 'home-open': home }">
-			  <header class="mdl-layout__header mdl-layout__header--waterfall header-top" :class="{ hide: isVideo, 'home-menu': home }">
+			  <header class="mdl-layout__header mdl-layout__header--waterfall header-top" :class="{ 'home-menu': home }" v-if="!isVideo" transition="grow"  style="position: absolute; background-color: rgba(0, 0, 0, .5);">
 			    <!-- Top row, always visible -->
 			    <div class="mdl-layout__header-row">
 			      <!-- Title -->
@@ -144,10 +167,6 @@
 			                 id="waterfall-exp">
 			        </div>
 			      </div>
-			    </div>
-			    <!-- Bottom row, not visible on scroll -->
-			    <div class="mdl-layout__header-row header__down">
-			      <div class="mdl-layout-spacer"></div>
 			    </div>
 			  </header>
 			  <div class="mdl-layout__drawer" :class="{'is-visible': drawer}">
@@ -193,7 +212,7 @@
 					</ul>
 			  </div>
 			  <div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button" @click="openDrawer"><i class="material-icons">menu</i></div>
-			  <main class="mdl-layout__content view" :is="view" transition="vie" :class="[className]" :db="db" :database="database" :params="params" :qualidade="qualidade" :acessibilidade="acessibilidade" v-ref:view >
+			  <main class="mdl-layout__content view" :is="view" transition="vie" :class="[className]" :db="db" :database="database" :params="params" :qualidade="qualidade" :acessibilidade="acessibilidade" :ready.sync="ready" v-ref:view >
 
 			  </main>
 			  <div class="mdl-layout__obfuscator" :class="{'is-visible': drawer}" @click="openDrawer"></div>
@@ -210,12 +229,14 @@
 	var _ = require('underscore')
 	var md5 = require('blueimp-md5')
 	var $$$= require('jquery')
+  var perfectScrollbar = require('perfect-scrollbar')
 
 	module.exports = {
 		el: '#app',
 		data: {
 			database: [],
 			db: null,
+			ready: false,
 			view: "",
 			className: "",
 			qualidade: 0,

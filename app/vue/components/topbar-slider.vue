@@ -132,9 +132,9 @@
 	var $$$ = require('jquery')
 	module.exports = {
 		replace: true,
+		props: ['db'],
 		data: function() {
 			return {
-				db: this.$parent.db,
 				hip: null,
 				sel: null,
 				bol: false,
