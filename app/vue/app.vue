@@ -44,6 +44,8 @@
 	}
 	.fade-enter, .fade-leave {
 		opacity: 0;
+		position: absolute;
+		width: 100%;
 	}
 	.grow-transition {
 		min-height: inherit;
@@ -212,7 +214,7 @@
 					</ul>
 			  </div>
 			  <div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button" @click="openDrawer"><i class="material-icons">menu</i></div>
-			  <main class="mdl-layout__content view" :is="view" transition="vie" :class="[className]" :db="db" :database="database" :params="params" :qualidade="qualidade" :acessibilidade="acessibilidade" :ready.sync="ready" v-ref:view >
+			  <main class="mdl-layout__content view" :is="view" transition="fade" :class="[className]" :db="db" :database="database" :params="params" :qualidade="qualidade" :acessibilidade="acessibilidade" :ready.sync="ready" v-ref:view >
 
 			  </main>
 			  <div class="mdl-layout__obfuscator" :class="{'is-visible': drawer}" @click="openDrawer"></div>
