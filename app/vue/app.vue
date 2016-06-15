@@ -152,11 +152,11 @@
 	</div>
 		<div id="full" allowfullscreen="true">
 			<div class="demo-layout-waterfall mdl-layout mdl-js-layout" :class="{ 'home-open': home }">
-			  <header class="mdl-layout__header mdl-layout__header--waterfall header-top" :class="{ 'home-menu': home }" v-if="!isVideo" transition="grow"  style="position: absolute; background-color: rgba(0, 0, 0, .5);">
+			  <header class="mdl-layout__header mdl-layout__header--transparent header-top" :class="{ 'home-menu': home }" v-if="!isVideo" transition="grow"  style="position: absolute; background-color: rgba(0, 0, 0, .5);">
 			    <!-- Top row, always visible -->
 			    <div class="mdl-layout__header-row">
 			      <!-- Title -->
-			      <span class="mdl-layout-title">Title</span>
+			      <span class="mdl-layout-title">Hipervideo</span>
 			      <div class="mdl-layout-spacer"></div>
 			      <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
 			                  mdl-textfield--floating-label mdl-textfield--align-right">
