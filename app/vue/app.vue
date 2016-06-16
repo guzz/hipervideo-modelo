@@ -5,7 +5,7 @@
 		}
 	}
 	.context-bg {
-		background-color: #0000ff;
+		background-color: #ff0000;
 	}
 	.app_load {
 		position: fixed;
@@ -76,11 +76,15 @@
 	.mdl-layout__drawer {
 		width: 25%;
 		transform: translateX(-100%);
+
+		@media screen and (max-width: 900px){
+			width: 45%;
+		}
 		/* uso da query p esconder o drawer , retirada, por achar que não há necessidade de uso mais 
 		@media screen and (max-width: 1024px) {
 			width: 240px;
-			transform: translateX(-250px); */
-		}
+			transform: translateX(-250px);
+		}  */ 
 	}
 	.gravatar {
 		margin-bottom: 10px;
@@ -105,9 +109,11 @@
     margin: 10px 10px 0;
 	}
 	.qual-label {
-		
+		width: 85%;
+		min-width: 80%
 		padding-left: 20px;
 		margin-bottom: 20px;
+	}
 		span {
 			-webkit-transition: all .1s ease;
 			   -moz-transition: all .1s ease;
@@ -120,7 +126,8 @@
 			font-size: 16px;
 		}
 		.span {
-			margin: 0 12px;
+			margin: 0 27%;
+			text-align: center;
 			
 		}
 	}
