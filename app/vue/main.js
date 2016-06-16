@@ -107,7 +107,7 @@
 					app.$data.db = app.$data.database[validation]
 					app.$data.view = 'video-view'
 					app.$data.params.video = id
-					app.$data.className = 'is-video-' + id
+					app.$data.className = 'is-video'
 				})
 				
 			}

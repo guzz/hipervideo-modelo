@@ -1,4 +1,9 @@
 <style lang="scss">
+	.view {
+		&.is-video {
+			overflow: hidden;
+		}
+	}
 	.context-bg {
 		background-color: #0000ff;
 	}

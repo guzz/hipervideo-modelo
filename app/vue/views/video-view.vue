@@ -1,4 +1,11 @@
 <style lang="scss">
+	#player {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
 	.sidebar {
 		width: 22%;
 		margin-top: 200px;
@@ -102,15 +109,20 @@
 	}
 
 	#video-controls {
-	  position: fixed;
-	  top: 0;
-	  width: 100%;
-	  display: block;
-	  z-index: 25;
+	  position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: block;
+    z-index: 25;
 	  &.hover {
 	    .rangeslider, .rangeslider__fill {
-	      top: 0px;
-	      height: 3px;
+    		height: 3px;
+	    }
+	    .rangeslider {
+    		top: -3px;
+	    }
+	    .rangeslider__fill {
+    		top: 0px;
 	    }
 	  }
 	}
@@ -195,16 +207,17 @@
 	<div>
 
 		<!-- VIDEO -->
+		<div id="player">
+			<in-bg-video :db="db" :video="video" :qualidade="qualidade" :acessibilidade="acessibilidade" v-ref:hipervideo></in-bg-video>
 
-		<in-bg-video :db="db" :video="video" :qualidade="qualidade" :acessibilidade="acessibilidade" v-ref:hipervideo></in-bg-video>
+			<!-- NAV-VIDEO -->
 
-		<!-- NAV-VIDEO -->
-
-		<nav class="hover" id="video-controls">
-			<in-topbar-slider :db="db"></in-topbar-slider>
-			<input type="range" id="seek-bar-{{params.video}}" min="0" max="1000" data-rangeslider="" style="display: none;">
-		</nav>
-
+			<nav class="hover" id="video-controls">
+				<in-topbar-slider :db="db"></in-topbar-slider>
+				<input type="range" id="seek-bar-{{params.video}}" min="0" max="1000" data-rangeslider="" style="display: none;">
+			</nav>
+		</div>
+		
 		<!-- SIDEBAR -->
 
 		<div class="sidebar" :class="{'is-open': hasBlocks || hasInfo || fixedSidebar, 'has-info': hasInfo}">
@@ -499,9 +512,10 @@
 			},
 			handleMouseMove: function(event) {
 				var controles = document.getElementById('video-controls');
+				var player = document.getElementById('player');
 				event = event || window.event; // IE-ism
 				// event.clientX and event.clientY contain the mouse position
-				if (event.clientY < 60) {
+				if (event.clientY > player.clientHeight - 30) {
 					controles.className = "";
 				} else {
 					controles.className = "hover";
