@@ -1,6 +1,6 @@
 <style lang="scss">
 	.context-bg {
-		background-color: red;
+		background-color: #0000ff;
 	}
 	.app_load {
 		position: fixed;
@@ -9,7 +9,7 @@
     overflow: hidden;
     height: 100%;
     width: 100%;
-    background-color: white;
+    background-color: #ffffff;
     z-index: 4;
 	}
 	#p1 {
@@ -69,11 +69,12 @@
 		}
 	}
 	.mdl-layout__drawer {
-		width: 390px;
-		transform: translateX(-400px);
+		width: 25%;
+		transform: translateX(-100%);
+		/* uso da query p esconder o drawer , retirada, por achar que não há necessidade de uso mais 
 		@media screen and (max-width: 1024px) {
 			width: 240px;
-			transform: translateX(-250px);
+			transform: translateX(-250px); */
 		}
 	}
 	.gravatar {
@@ -90,9 +91,12 @@
 		font-size: 35px;
 		margin-bottom: 10px;
 	}
+
+	/* estilo do botão conecte-se */
 	.connecte-se {
+		width: 95%;
 		height: 200px;
-    font-size: 40px;
+    font-size: 210%;
     margin: 10px 10px 0;
 	}
 	.info-menu {
@@ -100,6 +104,7 @@
     margin-top: 0;
 	}
 	.qual-label {
+		
 		padding-left: 20px;
 		margin-bottom: 20px;
 		span {
@@ -114,7 +119,7 @@
 			font-size: 16px;
 		}
 		.span {
-			margin: 0 123px;
+			margin: 0 12px;
 			
 		}
 	}
@@ -143,6 +148,10 @@
 			}
 		}
 	}
+
+
+
+	
 </style>
 
 <template>
@@ -183,7 +192,7 @@
 					<hr></hr>
 					<h4 class="info-menu">Qualidade</h4>
 					<input class="mdl-slider mdl-js-slider" type="range" min="0" max="2" :value="qualidade" tabindex="0" step="1" @input="mudaQual">
-					<div class="qual-label">
+					<div class="qual-label" id="quality">
 						<span :class="{ active: isBaixa }">Baixa</span>
 						<span :class="{ active: isMedia }" class="span">Média</span>
 						<span :class="{ active: isAlta }">Alta</span>
