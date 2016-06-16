@@ -5,17 +5,17 @@
 		}
 	}
 	.context-bg {
-		background-color: red;
+		background-color: #0000ff;
 	}
 	.app_load {
 		position: fixed;
-	    top: 0;
-	    left: 0;
-	    overflow: hidden;
-	    height: 100%;
-	    width: 100%;
-	    background-color: white;
-	    z-index: 4;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    background-color: #ffffff;
+    z-index: 4;
 	}
 	#p1 {
 		margin: 22% auto;
@@ -74,11 +74,12 @@
 		}
 	}
 	.mdl-layout__drawer {
-		width: 390px;
-		transform: translateX(-400px);
+		width: 25%;
+		transform: translateX(-100%);
+		/* uso da query p esconder o drawer , retirada, por achar que não há necessidade de uso mais 
 		@media screen and (max-width: 1024px) {
 			width: 240px;
-			transform: translateX(-250px);
+			transform: translateX(-250px); */
 		}
 	}
 	.gravatar {
@@ -95,12 +96,18 @@
 		font-size: 35px;
 		margin-bottom: 10px;
 	}
+
+	/* estilo do botão conecte-se */
 	.connecte-se {
+		width: 95%;
 		height: 200px;
-	    font-size: 40px;
-	    margin: 10px 10px 0;
+    font-size: 210%;
+    margin: 10px 10px 0;
 	}
 	.qual-label {
+		
+		padding-left: 20px;
+		margin-bottom: 20px;
 		span {
 			-webkit-transition: all .1s ease;
 			   -moz-transition: all .1s ease;
@@ -112,7 +119,10 @@
 			font-weight: 900;
 			font-size: 16px;
 		}
-		
+		.span {
+			margin: 0 12px;
+			
+		}
 	}
 
 	.acess {
