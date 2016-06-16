@@ -1,4 +1,11 @@
 <style lang="scss">
+	#player {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+	}
 	.sidebar {
 		width: 22%;
 		margin-top: 200px;
@@ -200,7 +207,7 @@
 	<div>
 
 		<!-- VIDEO -->
-		<div>
+		<div id="player">
 			<in-bg-video :db="db" :video="video" :qualidade="qualidade" :acessibilidade="acessibilidade" v-ref:hipervideo></in-bg-video>
 
 			<!-- NAV-VIDEO -->
@@ -505,9 +512,10 @@
 			},
 			handleMouseMove: function(event) {
 				var controles = document.getElementById('video-controls');
+				var player = document.getElementById('player');
 				event = event || window.event; // IE-ism
 				// event.clientX and event.clientY contain the mouse position
-				if (event.clientY > window.innerHeight - 30) {
+				if (event.clientY > player.clientHeight - 30) {
 					controles.className = "";
 				} else {
 					controles.className = "hover";
