@@ -1,8 +1,8 @@
 <style lang="scss">
 	.rangeslider {
-		position: fixed;
+		position: absolute;
 		border-radius: 0;
-		top: 30px;
+		top: -27px;
 		background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);
 		transition: all 0.5s ease 0s;
 		.rangeslider__fill {
