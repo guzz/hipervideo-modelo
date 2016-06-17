@@ -1,5 +1,6 @@
 <style lang="scss">
 	.view {
+		height: 100%;
 		&.is-video {
 			overflow: hidden;
 		}
