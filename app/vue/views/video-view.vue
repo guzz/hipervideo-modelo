@@ -109,12 +109,19 @@
 	}
 
 	#video-controls {
-	position: absolute;
-	bottom: 0;
-    width: 100%;
-	display: block;
+		-webkit-transition: bottom .3s ease;
+		   -moz-transition: bottom .3s ease;
+		    -ms-transition: bottom .3s ease;
+		     -o-transition: bottom .3s ease;
+		        transition: bottom .3s ease;
+		position: absolute;
+		bottom: 0;
+		background-color: rgba(0,0,0,.5);
+	  width: 100%;
+		display: block;
     z-index: 25;
 	  &.hover {
+	  	bottom: -49px;
 	    .rangeslider, .rangeslider__fill {
     		height: 3px;
 	    }
@@ -201,24 +208,48 @@
 		opacity: 0.3 !important;
 	}
 
-	.vid-control1 {
+	#timeline {
 		position: relative;
-		color: black;
-		width: 2%;
-		float: left;
+    width: 100%;
+    float: left;
 	}
 
-	.vid-control2 {
+	#vid-buttons {
 		position: relative;
-		width: 92%;
-		margin-left: 2%;
-	}
-
-	.vid-control3 {
-		position: relative;
-		color: black;
-		width: 6%;
-		margin-left: 94%;
+    width: 100%;
+    float: left;
+		button {
+			-webkit-transition: opacity .3s ease;
+			   -moz-transition: opacity .3s ease;
+			    -ms-transition: opacity .3s ease;
+			     -o-transition: opacity .3s ease;
+			        transition: opacity .3s ease;
+			color: white;
+			opacity: .5;
+	    height: 46px;
+	    width: 46px;
+	    &:hover {
+	    	background-color: transparent;
+	    	opacity: 1;
+	    }
+		}
+		.material-icons {
+			font-size: 45px;
+			&.margem {
+				margin-left: -7px;
+			}
+			&.margem2 {
+				margin-left: -16px;
+			}
+		}
+		.mdl-slider__container {
+			height: 42px;
+		}
+		#volume {
+			width: 17%;
+	    margin-left: 2%;
+	    float: left;
+		}
 	}
 
 
@@ -229,40 +260,43 @@
 
 		<!-- VIDEO -->
 		<div id="player">
-			<in-bg-video :db="db" :video="video" :qualidade="qualidade" :acessibilidade="acessibilidade" v-ref:hipervideo></in-bg-video>
+			<in-bg-video :db="db" :video="video" :qualidade="qualidade" :acessibilidade="acessibilidade" :playing.sync="playing" v-ref:hipervideo></in-bg-video>
 
-			<div id="video-controls">
+			<div id="video-controls" :class="{ hover: playing }">
 
-				<!-- Botão de Play -->
-				<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored vid-control1">
-		  		<i class="material-icons">play</i>
-				</button>
-
-				<div id="vid-control2">
 				<!-- NAV-VIDEO -->
-				<nav class="hover">
+				<nav id="timeline">
 					<in-topbar-slider :db="db"></in-topbar-slider>
 					<input type="range" id="seek-bar-{{params.video}}" min="0" max="1000" data-rangeslider="" style="display: none;">
 				</nav>
-				</div>
 
 
 
-				<div id="vid-control3">
+				<div id="vid-buttons">
 					<!-- Botão de Play -->
-					<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored botoes-player">
-			  		<i class="material-icons">play</i>
+					<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" style="float: left; margin-left: 10px;" v-if="!playing" @click="videoPlay">
+			  		<i class="material-icons margem">play_arrow</i>
+					</button>
+					<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" style="float: left; margin-left: 10px;" v-if="playing" @click="videoPause">
+			  		<i class="material-icons margem">pause</i>
+					</button>
+					<!-- Botão de Play -->
+					<div id="volume">
+						<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored botoes-player" style="float: left;">
+				  		<i class="material-icons margem">volume_up</i>
+						</button>
+						<input class="mdl-slider mdl-js-slider" type="range" min="0" max="100" value="0" tabindex="0">
+					</div>
+
+					<!-- Botão de Play -->
+					<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored botoes-player" style="float: right;">
+			  		<i class="material-icons margem2">fullscreen</i>
 					</button>
 
 					<!-- Botão de Play -->
-					<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored botoes-player">
+					<!-- <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored botoes-player">
 			  		<i class="material-icons">play</i>
-					</button>
-
-					<!-- Botão de Play -->
-					<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored botoes-player">
-			  		<i class="material-icons">play</i>
-					</button>
+					</button> -->
 				</div>
 
 
@@ -336,6 +370,7 @@
 				fixedSidebar: false,
 				conteudo: {},
 				seeking: false,
+				playing: true,
 				video: {
 					popcorn: null,
 					time: 0,
@@ -436,6 +471,7 @@
 			$$$(document).bind('keydown', this.keyEvents)
 
 			this.ready = true
+			componentHandler.upgradeDom()
 
 		},
 		beforeDestroy: function(){
@@ -567,10 +603,12 @@
 				var player = document.getElementById('player');
 				event = event || window.event; // IE-ism
 				// event.clientX and event.clientY contain the mouse position
-				if (event.clientY > player.clientHeight - 30) {
+				if (event.clientY > player.clientHeight - 80) {
 					controles.className = "";
 				} else {
-					controles.className = "hover";
+					if (this.playing) {
+						controles.className = "hover";
+					}
 				}
 			},
 			keyEvents: function(e) {

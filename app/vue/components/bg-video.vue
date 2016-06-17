@@ -49,15 +49,14 @@
 	var $$$ = require('jquery')
 
 	module.exports = {
-		props: ['db', 'video', 'qualidade', 'acessibilidade'],
+		props: ['db', 'video', 'qualidade', 'acessibilidade', 'playing'],
 		data: function(){
 			return {
 				qual: 'baixa',
 				lib: 'normal',
 				timecodeAntigo: 0,
 				hipervideo: null,
-				timecode: 0,
-				playing: true
+				timecode: 0
 			}
 		},
 		watch : {
