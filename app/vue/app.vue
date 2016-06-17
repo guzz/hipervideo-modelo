@@ -82,7 +82,7 @@
 		}
 	}
 	.gravatar {
-		margin: 10px auto;
+		margin-bottom: 10px;
 	    width: 150px !important;
 	    height: 150px !important;
 	    font-size: 150px !important;
@@ -147,13 +147,9 @@
 
 	.drawer-cards {
 		margin-bottom: 20px;
-		
+		height: auto;
 	}
 
-	.header .mdl-layout__header,
-	.header .mdl-layout__drawer-button {
-		color: white;
-	}
 </style>
 
 <template>
@@ -162,7 +158,7 @@
 		<div id="p1" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
 	</div>
 		<div id="full" allowfullscreen="true">
-			<div class="mdl-layout mdl-js-layout header" :class="{ 'home-open': home }">
+			<div class="mdl-layout mdl-js-layout" :class="{ 'home-open': home }">
 			  <header class="mdl-layout__header mdl-layout__header--waterfall header-top" :class="{ 'home-menu': home }" v-if="!isVideo" transition="grow"  style="position: absolute; background-color: rgba(0, 0, 0, .5);">
 			    <!-- Top row, always visible -->
 			    <div class="mdl-layout__header-row">
@@ -186,12 +182,8 @@
 			<div class="mdl-grid">
 				<div class="mdl-cell mdl-cell--12-col">
 					
-						<!-- Card Usuário -->
+						<!-- Card Avatar -->
   						<div class="mdl-card mdl-shadow--4dp drawer-cards">
-
-		  					<div class="mdl-card__title">
-		  						<h4 class="mdl-card__title-text">Usuário</h4>
-		  					</div>
 
 		  					<div class="mdl-card__supporting-text">
 		  						<div class="mdl-grid">
@@ -200,9 +192,9 @@
 										  CONECTE-SE
 										</button>
 										<img :src="user.img" v-if="isConnected" class="gravatar" transition="fade">
-										<div class="user-info">
+										<div>
 											<p class="user-name" v-if="isConnected" transition="fade">@{{user.nome}}</p>
-								    	<p class="user-email" v-if="isConnected" transition="fade">{{user.email}}</p>
+									    	<p v-if="isConnected" transition="fade">{{user.email}}</p>
 										</div>
 		  							</div>
 		  						</div>
@@ -216,8 +208,10 @@
 		  						<h4 class="mdl-card__title-text">Qualidade</h4>
 		  					</div>
 
-		  					<div class="mdl-card__supporting-text">
-		  						<div class="mdl-grid">
+
+
+							<div class="mdl-card__actions">
+								<div class="mdl-grid">
 		  							<div class="mdl-cell mdl-cell--12-col">
 										<div id="slider-wrap">
 											<input class="mdl-slider mdl-js-slider" type="range" min="0" max="2" :value="qualidade" tabindex="0" step="1" @input="mudaQual">
@@ -236,15 +230,15 @@
 		  							<span :class="{ active: isAlta }">Alta</span>
 		  							</div>
 								</div>
-		  					</div>
-
+							</div>
+<!-- 
 		  					<div class="mdl-card__menu">
 			  					<div id="qual-info" class="icon material-icons infos">info</div>
 								<div class="mdl-tooltip mdl-tooltip--left" for="qual-info">
 								Selecione a qualidade<br>em que deseja ver os vídeos.
 								</div>
 		  					</div>
-
+ -->
   						</div>
   						
 						<!-- Card Acessibilidade -->
@@ -254,7 +248,7 @@
 		  						<h4 class="mdl-card__title-text">Acessibilidade</h4>
 		  					</div>
 
-		  					<div class="mdl-card__supporting-text">
+		  					<div class="mdl-card__actions">
 		  						<div class="mdl-grid">
 		  							<div class="mdl-cell mdl-cell--12-col">
 							  			<ul class="demo-list-control mdl-list acess">
@@ -282,14 +276,14 @@
 		  							</div>
 		  						</div>
 		  					</div>
-  						
+<!--   						
   							<div class="mdl-card__menu">
 			  					<div id="acess-info" class="icon material-icons infos">info</div>
 								<div class="mdl-tooltip mdl-tooltip--left" for="acess-info">
 								Selecione as opções<br>de acessilibidade.
 								</div>
 		  					</div>
-
+ -->
   						</div>
 				</div>
 
