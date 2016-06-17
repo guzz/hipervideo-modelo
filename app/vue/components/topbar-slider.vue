@@ -175,7 +175,7 @@
 
 			this.sel.addEventListener("mousedown", function(e) {
 				self.$parent.seeking = true
-				self.hip.pause();
+				// self.hip.pause();
 				self.bol = true;
 				seekTime(e);
 			});
@@ -214,7 +214,7 @@
 
 			this.sel.removeEventListener("mousedown", function(e) {
 				self.$parent.seeking = true
-				self.hip.pause();
+				// self.hip.pause();
 				self.bol = true;
 				seekTime(e);
 			});
