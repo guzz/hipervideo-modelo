@@ -76,11 +76,12 @@
 		}
 	}
 	.mdl-layout__drawer {
-		width: 25%;
+		/* overflow: hidden; */
+		width: 30%;
 		transform: translateX(-100%);
 
-		@media screen and (max-width: 900px){
-			width: 45%;
+		@media screen and (max-width: 1024px){
+			width: 50%;
 		}
 		/* uso da query p esconder o drawer , retirada, por achar que não há necessidade de uso mais 
 		@media screen and (max-width: 1024px) {
@@ -105,16 +106,14 @@
 
 	/* estilo do botão conecte-se */
 	.connecte-se {
-		width: 95%;
-		height: 200px;
+		width: 101%;
+		height: 150px;
     	font-size: 210%;
-    	margin: 10px 10px 0;
 	}
 	.qual-label {
-		width: 85%;
-		min-width: 80%;
-		padding-left: 20px;
-		margin-bottom: 20px;
+		width: 99%;
+		
+		margin-bottom: 10px;
 		
 		span {
 			-webkit-transition: all .1s ease;
@@ -165,8 +164,12 @@
 	}
 
 	.drawer-cards {
-		margin-bottom: 20px;
-		height: auto;
+		display: block!important;
+		float: left;
+		width: 90%!important;
+		margin-bottom: 3%;
+		line-height: 20%;
+		height: -5%!important;
 	}
 
 </style>
@@ -221,7 +224,7 @@
   						</div>
 
 						<!-- Card Qualidade -->
-		  				<div class="mdl-card mdl-shadow--4dp drawer-cards">
+		  				<div class="mdl-card mdl-shadow--4dp drawer-cards quality">
 		  					
 		  					<div class="mdl-card__title">
 		  						<h4 class="mdl-card__title-text">Qualidade</h4>
@@ -237,17 +240,13 @@
 										</div>
 									</div>
 		  							
-		  							<div class="mdl-cell mdl-cell--4-col qual-label" style="text-align: left">
-		  								<span :class="{ active: isBaixa }">Baixa</span>
+		  							<div class="mdl-cell mdl-cell--4-col qual-label" style="text-align:center" >
+		  								<span :class="{ active: isBaixa }" >Baixa</span>
+		  								<span :class="{ active: isMedia }" class="span" >Média</span>
+		  								<span :class="{ active: isAlta }" >Alta</span>
 		  							</div>
 
-		  							<div class="mdl-cell mdl-cell--4-col qual-label" style="text-align: center">
-		  								<span :class="{ active: isMedia }" class="span">Média</span>
-		  							</div>
-
-		  							<div class="mdl-cell mdl-cell--4-col qual-label" style="text-align: right">
-		  							<span :class="{ active: isAlta }">Alta</span>
-		  							</div>
+		  							
 								</div>
 							</div>
 <!-- 
