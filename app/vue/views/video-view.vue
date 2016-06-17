@@ -116,7 +116,7 @@
 		        transition: bottom .3s ease;
 		position: absolute;
 		bottom: 0;
-		background-color: rgba(0,0,0,.5);
+		background-color: rgba(0,0,0,.7);
 	  width: 100%;
 		display: block;
     z-index: 25;
@@ -282,21 +282,17 @@
 					</button>
 					<!-- Botão de Play -->
 					<div id="volume">
-						<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored botoes-player" style="float: left;">
-				  		<i class="material-icons margem">volume_up</i>
+						<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored botoes-player" style="float: left;" @click="mute">
+				  		<i class="material-icons margem" :style="{ marginLeft: marginIcon }">{{volume_icon}}</i>
 						</button>
-						<input class="mdl-slider mdl-js-slider" type="range" min="0" max="100" value="0" tabindex="0">
+						<input id="volume_slider" class="mdl-slider mdl-js-slider" type="range" min="0" max="100" :value="volume" tabindex="0">
 					</div>
 
 					<!-- Botão de Play -->
-					<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored botoes-player" style="float: right;">
+					<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored botoes-player" style="float: right;" @click="toggleFullScreen">
 			  		<i class="material-icons margem2">fullscreen</i>
 					</button>
 
-					<!-- Botão de Play -->
-					<!-- <button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored botoes-player">
-			  		<i class="material-icons">play</i>
-					</button> -->
 				</div>
 
 
@@ -371,11 +367,14 @@
 				conteudo: {},
 				seeking: false,
 				playing: true,
+				volume: 0,
+				volume_icon: 'volume_up',
 				video: {
 					popcorn: null,
 					time: 0,
 					duration: 0,
 					tag: null,
+					vol_slider: null,
 					progress: 0
 				}
 			}
@@ -389,7 +388,26 @@
 			},
 			hasLibras: function() {
 				return this.libras
+			},
+			marginIcon: function() {
+				if (this.volume_icon === 'volume_down') {
+					return "-11px"
+				} else if (this.volume_icon === 'volume_mute') {
+					return "-15px"
+				} else {
+					return "-7px"
+				}
 			}
+		},
+		watch: {
+			volume: function(val, oldVal) {
+				this.video.tag.volume = val / 100
+				this.volIcon(val)
+				document.cookie = "volume = " + val
+			}
+		},
+		created: function() {
+			this.volume = this.$root.cookieVolume()
 		},
 		attached: function() {
 
@@ -400,21 +418,23 @@
 			// events: load hipervideo events
 			this.events = this.db.eventos
 			if (self.video.popcorn != null) {
-				self.attachPopcornEvents();
+				self.attachPopcornEvents()
 			}
 
 			// POPCORN
 
-			this.video.tag = document.getElementById('hipVid-' + self.params.video);
+			this.video.tag = document.getElementById('hipVid-' + self.params.video)
+
+			this.video.vol_slider = document.getElementById('volume_slider')
 
 			this.video.tag.addEventListener( "loadeddata", function() {
 
-				self.video.popcorn = Popcorn("#hipVid-" + self.params.video);
+				self.video.popcorn = Popcorn("#hipVid-" + self.params.video)
 
 				// attach events if data already loaded
 
 				if(self.events != null){
-					self.attachPopcornEvents();
+					self.attachPopcornEvents()
 				}
 
 			}, false );
@@ -442,6 +462,11 @@
 
 				creditos.className = 'finalizado';
 				self.videoPause();
+
+			}, false );
+
+			this.video.vol_slider.addEventListener( "input", function() {
+				self.volume = self.video.vol_slider.value
 
 			}, false );
 
@@ -513,6 +538,10 @@
 				self.videoPause();
 
 			}, false );
+			this.video.vol_slider.removeEventListener( "input", function() {
+				self.volume = self.video.vol_slider.value
+
+			}, false );
 			this.$off('block-timer-clicked')
 			this.$off('video-timeupdate')
 			this.$off('graph-node-clicked')
@@ -552,6 +581,24 @@
 			},
 			videoPlay: function(){
 				this.$refs.hipervideo.play()
+			},
+			volIcon: function(val) {
+				if (val > 50) {
+					this.volume_icon = 'volume_up'
+				} else if (val < 50 && val > 5) {
+					this.volume_icon = 'volume_down'
+				} else if (val < 5) {
+					this.volume_icon = 'volume_mute'
+				}
+			},
+			mute: function() {
+				if (this.volume_icon !== 'volume_off') {
+					this.video.tag.volume = 0
+					this.volume_icon = 'volume_off'
+				} else {
+					this.video.tag.volume = this.volume / 100
+					this.volIcon(this.volume)
+				}
 			},
 			makeFixedSidebar: function(){
 				this.fixedSidebar = true;

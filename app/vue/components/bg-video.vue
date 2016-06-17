@@ -1,7 +1,6 @@
 <style lang="scss">
 	.hipVid {
 	  background-size: cover;
-	  top: -60px;
 	  height: auto;
 	  width: 100%;
 	  position: fixed;
@@ -11,9 +10,6 @@
 	  opacity: 1;
 	  #full:-webkit-full-screen & {
 		  z-index: 0;
-		}
-	  #app.marco-fechado & {
-			top: 0;
 		}
 	}
 	.hipVid-status {
@@ -159,7 +155,6 @@
 				// Update the slider value
 				seekBar.value = value
 				$$$('.rangeslider__fill').css('width', fillWidth+"%")
-				$$$('.rangeslider__handle').css('left', fillWidth+"%")
 				$$$('.rangeslider__buffer').css('width', bufferWidth+"%")
 				
 				// Dispatch timeupdate to parent
