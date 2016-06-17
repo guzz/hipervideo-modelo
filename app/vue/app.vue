@@ -9,13 +9,13 @@
 	}
 	.app_load {
 		position: fixed;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    height: 100%;
-    width: 100%;
-    background-color: white;
-    z-index: 4;
+	    top: 0;
+	    left: 0;
+	    overflow: hidden;
+	    height: 100%;
+	    width: 100%;
+	    background-color: white;
+	    z-index: 4;
 	}
 	#p1 {
 		margin: 22% auto;
@@ -33,8 +33,8 @@
 		        transition: height .6s ease;
 		&.home-menu {
 			width: 5%;
-    	min-height: 0;
-    	height: 0;
+	    	min-height: 0;
+	    	height: 0;
     	.mdl-layout-title {
 				display: none;
 			}
@@ -82,11 +82,11 @@
 		}
 	}
 	.gravatar {
-		margin: 10px auto;
-    width: 150px !important;
-    height: 150px !important;
-    font-size: 150px !important;
-    border-radius: 150px;
+		margin-bottom: 10px;
+	    width: 150px !important;
+	    height: 150px !important;
+	    font-size: 150px !important;
+	    border-radius: 150px;
 	}
 	.user-info {
 		padding-left: 25px;
@@ -97,16 +97,10 @@
 	}
 	.connecte-se {
 		height: 200px;
-    font-size: 40px;
-    margin: 10px 10px 0;
-	}
-	.info-menu {
-		text-align: center;
-    margin-top: 0;
+	    font-size: 40px;
+	    margin: 10px 10px 0;
 	}
 	.qual-label {
-		padding-left: 20px;
-		margin-bottom: 20px;
 		span {
 			-webkit-transition: all .1s ease;
 			   -moz-transition: all .1s ease;
@@ -118,11 +112,9 @@
 			font-weight: 900;
 			font-size: 16px;
 		}
-		.span {
-			margin: 0 123px;
-			
-		}
+		
 	}
+
 	.acess {
 		margin-top: 0;
 		padding-top: 0;
@@ -139,15 +131,25 @@
 		        transition: height .3s ease;
 		.home-open & {
 			background: rgb(96,125,139);
-	    margin: 0;
-	    padding: 10px;
-	    height: 97%;
+		    margin: 0;
+		    padding: 10px;
+		    height: 97%;
 	    @media screen and (min-width: 1440px) {
 				padding: 20px;
     		height: 95.5%;
 			}
 		}
 	}
+
+	.infos {
+		cursor: default;
+	}
+
+	.drawer-cards {
+		margin-bottom: 20px;
+		height: auto;
+	}
+
 </style>
 
 <template>
@@ -156,7 +158,7 @@
 		<div id="p1" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
 	</div>
 		<div id="full" allowfullscreen="true">
-			<div class="demo-layout-waterfall mdl-layout mdl-js-layout" :class="{ 'home-open': home }">
+			<div class="mdl-layout mdl-js-layout" :class="{ 'home-open': home }">
 			  <header class="mdl-layout__header mdl-layout__header--waterfall header-top" :class="{ 'home-menu': home }" v-if="!isVideo" transition="grow"  style="position: absolute; background-color: rgba(0, 0, 0, .5);">
 			    <!-- Top row, always visible -->
 			    <div class="mdl-layout__header-row">
@@ -176,47 +178,117 @@
 			      </div>
 			    </div>
 			  </header>
-			  <div class="mdl-layout__drawer" :class="{'is-visible': drawer}">
-			  	<button @click="connectTrello" v-if="!isConnected" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored connecte-se">
-					  CONECTE-SE
-					</button>
-					<img :src="user.img" v-if="isConnected" class="gravatar" transition="fade">
-					<div class="user-info">
-						<p class="user-name" v-if="isConnected" transition="fade">@{{user.nome}}</p>
-			    	<p class="user-email" v-if="isConnected" transition="fade">{{user.email}}</p>
-					</div>
-					<hr></hr>
-					<h4 class="info-menu">Qualidade</h4>
-					<input class="mdl-slider mdl-js-slider" type="range" min="0" max="2" :value="qualidade" tabindex="0" step="1" @input="mudaQual">
-					<div class="qual-label">
-						<span :class="{ active: isBaixa }">Baixa</span>
-						<span :class="{ active: isMedia }" class="span">Média</span>
-						<span :class="{ active: isAlta }">Alta</span>
-					</div>
-					<hr></hr>
-					<h4 class="info-menu">Acessibilidade</h4>
-					<ul class="demo-list-control mdl-list acess">
-					  <li class="mdl-list__item">
-					    <span class="mdl-list__item-primary-content">
-					      Libras
-					    </span>
-					    <span class="mdl-list__item-secondary-action">
-					      <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="list-switch-1"  id="label-switch-1">
-					        <input type="checkbox" id="list-switch-1" class="mdl-switch__input" :checked="isLibras" @click="acessLibras"/>
-					      </label>
-					    </span>
-					  </li>
-					  <li class="mdl-list__item">
-					    <span class="mdl-list__item-primary-content">
-					      Audio Descrição
-					    </span>
-					      <span class="mdl-list__item-secondary-action">
-					        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="list-switch-2"  id="label-switch-2">
-					          <input type="checkbox" id="list-switch-2" class="mdl-switch__input" :checked="isAudio" @click="acessAudio"/>
-					        </label>
-					    </span>
-					  </li>
-					</ul>
+			<div class="mdl-layout__drawer" :class="{'is-visible': drawer}">
+			<div class="mdl-grid">
+				<div class="mdl-cell mdl-cell--12-col">
+					
+						<!-- Card Avatar -->
+  						<div class="mdl-card mdl-shadow--4dp drawer-cards">
+
+		  					<div class="mdl-card__supporting-text">
+		  						<div class="mdl-grid">
+		  							<div class="mdl-cell mdl-cell--12-col">
+										<button @click="connectTrello" v-if="!isConnected" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored connecte-se">
+										  CONECTE-SE
+										</button>
+										<img :src="user.img" v-if="isConnected" class="gravatar" transition="fade">
+										<div>
+											<p class="user-name" v-if="isConnected" transition="fade">@{{user.nome}}</p>
+									    	<p v-if="isConnected" transition="fade">{{user.email}}</p>
+										</div>
+		  							</div>
+		  						</div>
+		  					</div>
+  						</div>
+
+						<!-- Card Qualidade -->
+		  				<div class="mdl-card mdl-shadow--4dp drawer-cards">
+		  					
+		  					<div class="mdl-card__title">
+		  						<h4 class="mdl-card__title-text">Qualidade</h4>
+		  					</div>
+
+
+
+							<div class="mdl-card__actions">
+								<div class="mdl-grid">
+		  							<div class="mdl-cell mdl-cell--12-col">
+										<div id="slider-wrap">
+											<input class="mdl-slider mdl-js-slider" type="range" min="0" max="2" :value="qualidade" tabindex="0" step="1" @input="mudaQual">
+										</div>
+									</div>
+		  							
+		  							<div class="mdl-cell mdl-cell--4-col qual-label" style="text-align: left">
+		  								<span :class="{ active: isBaixa }">Baixa</span>
+		  							</div>
+
+		  							<div class="mdl-cell mdl-cell--4-col qual-label" style="text-align: center">
+		  								<span :class="{ active: isMedia }" class="span">Média</span>
+		  							</div>
+
+		  							<div class="mdl-cell mdl-cell--4-col qual-label" style="text-align: right">
+		  							<span :class="{ active: isAlta }">Alta</span>
+		  							</div>
+								</div>
+							</div>
+<!-- 
+		  					<div class="mdl-card__menu">
+			  					<div id="qual-info" class="icon material-icons infos">info</div>
+								<div class="mdl-tooltip mdl-tooltip--left" for="qual-info">
+								Selecione a qualidade<br>em que deseja ver os vídeos.
+								</div>
+		  					</div>
+ -->
+  						</div>
+  						
+						<!-- Card Acessibilidade -->
+  						<div class="mdl-card mdl-shadow--4dp drawer-cards">
+
+		  					<div class="mdl-card__title">
+		  						<h4 class="mdl-card__title-text">Acessibilidade</h4>
+		  					</div>
+
+		  					<div class="mdl-card__actions">
+		  						<div class="mdl-grid">
+		  							<div class="mdl-cell mdl-cell--12-col">
+							  			<ul class="demo-list-control mdl-list acess">
+											<li class="mdl-list__item">
+											    <span class="mdl-list__item-primary-content">
+											      Libras
+											    </span>
+											    <span class="mdl-list__item-secondary-action">
+												    <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="list-switch-1"  id="label-switch-1">
+											    	<input type="checkbox" id="list-switch-1" class="mdl-switch__input" :checked="isLibras" @click="acessLibras"/>
+											    	</label>
+											    </span>
+											</li>
+											<li class="mdl-list__item">
+											    <span class="mdl-list__item-primary-content">
+											      Audio Descrição
+											    </span>
+											    <span class="mdl-list__item-secondary-action">
+											        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="list-switch-2"  id="label-switch-2">
+											        <input type="checkbox" id="list-switch-2" class="mdl-switch__input" :checked="isAudio" @click="acessAudio"/>
+											        </label>
+											    </span>
+											</li>
+										</ul>
+		  							</div>
+		  						</div>
+		  					</div>
+<!--   						
+  							<div class="mdl-card__menu">
+			  					<div id="acess-info" class="icon material-icons infos">info</div>
+								<div class="mdl-tooltip mdl-tooltip--left" for="acess-info">
+								Selecione as opções<br>de acessilibidade.
+								</div>
+		  					</div>
+ -->
+  						</div>
+				</div>
+
+					
+			  </div>
 			  </div>
 			  <div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button" @click="openDrawer"><i class="material-icons">menu</i></div>
 			  <main class="mdl-layout__content view" :is="view" transition="fade" :class="[className]" :db="db" :database="database" :params="params" :qualidade="qualidade" :acessibilidade="acessibilidade" :ready.sync="ready" v-ref:view >

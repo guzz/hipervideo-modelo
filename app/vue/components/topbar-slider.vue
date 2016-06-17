@@ -27,41 +27,13 @@
 		}
 	}
 
-	.rangeslider__handle {
-		width: 25px;
-		height: 25px;
-		top: 0;
-		margin-left: -9px;
-		transition: all 0.5s ease 0s;
-		z-index: 11;
-		#video-controls.hover & {
-			width: 0;
-			height: 0;
-			opacity: 0;
-			&:after {
-				height: 0;
-				width: 0;
-			}
-		}
-		&:after {
-			height: 15px;
-			width: 15px;
-			background-color: rgba(50, 50, 50, 0.8);
-		}
-		&:hover {
-			&:after {
-				background-color: rgba(100, 100, 100, 0.8);
-			}
-		}
-	}
-
 	#tp-cr {
 		position: absolute; 
 		margin: 7px;
 		opacity: 1;
 		top: 0; 
 		left: 5px; 
-		color: black;
+		color: white;
 		font-weight: 700;
 		font-size: 75%;
 		z-index: 10;
@@ -108,23 +80,40 @@
 		position: relative; 
 		float: right;
 	}
+
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently not supported by any browser */
+  cursor:default;				/* Force the default cursor to show on element */
+}
+
 </style>
 
 <template>
-	<div class="rangeslider clickable" :id="'rangeslider-' + db.headers.id">
-		<div id="tp-cr" class="disable-select">
-			<div id="tp-cr-min">00</div>
-			<div style="position: relative; float: left;">:</div>
-			<div id="tp-cr-sec">00</div>
+	
+	<div id="vid-control">
+		<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
+  		<i class="material-icons">play</i>
+		</button>
+	
+		<div class="rangeslider clickable" :id="'rangeslider-' + db.headers.id">
+			<div id="tp-cr" class="noselect">
+				<div id="tp-cr-min">00</div>
+				<div style="position: relative; float: left;">:</div>
+				<div id="tp-cr-sec">00</div>
+			</div>
+			<div id="tp-tt" class="noselect">
+				<div id="tp-tt-sec">00</div>
+				<div style="position: relative; float: right;">:</div>
+				<div id="tp-tt-min">00</div>
+			</div>
+			<div class="rangeslider__buffer"></div>
+			<div class="rangeslider__fill context-bg" style="width: 0px;"></div>
 		</div>
-		<div id="tp-tt" class="disable-select">
-			<div id="tp-tt-sec">00</div>
-			<div style="position: relative; float: right;">:</div>
-			<div id="tp-tt-min">00</div>
-		</div>
-		<div class="rangeslider__buffer"></div>
-		<div class="rangeslider__fill context-bg" style="width: 0px;"></div>
-		<div class="rangeslider__handle" style="left: 0px;"></div>
 	</div>
 </template>
 
