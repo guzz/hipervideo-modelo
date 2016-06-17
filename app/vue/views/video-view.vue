@@ -109,10 +109,10 @@
 	}
 
 	#video-controls {
-	  position: absolute;
-    bottom: 0;
+	position: absolute;
+	bottom: 0;
     width: 100%;
-    display: block;
+	display: block;
     z-index: 25;
 	  &.hover {
 	    .rangeslider, .rangeslider__fill {
@@ -201,6 +201,27 @@
 		opacity: 0.3 !important;
 	}
 
+	.vid-control1 {
+		position: relative;
+		color: black;
+		width: 2%;
+		float: left;
+	}
+
+	.vid-control2 {
+		position: relative;
+		width: 92%;
+		margin-left: 2%;
+	}
+
+	.vid-control3 {
+		position: relative;
+		color: black;
+		width: 6%;
+		margin-left: 94%;
+	}
+
+
 </style>
 
 <template>
@@ -210,12 +231,43 @@
 		<div id="player">
 			<in-bg-video :db="db" :video="video" :qualidade="qualidade" :acessibilidade="acessibilidade" v-ref:hipervideo></in-bg-video>
 
-			<!-- NAV-VIDEO -->
+			<div id="video-controls">
 
-			<nav class="hover" id="video-controls">
-				<in-topbar-slider :db="db"></in-topbar-slider>
-				<input type="range" id="seek-bar-{{params.video}}" min="0" max="1000" data-rangeslider="" style="display: none;">
-			</nav>
+				<!-- Botão de Play -->
+				<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored vid-control1">
+		  		<i class="material-icons">play</i>
+				</button>
+
+				<div id="vid-control2">
+				<!-- NAV-VIDEO -->
+				<nav class="hover">
+					<in-topbar-slider :db="db"></in-topbar-slider>
+					<input type="range" id="seek-bar-{{params.video}}" min="0" max="1000" data-rangeslider="" style="display: none;">
+				</nav>
+				</div>
+
+
+
+				<div id="vid-control3">
+					<!-- Botão de Play -->
+					<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored botoes-player">
+			  		<i class="material-icons">play</i>
+					</button>
+
+					<!-- Botão de Play -->
+					<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored botoes-player">
+			  		<i class="material-icons">play</i>
+					</button>
+
+					<!-- Botão de Play -->
+					<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored botoes-player">
+			  		<i class="material-icons">play</i>
+					</button>
+				</div>
+
+
+
+			</div>
 		</div>
 		
 		<!-- SIDEBAR -->

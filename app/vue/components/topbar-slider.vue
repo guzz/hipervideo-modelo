@@ -1,8 +1,9 @@
 <style lang="scss">
 	.rangeslider {
-		position: absolute;
+		position: relative;
 		border-radius: 0;
-		top: -27px;
+		margin-left: 2%;
+		width: 92%;
 		background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);
 		transition: all 0.5s ease 0s;
 		.rangeslider__fill {
@@ -96,10 +97,6 @@
 <template>
 	
 	<div id="vid-control">
-		<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
-  		<i class="material-icons">play</i>
-		</button>
-	
 		<div class="rangeslider clickable" :id="'rangeslider-' + db.headers.id">
 			<div id="tp-cr" class="noselect">
 				<div id="tp-cr-min">00</div>
