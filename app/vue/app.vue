@@ -9,17 +9,19 @@
 	}
 	.app_load {
 		position: fixed;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    height: 100%;
-    width: 100%;
-    background-color: #ffffff;
-    z-index: 4;
+	    top: 0;
+	    left: 0;
+	    overflow: hidden;
+	    height: 100%;
+	    width: 100%;
+	    background-color: #ffffff;
+	    z-index: 4;
 	}
+
 	#p1 {
 		margin: 22% auto;
 	}
+	
 	.header-top {
 		-webkit-transition: width .3s ease;
 		   -moz-transition: width .3s ease;
@@ -105,15 +107,15 @@
 	.connecte-se {
 		width: 95%;
 		height: 200px;
-    font-size: 210%;
-    margin: 10px 10px 0;
+    	font-size: 210%;
+    	margin: 10px 10px 0;
 	}
 	.qual-label {
 		width: 85%;
-		min-width: 80%
+		min-width: 80%;
 		padding-left: 20px;
 		margin-bottom: 20px;
-	}
+		
 		span {
 			-webkit-transition: all .1s ease;
 			   -moz-transition: all .1s ease;
@@ -137,7 +139,7 @@
 		padding-top: 0;
 		li {
 			min-height: 37px;
-    	padding: 0 20px;
+    		padding: 0 20px;
 		}
 	}
 	.mdl-layout__drawer-button {
@@ -151,9 +153,9 @@
 		    margin: 0;
 		    padding: 10px;
 		    height: 97%;
-	    @media screen and (min-width: 1440px) {
+	    	@media screen and (min-width: 1440px) {
 				padding: 20px;
-    		height: 95.5%;
+    			height: 95.5%;
 			}
 		}
 	}
