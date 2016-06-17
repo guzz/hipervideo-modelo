@@ -170,6 +170,7 @@
 		margin-bottom: 3%;
 		line-height: 20%;
 		height: -5%!important;
+		
 	}
 
 </style>
