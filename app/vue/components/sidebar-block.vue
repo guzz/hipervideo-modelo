@@ -104,7 +104,7 @@
 
 <template>
 	<div class="sidebar_block" transition="blc">
-		<div class="sidebar_block__header context-bg" style="background: red;">
+		<div class="sidebar_block__header context-bg">
 			{{content.title | uppercase}}
 			<svg width="28" height="28" class="timer clickable" @click="onTimerClick" :class="{fixed: start === null}">
 				<circle class="base" cx="14" cy="14" r="12"></circle>

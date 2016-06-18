@@ -6,7 +6,7 @@
 		}
 	}
 	.context-bg {
-		background-color: red;
+		background-color: rgb(96,125,139);
 	}
 	.app_load {
 		position: fixed;
@@ -154,6 +154,7 @@
 	.mdl-layout__container {
 		top: 0;
 		left: 0;
+		background-color: white;
 	}
 
 </style>

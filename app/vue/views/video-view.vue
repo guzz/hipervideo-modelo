@@ -15,7 +15,7 @@
 		}
 		&.has-info {
 			@media screen and (min-width: 1600px) {
-				width: 16%;
+				width: 17.2%;
 			}
 		}
 	}
@@ -44,6 +44,9 @@
 			-o-transform: translate3d(0,0,0);
 			-ms-transform: translate3d(0,0,0);
 			transform: translate3d(0,0,0);
+		}
+		&.info-open {
+			background-color: rgba(0, 0, 0, 0.8);
 		}
 	}
 
@@ -133,29 +136,63 @@
     		top: 0px;
 	    }
 	  }
+	  &.z-down {
+	  	z-index: 10;
+	  }
 	}
 
 	.sidebar_opener {
-		position: relative;
-		transition: all 0.6s ease 0.6s;
+		-webkit-transition: all 0.3s ease;
+		   -moz-transition: all 0.3s ease;
+		    -ms-transition: all 0.3s ease;
+		     -o-transition: all 0.3s ease;
+		        transition: all 0.3s ease;
+		position: fixed;
+		top: 35%;
 		overflow: hidden;
+		left: -25px;
+		&.cima {
+			left: 0;
+		}
+		&:hover {
+			.sidebar_opener__inside {
+				.material-icons {
+					opacity: 1;
+				}
+			}
+		}
 		&.sidebar-enter, &.sidebar-leave {
-			-webkit-transform: translate3d(-100px,0,0);
-			-moz-transform: translate3d(-100px,0,0);
-			-o-transform: translate3d(-100px,0,0);
-			-ms-transform: translate3d(-100px,0,0);
-			transform: translate3d(-100px,0,0);
+			left: -50px;
 		}
 		&.sidebar-leave {
-			transition: all 0.3s ease 0;
+			-webkit-transition: all 0.3s ease;
+			   -moz-transition: all 0.3s ease;
+			    -ms-transition: all 0.3s ease;
+			     -o-transition: all 0.3s ease;
+			        transition: all 0.3s ease;
 		}
 		.sidebar_opener__inside {
+			-webkit-transition: all 0.6s ease;
+			   -moz-transition: all 0.6s ease;
+			    -ms-transition: all 0.6s ease;
+			     -o-transition: all 0.6s ease;
+			        transition: all 0.6s ease;
 			display: inline-block;
-			color: #fff;
-			padding: 10px;
-			height: 28px;
-			line-height: 28px;
-			transition: all 0.6s ease;
+			width: 50px;
+			padding: 0;
+			line-height: 0;
+			cursor: pointer;
+			background: rgba(0,0,0,0.5);
+			.material-icons {
+				-webkit-transition: opacity .3s ease;
+				   -moz-transition: opacity .3s ease;
+				    -ms-transition: opacity .3s ease;
+				     -o-transition: opacity .3s ease;
+				font-size: 90px;
+		    margin-left: -25px;
+		    color: white;
+		    opacity: .5;
+			}
 		}
 	}
 
@@ -225,8 +262,8 @@
 			    -ms-transition: opacity .3s ease;
 			     -o-transition: opacity .3s ease;
 			        transition: opacity .3s ease;
-			color: white;
-			opacity: .5;
+			color: rgb(96,125,139);
+			opacity: .8;
 	    height: 46px;
 	    width: 46px;
 	    &:hover {
@@ -263,7 +300,7 @@
 		<div id="player">
 			<in-bg-video :db="db" :video="video" :qualidade="qualidade" :acessibilidade="acessibilidade" :playing.sync="playing" v-ref:hipervideo></in-bg-video>
 
-			<div id="video-controls" :class="{ hover: playing }">
+			<div id="video-controls" :class="{ hover: playing, 'z-down': hasInfo }">
 
 				<!-- NAV-VIDEO -->
 				<nav id="timeline">
@@ -309,8 +346,10 @@
 
 			<div class="sidebar_content">
 				<in-sidebar-block v-for="content in contentBlocks" :content="content" :video="video" :conteudo="conteudo" transition="sidebar"></in-sidebar-block>
-				<div class="sidebar_opener clickable" @click="openDefaultBlock" v-show="!hasBlocks && !fixedSidebar && !hasInfo" transition="sidebar">
-					<div class="sidebar_opener__inside context-bg">abrir</div>
+				<div id="sidebar_click" class="sidebar_opener clickable" @click="openDefaultBlock" v-show="!hasBlocks && !fixedSidebar && !hasInfo" transition="sidebar">
+					<div class="sidebar_opener__inside">
+						<i class="material-icons">chevron_right</i>
+					</div>
 				</div>
 			</div>
 
@@ -331,7 +370,7 @@
 
 			<!-- BACKGROUND -->
 
-			<div class="sidebar_back"></div>
+			<div class="sidebar_back" :class="{ 'info-open': hasInfo }"></div>
 		</div>
 
 		<!-- INFO -->
@@ -648,11 +687,21 @@
 			},
 			handleMouseMove: function(event) {
 				var controles = document.getElementById('video-controls');
+				var side = document.getElementById('sidebar_click');
 				var player = document.getElementById('player');
 				event = event || window.event; // IE-ism
 				// event.clientX and event.clientY contain the mouse position
+				console.log(event.clientX)
+				if (event.clientX < 400) {
+					side.className = "sidebar_opener clickable cima"
+				} else {
+					side.className = "sidebar_opener clickable"
+				}
+
 				if (event.clientY > player.clientHeight - 80) {
-					controles.className = "";
+					if (this.playing) {
+						controles.className = "";
+					}
 				} else {
 					if (this.playing) {
 						controles.className = "hover";
@@ -676,16 +725,20 @@
 			},
 			toggleFullScreen: function() {
 				var a = document.getElementById('full')
-				if (!document.mozFullScreen && !document.webkitFullScreen) {
+				if (!document.mozFullScreen && !document.webkitIsFullScreen) {
 					if (a.mozRequestFullScreen) {
+						console.log('cancel full moz')
 						a.mozRequestFullScreen();
 					} else {
-						a.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+						a.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT)
+						console.log(document.webkitFullScreen)
 					}
 				} else {
-				if (document.mozCancelFullScreen) {
+					if (document.mozCancelFullScreen) {
+						console.log('cancel full moz')
 						document.mozCancelFullScreen();
 					} else {
+						console.log('cancel full webkit')
 						document.webkitCancelFullScreen();
 					}
 				}
