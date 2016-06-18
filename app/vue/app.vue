@@ -215,6 +215,7 @@
 		  							<div class="mdl-cell mdl-cell--12-col">
 										<div id="slider-wrap">
 											<input class="mdl-slider mdl-js-slider" type="range" min="0" max="2" :value="qualidade" tabindex="0" step="1" @input="mudaQual">
+											<input class="mdl-slider mdl-js-slider" type="range" min="360" max="1080" :value="qualidade" tabindex="360" step="360" @input="mudaQual">
 										</div>
 									</div>
 		  							
@@ -285,6 +286,12 @@
 		  					</div>
  -->
   						</div>
+
+  						
+  						<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
+  						<a href="/#/home">	<i class="material-icons">chevron_left</i>	</a>
+						</button>
+						<span>Voltar ao início</span>
 				</div>
 
 					
