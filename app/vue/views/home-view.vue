@@ -18,7 +18,7 @@
 		     -o-transition: all .3s ease;
 		        transition: all .3s ease;
 		&.ativo {
-			position: fixed;
+		position: fixed;
 	    top: 0;
 	    z-index: 999999999;
 	    right: 0;
@@ -33,7 +33,7 @@
 	}
 	.mdl-card__actions {
 		position: absolute;
-    bottom: 0;
+    	bottom: 0;
 	}
 	.display-home {
 		display: none;
@@ -44,8 +44,8 @@
 	}
 	.play-div {
 		padding: 0;
-    margin: 73px auto;
-    @media screen and (min-width: 1440px) {
+    	margin: 73px auto;
+    	@media screen and (min-width: 1440px) {
 			margin: 100px auto;
 		}
     .play-img {
@@ -81,8 +81,8 @@
 					font-size: 63px;
     			margin-left: 21px;
 				}
-    	}
-    	@media screen and (min-width: 1440px) {
+    		}
+    		@media screen and (min-width: 1440px) {
 				font-size: 100px;
     		left: -60%;
 			}

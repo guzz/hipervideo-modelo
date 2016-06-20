@@ -1,11 +1,12 @@
 <style lang="scss">
 	.view {
+		height: 100%;
 		&.is-video {
 			overflow: hidden;
 		}
 	}
 	.context-bg {
-		background-color: red;
+		background-color: rgb(96,125,139);
 	}
 	.app_load {
 		position: fixed;
@@ -14,12 +15,14 @@
 	    overflow: hidden;
 	    height: 100%;
 	    width: 100%;
-	    background-color: white;
+	    background-color: #ffffff;
 	    z-index: 4;
 	}
+
 	#p1 {
 		margin: 22% auto;
 	}
+	
 	.header-top {
 		-webkit-transition: width .3s ease;
 		   -moz-transition: width .3s ease;
@@ -74,12 +77,18 @@
 		}
 	}
 	.mdl-layout__drawer {
-		width: 390px;
-		transform: translateX(-400px);
+		/* overflow: hidden; */
+		width: 30%;
+		transform: translateX(-100%);
+
+		@media screen and (max-width: 1024px){
+			width: 50%;
+		}
+		/* uso da query p esconder o drawer , retirada, por achar que não há necessidade de uso mais 
 		@media screen and (max-width: 1024px) {
 			width: 240px;
 			transform: translateX(-250px);
-		}
+		}  */ 
 	}
 	.gravatar {
 		margin-bottom: 10px;
@@ -95,12 +104,18 @@
 		font-size: 35px;
 		margin-bottom: 10px;
 	}
+
+	/* estilo do botão conecte-se */
 	.connecte-se {
-		height: 200px;
-	    font-size: 40px;
-	    margin: 10px 10px 0;
+		width: 101%;
+		height: 150px;
+    	font-size: 210%;
 	}
 	.qual-label {
+		width: 99%;
+		
+		margin-bottom: 10px;
+		
 		span {
 			-webkit-transition: all .1s ease;
 			   -moz-transition: all .1s ease;
@@ -112,7 +127,11 @@
 			font-weight: 900;
 			font-size: 16px;
 		}
-		
+		.span {
+			margin: 0 27%;
+			text-align: center;
+			
+		}
 	}
 
 	.acess {
@@ -120,7 +139,7 @@
 		padding-top: 0;
 		li {
 			min-height: 37px;
-    	padding: 0 20px;
+    		padding: 0 20px;
 		}
 	}
 	.mdl-layout__drawer-button {
@@ -134,9 +153,9 @@
 		    margin: 0;
 		    padding: 10px;
 		    height: 97%;
-	    @media screen and (min-width: 1440px) {
+	    	@media screen and (min-width: 1440px) {
 				padding: 20px;
-    		height: 95.5%;
+    			height: 95.5%;
 			}
 		}
 	}
@@ -146,8 +165,19 @@
 	}
 
 	.drawer-cards {
-		margin-bottom: 20px;
-		height: auto;
+		display: block!important;
+		float: left;
+		width: 90%!important;
+		margin-bottom: 3%;
+		line-height: 20%;
+		height: -5%!important;
+		
+	}
+
+	.mdl-layout__container {
+		top: 0;
+		left: 0;
+		background-color: white;
 	}
 
 </style>
@@ -202,7 +232,7 @@
   						</div>
 
 						<!-- Card Qualidade -->
-		  				<div class="mdl-card mdl-shadow--4dp drawer-cards">
+		  				<div class="mdl-card mdl-shadow--4dp drawer-cards quality">
 		  					
 		  					<div class="mdl-card__title">
 		  						<h4 class="mdl-card__title-text">Qualidade</h4>
@@ -219,17 +249,13 @@
 										</div>
 									</div>
 		  							
-		  							<div class="mdl-cell mdl-cell--4-col qual-label" style="text-align: left">
-		  								<span :class="{ active: isBaixa }">Baixa</span>
+		  							<div class="mdl-cell mdl-cell--4-col qual-label" style="text-align:center" >
+		  								<span :class="{ active: isBaixa }" >Baixa</span>
+		  								<span :class="{ active: isMedia }" class="span" >Média</span>
+		  								<span :class="{ active: isAlta }" >Alta</span>
 		  							</div>
 
-		  							<div class="mdl-cell mdl-cell--4-col qual-label" style="text-align: center">
-		  								<span :class="{ active: isMedia }" class="span">Média</span>
-		  							</div>
-
-		  							<div class="mdl-cell mdl-cell--4-col qual-label" style="text-align: right">
-		  							<span :class="{ active: isAlta }">Alta</span>
-		  							</div>
+		  							
 								</div>
 							</div>
 <!-- 
@@ -436,49 +462,8 @@
       	} else if (!obj.target.checked) {
       		this.acessibilidade = "normal"
       	}
-      }
-		},
-		attached: function() {
-
-			switch(getCookie('qualidade')) {
-				case '':
-					document.cookie = "qualidade=0"
-					break
-				case '2':
-					this.qualidade = 2
-					break
-				case '1':
-					this.qualidade = 1
-					break
-				case '0':
-					this.qualidade = 0
-					break
-			}
-
-			switch(getCookie('acessibilidade')) {
-				case '':
-					document.cookie = "acessibilidade=normal"
-					break
-				case 'libras':
-					this.acessibilidade = 'libras'
-					break
-				case 'audio':
-					this.acessibilidade = 'audio'
-					break
-				case 'normal':
-					this.acessibilidade = 'normal'
-					break
-			}
-
-			switch(getCookie('user')) {
-				case '':
-					document.cookie = "user=false"
-					break
-				case 'true':
-					this.connectTrello()
-			}
-
-			function getCookie(cname) {
+      },
+      getCookie: function(cname) {
 		    var name = cname + "=";
 		    var ca = document.cookie.split(';')
 		    for(var i=0; i<ca.length; i++) {
@@ -487,7 +472,65 @@
 	        if (c.indexOf(name) == 0) return c.substring(name.length,c.length)
 		    }
 		    return ""
-			}
+			},
+      cookieQualidade: function() {
+      	switch(this.getCookie('qualidade')) {
+					case '':
+						document.cookie = "qualidade=0"
+						break
+					case '2':
+						this.qualidade = 2
+						break
+					case '1':
+						this.qualidade = 1
+						break
+					case '0':
+						this.qualidade = 0
+						break
+				}
+      },
+      cookieAcess: function() {
+      	switch(this.getCookie('acessibilidade')) {
+					case '':
+						document.cookie = "acessibilidade=normal"
+						break
+					case 'libras':
+						this.acessibilidade = 'libras'
+						break
+					case 'audio':
+						this.acessibilidade = 'audio'
+						break
+					case 'normal':
+						this.acessibilidade = 'normal'
+						break
+				}
+      },
+      cookieUser: function() {
+      	switch(this.getCookie('user')) {
+					case '':
+						document.cookie = "user=false"
+						break
+					case 'true':
+						this.connectTrello()
+				}
+      },
+      cookieVolume: function() {
+      	var cook = this.getCookie('volume')
+      	if (cook === '') {
+      		document.cookie = "volume=50"
+      		return 50
+      	} else {
+      		return parseInt(cook)
+      	}
+      }
+		},
+		attached: function() {
+
+			this.cookieQualidade()
+
+			this.cookieAcess()
+
+			this.cookieUser()
 
 		},
 		components: {
