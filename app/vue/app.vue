@@ -81,7 +81,7 @@
 		width: 30%;
 		transform: translateX(-100%);
 
-		@media screen and (max-width: 1024px){
+		@media screen and (max-width: 800px){
 			width: 70%;
 		}
 		
@@ -103,14 +103,16 @@
 
 	/* estilo do botão conecte-se */
 	.connecte-se {
-		width: 101%;
-		height: 150px;
+		width: 100%;
+		height: 120px;
     	font-size: 210%;
+    	@media screen and (max-width: 800px){
+			font-size: 120%!important;
+		}
+
 	}
 	.qual-label {
-		width: 99%;
-		
-		margin-bottom: 10px;
+		width: 100%;
 		
 		span {
 			-webkit-transition: all .1s ease;
@@ -162,18 +164,35 @@
 
 	.drawer-cards {
 		display: block!important;
-		float: left;
-		width: 90%!important;
-		margin-bottom: 3%;
-		line-height: 20%;
-		height: -5%!important;
-		
+		float: center;
+		width: 350px!important;
+		margin-bottom: 2%;
+		height: 0%!important;
+		@media screen and (max-width: 800px) {
+				width: 100%!important;
+
+			}	
 	}
 
 	.mdl-layout__container {
 		top: 0;
 		left: 0;
 		background-color: white;
+	}
+
+	#low{
+		height: 0;
+
+		float: left;
+	}
+	#medium{
+		height: 0;
+		float: center;
+	}
+	#high{
+		height: 0;
+		margin-top: -18px;
+		float: right;
 	}
 
 </style>
@@ -236,7 +255,7 @@
 
 
 
-							<div class="mdl-card__actions">
+							<div class="mdl-card__supporting-text">
 								<div class="mdl-grid">
 		  							<div class="mdl-cell mdl-cell--12-col">
 										<div id="slider-wrap">
@@ -245,17 +264,32 @@
 										</div>
 									</div>
 		  							
+		  							<!--
 		  							<div class="mdl-cell mdl-cell--4-col qual-label" style="text-align:left">
-		  								<span :class="{ active: isBaixa }" >Baixa</span>
+		  								<span :class="{ active: isBaixa }" id="low">Baixa</span>
 		  							</div>
 
 	  								<div class="mdl-cell mdl-cell--4-col qual-label" style="text-align:center">
-	  									<span :class="{ active: isMedia }" class="span" >Média</span>
+	  									<span :class="{ active: isMedia }" id="medium" >Média</span>
 	  								</div>
 
 	  								<div class="mdl-cell mdl-cell--4-col qual-label" style="text-align:right">
 	  									<span :class="{ active: isAlta }" >Alta</span>
 	  								</div>
+	  								-->
+
+	  								<div class="qual-label" style="text-align:left">
+		  								<span :class="{ active: isBaixa }" id="low">Baixa</span>
+		  							</div>
+
+	  								<div class="qual-label" style="text-align:center">
+	  									<span :class="{ active: isMedia }" class="span" id="medium" >Média</span>
+	  								</div>
+
+	  								<div class="qual-label" style="text-align:right">
+	  									<span :class="{ active: isAlta }" id="high">Alta</span>
+	  								</div>
+
 		  							
 								</div>
 							</div>
