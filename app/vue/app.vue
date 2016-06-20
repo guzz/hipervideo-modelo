@@ -84,6 +84,7 @@
 		@media screen and (max-width: 800px){
 			width: 74%;
 		}
+		
 	}
 	.gravatar {
 	    border-radius: 150px;
