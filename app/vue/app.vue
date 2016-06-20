@@ -82,13 +82,8 @@
 		transform: translateX(-100%);
 
 		@media screen and (max-width: 1024px){
-			width: 50%;
+			width: 70%;
 		}
-		/* uso da query p esconder o drawer , retirada, por achar que não há necessidade de uso mais 
-		@media screen and (max-width: 1024px) {
-			width: 240px;
-			transform: translateX(-250px);
-		}  */ 
 	}
 	.gravatar {
 		margin-bottom: 10px;
@@ -249,12 +244,17 @@
 										</div>
 									</div>
 		  							
-		  							<div class="mdl-cell mdl-cell--4-col qual-label" style="text-align:center" >
+		  							<div class="mdl-cell mdl-cell--4-col qual-label" style="text-align:left">
 		  								<span :class="{ active: isBaixa }" >Baixa</span>
-		  								<span :class="{ active: isMedia }" class="span" >Média</span>
-		  								<span :class="{ active: isAlta }" >Alta</span>
 		  							</div>
 
+	  								<div class="mdl-cell mdl-cell--4-col qual-label" style="text-align:center">
+	  									<span :class="{ active: isMedia }" class="span" >Média</span>
+	  								</div>
+
+	  								<div class="mdl-cell mdl-cell--4-col qual-label" style="text-align:right">
+	  									<span :class="{ active: isAlta }" >Alta</span>
+	  								</div>
 		  							
 								</div>
 							</div>
