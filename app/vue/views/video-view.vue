@@ -9,12 +9,13 @@
 	.sidebar {
 		width: 22%;
 		margin-top: 200px;
+		height: 100%;
 		@media screen and (min-width: 1600px) {
 			width: 15%;
 		}
 		&.has-info {
 			@media screen and (min-width: 1600px) {
-				width: 16%;
+				width: 17.2%;
 			}
 		}
 	}
@@ -43,6 +44,9 @@
 			-o-transform: translate3d(0,0,0);
 			-ms-transform: translate3d(0,0,0);
 			transform: translate3d(0,0,0);
+		}
+		&.info-open {
+			background-color: rgba(0, 0, 0, 0.8);
 		}
 	}
 
@@ -109,12 +113,19 @@
 	}
 
 	#video-controls {
-	  position: absolute;
-    bottom: 0;
-    width: 100%;
-    display: block;
+		-webkit-transition: bottom .3s ease;
+		   -moz-transition: bottom .3s ease;
+		    -ms-transition: bottom .3s ease;
+		     -o-transition: bottom .3s ease;
+		        transition: bottom .3s ease;
+		position: absolute;
+		bottom: 0;
+		background-color: rgba(0,0,0,.7);
+	  width: 100%;
+		display: block;
     z-index: 25;
 	  &.hover {
+	  	bottom: -49px;
 	    .rangeslider, .rangeslider__fill {
     		height: 3px;
 	    }
@@ -125,29 +136,63 @@
     		top: 0px;
 	    }
 	  }
+	  &.z-down {
+	  	z-index: 10;
+	  }
 	}
 
 	.sidebar_opener {
-		position: relative;
-		transition: all 0.6s ease 0.6s;
+		-webkit-transition: all 0.3s ease;
+		   -moz-transition: all 0.3s ease;
+		    -ms-transition: all 0.3s ease;
+		     -o-transition: all 0.3s ease;
+		        transition: all 0.3s ease;
+		position: fixed;
+		top: 35%;
 		overflow: hidden;
+		left: -25px;
+		&.cima {
+			left: 0;
+		}
+		&:hover {
+			.sidebar_opener__inside {
+				.material-icons {
+					opacity: 1;
+				}
+			}
+		}
 		&.sidebar-enter, &.sidebar-leave {
-			-webkit-transform: translate3d(-100px,0,0);
-			-moz-transform: translate3d(-100px,0,0);
-			-o-transform: translate3d(-100px,0,0);
-			-ms-transform: translate3d(-100px,0,0);
-			transform: translate3d(-100px,0,0);
+			left: -50px;
 		}
 		&.sidebar-leave {
-			transition: all 0.3s ease 0;
+			-webkit-transition: all 0.3s ease;
+			   -moz-transition: all 0.3s ease;
+			    -ms-transition: all 0.3s ease;
+			     -o-transition: all 0.3s ease;
+			        transition: all 0.3s ease;
 		}
 		.sidebar_opener__inside {
+			-webkit-transition: all 0.6s ease;
+			   -moz-transition: all 0.6s ease;
+			    -ms-transition: all 0.6s ease;
+			     -o-transition: all 0.6s ease;
+			        transition: all 0.6s ease;
 			display: inline-block;
-			color: #fff;
-			padding: 10px;
-			height: 28px;
-			line-height: 28px;
-			transition: all 0.6s ease;
+			width: 50px;
+			padding: 0;
+			line-height: 0;
+			cursor: pointer;
+			background: rgba(0,0,0,0.5);
+			.material-icons {
+				-webkit-transition: opacity .3s ease;
+				   -moz-transition: opacity .3s ease;
+				    -ms-transition: opacity .3s ease;
+				     -o-transition: opacity .3s ease;
+				font-size: 90px;
+		    margin-left: -25px;
+		    color: white;
+		    opacity: .5;
+			}
 		}
 	}
 
@@ -201,6 +246,51 @@
 		opacity: 0.3 !important;
 	}
 
+	#timeline {
+		position: relative;
+    width: 100%;
+    float: left;
+	}
+
+	#vid-buttons {
+		position: relative;
+    width: 100%;
+    float: left;
+		button {
+			-webkit-transition: opacity .3s ease;
+			   -moz-transition: opacity .3s ease;
+			    -ms-transition: opacity .3s ease;
+			     -o-transition: opacity .3s ease;
+			        transition: opacity .3s ease;
+			color: rgb(96,125,139);
+			opacity: .8;
+	    height: 46px;
+	    width: 46px;
+	    &:hover {
+	    	background-color: transparent;
+	    	opacity: 1;
+	    }
+		}
+		.material-icons {
+			font-size: 45px;
+			&.margem {
+				margin-left: -7px;
+			}
+			&.margem2 {
+				margin-left: -16px;
+			}
+		}
+		.mdl-slider__container {
+			height: 42px;
+		}
+		#volume {
+			width: 17%;
+	    margin-left: 2%;
+	    float: left;
+		}
+	}
+
+
 </style>
 
 <template>
@@ -208,14 +298,44 @@
 
 		<!-- VIDEO -->
 		<div id="player">
-			<in-bg-video :db="db" :video="video" :qualidade="qualidade" :acessibilidade="acessibilidade" v-ref:hipervideo></in-bg-video>
+			<in-bg-video :db="db" :video="video" :qualidade="qualidade" :acessibilidade="acessibilidade" :playing.sync="playing" v-ref:hipervideo></in-bg-video>
 
-			<!-- NAV-VIDEO -->
+			<div id="video-controls" :class="{ hover: playing, 'z-down': hasInfo }">
 
-			<nav class="hover" id="video-controls">
-				<in-topbar-slider :db="db"></in-topbar-slider>
-				<input type="range" id="seek-bar-{{params.video}}" min="0" max="1000" data-rangeslider="" style="display: none;">
-			</nav>
+				<!-- NAV-VIDEO -->
+				<nav id="timeline">
+					<in-topbar-slider :db="db"></in-topbar-slider>
+					<input type="range" id="seek-bar-{{params.video}}" min="0" max="1000" data-rangeslider="" style="display: none;">
+				</nav>
+
+
+
+				<div id="vid-buttons">
+					<!-- Botão de Play -->
+					<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" style="float: left; margin-left: 10px;" v-if="!playing" @click="videoPlay">
+			  		<i class="material-icons margem">play_arrow</i>
+					</button>
+					<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" style="float: left; margin-left: 10px;" v-if="playing" @click="videoPause">
+			  		<i class="material-icons margem">pause</i>
+					</button>
+					<!-- Botão de Play -->
+					<div id="volume">
+						<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored botoes-player" style="float: left;" @click="mute">
+				  		<i class="material-icons margem" :style="{ marginLeft: marginIcon }">{{volume_icon}}</i>
+						</button>
+						<input id="volume_slider" class="mdl-slider mdl-js-slider" type="range" min="0" max="100" :value="volume" tabindex="0">
+					</div>
+
+					<!-- Botão de Play -->
+					<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored botoes-player" style="float: right;" @click="toggleFullScreen">
+			  		<i class="material-icons margem2">fullscreen</i>
+					</button>
+
+				</div>
+
+
+
+			</div>
 		</div>
 		
 		<!-- SIDEBAR -->
@@ -226,8 +346,10 @@
 
 			<div class="sidebar_content">
 				<in-sidebar-block v-for="content in contentBlocks" :content="content" :video="video" :conteudo="conteudo" transition="sidebar"></in-sidebar-block>
-				<div class="sidebar_opener clickable" @click="openDefaultBlock" v-show="!hasBlocks && !fixedSidebar && !hasInfo" transition="sidebar">
-					<div class="sidebar_opener__inside context-bg">abrir</div>
+				<div id="sidebar_click" class="sidebar_opener clickable" @click="openDefaultBlock" v-show="!hasBlocks && !fixedSidebar && !hasInfo" transition="sidebar">
+					<div class="sidebar_opener__inside">
+						<i class="material-icons">chevron_right</i>
+					</div>
 				</div>
 			</div>
 
@@ -248,7 +370,7 @@
 
 			<!-- BACKGROUND -->
 
-			<div class="sidebar_back"></div>
+			<div class="sidebar_back" :class="{ 'info-open': hasInfo }"></div>
 		</div>
 
 		<!-- INFO -->
@@ -284,11 +406,15 @@
 				fixedSidebar: false,
 				conteudo: {},
 				seeking: false,
+				playing: true,
+				volume: 0,
+				volume_icon: 'volume_up',
 				video: {
 					popcorn: null,
 					time: 0,
 					duration: 0,
 					tag: null,
+					vol_slider: null,
 					progress: 0
 				}
 			}
@@ -302,7 +428,26 @@
 			},
 			hasLibras: function() {
 				return this.libras
+			},
+			marginIcon: function() {
+				if (this.volume_icon === 'volume_down') {
+					return "-11px"
+				} else if (this.volume_icon === 'volume_mute') {
+					return "-15px"
+				} else {
+					return "-7px"
+				}
 			}
+		},
+		watch: {
+			volume: function(val, oldVal) {
+				this.video.tag.volume = val / 100
+				this.volIcon(val)
+				document.cookie = "volume = " + val
+			}
+		},
+		created: function() {
+			this.volume = this.$root.cookieVolume()
 		},
 		attached: function() {
 
@@ -313,21 +458,23 @@
 			// events: load hipervideo events
 			this.events = this.db.eventos
 			if (self.video.popcorn != null) {
-				self.attachPopcornEvents();
+				self.attachPopcornEvents()
 			}
 
 			// POPCORN
 
-			this.video.tag = document.getElementById('hipVid-' + self.params.video);
+			this.video.tag = document.getElementById('hipVid-' + self.params.video)
+
+			this.video.vol_slider = document.getElementById('volume_slider')
 
 			this.video.tag.addEventListener( "loadeddata", function() {
 
-				self.video.popcorn = Popcorn("#hipVid-" + self.params.video);
+				self.video.popcorn = Popcorn("#hipVid-" + self.params.video)
 
 				// attach events if data already loaded
 
 				if(self.events != null){
-					self.attachPopcornEvents();
+					self.attachPopcornEvents()
 				}
 
 			}, false );
@@ -358,6 +505,11 @@
 
 			}, false );
 
+			this.video.vol_slider.addEventListener( "input", function() {
+				self.volume = self.video.vol_slider.value
+
+			}, false );
+
 			// CHILD LISTENERS
 
 			this.$on('block-timer-clicked', function (child, id) {
@@ -384,6 +536,7 @@
 			$$$(document).bind('keydown', this.keyEvents)
 
 			this.ready = true
+			componentHandler.upgradeDom()
 
 		},
 		beforeDestroy: function(){
@@ -425,6 +578,10 @@
 				self.videoPause();
 
 			}, false );
+			this.video.vol_slider.removeEventListener( "input", function() {
+				self.volume = self.video.vol_slider.value
+
+			}, false );
 			this.$off('block-timer-clicked')
 			this.$off('video-timeupdate')
 			this.$off('graph-node-clicked')
@@ -464,6 +621,24 @@
 			},
 			videoPlay: function(){
 				this.$refs.hipervideo.play()
+			},
+			volIcon: function(val) {
+				if (val > 50) {
+					this.volume_icon = 'volume_up'
+				} else if (val < 50 && val > 5) {
+					this.volume_icon = 'volume_down'
+				} else if (val < 5) {
+					this.volume_icon = 'volume_mute'
+				}
+			},
+			mute: function() {
+				if (this.volume_icon !== 'volume_off') {
+					this.video.tag.volume = 0
+					this.volume_icon = 'volume_off'
+				} else {
+					this.video.tag.volume = this.volume / 100
+					this.volIcon(this.volume)
+				}
 			},
 			makeFixedSidebar: function(){
 				this.fixedSidebar = true;
@@ -512,13 +687,25 @@
 			},
 			handleMouseMove: function(event) {
 				var controles = document.getElementById('video-controls');
+				var side = document.getElementById('sidebar_click');
 				var player = document.getElementById('player');
 				event = event || window.event; // IE-ism
 				// event.clientX and event.clientY contain the mouse position
-				if (event.clientY > player.clientHeight - 30) {
-					controles.className = "";
+				console.log(event.clientX)
+				if (event.clientX < 400) {
+					side.className = "sidebar_opener clickable cima"
 				} else {
-					controles.className = "hover";
+					side.className = "sidebar_opener clickable"
+				}
+
+				if (event.clientY > player.clientHeight - 80) {
+					if (this.playing) {
+						controles.className = "";
+					}
+				} else {
+					if (this.playing) {
+						controles.className = "hover";
+					}
 				}
 			},
 			keyEvents: function(e) {
@@ -538,16 +725,20 @@
 			},
 			toggleFullScreen: function() {
 				var a = document.getElementById('full')
-				if (!document.mozFullScreen && !document.webkitFullScreen) {
+				if (!document.mozFullScreen && !document.webkitIsFullScreen) {
 					if (a.mozRequestFullScreen) {
+						console.log('cancel full moz')
 						a.mozRequestFullScreen();
 					} else {
-						a.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+						a.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT)
+						console.log(document.webkitFullScreen)
 					}
 				} else {
-				if (document.mozCancelFullScreen) {
+					if (document.mozCancelFullScreen) {
+						console.log('cancel full moz')
 						document.mozCancelFullScreen();
 					} else {
+						console.log('cancel full webkit')
 						document.webkitCancelFullScreen();
 					}
 				}

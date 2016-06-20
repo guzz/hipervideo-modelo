@@ -34,19 +34,16 @@
 	}
 	.sidebar_block__content {
 		overflow: hidden;
-		height: 19%;
-		position: relative;
-		padding: 10px;
-		padding-right: 58px;
-		font-size: 14px;
-		font-weight: 300;
-		line-height: 1.4em;
-		width: 65%;
-		letter-spacing: 0;
+    height: 40%;
+    position: relative;
+    padding: 15px;
+    padding-right: 21px;
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.4em;
+    width: 85%;
+    letter-spacing: 0;
 		transition: all 0.3s ease;
-		#app.marco-fechado & {
-			height: 25%;
-		}
 	}
 	.timer {
 		display: block;
@@ -107,7 +104,7 @@
 
 <template>
 	<div class="sidebar_block" transition="blc">
-		<div class="sidebar_block__header context-bg" style="background: red;">
+		<div class="sidebar_block__header context-bg">
 			{{content.title | uppercase}}
 			<svg width="28" height="28" class="timer clickable" @click="onTimerClick" :class="{fixed: start === null}">
 				<circle class="base" cx="14" cy="14" r="12"></circle>

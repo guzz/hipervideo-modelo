@@ -1,8 +1,8 @@
 <style lang="scss">
 	.rangeslider {
-		position: absolute;
+		position: relative;
 		border-radius: 0;
-		top: -27px;
+		width: 100%;
 		background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);
 		transition: all 0.5s ease 0s;
 		.rangeslider__fill {
@@ -95,25 +95,19 @@
 
 <template>
 	
-	<div id="vid-control">
-		<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored">
-  		<i class="material-icons">play</i>
-		</button>
-	
-		<div class="rangeslider clickable" :id="'rangeslider-' + db.headers.id">
-			<div id="tp-cr" class="noselect">
-				<div id="tp-cr-min">00</div>
-				<div style="position: relative; float: left;">:</div>
-				<div id="tp-cr-sec">00</div>
-			</div>
-			<div id="tp-tt" class="noselect">
-				<div id="tp-tt-sec">00</div>
-				<div style="position: relative; float: right;">:</div>
-				<div id="tp-tt-min">00</div>
-			</div>
-			<div class="rangeslider__buffer"></div>
-			<div class="rangeslider__fill context-bg" style="width: 0px;"></div>
+	<div class="rangeslider clickable" :id="'rangeslider-' + db.headers.id">
+		<div id="tp-cr" class="noselect">
+			<div id="tp-cr-min">00</div>
+			<div style="position: relative; float: left;">:</div>
+			<div id="tp-cr-sec">00</div>
 		</div>
+		<div id="tp-tt" class="noselect">
+			<div id="tp-tt-sec">00</div>
+			<div style="position: relative; float: right;">:</div>
+			<div id="tp-tt-min">00</div>
+		</div>
+		<div class="rangeslider__buffer"></div>
+		<div class="rangeslider__fill context-bg" style="width: 0px;"></div>
 	</div>
 </template>
 
@@ -172,8 +166,8 @@
 			});
 
 			this.sel.addEventListener("mouseup", function(e) {
-				self.hip.play();
-				$$$('video').removeClass('pausado');
+				// self.hip.play();
+				// $$$('video').removeClass('pausado');
 				self.$dispatch('ping');
 				self.$parent.seeking = false
 				self.bol = false;
@@ -181,7 +175,7 @@
 
 			this.sel.addEventListener("mousedown", function(e) {
 				self.$parent.seeking = true
-				self.hip.pause();
+				// self.hip.pause();
 				self.bol = true;
 				seekTime(e);
 			});
@@ -213,14 +207,14 @@
 			});
 
 			this.sel.removeEventListener("mouseup", function(e) {
-				self.hip.play();
+				// self.hip.play();
 				self.$parent.seeking = false
 				self.bol = false;
 			});
 
 			this.sel.removeEventListener("mousedown", function(e) {
 				self.$parent.seeking = true
-				self.hip.pause();
+				// self.hip.pause();
 				self.bol = true;
 				seekTime(e);
 			});

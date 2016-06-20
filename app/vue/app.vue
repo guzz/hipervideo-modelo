@@ -1,11 +1,12 @@
 <style lang="scss">
 	.view {
+		height: 100%;
 		&.is-video {
 			overflow: hidden;
 		}
 	}
 	.context-bg {
-		background-color: #ff0000;
+		background-color: rgb(96,125,139);
 	}
 	.app_load {
 		position: fixed;
@@ -171,6 +172,12 @@
 		line-height: 20%;
 		height: -5%!important;
 		
+	}
+
+	.mdl-layout__container {
+		top: 0;
+		left: 0;
+		background-color: white;
 	}
 
 </style>
@@ -448,49 +455,8 @@
       	} else if (!obj.target.checked) {
       		this.acessibilidade = "normal"
       	}
-      }
-		},
-		attached: function() {
-
-			switch(getCookie('qualidade')) {
-				case '':
-					document.cookie = "qualidade=0"
-					break
-				case '2':
-					this.qualidade = 2
-					break
-				case '1':
-					this.qualidade = 1
-					break
-				case '0':
-					this.qualidade = 0
-					break
-			}
-
-			switch(getCookie('acessibilidade')) {
-				case '':
-					document.cookie = "acessibilidade=normal"
-					break
-				case 'libras':
-					this.acessibilidade = 'libras'
-					break
-				case 'audio':
-					this.acessibilidade = 'audio'
-					break
-				case 'normal':
-					this.acessibilidade = 'normal'
-					break
-			}
-
-			switch(getCookie('user')) {
-				case '':
-					document.cookie = "user=false"
-					break
-				case 'true':
-					this.connectTrello()
-			}
-
-			function getCookie(cname) {
+      },
+      getCookie: function(cname) {
 		    var name = cname + "=";
 		    var ca = document.cookie.split(';')
 		    for(var i=0; i<ca.length; i++) {
@@ -499,7 +465,65 @@
 	        if (c.indexOf(name) == 0) return c.substring(name.length,c.length)
 		    }
 		    return ""
-			}
+			},
+      cookieQualidade: function() {
+      	switch(this.getCookie('qualidade')) {
+					case '':
+						document.cookie = "qualidade=0"
+						break
+					case '2':
+						this.qualidade = 2
+						break
+					case '1':
+						this.qualidade = 1
+						break
+					case '0':
+						this.qualidade = 0
+						break
+				}
+      },
+      cookieAcess: function() {
+      	switch(this.getCookie('acessibilidade')) {
+					case '':
+						document.cookie = "acessibilidade=normal"
+						break
+					case 'libras':
+						this.acessibilidade = 'libras'
+						break
+					case 'audio':
+						this.acessibilidade = 'audio'
+						break
+					case 'normal':
+						this.acessibilidade = 'normal'
+						break
+				}
+      },
+      cookieUser: function() {
+      	switch(this.getCookie('user')) {
+					case '':
+						document.cookie = "user=false"
+						break
+					case 'true':
+						this.connectTrello()
+				}
+      },
+      cookieVolume: function() {
+      	var cook = this.getCookie('volume')
+      	if (cook === '') {
+      		document.cookie = "volume=50"
+      		return 50
+      	} else {
+      		return parseInt(cook)
+      	}
+      }
+		},
+		attached: function() {
+
+			this.cookieQualidade()
+
+			this.cookieAcess()
+
+			this.cookieUser()
 
 		},
 		components: {
