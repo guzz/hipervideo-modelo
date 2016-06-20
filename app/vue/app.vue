@@ -113,14 +113,16 @@
 
 	/* estilo do botão conecte-se */
 	.connecte-se {
-		width: 101%;
-		height: 150px;
+		width: 100%;
+		height: 120px;
     	font-size: 210%;
+    	@media screen and (max-width: 800px){
+			font-size: 120%!important;
+		}
+
 	}
 	.qual-label {
-		width: 99%;
-		
-		margin-bottom: 10px;
+		width: 100%;
 		
 		span {
 			-webkit-transition: all .1s ease;
@@ -288,6 +290,20 @@
 	  								<div class="qual-label qual-div3">
 	  									<span :class="{ active: isAlta }" >Alta</span>
 	  								</div>
+	  								-->
+
+	  								<div class="qual-label" style="text-align:left">
+		  								<span :class="{ active: isBaixa }" id="low">Baixa</span>
+		  							</div>
+
+	  								<div class="qual-label" style="text-align:center">
+	  									<span :class="{ active: isMedia }" class="span" id="medium" >Média</span>
+	  								</div>
+
+	  								<div class="qual-label" style="text-align:right">
+	  									<span :class="{ active: isAlta }" id="high">Alta</span>
+	  								</div>
+
 		  							
 								</div>
 							</div>
