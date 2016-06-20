@@ -82,13 +82,9 @@
 		transform: translateX(-100%);
 
 		@media screen and (max-width: 1024px){
-			width: 50%;
+			width: 70%;
 		}
-		/* uso da query p esconder o drawer , retirada, por achar que não há necessidade de uso mais 
-		@media screen and (max-width: 1024px) {
-			width: 240px;
-			transform: translateX(-250px);
-		}  */ 
+		
 	}
 	.gravatar {
 		margin-bottom: 10px;
