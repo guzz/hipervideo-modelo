@@ -88,13 +88,32 @@
 			}
     }
 	}
+
+	.banner {
+		height: 70%;
+		background-image: url("http://i.imgur.com/wOWmkC7.jpg");
+	}
+
+	.banner-divs {
+		filter:alpha(opacity=50);
+    	opacity: 0.5;
+	    -moz-opacity:0.5;
+	    -webkit-opacity:0.5;
+	}
 </style>
 
 <template>
-<div class="page-content">
-	<div class="mdl-grid" style="background-color: red; height: 565px;">
-		<div class="mdl-cell mdl-cell--12-col"></div>
+<div >
+	
+	<div class="mdl-grid banner">
+		<div class="mdl-cell mdl-cell--6-col banner-divs" style="background: blue">
+		</div>
+		<div class="mdl-cell mdl-cell--4-col banner-divs" style="background: yellow">
+		</div>
+		<div class="mdl-cell mdl-cell--2-col banner-divs" style="background: green">
+		</div>
 	</div>
+	
 	<div class="mdl-grid">
 
 	  <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone" id="hip-{{hipId[$index]}}" v-for="hipervideo in database" transition="fade">
