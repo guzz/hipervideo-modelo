@@ -81,23 +81,33 @@
 		width: 30%;
 		transform: translateX(-100%);
 
-		@media screen and (max-width: 1024px){
-			width: 70%;
+		@media screen and (max-width: 800px){
+			width: 74%;
 		}
 	}
 	.gravatar {
-		margin-bottom: 10px;
-	    width: 150px !important;
-	    height: 150px !important;
-	    font-size: 150px !important;
 	    border-radius: 150px;
+	    width: 30%;
+	    height: 30%;
+	    margin-left: 35%;
 	}
-	.user-info {
-		padding-left: 25px;
+
+	.user-avatar {
+		width: 100%;
+	    height: 30%;
 	}
+
+	.user-data {
+		width: 100%;
+		text-align: center;
+	}
+
 	.user-name {
-		font-size: 35px;
-		margin-bottom: 10px;
+		font-size: 30px;
+	}
+
+	.user-info {
+		font-size: 18px;
 	}
 
 	/* estilo do botão conecte-se */
@@ -160,19 +170,39 @@
 	}
 
 	.drawer-cards {
-		display: block!important;
-		float: left;
-		width: 90%!important;
+		width: 90%;
 		margin-bottom: 3%;
-		line-height: 20%;
-		height: -5%!important;
-		
+		height: 20%;
 	}
+
+	// nada
 
 	.mdl-layout__container {
 		top: 0;
 		left: 0;
 		background-color: white;
+	}
+
+	.qual-div1 {
+		text-align: left;
+		background-color: blue;
+		width: 33%;
+	}
+
+	.qual-div2 {
+		text-align: center;
+		background-color: yellow;
+		width: 33%;
+	}
+
+	.qual-div3 {
+		text-align: right;
+		background-color: orange;
+		width: 33%;
+	}
+
+	.slider-wrap {
+		width: 100%;
 	}
 
 </style>
@@ -184,7 +214,7 @@
 	</div>
 		<div id="full" allowfullscreen="true">
 			<div class="mdl-layout mdl-js-layout" :class="{ 'home-open': home }">
-			  <header class="mdl-layout__header mdl-layout__header--waterfall header-top" :class="{ 'home-menu': home }" v-if="!isVideo" transition="grow"  style="position: absolute; background-color: rgba(0, 0, 0, .5);">
+				<header class="mdl-layout__header mdl-layout__header--waterfall header-top" :class="{ 'home-menu': home }" v-if="!isVideo" transition="grow"  style="position: absolute; background-color: rgba(0, 0, 0, .5);">
 			    <!-- Top row, always visible -->
 			    <div class="mdl-layout__header-row">
 			      <!-- Title -->
@@ -203,6 +233,7 @@
 			      </div>
 			    </div>
 			  </header>
+			
 			<div class="mdl-layout__drawer" :class="{'is-visible': drawer}">
 			<div class="mdl-grid">
 				<div class="mdl-cell mdl-cell--12-col">
@@ -211,61 +242,54 @@
   						<div class="mdl-card mdl-shadow--4dp drawer-cards">
 
 		  					<div class="mdl-card__supporting-text">
-		  						<div class="mdl-grid">
-		  							<div class="mdl-cell mdl-cell--12-col">
+										
+		  								<div class="user-avatar">
+
 										<button @click="connectTrello" v-if="!isConnected" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored connecte-se">
 										  CONECTE-SE
 										</button>
+										
 										<img :src="user.img" v-if="isConnected" class="gravatar" transition="fade">
-										<div>
-											<p class="user-name" v-if="isConnected" transition="fade">@{{user.nome}}</p>
-									    	<p v-if="isConnected" transition="fade">{{user.email}}</p>
+										
 										</div>
-		  							</div>
-		  						</div>
+
+										<div class="user-data">
+											<p class="user-name" v-if="isConnected" transition="fade">@{{user.nome}}</p>
+									    	<p class="user-info" v-if="isConnected" transition="fade">{{user.email}}</p>
+										</div>
+
 		  					</div>
   						</div>
 
 						<!-- Card Qualidade -->
-		  				<div class="mdl-card mdl-shadow--4dp drawer-cards quality">
+		  				<div class="mdl-card mdl-shadow--4dp drawer-cards">
 		  					
 		  					<div class="mdl-card__title">
 		  						<h4 class="mdl-card__title-text">Qualidade</h4>
 		  					</div>
-
-
-
-							<div class="mdl-card__actions">
-								<div class="mdl-grid">
-		  							<div class="mdl-cell mdl-cell--12-col">
-										<div id="slider-wrap">
-											<input class="mdl-slider mdl-js-slider" type="range" min="0" max="2" :value="qualidade" tabindex="0" step="1" @input="mudaQual">
-											<input class="mdl-slider mdl-js-slider" type="range" min="360" max="1080" :value="qualidade" tabindex="360" step="360" @input="mudaQual">
-										</div>
-									</div>
+							
+							<div class="mdl-card__supporting-text">
+	  							
+	  							<div class="slider-wrap">
+										<input class="mdl-slider mdl-js-slider" type="range" min="0" max="2" :value="qualidade" tabindex="0" step="1" @input="mudaQual">
+								</div>
+								
+								<div class="mdl-grid mdl-grid--no-spacing">
 		  							
-		  							<div class="mdl-cell mdl-cell--4-col qual-label" style="text-align:left">
+		  							<div class="qual-label qual-div1">
 		  								<span :class="{ active: isBaixa }" >Baixa</span>
 		  							</div>
 
-	  								<div class="mdl-cell mdl-cell--4-col qual-label" style="text-align:center">
-	  									<span :class="{ active: isMedia }" class="span" >Média</span>
+	  								<div class="qual-label qual-div2">
+	  									<span :class="{ active: isMedia }" >Média</span>
 	  								</div>
 
-	  								<div class="mdl-cell mdl-cell--4-col qual-label" style="text-align:right">
+	  								<div class="qual-label qual-div3">
 	  									<span :class="{ active: isAlta }" >Alta</span>
 	  								</div>
 		  							
 								</div>
 							</div>
-<!-- 
-		  					<div class="mdl-card__menu">
-			  					<div id="qual-info" class="icon material-icons infos">info</div>
-								<div class="mdl-tooltip mdl-tooltip--left" for="qual-info">
-								Selecione a qualidade<br>em que deseja ver os vídeos.
-								</div>
-		  					</div>
- -->
   						</div>
   						
 						<!-- Card Acessibilidade -->
@@ -303,21 +327,13 @@
 		  							</div>
 		  						</div>
 		  					</div>
-<!--   						
-  							<div class="mdl-card__menu">
-			  					<div id="acess-info" class="icon material-icons infos">info</div>
-								<div class="mdl-tooltip mdl-tooltip--left" for="acess-info">
-								Selecione as opções<br>de acessilibidade.
-								</div>
-		  					</div>
- -->
   						</div>
 
-  						
   						<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
   						<a href="/#/home">	<i class="material-icons">chevron_left</i>	</a>
 						</button>
 						<span>Voltar ao início</span>
+
 				</div>
 
 					
