@@ -84,6 +84,7 @@
 		@media screen and (max-width: 1024px){
 			width: 70%;
 		}
+		
 	}
 	.gravatar {
 		margin-bottom: 10px;
