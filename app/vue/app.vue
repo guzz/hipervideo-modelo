@@ -78,11 +78,10 @@
 	}
 	.mdl-layout__drawer {
 		/* overflow: hidden; */
-		width: 30%;
+		
 		transform: translateX(-100%);
-
 		@media screen and (max-width: 800px){
-			width: 74%;
+			
 		}
 		
 	}
@@ -114,8 +113,8 @@
 	/* estilo do botão conecte-se */
 	.connecte-se {
 		width: 100%;
-		height: 120px;
-    	font-size: 210%;
+		height: 100px;
+    	font-size: 200%;
     	@media screen and (max-width: 800px){
 			font-size: 120%!important;
 		}
@@ -174,8 +173,8 @@
 
 	.drawer-cards {
 		width: 90%;
-		margin-bottom: 3%;
-		height: 20%;
+		margin-bottom: 4%;
+		min-height: 40%!important;
 	}
 
 	// nada
@@ -289,19 +288,6 @@
 
 	  								<div class="qual-label qual-div3">
 	  									<span :class="{ active: isAlta }" >Alta</span>
-	  								</div>
-	  								-->
-
-	  								<div class="qual-label" style="text-align:left">
-		  								<span :class="{ active: isBaixa }" id="low">Baixa</span>
-		  							</div>
-
-	  								<div class="qual-label" style="text-align:center">
-	  									<span :class="{ active: isMedia }" class="span" id="medium" >Média</span>
-	  								</div>
-
-	  								<div class="qual-label" style="text-align:right">
-	  									<span :class="{ active: isAlta }" id="high">Alta</span>
 	  								</div>
 
 		  							
