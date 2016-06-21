@@ -78,12 +78,12 @@
 	}
 	.mdl-layout__drawer {
 		/* overflow: hidden; */
-		width: 30%;
+		overflow: hidden;
 		transform: translateX(-100%);
-
 		@media screen and (max-width: 800px){
-			width: 74%;
+			
 		}
+		
 	}
 	.gravatar {
 	    border-radius: 150px;
@@ -112,14 +112,16 @@
 
 	/* estilo do botão conecte-se */
 	.connecte-se {
-		width: 101%;
-		height: 150px;
-    	font-size: 210%;
+		width: 100%;
+		height: 100px;
+    	font-size: 200%;
+    	@media screen and (max-width: 800px){
+			font-size: 120%!important;
+		}
+
 	}
 	.qual-label {
-		width: 99%;
-		
-		margin-bottom: 10px;
+		width: 100%;
 		
 		span {
 			-webkit-transition: all .1s ease;
@@ -171,8 +173,8 @@
 
 	.drawer-cards {
 		width: 90%;
-		margin-bottom: 3%;
-		height: 20%;
+		margin-bottom: 4%;
+		min-height: 40%!important;
 	}
 
 	// nada
@@ -287,6 +289,7 @@
 	  								<div class="qual-label qual-div3">
 	  									<span :class="{ active: isAlta }" >Alta</span>
 	  								</div>
+
 		  							
 								</div>
 							</div>
