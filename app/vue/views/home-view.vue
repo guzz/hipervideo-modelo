@@ -298,7 +298,65 @@
 			}
 	}		
 
-
+	.hiper-list {
+		padding: 0 50px;
+		margin-bottom: 0;
+		.slick-slide {
+			margin-top: 16px;
+			&:hover {
+				transform: scale(1.1);
+		    margin-left: 16px;
+		    margin-right: 16px;
+			}
+		}
+		.slick-list {
+			margin-bottom: 0;
+		}
+		.list-h {
+	    background: rgba(0,0,0,0);
+	    height: 95%;
+	    top: 8px;
+	    position: absolute;
+	    width: 40px;
+	    color: black;
+	    position: absolute;
+	    border: none;
+	    cursor: pointer;
+	    &:focus {
+	    	outline: 0;
+	    }
+	    .material-icons {
+	    	-webkit-transition: all .1s ease;
+				   -moz-transition: all .1s ease;
+				    -ms-transition: all .1s ease;
+				     -o-transition: all .1s ease;
+				        transition: all .1s ease;
+	    	font-size: 50px;
+	    	margin-left: -9px;
+	    }
+	    &.slick-disabled {
+	    	.material-icons {
+	    		color: gainsboro;
+	    	}
+	    }
+	    &:hover {
+	    	.material-icons {
+	    		transform: scale(1.3);
+	    	}
+	    	&.slick-disabled {
+	    		.material-icons {
+	    			transform: scale(1);
+	    		}
+	    	}
+	    }
+		}
+		.list-prev {
+			left: 9px;
+		}
+		.list-next {
+			right: 9px;
+		}
+	}
 </style>
 
 <template>
@@ -363,6 +421,7 @@
 		</div>
 
 	</div>
+	<div class="mdl-grid hiper-list">
 
 	<div class="mdl-grid hiper-list">
 
