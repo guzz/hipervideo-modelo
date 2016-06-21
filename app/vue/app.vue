@@ -87,9 +87,9 @@
 	}
 	.gravatar {
 	    border-radius: 150px;
-	    width: 30%;
-	    height: 30%;
-	    margin-left: 35%;
+	    width: 40%;
+	    height: 40%;
+	    margin-left: 30%;
 	}
 
 	.user-avatar {
