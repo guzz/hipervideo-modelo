@@ -299,7 +299,7 @@
 		  						<h4 class="mdl-card__title-text">Acessibilidade</h4>
 		  					</div>
 
-		  					<div class="mdl-card__actions">
+		  					<div class="mdl-card__supporting-text">
 		  						<div class="mdl-grid">
 		  							<div class="mdl-cell mdl-cell--12-col">
 							  			<ul class="demo-list-control mdl-list acess">
