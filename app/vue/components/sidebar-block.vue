@@ -44,10 +44,12 @@
     width: 85%;
     letter-spacing: 0;
 		transition: all 0.3s ease;
+		color: white;
 	}
 	.timer {
 		display: block;
 		position: absolute;
+		cursor: pointer;
 		top: 10px;
 		right: 10px;
 		width: 28px;
@@ -106,7 +108,7 @@
 	<div class="sidebar_block" transition="blc">
 		<div class="sidebar_block__header context-bg">
 			{{content.title | uppercase}}
-			<svg width="28" height="28" class="timer clickable" @click="onTimerClick" :class="{fixed: start === null}">
+			<svg width="28" height="28" class="timer clickable" @click="onTimerClick" :class="{fixed: content.start === null}">
 				<circle class="base" cx="14" cy="14" r="12"></circle>
 				<circle :class="{fadeout: perc < 3}" class="progress" cx="14" cy="14" r="12" :stroke-dashoffset="perc"></circle>
 				<g class="close">

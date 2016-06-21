@@ -250,6 +250,13 @@
 		position: relative;
     width: 100%;
     float: left;
+    .evento {
+    	height: 100%;
+	    background: rgb(255,82,82);
+	    position: absolute;
+	    z-index: 1;
+	    cursor: pointer;
+    }
 	}
 
 	#vid-buttons {
@@ -304,6 +311,10 @@
 
 				<!-- NAV-VIDEO -->
 				<nav id="timeline">
+					<div v-for="evento in db.eventos">
+						<div class="evento" :id="evento.card" @click="addBlockById(evento.id)"></div>
+						<div class="mdl-tooltip mdl-tooltip--top" :for="evento.card">{{evento.title}}</div>
+					</div >
 					<in-topbar-slider :db="db"></in-topbar-slider>
 					<input type="range" id="seek-bar-{{params.video}}" min="0" max="1000" data-rangeslider="" style="display: none;">
 				</nav>
@@ -529,6 +540,16 @@
 				this.video.progress = progress
 			})
 
+			this.$once('hipervideo-canplay', function() {
+				for (var i = 0; i < this.db.eventos.length; i++) {
+					var pos = (this.db.eventos[i].timecode.start * 100) / this.video.duration
+					var width = ((this.db.eventos[i].timecode.end - this.db.eventos[i].timecode.start) * 100) / this.video.duration
+					$$$('#'+this.db.eventos[i].card).width(width+'%')
+					$$$('#'+this.db.eventos[i].card).css('left', pos+'%')
+				}
+				componentHandler.upgradeDom()
+			})
+
 			// DOM LISTENERS
 
 			$$$('body').addClass("tocando");
@@ -691,7 +712,6 @@
 				var player = document.getElementById('player');
 				event = event || window.event; // IE-ism
 				// event.clientX and event.clientY contain the mouse position
-				console.log(event.clientX)
 				if (event.clientX < 400) {
 					side.className = "sidebar_opener clickable cima"
 				} else {
@@ -771,7 +791,7 @@
 					this.contentBlocks = [];
 				}
 
-				var node = _.findWhere(this.events.nodes,{"id": id})
+				var node = _.findWhere(this.events,{"id": id})
 				if(node.component.fields.excerpt === "") return;
 
 				this.contentBlocks.unshift({
@@ -783,11 +803,6 @@
 					end: null,
 					fields: node.component.fields
 				})
-
-				if(node.geo){
-					this.$broadcast('event-map', node.geo);
-					this.geo = true
-				}
 
 				this.fixedSidebar = false;
 
