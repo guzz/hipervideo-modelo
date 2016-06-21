@@ -156,12 +156,18 @@
 		font-size: 30px;
 		text-align: center;
 		line-height: 30px;
+		
+		@media screen and (max-width: 500px){
+			font-size: 18px;
+			line-height: 20px;
+		}
 	}
 
 	#video-length {
 		width: 25%;
 		margin-left: 5%;
 		float: left;
+		background-color: grey;
 	}
 
 	#video-qual {
@@ -170,6 +176,10 @@
 		margin-left: 7.5%;
 		margin-right: 7.5%;
 		float: left;
+		
+		@media screen and (max-width: 500px){
+			width: 20%;	
+		}
 	}
 
 	#video-acce {
@@ -177,12 +187,20 @@
 		margin-right: 5%;
 		text-align: right;
 		float: left;
+
+		@media screen and (max-width: 500px){
+			width: 20%;	
+		}
 	}
 
 	#video-description {
 		clear: left;
 		margin-top: 10%;
 		margin-bottom: 5%;
+
+		@media screen and (max-width: 500px){
+			margin-top: 12%;	
+		}
 	}
 
 	#video-perks {
