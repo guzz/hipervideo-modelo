@@ -88,13 +88,127 @@
 			}
     }
 	}
+
+	.banner-conteiner {
+		height: 70%;
+		background-image: url("http://i.imgur.com/wOWmkC7.jpg");
+
+	}
+
+	.banner-data {
+		filter:alpha(opacity=50);
+    	opacity: 0.5;
+	    -moz-opacity:0.5;
+	    -webkit-opacity:0.5;
+	    background-color: blue;
+	    color: white;
+	}
+
+
+	#video-data {
+		width: 90%;
+		margin-left: 5%;
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+
+	#video-title {
+		background-color: grey;
+	}
+
+	#video-length {
+		width: 25%;
+		margin-left: 5%;
+		background-color: orange;
+		float: left;
+
+	}
+
+	#video-qual {
+		width: 25%;
+		margin-left: 7.5%;
+		margin-right: 7.5%;
+		background-color: pink;
+		float: left;
+	}
+
+	#video-acce {
+		width: 25%;
+		margin-right: 5%;
+		background-color: purple;
+		float: left;
+	}
+
+	#video-description {
+		clear: left;
+		width: 25%;
+		background-color: purple;
+		float: left;
+	}
+
+	.banner-overlay {
+		filter:alpha(opacity=50);
+    	opacity: 0.5;
+	    -moz-opacity:0.5;
+	    -webkit-opacity:0.5;
+	    background-color: yellow;
+	}
+
+	.banner-owner {
+		filter:alpha(opacity=50);
+    	opacity: 0.5;
+	    -moz-opacity:0.5;
+	    -webkit-opacity:0.5;
+	    background-color: green;
+	}
+
 </style>
 
 <template>
-<div class="page-content">
-	<div class="mdl-grid" style="background-color: red; height: 565px;">
-		<div class="mdl-cell mdl-cell--12-col"></div>
+<div id="content" style="margin-top: 64px">
+	
+	<div class="mdl-grid banner-conteiner">
+		<div class="mdl-cell mdl-cell--6-col banner-data">
+
+			<div id="video-data">
+				<div id="video-title">Título do vídeo</div>
+				<div id="video-length">Duração</div>
+				<div id="video-qual">Qualidades disponíveis</div>
+				<div id="video-acce">Recursos de acessibilidade</div>
+			
+				<div id="video-description">
+					<div>
+					Descrição
+					</div>
+				</div>
+
+				<div id="video-perks">
+					<div>
+						Perk 1 <br>
+						Perk 2 <br>
+						Perk 3 <br>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+		
+		<div class="mdl-cell mdl-cell--4-col banner-overlay">
+		</div>
+		
+		<div class="mdl-cell mdl-cell--2-col banner-owner">
+			
+			<div id="video-owner">
+				<div>
+				Video produzido por Jardim Digital
+				</div>
+			</div>
+
+		</div>
+
 	</div>
+	
 	<div class="mdl-grid">
 
 	  <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone" id="hip-{{hipId[$index]}}" v-for="hipervideo in database" transition="fade">
