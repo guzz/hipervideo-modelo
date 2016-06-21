@@ -89,6 +89,19 @@
     }
 	}
 
+
+
+	.icons {
+		vertical-align: middle;
+	}
+
+	.clear {
+		clear: both;
+	}
+
+
+// Classes dos containers do banner de filmes
+
 	.banner-conteiner {
 		height: 70%;
 		background-image: url("http://i.imgur.com/wOWmkC7.jpg");
@@ -96,54 +109,12 @@
 	}
 
 	.banner-data {
-		filter:alpha(opacity=50);
-    	opacity: 0.5;
-	    -moz-opacity:0.5;
-	    -webkit-opacity:0.5;
-	    background-color: blue;
+		filter:alpha(opacity=100);
+    	opacity: 1;
+	    -moz-opacity: 1;
+	    -webkit-opacity: 1;
 	    color: white;
-	}
-
-
-	#video-data {
-		width: 90%;
-		margin-left: 5%;
-		padding-top: 10px;
-		padding-bottom: 10px;
-	}
-
-	#video-title {
-		background-color: grey;
-	}
-
-	#video-length {
-		width: 25%;
-		margin-left: 5%;
-		background-color: orange;
-		float: left;
-
-	}
-
-	#video-qual {
-		width: 25%;
-		margin-left: 7.5%;
-		margin-right: 7.5%;
-		background-color: pink;
-		float: left;
-	}
-
-	#video-acce {
-		width: 25%;
-		margin-right: 5%;
-		background-color: purple;
-		float: left;
-	}
-
-	#video-description {
-		clear: left;
-		width: 25%;
-		background-color: purple;
-		float: left;
+	    background-color: blue;
 	}
 
 	.banner-overlay {
@@ -155,12 +126,84 @@
 	}
 
 	.banner-owner {
-		filter:alpha(opacity=50);
-    	opacity: 0.5;
-	    -moz-opacity:0.5;
-	    -webkit-opacity:0.5;
+		filter:alpha(opacity=100);
+    	opacity: 1;
+	    -moz-opacity: 1;
+	    -webkit-opacity: 1;
 	    background-color: green;
 	}
+
+
+// Classes das divs internas dos containers
+
+	#video-data {
+		width: 90%;
+		margin-left: 5%;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		background-color: purple;
+	}
+
+	#video-title {
+		margin-bottom: 5px;
+		font-size: 30px;
+		text-align: center;
+		line-height: 30px;
+		background-color: orange;
+	}
+
+	#video-length {
+		width: 25%;
+		margin-left: 5%;
+		float: left;
+		background-color: grey;
+	}
+
+	#video-qual {
+		width: 25%;
+		text-align: center;
+		margin-left: 7.5%;
+		margin-right: 7.5%;
+		float: left;
+		background-color: cyan;
+	}
+
+	#video-acce {
+		width: 25%;
+		margin-right: 5%;
+		text-align: right;
+		float: left;
+		background-color: black;
+	}
+
+	#video-description {
+		clear: left;
+		margin-top: 20%;
+		margin-bottom: 5%;
+		background-color: red;
+	}
+
+	#video-perks {
+		float: left;
+		width: 40%;
+		margin-left: 5%;
+		background-color: brown;
+	}
+
+	#video-play {
+		float: right;
+		width: 40%;
+		text-align: center;
+		margin-right: 5%;
+		background-color: magenta;
+	}
+
+	#video-owner {
+		text-align: center;
+		color: white;
+		margin-top: 5%;
+	}
+
 
 </style>
 
@@ -171,24 +214,40 @@
 		<div class="mdl-cell mdl-cell--6-col banner-data">
 
 			<div id="video-data">
-				<div id="video-title">Título do vídeo</div>
-				<div id="video-length">Duração</div>
-				<div id="video-qual">Qualidades disponíveis</div>
-				<div id="video-acce">Recursos de acessibilidade</div>
+				<div id="video-title">Título longo pra caramba de exemplo de um vídeo</div>
+				
+				<div id="video-length">
+					<i class="material-icons icons">access_time</i> 01:15:25
+				</div>
+				
+				<div id="video-qual">
+					<i class="material-icons icons">high_quality</i>
+					<i class="material-icons icons">hd</i>
+				</div>
+				
+				<div id="video-acce">
+					<i class="material-icons icons">closed_caption</i>
+					<i class="material-icons icons">record_voice_over</i>
+				</div>
 			
 				<div id="video-description">
-					<div>
-					Descrição
-					</div>
+					Esta é uma descrição de exemplo de um vídeo que tem uma hora de duração, quinze minutos e vinte e cinco segundos. Alem disso ele conta com versões em alta qualidade (720p) e Full HD (1080p) e ainda conta com closed captions (legendas) e descrição do vídeo em audio.
 				</div>
 
 				<div id="video-perks">
-					<div>
-						Perk 1 <br>
-						Perk 2 <br>
-						Perk 3 <br>
-					</div>
+					<i class="material-icons icons">check_circle</i> Perk 1 <br>
+					<i class="material-icons icons">check_circle</i> Perk 2 <br>
+					<i class="material-icons icons">check_circle</i> Perk 3 <br>
 				</div>
+
+				<div id="video-play">
+				  	<a class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" href="#">
+			  		<i class="material-icons dot">play_arrow</i>
+					<i class="material-icons">play_circle_outline</i>
+			    	</a>
+				</div>
+
+				<div class="clear"> </div>
 
 			</div>
 
@@ -201,7 +260,7 @@
 			
 			<div id="video-owner">
 				<div>
-				Video produzido por Jardim Digital
+				Jardim Digital
 				</div>
 			</div>
 
