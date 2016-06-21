@@ -92,6 +92,7 @@
 
 
 	.icons {
+		font-size: 20px;
 		vertical-align: middle;
 	}
 
@@ -217,17 +218,19 @@
 				<div id="video-title">Título longo pra caramba de exemplo de um vídeo</div>
 				
 				<div id="video-length">
-					<i class="material-icons icons">access_time</i> 01:15:25
+					<i class="fa fa-clock-o icons"></i> 01:15:25
 				</div>
 				
 				<div id="video-qual">
-					<i class="material-icons icons">high_quality</i>
+					<i class="material-icons icons">videocam</i>
 					<i class="material-icons icons">hd</i>
+					<i class="material-icons icons" style="color: red">hd</i>
 				</div>
 				
 				<div id="video-acce">
-					<i class="material-icons icons">closed_caption</i>
-					<i class="material-icons icons">record_voice_over</i>
+					<i class="fa fa-audio-description"></i>
+					<i class="fa fa-cc"></i>
+					<i class="fa fa-signing"></i>
 				</div>
 			
 				<div id="video-description">
