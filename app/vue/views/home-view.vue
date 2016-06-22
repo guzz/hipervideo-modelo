@@ -193,16 +193,18 @@
 		clear: left;
 		margin-top: 10%;
 		margin-bottom: 5%;
-
-		@media screen and (max-width: 500px){
-			margin-top: 12%;	
-		}
+		@media screen and (max-width: 550px) {
+				font-size: 80%;
+				margin-top: 10%;
+				margin-bottom: 2%;	
+			}
 	}
 
 	#video-perks {
 		float: left;
 		width: 40%;
 		margin-left: 5%;
+
 	}
 
 	#video-play {

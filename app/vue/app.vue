@@ -77,8 +77,7 @@
 		}
 	}
 	.mdl-layout__drawer {
-		overflow: hidden;
-		overflow: hidden;
+		overflow-x: hidden;
 		transform: translateX(-100%);
 		.mdl-cell--12-col {
 			width: 100%;
@@ -116,8 +115,8 @@
 	/* estilo do botão conecte-se */
 	.connecte-se {
 		width: 100%;
-		height: 100px;
-    	font-size: 200%;
+		height: 120px;
+    	font-size: 150%;
     	@media screen and (max-width: 800px){
 			font-size: 120%!important;
 		}
@@ -177,7 +176,8 @@
 	.drawer-cards {
 		width: 90%;
 		margin-bottom: 4%;
-		min-height: auto!important;
+		min-height: 40%!important;
+		padding-right: 5%;
 	}
 
 	// nada
