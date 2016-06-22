@@ -303,11 +303,11 @@
 		margin-bottom: 0;
 		.slick-slide {
 			margin-top: 16px;
-			&:hover {
+/*			&:hover {
 				transform: scale(1.1);
 		    margin-left: 16px;
 		    margin-right: 16px;
-			}
+			}*/
 		}
 		.slick-list {
 			margin-bottom: 0;

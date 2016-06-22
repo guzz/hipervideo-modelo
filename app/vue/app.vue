@@ -176,8 +176,7 @@
 	.drawer-cards {
 		width: 90%;
 		margin-bottom: 4%;
-		min-height: 40%!important;
-		padding-right: 5%;
+		min-height: auto!important;
 	}
 
 	// nada
