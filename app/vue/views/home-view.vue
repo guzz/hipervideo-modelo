@@ -145,6 +145,10 @@
 		font-size: 30px;
 		text-align: center;
 		line-height: 30px;
+		@media screen and (max-width: 550px) {
+				font-size: 18px;
+				line-height: 20px;	
+			}
 	}
 
 	#video-length {
@@ -170,12 +174,18 @@
 		clear: left;
 		margin-top: 20%;
 		margin-bottom: 5%;
+		@media screen and (max-width: 550px) {
+				font-size: 80%;
+				margin-top: 10%;
+				margin-bottom: 2%;	
+			}
 	}
 
 	#video-perks {
 		float: left;
 		width: 40%;
 		margin-left: 5%;
+
 	}
 
 	#video-play {
