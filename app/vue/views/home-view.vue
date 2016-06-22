@@ -148,7 +148,6 @@
 		width: 90%;
 		margin-left: 5%;
 		padding-bottom: 10px;
-		background-color: purple;
 	}
 
 	#video-title {
@@ -169,14 +168,12 @@
 		text-align: center;
 		margin-right: 0.5%;
 		float: left;
-		background-color: cyan;
 	}
 
 	#video-acce {
 		width: 33%;
 		text-align: right;
 		float: left;
-		background-color: black;
 	}
 
 	#video-description {
