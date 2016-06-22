@@ -195,11 +195,18 @@
 		height: 70px;
 	}
 
+	.content{
+		margin-top: 64px;
+
+		@media screen and (max-width: 1023px) {
+				margin-top: 56px;	
+			}
+	}		
 
 </style>
 
 <template>
-<div id="content" style="margin-top: 64px">
+<div id="content" class="content">
 	
 	<div class="mdl-grid banner-conteiner">
 		<div class="mdl-cell mdl-cell--6-col banner-data">
