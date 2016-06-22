@@ -352,6 +352,8 @@
 	</div>
 	<div class="mdl-grid hiper-list">
 
+	<div class="mdl-grid hiper-list">
+
 	  <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone" id="hip-{{hipId[$index]}}" v-for="hipervideo in database" transition="fade">
 	  	<div class="demo-card-wide mdl-card mdl-shadow--2dp">
 			  <div class="mdl-card__title display-home" :class="{ativo: home}">
