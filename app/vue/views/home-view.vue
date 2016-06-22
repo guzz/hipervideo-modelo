@@ -218,6 +218,9 @@
 		margin-top: 5%;
 	}
 
+	.img-owner {
+		height: 70px;
+	}
 	.hiper-list {
 		padding: 0 50px;
 		margin-bottom: 0;
@@ -288,6 +291,7 @@
 				margin-top: 56px;	
 			}
 	}		
+
 
 </style>
 
