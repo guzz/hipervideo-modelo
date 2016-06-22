@@ -104,8 +104,18 @@
 // Classes dos containers do banner de filmes
 
 	.banner-conteiner {
-		height: 70%;
+		-webkit-transition: all .4s ease .1s;
+		   -moz-transition: all .4s ease .1s;
+		    -ms-transition: all .4s ease .1s;
+		     -o-transition: all .4s ease .1s;
+		        transition: all .4s ease .1s;
+		height: 56%;
+		overflow: hidden;
 		background-image: url("http://i.imgur.com/wOWmkC7.jpg");
+		&.aberto {
+			height: 0;
+			padding: 0;
+		}
 
 	}
 
@@ -172,7 +182,7 @@
 
 	#video-description {
 		clear: left;
-		margin-top: 20%;
+		margin-top: 10%;
 		margin-bottom: 5%;
 		@media screen and (max-width: 550px) {
 				font-size: 80%;
@@ -222,11 +232,11 @@
 		margin-bottom: 0;
 		.slick-slide {
 			margin-top: 16px;
-			&:hover {
+/*			&:hover {
 				transform: scale(1.1);
 		    margin-left: 16px;
 		    margin-right: 16px;
-			}
+			}*/
 		}
 		.slick-list {
 			margin-bottom: 0;

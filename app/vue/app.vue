@@ -79,6 +79,9 @@
 	.mdl-layout__drawer {
 		overflow-x: hidden;
 		transform: translateX(-100%);
+		.mdl-cell--12-col {
+			width: 100%;
+		}
 		@media screen and (max-width: 800px){
 			
 		}
@@ -173,8 +176,7 @@
 	.drawer-cards {
 		width: 90%;
 		margin-bottom: 4%;
-		min-height: 40%!important;
-		padding-right: 5%;
+		min-height: auto!important;
 	}
 
 	// nada
@@ -234,8 +236,8 @@
 			  </header>
 			
 			<div class="mdl-layout__drawer" :class="{'is-visible': drawer}">
-			<div class="mdl-grid">
-				<div class="mdl-cell mdl-cell--12-col">
+			<div class="mdl-grid" style="padding: 0;">
+				<div class="mdl-cell mdl-cell--12-col" style="margin: 0;">
 					
 						<!-- Card Avatar -->
   						<div class="mdl-card mdl-shadow--4dp drawer-cards">
