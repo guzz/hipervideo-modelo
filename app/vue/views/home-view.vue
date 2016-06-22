@@ -52,7 +52,7 @@
     	position: absolute;
 	    top: 0;
 	    left: 0;
-	    opacity: .5;
+	    opacity: 1;
 	    width: 100%;
     }
     .mdl-button {
@@ -162,6 +162,65 @@
 	    background-color: green;
 	}
 
+	.hiper-list {
+		padding: 0 50px;
+		margin-bottom: 0;
+		.slick-slide {
+			margin-top: 16px;
+			&:hover {
+				transform: scale(1.1);
+		    margin-left: 16px;
+		    margin-right: 16px;
+			}
+		}
+		.slick-list {
+			margin-bottom: 0;
+		}
+		.list-h {
+	    background: rgba(0,0,0,0);
+	    height: 95%;
+	    top: 8px;
+	    position: absolute;
+	    width: 40px;
+	    color: black;
+	    position: absolute;
+	    border: none;
+	    cursor: pointer;
+	    &:focus {
+	    	outline: 0;
+	    }
+	    .material-icons {
+	    	-webkit-transition: all .1s ease;
+				   -moz-transition: all .1s ease;
+				    -ms-transition: all .1s ease;
+				     -o-transition: all .1s ease;
+				        transition: all .1s ease;
+	    	font-size: 50px;
+	    	margin-left: -9px;
+	    }
+	    &.slick-disabled {
+	    	.material-icons {
+	    		color: gainsboro;
+	    	}
+	    }
+	    &:hover {
+	    	.material-icons {
+	    		transform: scale(1.3);
+	    	}
+	    	&.slick-disabled {
+	    		.material-icons {
+	    			transform: scale(1);
+	    		}
+	    	}
+	    }
+		}
+		.list-prev {
+			left: 9px;
+		}
+		.list-next {
+			right: 9px;
+		}
+	}
 </style>
 
 <template>
@@ -208,8 +267,8 @@
 		</div>
 
 	</div>
-	
-	<div class="mdl-grid">
+
+	<div class="mdl-grid hiper-list">
 
 	  <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone" id="hip-{{hipId[$index]}}" v-for="hipervideo in database" transition="fade">
 	  	<div class="demo-card-wide mdl-card mdl-shadow--2dp">
@@ -344,6 +403,16 @@
 			}
 
 			this.ready = true
+
+
+			jQuery('.hiper-list').slick({
+        infinite: false,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        prevArrow: '<button type="button" class="list-prev list-h"><i class="material-icons">chevron_left</i></button>"',
+        nextArrow: '<button type="button" class="list-next list-h"><i class="material-icons">chevron_right</i></button>"'
+      })
+
 
 		},
 		components: {
