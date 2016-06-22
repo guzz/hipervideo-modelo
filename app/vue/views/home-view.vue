@@ -148,7 +148,6 @@
 		width: 90%;
 		margin-left: 5%;
 		padding-bottom: 10px;
-		background-color: purple;
 	}
 
 	#video-title {
