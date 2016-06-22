@@ -145,6 +145,10 @@
 		font-size: 30px;
 		text-align: center;
 		line-height: 30px;
+		@media screen and (max-width: 550px) {
+				font-size: 18px;
+				line-height: 20px;	
+			}
 	}
 
 	#video-length {
@@ -170,12 +174,18 @@
 		clear: left;
 		margin-top: 20%;
 		margin-bottom: 5%;
+		@media screen and (max-width: 550px) {
+				font-size: 80%;
+				margin-top: 10%;
+				margin-bottom: 2%;	
+			}
 	}
 
 	#video-perks {
 		float: left;
 		width: 40%;
 		margin-left: 5%;
+
 	}
 
 	#video-play {
@@ -193,6 +203,10 @@
 
 	.img-owner {
 		height: 70px;
+		@media screen and (max-width: 550px) {
+				width: 40%;	
+			}
+
 	}
 
 	.content{
@@ -256,7 +270,7 @@
 		<div class="mdl-cell mdl-cell--4-col banner-overlay">
 		</div>
 		
-		<div class="mdl-cell mdl-cell--2-col banner-owner">
+		<div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone banner-owner">
 			
 			<div id="video-owner">
 				<div>
