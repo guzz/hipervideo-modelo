@@ -222,6 +222,10 @@
 
 	.img-owner {
 		height: 70px;
+		@media screen and (max-width: 550px) {
+				width: 40%;	
+			}
+
 	}
 	.hiper-list {
 		padding: 0 50px;
@@ -348,7 +352,7 @@
 		<div class="mdl-cell mdl-cell--4-col banner-overlay">
 		</div>
 		
-		<div class="mdl-cell mdl-cell--2-col banner-owner">
+		<div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone banner-owner">
 			
 			<div id="video-owner">
 				<div>
