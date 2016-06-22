@@ -176,7 +176,12 @@
 	.drawer-cards {
 		width: 90%;
 		margin-bottom: 4%;
+		margin-right: 3%;
+		margin-left: 3%;
 		min-height: auto!important;
+		@media screen and (max-width: 550px) {
+				max-height: 180px!important;
+			}
 	}
 
 	// nada

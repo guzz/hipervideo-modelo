@@ -94,6 +94,7 @@
 	.icons {
 		font-size: 20px;
 		vertical-align: middle;
+		cursor: default;
 	}
 
 	.clear {
@@ -109,7 +110,7 @@
 		    -ms-transition: all .4s ease .1s;
 		     -o-transition: all .4s ease .1s;
 		        transition: all .4s ease .1s;
-		height: 56%;
+		height: 60%;
 		overflow: hidden;
 		background-image: url("http://i.imgur.com/wOWmkC7.jpg");
 		&.aberto {
@@ -202,28 +203,42 @@
 
 	#video-perks {
 		float: left;
-		width: 40%;
-		margin-left: 5%;
-
+		width: 60%;
+		@media screen and (max-width: 320px) {
+				visibility: hidden;
+			}
+		@media screen and (max-width: 550px) {
+				width: 100%;
+			}
 	}
 
 	#video-play {
 		float: right;
-		width: 40%;
+		width: 30%;
 		text-align: center;
-		margin-right: 5%;
+		@media screen and (max-width: 550px) {
+				visibility: hidden;
+			}
+	}
+
+	.play-btn {
+		color: white;
+		font-size: 70px;
 	}
 
 	#video-owner {
 		text-align: center;
 		color: white;
 		margin-top: 5%;
+		@media screen and (max-width: 550px) {
+				visibility: hidden;
+			}
 	}
 
 	.img-owner {
 		height: 70px;
 		@media screen and (max-width: 550px) {
-				width: 40%;	
+				visibility: hidden;
 			}
 
 	}
@@ -356,6 +371,18 @@
 		.list-next {
 			right: 9px;
 		}
+		.slider-cards {
+			@media screen and (max-width: 720px){
+				max-height: 140px;
+			}
+		}
+		.single-card {
+			max-height: auto!important;
+			@media screen and (max-width: 730px){
+				max-height: 20px!important;
+			}
+		}
+
 	}
 </style>
 
@@ -373,9 +400,14 @@
 				</div>
 				
 				<div id="video-qual">
-					<i class="material-icons icons">videocam</i>
-					<i class="material-icons icons">hd</i>
-					<i class="material-icons icons" style="color: red">hd</i>
+					<div id="vidqual1" class="icon material-icons icons">videocam</div>
+					<div class="mdl-tooltip" for="vidqual1">Qualidade Normal</div>
+					
+					<div id="vidqual2" class="icon material-icons icons">hd</div>
+					<div class="mdl-tooltip" for="vidqual2">Qualidade HD</div>
+					
+					<div id="vidqual3" class="icon material-icons icons" style="color: red">hd</div>
+					<div class="mdl-tooltip" for="vidqual3">Qualidade Full HD</div>
 				</div>
 				
 				<div id="video-acce">
@@ -389,16 +421,29 @@
 				</div>
 
 				<div id="video-perks">
+
+					<div style="width: 50%; float: left">
 					<i class="material-icons icons">check_circle</i> Perk 1 <br>
 					<i class="material-icons icons">check_circle</i> Perk 2 <br>
 					<i class="material-icons icons">check_circle</i> Perk 3 <br>
+					<i class="material-icons icons">check_circle</i> Perk 4 <br>
+					<i class="material-icons icons">check_circle</i> Perk 5 <br>
+					</div>
+
+					<div style="width: 50%; float: left">
+					<i class="material-icons icons">check_circle</i> Perk 1 <br>
+					<i class="material-icons icons">check_circle</i> Perk 2 <br>
+					<i class="material-icons icons">check_circle</i> Perk 3 <br>
+					<i class="material-icons icons">check_circle</i> Perk 4 <br>
+					<i class="material-icons icons">check_circle</i> Perk 5 <br>
+					</div>
+
 				</div>
 
 				<div id="video-play">
-				  	<a class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" href="#">
-			  		<i class="material-icons dot">play_arrow</i>
-					<i class="material-icons">play_circle_outline</i>
-			    	</a>
+				  	<a href="#">
+				  		<i class="material-icons play-btn">play_circle_outline</i>
+				    </a>
 				</div>
 
 				<div class="clear"> </div>
@@ -414,19 +459,20 @@
 			
 			<div id="video-owner">
 				<div>
+				<a href="http://www.jardimdigital.com.br" target="_blank">
 				<img class="img-owner" src="http://jardimdigital.com.br/wp-content/uploads/2016/03/Logo.png" >
+				</a>
 				</div>
 			</div>
 
 		</div>
 
 	</div>
-	<div class="mdl-grid hiper-list">
 
-	<div class="mdl-grid hiper-list">
+	<div class="mdl-grid hiper-list slider-cards">
 
-	  <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone" id="hip-{{hipId[$index]}}" v-for="hipervideo in database" transition="fade">
-	  	<div class="demo-card-wide mdl-card mdl-shadow--2dp">
+	  <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone slider-cards" id="hip-{{hipId[$index]}}" v-for="hipervideo in database" transition="fade">
+	  	<div class="mdl-card mdl-shadow--2dp single-card">
 			  <div class="mdl-card__title display-home" :class="{ativo: home}">
 			    <h2 class="mdl-card__title-text">{{hipervideo.headers.nome}}</h2>
 			  </div>
@@ -561,23 +607,22 @@
 
 			componentHandler.upgradeDom()
 
-
-			jQuery('.hiper-list').slick({
-        infinite: false,
-        slidesToShow: 4,
-        slidesToScroll: 4,
-        prevArrow: '<button type="button" class="list-prev list-h"><i class="material-icons">chevron_left</i></button>"',
-        nextArrow: '<button type="button" class="list-next list-h"><i class="material-icons">chevron_right</i></button>"',
-        responsive: [
-        	{
-        		breakpoint: 480,
-        		settings: {
-        			slidesToShow: 1,
-        			slidesToScroll: 1
-        		}
-        	}
-        ]
-      })
+		jQuery('.hiper-list').slick({
+	       infinite: false,
+	       slidesToShow: 4,
+	       slidesToScroll: 4,
+	       prevArrow: '<button type="button" class="list-prev list-h"><i class="material-icons">chevron_left</i></button>"',
+	       nextArrow: '<button type="button" class="list-next list-h"><i class="material-icons">chevron_right</i></button>"',
+	       responsive: [
+	       	{
+	       	breakpoint: 480,
+	       	settings: {
+	       	slidesToShow: 1,
+	       	slidesToScroll: 1
+	       	}
+	       	}
+	       ]
+	    })
 
 
 		},
