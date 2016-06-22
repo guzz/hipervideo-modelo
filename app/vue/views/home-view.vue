@@ -147,12 +147,11 @@
 	#video-data {
 		width: 90%;
 		margin-left: 5%;
-		padding-top: 10px;
 		padding-bottom: 10px;
 	}
 
 	#video-title {
-		margin-bottom: 5px;
+		margin-bottom: 10px;
 		font-size: 30px;
 		text-align: center;
 		line-height: 30px;
@@ -164,17 +163,15 @@
 	}
 
 	#video-length {
-		width: 25%;
-		margin-left: 5%;
+		width: 33%;
+		margin-right: 0.5%;
 		float: left;
-		background-color: grey;
 	}
 
 	#video-qual {
-		width: 25%;
+		width: 33%;
 		text-align: center;
-		margin-left: 7.5%;
-		margin-right: 7.5%;
+		margin-right: 0.5%;
 		float: left;
 		
 		@media screen and (max-width: 500px){
@@ -183,8 +180,7 @@
 	}
 
 	#video-acce {
-		width: 25%;
-		margin-right: 5%;
+		width: 33%;
 		text-align: right;
 		float: left;
 
@@ -281,6 +277,10 @@
 			right: 9px;
 		}
 	}
+	.img-owner {
+		height: 70px;
+	}
+
 
 </style>
 
@@ -339,7 +339,7 @@
 			
 			<div id="video-owner">
 				<div>
-				Jardim Digital
+				<img class="img-owner" src="http://jardimdigital.com.br/wp-content/uploads/2016/03/Logo.png" >
 				</div>
 			</div>
 
