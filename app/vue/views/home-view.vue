@@ -104,8 +104,18 @@
 // Classes dos containers do banner de filmes
 
 	.banner-conteiner {
-		height: 70%;
+		-webkit-transition: all .4s ease .1s;
+		   -moz-transition: all .4s ease .1s;
+		    -ms-transition: all .4s ease .1s;
+		     -o-transition: all .4s ease .1s;
+		        transition: all .4s ease .1s;
+		height: 56%;
+		overflow: hidden;
 		background-image: url("http://i.imgur.com/wOWmkC7.jpg");
+		&.aberto {
+			height: 0;
+			padding: 0;
+		}
 
 	}
 
@@ -115,7 +125,6 @@
 	    -moz-opacity: 1;
 	    -webkit-opacity: 1;
 	    color: white;
-	    background-color: blue;
 	}
 
 	.banner-overlay {
@@ -123,7 +132,6 @@
     	opacity: 0.5;
 	    -moz-opacity:0.5;
 	    -webkit-opacity:0.5;
-	    background-color: yellow;
 	}
 
 	.banner-owner {
@@ -131,7 +139,6 @@
     	opacity: 1;
 	    -moz-opacity: 1;
 	    -webkit-opacity: 1;
-	    background-color: green;
 	}
 
 
@@ -142,7 +149,6 @@
 		margin-left: 5%;
 		padding-top: 10px;
 		padding-bottom: 10px;
-		background-color: purple;
 	}
 
 	#video-title {
@@ -150,14 +156,12 @@
 		font-size: 30px;
 		text-align: center;
 		line-height: 30px;
-		background-color: orange;
 	}
 
 	#video-length {
 		width: 25%;
 		margin-left: 5%;
 		float: left;
-		background-color: grey;
 	}
 
 	#video-qual {
@@ -166,7 +170,6 @@
 		margin-left: 7.5%;
 		margin-right: 7.5%;
 		float: left;
-		background-color: cyan;
 	}
 
 	#video-acce {
@@ -174,21 +177,18 @@
 		margin-right: 5%;
 		text-align: right;
 		float: left;
-		background-color: black;
 	}
 
 	#video-description {
 		clear: left;
-		margin-top: 20%;
+		margin-top: 10%;
 		margin-bottom: 5%;
-		background-color: red;
 	}
 
 	#video-perks {
 		float: left;
 		width: 40%;
 		margin-left: 5%;
-		background-color: brown;
 	}
 
 	#video-play {
@@ -196,7 +196,6 @@
 		width: 40%;
 		text-align: center;
 		margin-right: 5%;
-		background-color: magenta;
 	}
 
 	#video-owner {
@@ -210,11 +209,11 @@
 		margin-bottom: 0;
 		.slick-slide {
 			margin-top: 16px;
-			&:hover {
+/*			&:hover {
 				transform: scale(1.1);
 		    margin-left: 16px;
 		    margin-right: 16px;
-			}
+			}*/
 		}
 		.slick-list {
 			margin-bottom: 0;
