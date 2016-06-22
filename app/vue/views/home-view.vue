@@ -115,7 +115,6 @@
 	    -moz-opacity: 1;
 	    -webkit-opacity: 1;
 	    color: white;
-	    background-color: blue;
 	}
 
 	.banner-overlay {
@@ -123,7 +122,6 @@
     	opacity: 0.5;
 	    -moz-opacity:0.5;
 	    -webkit-opacity:0.5;
-	    background-color: yellow;
 	}
 
 	.banner-owner {
@@ -131,7 +129,6 @@
     	opacity: 1;
 	    -moz-opacity: 1;
 	    -webkit-opacity: 1;
-	    background-color: green;
 	}
 
 
@@ -140,76 +137,45 @@
 	#video-data {
 		width: 90%;
 		margin-left: 5%;
-		padding-top: 10px;
 		padding-bottom: 10px;
-		background-color: purple;
 	}
 
 	#video-title {
-		margin-bottom: 5px;
+		margin-bottom: 10px;
 		font-size: 30px;
 		text-align: center;
 		line-height: 30px;
-		background-color: orange;
-		
-		@media screen and (max-width: 500px){
-			font-size: 18px;
-			line-height: 20px;
-		}
 	}
 
 	#video-length {
-		width: 25%;
-		margin-left: 5%;
+		width: 33%;
+		margin-right: 0.5%;
 		float: left;
-		background-color: grey;
-		
-		@media screen and (max-width: 500px){
-			width: 20%;	
-		}
 	}
 
 	#video-qual {
-		width: 25%;
+		width: 33%;
 		text-align: center;
-		margin-left: 7.5%;
-		margin-right: 7.5%;
+		margin-right: 0.5%;
 		float: left;
-		background-color: cyan;
-		
-		@media screen and (max-width: 500px){
-			width: 20%;	
-		}
 	}
 
 	#video-acce {
-		width: 25%;
-		margin-right: 5%;
+		width: 33%;
 		text-align: right;
 		float: left;
-		background-color: black;
-
-		@media screen and (max-width: 500px){
-			width: 20%;	
-		}
 	}
 
 	#video-description {
 		clear: left;
 		margin-top: 20%;
 		margin-bottom: 5%;
-		background-color: red;
-
-		@media screen and (max-width: 500px){
-			margin-top: 12%;	
-		}
 	}
 
 	#video-perks {
 		float: left;
 		width: 40%;
 		margin-left: 5%;
-		background-color: brown;
 	}
 
 	#video-play {
@@ -217,13 +183,16 @@
 		width: 40%;
 		text-align: center;
 		margin-right: 5%;
-		background-color: magenta;
 	}
 
 	#video-owner {
 		text-align: center;
 		color: white;
 		margin-top: 5%;
+	}
+
+	.img-owner {
+		height: 70px;
 	}
 
 
@@ -284,7 +253,7 @@
 			
 			<div id="video-owner">
 				<div>
-				Jardim Digital
+				<img class="img-owner" src="http://jardimdigital.com.br/wp-content/uploads/2016/03/Logo.png" >
 				</div>
 			</div>
 
