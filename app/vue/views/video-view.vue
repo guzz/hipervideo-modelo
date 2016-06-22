@@ -356,7 +356,7 @@
 			<!-- CONTENT -->
 
 			<div class="sidebar_content">
-				<in-sidebar-block v-for="content in contentBlocks" :content="content" :video="video" :conteudo="conteudo" transition="sidebar"></in-sidebar-block>
+				<in-sidebar-block v-for="content in contentBlocks" :content="content" :video="video" :conteudo="conteudo" :events="events" transition="sidebar"></in-sidebar-block>
 				<div id="sidebar_click" class="sidebar_opener clickable" @click="openDefaultBlock" v-show="!hasBlocks && !fixedSidebar && !hasInfo" transition="sidebar">
 					<div class="sidebar_opener__inside">
 						<i class="material-icons">chevron_right</i>
@@ -738,9 +738,6 @@
 							this.videoPause()
 						}
 						break;
-					case 13 : 
-						this.toggleFullScreen();
-						break;
 				}
 			},
 			toggleFullScreen: function() {
@@ -825,6 +822,10 @@
 					return block.start === null ? false : block.id === id
 				})
 				this.cartela = null
+			},
+			seekEvento: function(id) {
+				var node = _.findWhere(this.events,{"id": id})
+				this.video.tag.currentTime = node.timecode.start
 			}
 		},
 		components: {

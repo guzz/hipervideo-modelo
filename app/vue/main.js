@@ -57,10 +57,10 @@
 					ga('send', 'event', 'EventoInfo', 'open', id + '::info-' + info)
 					Vue.nextTick(function () {
 						if(app.$refs.view){
-							app.$refs.view.infoOpen(info)
+							app.$refs.view.infoOpen(parseInt(info))
 						} else {
 							app.$once('video-view-ready',function(){
-								app.$refs.view.infoOpen(info)
+								app.$refs.view.infoOpen(parseInt(info))
 							})
 						}
 					})
@@ -134,7 +134,7 @@
 		for (var i = 0; i < ind.length; i++) {
 			var el = getData(hip[ind[i]].desc)
 			el.card = hip[ind[i]].id
-			el.id = hip[ind[i]].name.split("-")[1]
+			el.id = parseInt(hip[ind[i]].name.split("-")[1])
 			elements.push(el)
 		}
 		return elements

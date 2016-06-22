@@ -534,24 +534,24 @@
 
 			this.ready = true
 
+			componentHandler.upgradeDom()
 
-		jQuery('.hiper-list').slick({
-	       infinite: false,
-	       slidesToShow: 4,
-	       slidesToScroll: 4,
-	       prevArrow: '<button type="button" class="list-prev list-h"><i class="material-icons">chevron_left</i></button>"',
-	       nextArrow: '<button type="button" class="list-next list-h"><i class="material-icons">chevron_right</i></button>"',
-	       responsive: [
-	       	{
-	       	breakpoint: 480,
-	       	settings: {
-	       	slidesToShow: 1,
-	       	slidesToScroll: 1
-	       	}
-	       	}
-	       ]
-	    })
-
+			jQuery('.hiper-list').slick({
+        infinite: false,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        prevArrow: '<button type="button" class="list-prev list-h"><i class="material-icons">chevron_left</i></button>"',
+        nextArrow: '<button type="button" class="list-next list-h"><i class="material-icons">chevron_right</i></button>"',
+        responsive: [
+        	{
+        		breakpoint: 480,
+        		settings: {
+        			slidesToShow: 1,
+        			slidesToScroll: 1
+        		}
+        	}
+        ]
+      })
 
 		},
 		components: {
