@@ -77,7 +77,7 @@
 		}
 	}
 	.mdl-layout__drawer {
-		/* overflow: hidden; */
+		overflow: hidden;
 		overflow: hidden;
 		transform: translateX(-100%);
 		@media screen and (max-width: 800px){
@@ -187,19 +187,16 @@
 
 	.qual-div1 {
 		text-align: left;
-		background-color: blue;
 		width: 33%;
 	}
 
 	.qual-div2 {
 		text-align: center;
-		background-color: yellow;
 		width: 33%;
 	}
 
 	.qual-div3 {
 		text-align: right;
-		background-color: orange;
 		width: 33%;
 	}
 
@@ -302,7 +299,7 @@
 		  						<h4 class="mdl-card__title-text">Acessibilidade</h4>
 		  					</div>
 
-		  					<div class="mdl-card__actions">
+		  					<div class="mdl-card__supporting-text">
 		  						<div class="mdl-grid">
 		  							<div class="mdl-cell mdl-cell--12-col">
 							  			<ul class="demo-list-control mdl-list acess">
