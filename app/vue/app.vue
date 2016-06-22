@@ -333,7 +333,7 @@
   						</div>
 
   						<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
-  						<a href="/#/home">	<i class="material-icons">chevron_left</i>	</a>
+  						<a href="/#/home" @click="drawer = false">	<i class="material-icons">chevron_left</i>	</a>
 						</button>
 						<span>Voltar ao início</span>
 

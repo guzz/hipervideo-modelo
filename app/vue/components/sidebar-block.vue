@@ -121,6 +121,16 @@
 			<div :is="content.type" :fields="content.fields"></div>
 		</div>
 		<p v-if="!content.ap" style="padding-left: 10px;"><strong><a style="font-weight: 900; text-decoration: none;" :href="'#/' + content.videoID + '/info/' + content.id">SAIBA MAIS</a></strong></p>
+		<button v-if="!content.ap" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored" @click="parentBlock(content.id - 1)" :disabled="eventoStart">
+			<i class="material-icons">chevron_left</i>
+		</button>
+		<button v-if="!content.ap" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" @click="seekVideo(content.id)" :disabled="isAp || eventoAt">
+			Ir para ponto no video
+		</button>
+		<button v-if="!content.ap" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored" @click="parentBlock(content.id + 1)" :disabled="eventoEnd">
+			<i class="material-icons">chevron_right</i>
+		</button>
+		<p v-if="!content.ap" style="color:white; text-align: center;">{{content.id + 1}} / {{numEvents}}</p>
 	</div>
 </template>
 
@@ -131,7 +141,7 @@
 	
 	module.exports = {
 		replace: true,
-		props: ['content', 'video', 'conteudo'],
+		props: ['content', 'video', 'conteudo', 'events'],
 		data: function(){
 			return {
 				html_resumo: null
@@ -143,6 +153,25 @@
 				var end = this.content.end;
 				var time = this.video.time;
 				return 75 - Math.floor(75 * (time - start) / (end - start));
+			},
+			eventoStart: function() {
+				return this.content.id < 1
+			},
+			eventoEnd: function() {
+				return this.content.id + 1 === this.events.length
+			},
+			eventoAt: function() {
+				return this.content.start !== null
+			},
+			isAp: function() {
+				if (this.content.ap !== undefined) {
+					return true
+				} else {
+					return false
+				}
+			},
+			numEvents: function() {
+				return this.events.length
 			}
 		},
 		attached: function() {
@@ -156,6 +185,12 @@
 				if (this.conteudo && this.conteudo.id === this.content.id) {
 					window.location.href = "/#/" + this.$parent.params.video;
 				}
+			},
+			parentBlock: function(id) {
+				this.$parent.addBlockById(id)
+			},
+			seekVideo: function(id) {
+				this.$parent.seekEvento(id)
 			}
 		},
 		components: {
