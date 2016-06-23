@@ -305,7 +305,7 @@
 
 		<!-- VIDEO -->
 		<div id="player">
-			<in-bg-video :db="db" :video="video" :qualidade="qualidade" :acessibilidade="acessibilidade" :playing.sync="playing" v-ref:hipervideo></in-bg-video>
+			<in-bg-video :db="db" :video="video" :qualidade="qualidade" :acessibilidade.sync="acessibilidade" :playing.sync="playing" v-ref:hipervideo></in-bg-video>
 
 			<div id="video-controls" :class="{ hover: playing, 'z-down': hasInfo }">
 

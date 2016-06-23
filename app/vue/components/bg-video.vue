@@ -75,7 +75,12 @@
 			}
 		},
 		created: function() {
-			// this.qual = this.queQualidade(this.qualidade)
+			if (this.acessibilidade === "libras" && !this.db.headers.acessibilidade.libras) {
+				console.log('libras')
+				this.acessibilidade = "normal"
+			} else if (this.acessibilidade === "audio" && !this.db.headers.acessibilidade.audio) {
+				this.acessibilidade = "normal"
+			}
 		},
 		attached: function() {
 			
@@ -85,10 +90,6 @@
 			this.hipervideo.load()
 			var seekBar = $$$('#seek-bar-'+this.db.headers.id).get(0)
 			var selector = $$$('.rangeslider').get(0)
-
-			this.$on('pong', function() {
-				self.playing = true;
-			})
 
 			var tempoCorrido = function(array) {
 				var min = array[0]

@@ -189,7 +189,7 @@
 	.mdl-layout__container {
 		top: 0;
 		left: 0;
-		background-color: white;
+		background-color: rgba(0,0,0,.3);
 	}
 
 	.qual-div1 {
@@ -316,7 +316,7 @@
 											    </span>
 											    <span class="mdl-list__item-secondary-action">
 												    <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="list-switch-1"  id="label-switch-1">
-											    	<input type="checkbox" id="list-switch-1" class="mdl-switch__input" :checked="isLibras" @click="acessLibras"/>
+											    	<input type="checkbox" id="list-switch-1" class="mdl-switch__input" :disabled="hasLibras" :checked="isLibras" @click="acessLibras"/>
 											    	</label>
 											    </span>
 											</li>
@@ -326,7 +326,7 @@
 											    </span>
 											    <span class="mdl-list__item-secondary-action">
 											        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="list-switch-2"  id="label-switch-2">
-											        <input type="checkbox" id="list-switch-2" class="mdl-switch__input" :checked="isAudio" @click="acessAudio"/>
+											        <input type="checkbox" id="list-switch-2" class="mdl-switch__input" :disabled="hasAudio" :checked="isAudio" @click="acessAudio"/>
 											        </label>
 											    </span>
 											</li>
@@ -347,7 +347,7 @@
 			  </div>
 			  </div>
 			  <div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button" @click="openDrawer"><i class="material-icons">menu</i></div>
-			  <main class="mdl-layout__content view" :is="view" transition="fade" :class="[className]" :db="db" :database="database" :params="params" :qualidade="qualidade" :acessibilidade="acessibilidade" :ready.sync="ready" v-ref:view >
+			  <main class="mdl-layout__content view" :is="view" transition="fade" :class="[className]" :db="db" :database="database" :params="params" :qualidade="qualidade" :acessibilidade.sync="acessibilidade" :ready.sync="ready" v-ref:view >
 
 			  </main>
 			  <div class="mdl-layout__obfuscator" :class="{'is-visible': drawer}" @click="openDrawer"></div>
@@ -422,6 +422,24 @@
       },
       isVideo: function() {
       	return this.$data.view === 'video-view'
+      },
+      hasAudio: function() {
+      	if (this.db && this.db.headers.acessibilidade.audio) {
+      		return false
+      		componentHandler.upgradeDom()
+      	} else {
+      		return true
+      		componentHandler.upgradeDom()
+      	}
+      },
+      hasLibras: function() {
+      	if (this.db && this.db.headers.acessibilidade.libras) {
+      		return false
+      		componentHandler.upgradeDom()
+      	} else {
+      		return true
+      		componentHandler.upgradeDom()
+      	}
       }
 		},
 		methods: {
@@ -485,6 +503,9 @@
       	} else if (!obj.target.checked) {
       		this.acessibilidade = "normal"
       	}
+      },
+      acessLegenda: function (obj) {
+      	console.log(obj)
       },
       getCookie: function(cname) {
 		    var name = cname + "=";
