@@ -158,7 +158,12 @@
 			// console.log(n + " - attachs")
 			var headers = getHeaders(hip)
 			if (attach.length !== 0) {
-				headers.img = attach[0].url
+				headers.capa = attach[0].url
+				if (attach.length > 1) {
+					headers.img = attach[1].url
+				} else {
+					headers.img = attach[0].url
+				}
 			}
 			var plugins = getElement(hip, "plugins")
 			var eventos = getElement(hip, "eventos")

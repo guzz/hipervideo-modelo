@@ -6,7 +6,7 @@
 		}
 	}
 	.context-bg {
-		background-color: rgb(96,125,139);
+		background-color: red;
 	}
 	.app_load {
 		position: fixed;
@@ -34,6 +34,7 @@
 		    -ms-transition: height .6s ease;
 		     -o-transition: height .6s ease;
 		        transition: height .6s ease;
+		color: white;
 		&.home-menu {
 			width: 5%;
 	    	min-height: 0;
@@ -152,19 +153,17 @@
 		}
 	}
 	.mdl-layout__drawer-button {
-		-webkit-transition: height .3s ease;
-		   -moz-transition: height .3s ease;
-		    -ms-transition: height .3s ease;
-		     -o-transition: height .3s ease;
-		        transition: height .3s ease;
-		.home-open & {
-			background: rgb(96,125,139);
-		    margin: 0;
-		    padding: 10px;
-		    height: 97%;
-	    	@media screen and (min-width: 1440px) {
-				padding: 20px;
-    			height: 95.5%;
+		-webkit-transition: all .6s ease;
+		   -moz-transition: all .6s ease;
+		    -ms-transition: all .6s ease;
+		     -o-transition: all .6s ease;
+		        transition: all .6s ease;
+		color: white;
+		.is-video & {
+			margin: 0;
+			background-color: rgba(0,0,0,.1);
+			&:hover {
+				background-color: rgba(0,0,0,.5);
 			}
 		}
 	}
@@ -175,9 +174,7 @@
 
 	.drawer-cards {
 		width: 90%;
-		margin-bottom: 4%;
-		margin-right: 3%;
-		margin-left: 3%;
+		margin: 5px auto;
 		min-height: auto!important;
 		@media screen and (max-width: 550px) {
 				max-height: 180px!important;
@@ -189,7 +186,7 @@
 	.mdl-layout__container {
 		top: 0;
 		left: 0;
-		background-color: rgba(0,0,0,.3);
+		background-color: rgba(0,0,0,.9);
 	}
 
 	.qual-div1 {
@@ -218,9 +215,9 @@
 	<div class="app_load"  v-if="!ready" transition="fade">
 		<div id="p1" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
 	</div>
-		<div id="full" allowfullscreen="true">
+		<div id="full" allowfullscreen="true" :class="[className]">
 			<div class="mdl-layout mdl-js-layout" :class="{ 'home-open': home }">
-				<header class="mdl-layout__header mdl-layout__header--waterfall header-top" :class="{ 'home-menu': home }" v-if="!isVideo" transition="grow"  style="position: absolute; background-color: rgba(0, 0, 0, .5);">
+				<header class="mdl-layout__header mdl-layout__header--waterfall header-top" :class="{ 'home-menu': home }" v-if="!isVideo" transition="grow"  style="position: absolute; background-color: rgba(0, 0, 0, 1);">
 			    <!-- Top row, always visible -->
 			    <div class="mdl-layout__header-row">
 			      <!-- Title -->

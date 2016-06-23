@@ -133,9 +133,37 @@
       }
   }
 
+  #link-play {
+    &:hover {
+      .play-arrow, .play-btn {
+        transform: scale(1.2)
+      }
+      .play-arrow {
+        color: rgb(255,82,82);
+      }
+    }
+  }
+
+  .play-btn, .play-arrow {
+    -webkit-transition: all .3s ease;
+       -moz-transition: all .3s ease;
+        -ms-transition: all .3s ease;
+         -o-transition: all .3s ease;
+            transition: all .3s ease;
+  }
+
   .play-btn {
     color: white;
     font-size: 70px;
+  }
+
+  .play-arrow {
+    z-index: 1;
+    color: white;
+    position: absolute;
+    font-size: 46px;
+    margin-left: 14px;
+    margin-top: 12px;
   }
 
   #video-owner {
@@ -170,25 +198,25 @@
       </div>
       
       <div id="video-qual">
-        <div v-if="qualQualidade['baixa']" id="vidqual1" class="icon material-icons icons">videocam</div>
-        <div v-if="qualQualidade['baixa']" class="mdl-tooltip" for="vidqual1">Qualidade Baixa</div>
+        <div v-if="banner.qualidades['baixa']" id="vidqual1" class="icon material-icons icons">videocam</div>
+        <div v-if="banner.qualidades['baixa']" class="mdl-tooltip" for="vidqual1">Qualidade Baixa</div>
         
-        <div v-if="qualQualidade['media']" id="vidqual2" class="icon material-icons icons">hd</div>
-        <div v-if="qualQualidade['media']" class="mdl-tooltip" for="vidqual2">Qualidade Média</div>
+        <div v-if="banner.qualidades['media']" id="vidqual2" class="icon material-icons icons">hd</div>
+        <div v-if="banner.qualidades['media']" class="mdl-tooltip" for="vidqual2">Qualidade Média</div>
         
-        <div v-if="qualQualidade['alta']" id="vidqual3" class="icon material-icons icons" style="color: red">hd</div>
-        <div v-if="qualQualidade['alta']" class="mdl-tooltip" for="vidqual3">Qualidade Alta</div>
+        <div v-if="banner.qualidades['alta']" id="vidqual3" class="icon material-icons icons" style="color: red">hd</div>
+        <div v-if="banner.qualidades['alta']" class="mdl-tooltip" for="vidqual3">Qualidade Alta</div>
       </div>
       
       <div id="video-acce">
-        <i id="audiodescr" class="fa fa-audio-description"></i>
-        <div class="mdl-tooltip mdl-tooltip--left" for="audiodescr">Audio Descrição</div>
+        <i v-if="banner.acessibilidade['audio']" id="audiodescr" class="fa fa-audio-description"></i>
+        <div v-if="banner.acessibilidade['audio']" class="mdl-tooltip mdl-tooltip--left" for="audiodescr">Audio Descrição</div>
         
-        <i id="closedcapts" class="fa fa-cc"></i>
-        <div class="mdl-tooltip mdl-tooltip--left" for="closedcapts">Legendas</div>
+        <i v-if="banner.acessibilidade['cc']" id="closedcapts" class="fa fa-cc"></i>
+        <div v-if="banner.acessibilidade['cc']" class="mdl-tooltip mdl-tooltip--left" for="closedcapts">Legendas</div>
 
-        <i id="signing" class="fa fa-signing"></i>
-        <div class="mdl-tooltip mdl-tooltip--left" for="signing">Libras</div>
+        <i v-if="banner.acessibilidade['libras']" id="signing" class="fa fa-signing"></i>
+        <div v-if="banner.acessibilidade['libras']" class="mdl-tooltip mdl-tooltip--left" for="signing">Libras</div>
       </div>
     
       <div id="video-description">
@@ -212,7 +240,8 @@
       </div>
 
       <div id="video-play">
-          <a href="/#/{{banner.id}}">
+          <a href="/#/{{banner.id}}" id="link-play">
+            <i class="material-icons play-arrow">play_arrow</i>
             <i class="material-icons play-btn">play_circle_outline</i>
           </a>
       </div>
@@ -237,7 +266,7 @@
     </div>
 
   </div>
-  <div v-if="banner" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: -1;" transition="fade" :style="{'background-image': 'url('+banner.img+')'}"></div>
+  <div v-if="banner" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: -1; background-size: 100%;" transition="fade" :style="{'background-image': 'url('+banner.capa+')'}"></div>
 
 </template>
 
@@ -257,12 +286,7 @@
       
     },
     computed: {
-      qualQualidade: function() {
-        return this.banner.qualidades
-      },
-      qualAcess: function() {
-        return this.banner.acessibilidade
-      }
+      
     },
     attached: function () {
 

@@ -62,11 +62,12 @@
 			     -o-transition: all .1s ease;
 			        transition: all .1s ease;
     	overflow: visible;
+    	transform: scale(.7);
     	&:hover {
     		background-color: transparent;
-    		transform: scale(1.1);
+    		transform: scale(.8);
     		.dot {
-    			color: red;
+    			color: rgb(255,82,82);
     		}
     	}
     }
@@ -78,8 +79,8 @@
 		    margin-left: 11px;
 		    z-index: 1;
 		    @media screen and (min-width: 1440px) {
-					font-size: 63px;
-    			margin-left: 21px;
+					font-size: 68px;
+    			margin-left: 18px;
 				}
     		}
     		@media screen and (min-width: 1440px) {
@@ -130,6 +131,7 @@
 		.slick-slide {
 			margin-top: 16px;
 			.material-icons {
+				color: white;
 				-webkit-transition: all .2s ease;
 				   -moz-transition: all .2s ease;
 				    -ms-transition: all .2s ease;
@@ -152,7 +154,7 @@
 	    top: 8px;
 	    position: absolute;
 	    width: 40px;
-	    color: black;
+	    color: gainsboro;
 	    position: absolute;
 	    border: none;
 	    cursor: pointer;
@@ -170,7 +172,8 @@
 	    }
 	    &.slick-disabled {
 	    	.material-icons {
-	    		color: gainsboro;
+	    		color: black;
+	    		opacity: .5
 	    	}
 	    }
 	    &:hover {
@@ -191,6 +194,22 @@
 			right: 9px;
 		}
 		.slider-cards {
+			&.select {
+				.mdl-card {
+					border: 5px solid white;
+					.mdl-card__menu {
+						.mdl-button {
+							opacity: 0!important;
+							cursor: default;
+						}
+					}
+					.play-div {
+						.material-icons {
+							opacity: 1!important;
+						}
+					}
+				}
+			}
 			@media screen and (max-width: 720px){
 				max-height: 140px;
 			}
@@ -216,7 +235,9 @@
 				}
 				.material-icons {
 					font-size: 60px;
-					margin-top: -9px;
+			    text-shadow: 1px 3px 8px black;
+			    margin-top: -9px;
+			    color: white;
 				}
 			}
 		}
@@ -236,8 +257,8 @@
 
 	<div class="mdl-grid hiper-list slider-cards">
 
-	  <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone slider-cards" id="hip-{{hipId[$index]}}" v-for="hipervideo in database" transition="fade">
-	  	<div class="mdl-card mdl-shadow--2dp single-card" style="background-size: 100%;" :style="{'background-image': 'url('+hipervideo.headers.img+')'}">
+	  <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone slider-cards" :class="{ select: banner !== null && banner.id === database[$index].headers.id }" id="hip-{{hipId[$index]}}" v-for="hipervideo in database" transition="fade">
+	  	<div class="mdl-card mdl-shadow--2dp single-card" style="background-size: 100% 100%;" :style="{'background-image': 'url('+hipervideo.headers.img+')'}">
 			  <div class="mdl-card__title display-home">
 			    <h2 class="mdl-card__title-text">{{hipervideo.headers.nome}}</h2>
 			  </div>
@@ -289,11 +310,12 @@
 			},
 			changeBanner: function(id) {
 				var self = this
-				this.banner = null
-				setTimeout(function() {
-					self.banner = self.database[id].headers
-				}, 1000)
-				
+				if (this.banner.id !== this.database[id].headers.id) {
+					this.banner = null
+					setTimeout(function() {
+						self.banner = self.database[id].headers
+					}, 1000)
+				}
 			}
 		},
 		computed: {
@@ -307,6 +329,17 @@
 					}
 					return ids
       	}
+      },
+      isSelect: function() {
+      	var states = []
+      	for (var i = 0; i < this.database.length; i++) {
+      		if (this.database[i].id === this.banner.id ) {
+      			states.push(true)
+      		} else {
+      			states.push(false)
+      		}
+      	}
+      	return states
       }
 		},
 		attached: function () {

@@ -269,7 +269,8 @@
 			    -ms-transition: opacity .3s ease;
 			     -o-transition: opacity .3s ease;
 			        transition: opacity .3s ease;
-			color: rgb(96,125,139);
+			/*color: rgb(96,125,139);*/
+			color: white;
 			opacity: .8;
 	    height: 46px;
 	    width: 46px;
@@ -334,7 +335,7 @@
 						<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored botoes-player" style="float: left;" @click="mute">
 				  		<i class="material-icons margem" :style="{ marginLeft: marginIcon }">{{volume_icon}}</i>
 						</button>
-						<input id="volume_slider" class="mdl-slider mdl-js-slider" type="range" min="0" max="100" :value="volume" tabindex="0">
+						<input id="volume_slider" class="mdl-slider mdl-js-slider mdl-color--white" type="range" min="0" max="100" :value="volume" tabindex="0">
 					</div>
 
 					<!-- Botão de Play -->
