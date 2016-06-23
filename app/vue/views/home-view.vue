@@ -1,7 +1,7 @@
 <style lang="scss">
 	.mdl-card {
 		width: auto;
-		min-height: 270px;
+		min-height: 150px;
 		-webkit-transition: all .3s ease;
 		   -moz-transition: all .3s ease;
 		    -ms-transition: all .3s ease;
@@ -46,7 +46,7 @@
 		padding: 0;
     	margin: 73px auto;
     	@media screen and (min-width: 1440px) {
-			margin: 100px auto;
+			margin: 95px auto;
 		}
     .play-img {
     	position: absolute;
@@ -89,14 +89,6 @@
     }
 	}
 
-
-
-	.icons {
-		font-size: 20px;
-		vertical-align: middle;
-		cursor: default;
-	}
-
 	.clear {
 		clear: both;
 	}
@@ -112,7 +104,8 @@
 		        transition: all .4s ease .1s;
 		height: 60%;
 		overflow: hidden;
-		background-image: url("http://i.imgur.com/wOWmkC7.jpg");
+		position: relative;
+		background: transparent;
 		&.aberto {
 			height: 0;
 			padding: 0;
@@ -120,190 +113,8 @@
 
 	}
 
-	.banner-data {
-		filter:alpha(opacity=100);
-    	opacity: 1;
-	    -moz-opacity: 1;
-	    -webkit-opacity: 1;
-	    color: white;
-	}
-
-	.banner-overlay {
-		filter:alpha(opacity=50);
-    	opacity: 0.5;
-	    -moz-opacity:0.5;
-	    -webkit-opacity:0.5;
-	}
-
-	.banner-owner {
-		filter:alpha(opacity=100);
-    	opacity: 1;
-	    -moz-opacity: 1;
-	    -webkit-opacity: 1;
-	}
-
 
 // Classes das divs internas dos containers
-
-	#video-data {
-		width: 90%;
-		margin-left: 5%;
-		padding-bottom: 10px;
-	}
-
-	#video-title {
-		margin-bottom: 10px;
-		font-size: 30px;
-		text-align: center;
-		line-height: 30px;
-		
-		@media screen and (max-width: 500px){
-			font-size: 18px;
-			line-height: 20px;
-		}
-	}
-
-	#video-length {
-		width: 33%;
-		margin-right: 0.5%;
-		float: left;
-	}
-
-	#video-qual {
-		width: 33%;
-		text-align: center;
-		margin-right: 0.5%;
-		float: left;
-		
-		@media screen and (max-width: 500px){
-			width: 20%;	
-		}
-	}
-
-	#video-acce {
-		width: 33%;
-		text-align: right;
-		float: left;
-
-		@media screen and (max-width: 500px){
-			width: 20%;	
-		}
-	}
-
-	#video-description {
-		clear: left;
-		margin-top: 10%;
-		margin-bottom: 5%;
-		@media screen and (max-width: 550px) {
-				font-size: 80%;
-				margin-top: 10%;
-				margin-bottom: 2%;	
-			}
-	}
-
-	#video-perks {
-		float: left;
-		width: 60%;
-		@media screen and (max-width: 320px) {
-				visibility: hidden;
-			}
-		@media screen and (max-width: 550px) {
-				width: 100%;
-			}
-	}
-
-	#video-play {
-		float: right;
-		width: 30%;
-		text-align: center;
-		@media screen and (max-width: 550px) {
-				visibility: hidden;
-			}
-	}
-
-	.play-btn {
-		color: white;
-		font-size: 70px;
-	}
-
-	#video-owner {
-		text-align: center;
-		color: white;
-		margin-top: 5%;
-		@media screen and (max-width: 550px) {
-				visibility: hidden;
-			}
-	}
-
-	.img-owner {
-		height: 70px;
-		@media screen and (max-width: 550px) {
-				visibility: hidden;
-			}
-
-	}
-	.hiper-list {
-		padding: 0 50px;
-		margin-bottom: 0;
-		.slick-slide {
-			margin-top: 16px;
-/*			&:hover {
-				transform: scale(1.1);
-		    margin-left: 16px;
-		    margin-right: 16px;
-			}*/
-		}
-		.slick-list {
-			margin-bottom: 0;
-		}
-		.list-h {
-	    background: rgba(0,0,0,0);
-	    height: 95%;
-	    top: 8px;
-	    position: absolute;
-	    width: 40px;
-	    color: black;
-	    position: absolute;
-	    border: none;
-	    cursor: pointer;
-	    &:focus {
-	    	outline: 0;
-	    }
-	    .material-icons {
-	    	-webkit-transition: all .1s ease;
-				   -moz-transition: all .1s ease;
-				    -ms-transition: all .1s ease;
-				     -o-transition: all .1s ease;
-				        transition: all .1s ease;
-	    	font-size: 50px;
-	    	margin-left: -9px;
-	    }
-	    &.slick-disabled {
-	    	.material-icons {
-	    		color: gainsboro;
-	    	}
-	    }
-	    &:hover {
-	    	.material-icons {
-	    		transform: scale(1.3);
-	    	}
-	    	&.slick-disabled {
-	    		.material-icons {
-	    			transform: scale(1);
-	    		}
-	    	}
-	    }
-		}
-		.list-prev {
-			left: 9px;
-		}
-		.list-next {
-			right: 9px;
-		}
-	}
-	.img-owner {
-		height: 70px;
-	}
 
 	.content{
 		margin-top: 64px;
@@ -318,11 +129,19 @@
 		margin-bottom: 0;
 		.slick-slide {
 			margin-top: 16px;
-/*			&:hover {
-				transform: scale(1.1);
-		    margin-left: 16px;
-		    margin-right: 16px;
-			}*/
+			.material-icons {
+				-webkit-transition: all .2s ease;
+				   -moz-transition: all .2s ease;
+				    -ms-transition: all .2s ease;
+				     -o-transition: all .2s ease;
+				        transition: all .2s ease;
+				opacity: 0;
+			}
+			&:hover {
+				.material-icons {
+					opacity: 1;
+				}
+			}
 		}
 		.slick-list {
 			margin-bottom: 0;
@@ -382,6 +201,25 @@
 				max-height: 20px!important;
 			}
 		}
+		.mdl-card__menu {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			.mdl-button {
+				width: 100%;
+				&:hover {
+					background: transparent;
+					.material-icons {
+						transform: scale(1.2)
+					}
+				}
+				.material-icons {
+					font-size: 60px;
+					margin-top: -9px;
+				}
+			}
+		}
 
 	}
 </style>
@@ -390,119 +228,30 @@
 <div id="content" class="content">
 	
 	<div class="mdl-grid banner-conteiner">
-		<div class="mdl-cell mdl-cell--6-col banner-data">
-
-			<div id="video-data">
-				<div id="video-title">Título longo pra caramba de exemplo de um vídeo</div>
-				
-				<div id="video-length">
-					<i class="fa fa-clock-o icons"></i> 01:15:25
-				</div>
-				
-				<div id="video-qual">
-					<div id="vidqual1" class="icon material-icons icons">videocam</div>
-					<div class="mdl-tooltip" for="vidqual1">Qualidade Normal</div>
-					
-					<div id="vidqual2" class="icon material-icons icons">hd</div>
-					<div class="mdl-tooltip" for="vidqual2">Qualidade HD</div>
-					
-					<div id="vidqual3" class="icon material-icons icons" style="color: red">hd</div>
-					<div class="mdl-tooltip" for="vidqual3">Qualidade Full HD</div>
-				</div>
-				
-				<div id="video-acce">
-					<i id="audiodescr" class="fa fa-audio-description"></i>
-					<div class="mdl-tooltip mdl-tooltip--left" for="audiodescr">Audio Descrição</div>
-					
-					<i id="closedcapts" class="fa fa-cc"></i>
-					<div class="mdl-tooltip mdl-tooltip--left" for="closedcapts">Legendas</div>
-
-					<i id="signing" class="fa fa-signing"></i>
-					<div class="mdl-tooltip mdl-tooltip--left" for="signing">Libras</div>
-				</div>
-			
-				<div id="video-description">
-					Esta é uma descrição de exemplo de um vídeo que tem uma hora de duração, quinze minutos e vinte e cinco segundos. Alem disso ele conta com versões em alta qualidade (720p) e Full HD (1080p) e ainda conta com closed captions (legendas) e descrição do vídeo em audio.
-				</div>
-
-				<div id="video-perks">
-
-					<div style="width: 50%; float: left">
-					<i class="material-icons icons">check_circle</i> Perk 1 <br>
-					<i class="material-icons icons">check_circle</i> Perk 2 <br>
-					<i class="material-icons icons">check_circle</i> Perk 3 <br>
-					<i class="material-icons icons">check_circle</i> Perk 4 <br>
-					<i class="material-icons icons">check_circle</i> Perk 5 <br>
-					</div>
-
-					<div style="width: 50%; float: left">
-					<i class="material-icons icons">check_circle</i> Perk 1 <br>
-					<i class="material-icons icons">check_circle</i> Perk 2 <br>
-					<i class="material-icons icons">check_circle</i> Perk 3 <br>
-					<i class="material-icons icons">check_circle</i> Perk 4 <br>
-					<i class="material-icons icons">check_circle</i> Perk 5 <br>
-					</div>
-
-				</div>
-
-				<div id="video-play">
-				  	<a href="#">
-				  		<i class="material-icons play-btn">play_circle_outline</i>
-				    </a>
-				</div>
-
-				<div class="clear"> </div>
-
-			</div>
-
-		</div>
 		
-		<div class="mdl-cell mdl-cell--4-col banner-overlay">
-		</div>
-		
-		<div class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone banner-owner">
-			
-			<div id="video-owner">
-				<div>
-				<a href="http://www.jardimdigital.com.br" target="_blank">
-				<img class="img-owner" src="http://jardimdigital.com.br/wp-content/uploads/2016/03/Logo.png" >
-				</a>
-				</div>
-			</div>
-
-		</div>
+		<banner-conteiner :banner.sync="banner" v-if="banner"></banner-conteiner>
+		<div style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: -2; background: black"></div>
 
 	</div>
 
 	<div class="mdl-grid hiper-list slider-cards">
 
 	  <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone slider-cards" id="hip-{{hipId[$index]}}" v-for="hipervideo in database" transition="fade">
-	  	<div class="mdl-card mdl-shadow--2dp single-card">
-			  <div class="mdl-card__title display-home" :class="{ativo: home}">
+	  	<div class="mdl-card mdl-shadow--2dp single-card" style="background-size: 100%;" :style="{'background-image': 'url('+hipervideo.headers.img+')'}">
+			  <div class="mdl-card__title display-home">
 			    <h2 class="mdl-card__title-text">{{hipervideo.headers.nome}}</h2>
 			  </div>
-			  <div class="mdl-card__supporting-text display-home" :class="{ativo: home}">
-			    {{{ hipervideo.headers.descricao | marked }}}
-			  </div>
 			  <dir class="play-div">
-			  	<img v-if="hipervideo.headers.img" :src="hipervideo.headers.img" class="play-img">
+			  	<!-- <img v-if="hipervideo.headers.img" :src="hipervideo.headers.img" class="play-img"> -->
 			  	<a class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" href="/#/{{hipId[$index]}}">
 			  		<i class="material-icons dot">play_arrow</i>
 			      <i class="material-icons">play_circle_outline</i>
 			    </a>
 			  </dir>
-			  <div class="mdl-card__actions mdl-card--border display-home" :class="{ativo: !home}" style="padding:0;">
-			    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="/#/home/{{hipId[$index]}}" style="width:100%;">
-			      {{hipervideo.headers.nome}}
-			    </a>
-			  </div>
 			  <div class="mdl-card__menu">
-			    <a class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" v-if="!home" href="/#/home/{{hipId[$index]}}">
-			      <i class="material-icons">add</i>
-			    </a>
-			    <a class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" v-if="home" href="/#/home">
-			      <i class="material-icons">close</i>
-			    </a>
+			    <button class="mdl-button mdl-js-button" v-if="!home" @click="changeBanner($index)">
+			      <i class="material-icons">expand_less</i>
+			    </button>
 			  </div>
 			</div>
 	  </div>
@@ -520,7 +269,8 @@
 		props: ['database', 'ready'],
 		data: function(){
 			return {
-				home: false
+				home: false,
+				banner: null
 			}
 		},
 		methods: {
@@ -536,6 +286,14 @@
 				$$$('.'+id).removeClass('ativo')
 				var head = $$$('header')
 				head.removeClass('ativo')
+			},
+			changeBanner: function(id) {
+				var self = this
+				this.banner = null
+				setTimeout(function() {
+					self.banner = self.database[id].headers
+				}, 1000)
+				
 			}
 		},
 		computed: {
@@ -610,29 +368,32 @@
 
 			this.ready = true
 
+			this.banner = this.database[0].headers
+
 			componentHandler.upgradeDom()
 
-		jQuery('.hiper-list').slick({
-	       infinite: false,
-	       slidesToShow: 4,
-	       slidesToScroll: 4,
-	       prevArrow: '<button type="button" class="list-prev list-h"><i class="material-icons">chevron_left</i></button>"',
-	       nextArrow: '<button type="button" class="list-next list-h"><i class="material-icons">chevron_right</i></button>"',
-	       responsive: [
-	       	{
-	       	breakpoint: 480,
-	       	settings: {
-	       	slidesToShow: 1,
-	       	slidesToScroll: 1
-	       	}
-	       	}
-	       ]
-	    })
+			jQuery('.hiper-list').slick({
+        infinite: false,
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        prevArrow: '<button type="button" class="list-prev list-h"><i class="material-icons">chevron_left</i></button>"',
+        nextArrow: '<button type="button" class="list-next list-h"><i class="material-icons">chevron_right</i></button>"',
+        responsive: [
+        	{
+        		breakpoint: 480,
+        		settings: {
+        			slidesToShow: 1,
+        			slidesToScroll: 1
+        		}
+        	}
+        ]
+      })
 
+      jQuery('.hiper-list').slick('slickGoTo', 0)
 
 		},
 		components: {
-			
+			'banner-conteiner': require('../components/banner-conteiner.vue')
 		},
 		filters: {
       marked: function(value) {
