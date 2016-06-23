@@ -411,13 +411,13 @@
 				</div>
 				
 				<div id="video-acce">
-					<div id="audiodescr"><i class="fa fa-audio-description"></i></div>
+					<i id="audiodescr" class="fa fa-audio-description"></i>
 					<div class="mdl-tooltip mdl-tooltip--left" for="audiodescr">Audio Descrição</div>
 					
-					<div id="closedcapts"><i class="fa fa-cc"></i></div>
+					<i id="closedcapts" class="fa fa-cc"></i>
 					<div class="mdl-tooltip mdl-tooltip--left" for="closedcapts">Legendas</div>
 
-					<div id="signing"><i class="fa fa-signing"></i></div>
+					<i id="signing" class="fa fa-signing"></i>
 					<div class="mdl-tooltip mdl-tooltip--left" for="signing">Libras</div>
 				</div>
 			
