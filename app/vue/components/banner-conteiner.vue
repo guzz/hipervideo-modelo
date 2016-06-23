@@ -181,9 +181,14 @@
       </div>
       
       <div id="video-acce">
-        <i v-if="qualAcess['audio']" class="fa fa-audio-description"></i>
-        <i v-if="qualAcess['cc']" class="fa fa-cc"></i>
-        <i v-if="qualAcess['libras']" class="fa fa-signing"></i>
+        <i id="audiodescr" class="fa fa-audio-description"></i>
+        <div class="mdl-tooltip mdl-tooltip--left" for="audiodescr">Audio Descrição</div>
+        
+        <i id="closedcapts" class="fa fa-cc"></i>
+        <div class="mdl-tooltip mdl-tooltip--left" for="closedcapts">Legendas</div>
+
+        <i id="signing" class="fa fa-signing"></i>
+        <div class="mdl-tooltip mdl-tooltip--left" for="signing">Libras</div>
       </div>
     
       <div id="video-description">
