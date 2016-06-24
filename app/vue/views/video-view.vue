@@ -26,7 +26,7 @@
 	}
 	.sidebar_back {
 		position: absolute;
-		background-color: rgba(0,0,0,.5);
+		background-color: rgba(0,0,0,.8);
 		width: 300px;
 		height: 100%;
 		top: 0;
@@ -184,7 +184,7 @@
 			padding: 0;
 			line-height: 0;
 			cursor: pointer;
-			background: rgba(0,0,0,0.5);
+			background: rgba(0,0,0,0.8);
 			.material-icons {
 				-webkit-transition: opacity .3s ease;
 				   -moz-transition: opacity .3s ease;
