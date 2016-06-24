@@ -63,43 +63,49 @@
 
 <template>
   <div style="height: 100%;">
-  <div class="border context-bg"></div>
-  <div id="conteudo_info">
+    <div class="border context-bg"></div>
+    <div class="mdl-grid" style="height: 100%;">
+      <div class="mdl-cell mdl-cell--11-col" style="height: 100%;">
+        <div id="conteudo_info">
 
-    <in-mapa :conteudo="conteudo" v-if="conteudo && hasMap"></in-mapa>
+          <in-mapa :conteudo="conteudo" v-if="conteudo && hasMap"></in-mapa>
 
-    <!-- <in-databars v-for="stat in conteudo.stats" :stat="stat" v-if="conteudo && hasDatabars"></in-databars> -->
+          <!-- <in-databars v-for="stat in conteudo.stats" :stat="stat" v-if="conteudo && hasDatabars"></in-databars> -->
 
-    <h2 v-if="conteudo && conteudo.title"> 
-      {{conteudo.title}} 
-    </h2>
-    <div class="info-texto">
-      {{{html_texto | marked}}}
+          <h2 v-if="conteudo && conteudo.title"> 
+            {{conteudo.title}} 
+          </h2>
+          <div class="info-texto">
+            {{{html_texto | marked}}}
+          </div>
+          
+          <h3 v-if="conteudo && conteudo.imagens"> IMAGENS </h3>
+          <div class="image-list"></div>
+          <h3 v-if="conteudo && conteudo.video_list"> VÍDEOS </h3>
+          <div class="video-list"></div>
+          <h3 v-if="conteudo && conteudo.arquivos"> LINKS </h3>
+          <div class="link context-bg" v-for="cont in conteudo.arquivos">
+            <a :href="cont.link" target="_blank" class="context-bg">
+              {{cont.nome | uppercase}}
+            </a>
+          </div>
+          <h3 v-if="conteudo && conteudo.discursoes"> DISCUSSÃO </h3>
+          <div class="link context-bg" v-for="cont in conteudo.discursoes">
+            <a :href="cont.link" target="_blank" class="context-bg">
+              {{cont.nome | uppercase}}
+            </a>
+          </div>
+          <div class="link" :class="conteudo.icon + '-bg'" v-if="conteudo && conteudo.hipervideo">
+            <a :href="conteudo.hipervideo.link" :class="conteudo.icon + '-bg'">
+              {{conteudo.hipervideo.nome | uppercase}}
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="mdl-cell mdl-cell--1-col" style="height: 100%;">
+        <a class="" style="color: white;" :href="'#/' + params.video"><i style="font-size: 50px; float: right; margin-right: 15px;" class="material-icons">close</i></a>
+      </div>
     </div>
-    
-    <h3 v-if="conteudo && conteudo.imagens"> IMAGENS </h3>
-    <div class="image-list"></div>
-    <h3 v-if="conteudo && conteudo.video_list"> VÍDEOS </h3>
-    <div class="video-list"></div>
-    <h3 v-if="conteudo && conteudo.arquivos"> LINKS </h3>
-    <div class="link context-bg" v-for="cont in conteudo.arquivos">
-      <a :href="cont.link" target="_blank" class="context-bg">
-        {{cont.nome | uppercase}}
-      </a>
-    </div>
-    <h3 v-if="conteudo && conteudo.discursoes"> DISCUSSÃO </h3>
-    <div class="link context-bg" v-for="cont in conteudo.discursoes">
-      <a :href="cont.link" target="_blank" class="context-bg">
-        {{cont.nome | uppercase}}
-      </a>
-    </div>
-    <div class="link" :class="conteudo.icon + '-bg'" v-if="conteudo && conteudo.hipervideo">
-      <a :href="conteudo.hipervideo.link" :class="conteudo.icon + '-bg'">
-        {{conteudo.hipervideo.nome | uppercase}}
-      </a>
-    </div>
-  </div>
-  <a class="back" :href="'#/' + params.video">voltar ao vídeo</a>
   </div>
 </template>
 

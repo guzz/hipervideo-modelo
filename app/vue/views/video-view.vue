@@ -8,7 +8,7 @@
 	}
 	.sidebar {
 		width: 22%;
-		margin-top: 200px;
+		margin-top: 48px;
 		height: 100%;
 		@media screen and (min-width: 1600px) {
 			width: 15%;
@@ -66,6 +66,7 @@
 		left: 0;
 		z-index: 10;
 		transition: all 0.6s;
+		color: white;
 		-webkit-transform: translate3d(127%,0,0);
 		-moz-transform: translate3d(127%,0,0);
 		-o-transform: translate3d(127%,0,0);
@@ -81,7 +82,7 @@
 		.border {
 			position: absolute;
 			height: 100%;
-			width: 10px;
+			width: 5px;
 			top: 0;
 			left: 0;
 		}
@@ -135,6 +136,9 @@
 	    .rangeslider__fill {
     		top: 0px;
 	    }
+	    .evento {
+				top: -3px;
+			}
 	  }
 	  &.z-down {
 	  	z-index: 10;
@@ -147,12 +151,11 @@
 		    -ms-transition: all 0.3s ease;
 		     -o-transition: all 0.3s ease;
 		        transition: all 0.3s ease;
-		position: fixed;
-		top: 35%;
-		overflow: hidden;
-		left: -25px;
 		&.cima {
 			left: 0;
+		}
+		&.hide {
+			display: none;
 		}
 		&:hover {
 			.sidebar_opener__inside {
@@ -178,7 +181,6 @@
 			     -o-transition: all 0.6s ease;
 			        transition: all 0.6s ease;
 			display: inline-block;
-			width: 50px;
 			padding: 0;
 			line-height: 0;
 			cursor: pointer;
@@ -188,8 +190,8 @@
 				   -moz-transition: opacity .3s ease;
 				    -ms-transition: opacity .3s ease;
 				     -o-transition: opacity .3s ease;
-				font-size: 90px;
-		    margin-left: -25px;
+				font-size: 48px;
+		    margin-left: 0;
 		    color: white;
 		    opacity: .5;
 			}
@@ -200,7 +202,7 @@
 		-webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
 		box-sizing: border-box;
-		padding: 5% 20% 3% 3%;
+		padding: 0;
 		width: 79%;
 		@media screen and (min-width: 1600px) {
 			width: 85%;
@@ -358,7 +360,7 @@
 
 			<div class="sidebar_content">
 				<in-sidebar-block v-for="content in contentBlocks" :content="content" :video="video" :conteudo="conteudo" :events="events" transition="sidebar"></in-sidebar-block>
-				<div id="sidebar_click" class="sidebar_opener clickable" @click="openDefaultBlock" v-show="!hasBlocks && !fixedSidebar && !hasInfo" transition="sidebar">
+				<div id="sidebar_click" class="sidebar_opener clickable" @click="openDefaultBlock" v-show="!hasBlocks && !fixedSidebar" transition="sidebar" :class="{hide: hasInfo}">
 					<div class="sidebar_opener__inside">
 						<i class="material-icons">chevron_right</i>
 					</div>
@@ -713,13 +715,7 @@
 				var player = document.getElementById('player');
 				event = event || window.event; // IE-ism
 				// event.clientX and event.clientY contain the mouse position
-				if (event.clientX < 400) {
-					side.className = "sidebar_opener clickable cima"
-				} else {
-					side.className = "sidebar_opener clickable"
-				}
-
-				if (event.clientY > player.clientHeight - 80) {
+				if (event.clientY > player.clientHeight - 140) {
 					if (this.playing) {
 						controles.className = "";
 					}

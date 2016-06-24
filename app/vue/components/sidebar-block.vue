@@ -10,7 +10,13 @@
 		}
 		.sidebar.has-info & {
 			width: 100%;
-			max-height: 48px;
+		}
+		.mdl-cell--10-col {
+			padding: 0;
+		}
+		.mdl-button {
+			min-width: 0;
+			padding: 0;
 		}
 	}
 	#cartela_nome, #cartela_funcao{
@@ -29,8 +35,11 @@
 		position: relative;
 		color: #fff;
 		padding: 10px;
-		height: 28px;
+		max-height: 50px; 
 		line-height: 28px;
+		&.open {
+			width: 100%;
+		}
 	}
 	.sidebar_block__content {
 		overflow: hidden;
@@ -41,7 +50,6 @@
     font-size: 14px;
     font-weight: 300;
     line-height: 1.4em;
-    width: 85%;
     letter-spacing: 0;
 		transition: all 0.3s ease;
 		color: white;
@@ -105,8 +113,8 @@
 </style>
 
 <template>
-	<div class="sidebar_block" transition="blc">
-		<div class="sidebar_block__header context-bg">
+	<div style="padding: 0;" class="sidebar_block mdl-grid" transition="blc">
+		<div style="margin: 0;" :class="{ open: conteudo !== null }" class="mdl-cell mdl-cell--12-col sidebar_block__header context-bg">
 			{{content.title | uppercase}}
 			<svg width="28" height="28" class="timer clickable" @click="onTimerClick" :class="{fixed: content.start === null}">
 				<circle class="base" cx="14" cy="14" r="12"></circle>
@@ -117,20 +125,36 @@
 				</g>
 			</svg>
 		</div>
-		<div id="sidebar_block__content" class="sidebar_block__content">
+		<div style="margin-top: -70px; padding-right: 15px;" id="sidebar_block__content" class="mdl-cell mdl-cell--10-col sidebar_block__content">
 			<div :is="content.type" :fields="content.fields"></div>
 		</div>
-		<p v-if="!content.ap" style="padding-left: 10px;"><strong><a style="font-weight: 900; text-decoration: none;" :href="'#/' + content.videoID + '/info/' + content.id">SAIBA MAIS</a></strong></p>
-		<button v-if="!content.ap" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored" @click="parentBlock(content.id - 1)" :disabled="eventoStart">
-			<i class="material-icons">chevron_left</i>
-		</button>
-		<button v-if="!content.ap" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" @click="seekVideo(content.id)" :disabled="isAp || eventoAt">
-			Ir para ponto no video
-		</button>
-		<button v-if="!content.ap" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored" @click="parentBlock(content.id + 1)" :disabled="eventoEnd">
-			<i class="material-icons">chevron_right</i>
-		</button>
-		<p v-if="!content.ap" style="color:white; text-align: center;">{{content.id + 1}} / {{numEvents}}</p>
+		<div style="margin-top: -75px; height: 0;" class="mdl-cell mdl-cell--10-col">
+			<p v-if="!content.ap" v-show="conteudo.id === undefined" style=""><strong><a style="font-weight: 900; text-decoration: none;" :href="'#/' + content.videoID + '/info/' + content.id">SAIBA MAIS</a></strong></p>
+			<p v-if="!content.ap" v-show="conteudo.id !== undefined"  style=""><strong><a style="font-weight: 900; text-decoration: none;" :href="'#/' + content.videoID">VOLTAR</a></strong></p>
+		</div>
+		<div style="margin-top: -100px; height: 0;" class="mdl-cell mdl-cell--10-col mdl-grid">
+			<div class="mdl-cell mdl-cell--2-col" style="padding: 0;">
+				<button v-if="!content.ap" class="mdl-button mdl-js-button mdl-button--colored" @click="parentBlock(content.id - 1)" :disabled="eventoStart">
+					<i class="material-icons">chevron_left</i>
+				</button>
+			</div>
+			<div class="mdl-cell mdl-cell--8-col" style="padding: 0;">
+				<button v-if="!content.ap" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" @click="seekVideo(content.id)" :disabled="isAp || eventoAt">
+					Ir para ponto no video
+				</button>
+			</div>
+			<div class="mdl-cell mdl-cell--2-col" style="padding: 0;">
+				<button v-if="!content.ap" class="mdl-button mdl-js-button mdl-button--colored" @click="parentBlock(content.id + 1)" :disabled="eventoEnd">
+					<i class="material-icons">chevron_right</i>
+				</button>
+			</div>
+		</div>
+		<div style="margin-top: -140px; height: 0;" class="mdl-cell mdl-cell--10-col mdl-grid">
+			<div class="mdl-cell mdl-cell--12-col">
+				<p v-if="!content.ap" style="color:white; text-align: center;">{{content.id + 1}} / {{numEvents}}</p>
+			</div>
+		</div>
+		
 	</div>
 </template>
 
@@ -172,6 +196,13 @@
 			},
 			numEvents: function() {
 				return this.events.length
+			},
+			hasConteudo: function() {
+				if (this.conteudo !== {}) {
+					return true
+				} else {
+					return false
+				}
 			}
 		},
 		attached: function() {

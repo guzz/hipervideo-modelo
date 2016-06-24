@@ -120,7 +120,7 @@
 				setTimeout(function() {
 					$$$('#loading').removeClass('loading')
 					self.$dispatch('hipervideo-canplay')
-				}, 1000)
+				}, 100)
 			})
 
 			this.hipervideo.addEventListener("loadedmetadata" , function() {

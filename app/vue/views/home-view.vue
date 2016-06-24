@@ -418,6 +418,13 @@
         			slidesToShow: 1,
         			slidesToScroll: 1
         		}
+        	},
+        	{
+        		breakpoint: 1440,
+        		settings: {
+        			slidesToShow: 3,
+        			slidesToScroll: 3
+        		}
         	}
         ]
       })
