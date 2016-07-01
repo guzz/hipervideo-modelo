@@ -90,6 +90,20 @@
 			background-color: red;
 			height: 50px;
 		}
+		.mdl-layout__tab-bar-button {
+			background-color: transparent;
+		}
+		.mdl-layout__tab {
+			color: white !important;
+			opacity: .5;
+			height: 50px !important;
+			&.is-active {
+				opacity: 1;
+				&:after {
+					background: white !important;
+				}
+			}
+		}
 		.border {
 			position: absolute;
 			z-index: 5;
