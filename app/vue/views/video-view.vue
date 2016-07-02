@@ -15,7 +15,7 @@
 		}
 		&.has-info {
 			@media screen and (min-width: 1600px) {
-				width: 17.2%;
+				width: 15.9%;
 			}
 		}
 	}
@@ -72,6 +72,10 @@
 		-o-transform: translate3d(127%,0,0);
 		-ms-transform: translate3d(127%,0,0);
 		transform: translate3d(127%,0,0);
+		header {
+			background-color: rgba(0, 0, 0, 0.8);
+			color: white;
+		}
 		&.is-open {
 			-webkit-transform: translate3d(300px,0,0);
 			-moz-transform: translate3d(300px,0,0);
@@ -79,8 +83,30 @@
 			-ms-transform: translate3d(300px,0,0);
 			transform: translate3d(300px,0,0);
 		}
+		.mdl-layout__header-row {
+			height: 48px;
+		}
+		.mdl-layout__tab-bar-container {
+			background-color: red;
+			height: 50px;
+		}
+		.mdl-layout__tab-bar-button {
+			background-color: transparent;
+		}
+		.mdl-layout__tab {
+			color: white !important;
+			opacity: .5;
+			height: 50px !important;
+			&.is-active {
+				opacity: 1;
+				&:after {
+					background: white !important;
+				}
+			}
+		}
 		.border {
 			position: absolute;
+			z-index: 5;
 			height: 100%;
 			width: 5px;
 			top: 0;
@@ -254,10 +280,15 @@
     float: left;
     .evento {
     	height: 100%;
-	    background: rgb(255,82,82);
 	    position: absolute;
 	    z-index: 1;
+	    font-size: 20px;
 	    cursor: pointer;
+	    font-weight: 900;
+	    background-color: rgba(247, 233, 63, 0.47);
+	    padding: 4px;
+	    box-sizing: border-box;
+	    text-align: center;
     }
 	}
 
@@ -315,7 +346,7 @@
 				<!-- NAV-VIDEO -->
 				<nav id="timeline">
 					<div v-for="evento in db.eventos">
-						<div class="evento" :id="evento.card" @click="addBlockById(evento.id)"></div>
+						<div class="evento" :id="evento.card" @click="addBlockById(evento.id)">{{evento.title | uppercase | maxSize 8}}</div>
 						<div class="mdl-tooltip mdl-tooltip--top" :for="evento.card">{{evento.title}}</div>
 					</div >
 					<in-topbar-slider :db="db"></in-topbar-slider>
@@ -823,6 +854,15 @@
 			seekEvento: function(id) {
 				var node = _.findWhere(this.events,{"id": id})
 				this.video.tag.currentTime = node.timecode.start
+			}
+		},
+		filters: {
+			maxSize: function(value, max) {
+				if (value.length > parseInt(max)) {
+					return value.slice(0, max) + "..."
+				} else {
+					return value
+				}
 			}
 		},
 		components: {

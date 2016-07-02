@@ -1,4 +1,5 @@
 <style lang="scss">
+	$bg: red;
 	.view {
 		height: 100%;
 		&.is-video {
@@ -6,7 +7,7 @@
 		}
 	}
 	.context-bg {
-		background-color: red;
+		background-color: $bg;
 	}
 	.app_load {
 		position: fixed;
