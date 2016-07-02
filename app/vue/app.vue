@@ -260,6 +260,7 @@
 											<p class="user-name" v-if="isConnected" transition="fade">@{{user.nome}}</p>
 									    	<p class="user-info" v-if="isConnected" transition="fade">{{user.email}}</p>
 										</div>
+										<button @click="disconnect" v-if="isConnected" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">DISCONECT</button>
 
 		  					</div>
   						</div>
@@ -389,10 +390,10 @@
 		},
 		watch : {
 			qualidade: function (qualidade) {
-				document.cookie = "qualidade = " + qualidade;
+				document.cookie = "qualidade=" + qualidade;
 			},
 			acessibilidade: function (val) {
-				document.cookie = "acessibilidade = " + val;
+				document.cookie = "acessibilidade=" + val;
 			}
 		},
 		computed: {
@@ -440,13 +441,24 @@
       }
 		},
 		methods: {
+			disconnect: function() {
+				this.user = {
+					nome: "",
+					email: "",
+					img: "",
+					board: "",
+					connected: false
+				}
+				document.cookie = "user=false";
+				localStorage.removeItem('trello_token')
+			},
 			connectTrello: function () {
 				var self = this
 				var opt = {
 					type: "popup",
 					name: "hipevideo",
 					scope:  { read: true, write: true, account: true },
-					expiration: "never",
+					expiration: "1hour",
 					success: function () {
 						self.user.connected = true
 						document.cookie = "user=true"
