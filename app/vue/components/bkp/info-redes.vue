@@ -90,7 +90,7 @@
     
     <h3 v-if="conteudo && conteudo.imagens"> IMAGENS </h3>
     <div class="image-list-redes"></div>
-    <h3 v-if="conteudo && conteudo.video_list"> VÍDEOS </h3>
+    <h3 v-if="conteudo && conteudo.videos"> VÍDEOS </h3>
     <div class="video-list-redes"></div>
     <h3 v-if="conteudo && conteudo.arquivos"> LINKS </h3>
     <div class="link" :class="[conteudo.group + '-bg']" v-for="cont in conteudo.arquivos">
@@ -186,8 +186,8 @@
           };
         }
 
-        if (self.conteudo.video_list) {
-          var playlistUrl = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=25&playlistId=' + self.conteudo.video_list + '&key=AIzaSyCwNv14d5bNQ4MwaodqT6z45-6A5y4kzus';
+        if (self.conteudo.videos) {
+          var playlistUrl = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=25&playlistId=' + self.conteudo.videos + '&key=AIzaSyCwNv14d5bNQ4MwaodqT6z45-6A5y4kzus';
           var videoURL= 'http://www.youtube.com/watch?v=';
           $$$.getJSON(playlistUrl, function(data) {
             console.log(data);

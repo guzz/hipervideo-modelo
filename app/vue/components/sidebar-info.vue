@@ -39,25 +39,12 @@
     }
   }
 
-  .mulher-bg {
-    background-color: #ed1e79;
+  .mdl-layout__tab {
+    &.is-hidden {
+      display: none;
+    }
   }
 
-  .adolescente-bg {
-    background-color: #00a300;
-  }
-
-  .crianca-bg {
-    background-color: #0cc;
-  }
-
-  .prisional-bg {
-    background-color: #f00;
-  }
-
-  .deficiencia-bg {
-    background-color: #00c;
-  }
 
 </style>
 
@@ -76,8 +63,7 @@
 
         </div>
         <div class="mdl-layout__tab-bar context-bg">
-          <a href="#scroll-tab-1" class="mdl-layout__tab is-active">Tab 1</a>
-          <a href="#scroll-tab-2" class="mdl-layout__tab">Tab 2</a>
+          <a v-for="cont in conteudo" href="#" @click="changeTab($key)" class="mdl-layout__tab" :class="{'is-active': $key === tab', 'is-hidden': $key === 'id' || $key === 'title'}">{{$key}}</a>
         </div>
       </header>
       <main class="mdl-layout__content">
@@ -86,35 +72,8 @@
             <div class="mdl-cell mdl-cell--12-col" style="height: 100%;">
               <div id="conteudo_info">
 
-                <in-mapa :conteudo="conteudo" v-if="conteudo && hasMap"></in-mapa>
+                <div is:="tab" transition="fade" :conteudo="conteudo"></div>
 
-                <!-- <in-databars v-for="stat in conteudo.stats" :stat="stat" v-if="conteudo && hasDatabars"></in-databars> -->
-
-                <div class="info-texto">
-                  {{{html_texto | marked}}}
-                </div>
-                
-                <h3 v-if="conteudo && conteudo.imagens"> IMAGENS </h3>
-                <div class="image-list"></div>
-                <h3 v-if="conteudo && conteudo.video_list"> VÍDEOS </h3>
-                <div class="video-list"></div>
-                <h3 v-if="conteudo && conteudo.arquivos"> LINKS </h3>
-                <div class="link context-bg" v-for="cont in conteudo.arquivos">
-                  <a :href="cont.link" target="_blank" class="context-bg">
-                    {{cont.nome | uppercase}}
-                  </a>
-                </div>
-                <h3 v-if="conteudo && conteudo.discursoes"> DISCUSSÃO </h3>
-                <div class="link context-bg" v-for="cont in conteudo.discursoes">
-                  <a :href="cont.link" target="_blank" class="context-bg">
-                    {{cont.nome | uppercase}}
-                  </a>
-                </div>
-                <div class="link" :class="conteudo.icon + '-bg'" v-if="conteudo && conteudo.hipervideo">
-                  <a :href="conteudo.hipervideo.link" :class="conteudo.icon + '-bg'">
-                    {{conteudo.hipervideo.nome | uppercase}}
-                  </a>
-                </div>
               </div>
             </div>
           </div>
@@ -128,7 +87,6 @@
   var Vue = require('vue')
   var $$$ = require('jquery')
   var perfectScrollbar = require('perfect-scrollbar')
-  var marked = require('marked')
 
   module.exports = {
 
@@ -136,58 +94,34 @@
     props: ['params', 'conteudo'],
     data: function(){
       return {
-        html_texto: '',
         videoIndex: 0,
-        imageIndex: 0
+        imageIndex: 0,
+        tab: 'texto'
       }
     },
     computed: {
-      hasDatabars: function(){
-        return this.conteudo.stats !== undefined
-      },
-      hasMap: function(){
-        return this.conteudo.mapa !== undefined
-      }
+      
     },
     attached: function() {
       var self = this
-
-      jQuery('.image-list').slick({
-        infinite: false,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        adaptiveHeight: true
-      });
-
-      jQuery('.video-list').slick({
-        infinite: false,
-        slidesToShow: 3,
-        slidesToScroll: 3
-      })
 
       this.$on('create-scrollbar', function() {
         $$$('#conteudo_info').perfectScrollbar({
           suppressScrollX: true
         });
 
-        if (self.conteudo.texto !== "") {
-          self.html_texto = self.conteudo.texto;
-        } else {
-          self.html_texto = self.$parent.component.fields.excerpt
-        }
-
         Trello.get("/cards/"+self.$parent.db.eventos[parseInt(self.conteudo.id)].card+"/attachments", function(attach) {
           // console.log(attach)
           if (attach.length > 0) {
+            self.conteudo.imagens = []
             for (var i = attach.length - 1; i >= 0; i--) {
-              jQuery('.image-list').slick('slickAdd','<img src="' + attach[i].url + '">');
-              self.imageIndex ++;
+              self.conteudo.imagens.push(attach[i].url)
             };
           }
         })        
 
-        if (self.$parent.conteudo.video_list) {
-          var playlistUrl = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=25&playlistId=' + self.conteudo.video_list + '&key=AIzaSyBmFsHCZeHcrFIb9Fskr718noTVpqRysKc';
+        if (self.$parent.conteudo.videos) {
+          var playlistUrl = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=25&playlistId=' + self.conteudo.videos + '&key=AIzaSyBmFsHCZeHcrFIb9Fskr718noTVpqRysKc';
           var videoURL= 'http://www.youtube.com/watch?v=';
           $$$.getJSON(playlistUrl, function(data) {
             // console.log(data);
@@ -238,8 +172,11 @@
     },
 
     components: {
-      'in-databars': require('../components/content-databars.vue'),
-      'in-mapa': require('../components/content-map.vue')
+      'texto': require('../components/content-texto.vue'),
+      'videos': require('../components/content-videos.vue'),
+      'imagens': require('../components/content-imagens.vue'),
+      'graficos': require('../components/content-databars.vue'),
+      'mapa': require('../components/content-map.vue')
     },
 
     filters: {

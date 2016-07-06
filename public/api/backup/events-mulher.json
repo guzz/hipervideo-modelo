@@ -133,7 +133,7 @@
           "geo": [-16.05, -61.08, 4],
           "locais": "1lRwPcZ3fEffamlrjMxnqLlI8LiETnyK8JeBdP_E1s5E"
         },
-        "video_list": "PLMSHbkIRallm0s3Pjgxdi3-biEbnxSz86"
+        "videos": "PLMSHbkIRallm0s3Pjgxdi3-biEbnxSz86"
       }
     },
     {
@@ -217,7 +217,7 @@
             "site": "http://www.saude.ba.gov.br/dgrp/index.php?option=com_content&view=article&id=327&Itemid=175"
             }]
         },
-        "video_list": "PLMSHbkIRalllZVdHBDZoeTM47IOc_aCh1"
+        "videos": "PLMSHbkIRalllZVdHBDZoeTM47IOc_aCh1"
       }
     },
     {
@@ -515,7 +515,7 @@
       },
       "conteudo": {
         "texto": "",
-        "video_list": "PLqwF2MOG7-g2DJQHNFhiRqOobVvLBKHKu",
+        "videos": "PLqwF2MOG7-g2DJQHNFhiRqOobVvLBKHKu",
         "hipervideo": {
           "nome": "Veja também o hipervideo sobre a saúde da criança",
           "link": "/#/crianca"
