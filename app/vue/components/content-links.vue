@@ -1,24 +1,15 @@
 <style lang="scss">
 
-  .info-texto {
-    letter-spacing: 0;
-    padding: 30px;
-  }
-
-
 </style>
 
 <template>
-  <div class="info-texto">
-    <div  v-if="conteudo.texto">
-      {{{ conteudo.texto | marked }}}
-    </div>
+  <div>
+    <a v-for="link in conteudo.links" :href="link.link">{{link.nome}}</a>
   </div>
 </template>
 
 <script>
   var $$$ = require('jquery')
-  var marked = require('marked')
 
   module.exports = {
 
@@ -43,7 +34,7 @@
     },
 
     filters: {
-      'marked': marked
+
     }
 
   }

@@ -492,7 +492,9 @@
 			}
 		},
 		created: function() {
+			this.volume
 			this.volume = this.$root.cookieVolume()
+			this.volume
 		},
 		attached: function() {
 
@@ -525,7 +527,7 @@
 			}, false );
 
 			this.video.tag.addEventListener( "play", function() {
-
+				self.video.tag.volume = self.volume
 				if (!self.seeking) {
 					self.$broadcast('hipervideo-play')
 					$$$('#hipVid-' + self.params.video).removeClass('pausado')

@@ -1,8 +1,10 @@
 <style lang="scss">
   .content_mapa {
     position: relative;
+    height: 100%;
     width: 100%;
-    height: 400px;
+    padding: 0;
+    margin: 0;
     background: #333;
   }
   .leaflet-top, .leaflet-bottom {
@@ -45,6 +47,7 @@
       L.Icon.Default.imagePath = 'img/leaflet';
 
       this.loadData();
+
     },
 
     methods: {

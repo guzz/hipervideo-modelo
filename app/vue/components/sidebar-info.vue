@@ -40,6 +40,7 @@
   }
 
   .mdl-layout__tab {
+    padding: 0 24px 0 32px;
     &.is-hidden {
       display: none;
     }
@@ -63,16 +64,19 @@
 
         </div>
         <div class="mdl-layout__tab-bar context-bg">
-          <a v-for="cont in conteudo" href="#" @click="changeTab($key)" class="mdl-layout__tab" :class="{'is-active': $key === tab', 'is-hidden': $key === 'id' || $key === 'title'}">{{$key}}</a>
+          <a v-for="cont in conteudo" href="" @click.prevent="changeTab($key)" class="mdl-layout__tab" :class="{'is-active': $key === tab, 'is-hidden': $key === 'id' || $key === 'title'}">
+            <span><i class="material-icons" style="position: absolute; left: 0; top: 12px;">{{icon[$key]}}</i></span>
+            {{$key}}
+          </a>
         </div>
       </header>
-      <main class="mdl-layout__content">
-        <div class="page-content">
-          <div class="mdl-grid" style="height: 100%;">
-            <div class="mdl-cell mdl-cell--12-col" style="height: 100%;">
-              <div id="conteudo_info">
+      <main class="mdl-layout__content" id="content_main" style="height: 100%;">
+        <div class="page-content" style="height: 100%;">
+          <div class="mdl-grid" style="height: 100%; padding: 0;">
+            <div class="mdl-cell mdl-cell--12-col" style="height: 100%; margin: 0;">
+              <div id="conteudo_info" style="padding:0;height: 100%;">
 
-                <div is:="tab" transition="fade" :conteudo="conteudo"></div>
+                <div :is="tab" transition="fade" :conteudo="conteudo" v-ref:tab></div>
 
               </div>
             </div>
@@ -81,7 +85,7 @@
       </main>
     </div>
   </div>
-</template>
+</template> 
 
 <script>
   var Vue = require('vue')
@@ -94,9 +98,16 @@
     props: ['params', 'conteudo'],
     data: function(){
       return {
-        videoIndex: 0,
-        imageIndex: 0,
-        tab: 'texto'
+        tab: 'texto',
+        icon: {
+          texto: 'format_align_left',
+          links: 'link',
+          videos: 'video_library',
+          imagens: 'photo_library',
+          mapa: 'map',
+          graficos: 'pie_chart',
+          comentarios: 'forum'
+        }
       }
     },
     computed: {
@@ -110,36 +121,7 @@
           suppressScrollX: true
         });
 
-        Trello.get("/cards/"+self.$parent.db.eventos[parseInt(self.conteudo.id)].card+"/attachments", function(attach) {
-          // console.log(attach)
-          if (attach.length > 0) {
-            self.conteudo.imagens = []
-            for (var i = attach.length - 1; i >= 0; i--) {
-              self.conteudo.imagens.push(attach[i].url)
-            };
-          }
-        })        
-
-        if (self.$parent.conteudo.videos) {
-          var playlistUrl = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=25&playlistId=' + self.conteudo.videos + '&key=AIzaSyBmFsHCZeHcrFIb9Fskr718noTVpqRysKc';
-          var videoURL= 'http://www.youtube.com/watch?v=';
-          $$$.getJSON(playlistUrl, function(data) {
-            // console.log(data);
-            var list_data=[];
-            $$$.each(data.items, function(i, item) {
-              var video_data = {};
-              video_data.title = item.snippet.title;
-              video_data.id = item.snippet.resourceId.videoId;
-              video_data.url = videoURL + video_data.id;
-              list_data.push(video_data);
-            });
-            for (var i = list_data.length - 1; i >= 0; i--) {
-              jQuery('.video-list').slick('slickAdd','<div><a href="'+ list_data[i].url +'" target="_blank" title="'+ list_data[i].title +'" style="text-decoration: none; text-align: center;" class="popup-iframe"><img alt="'+ list_data[i].title +'" src="http://img.youtube.com/vi/'+ list_data[i].id +'/0.jpg"</a><p>' + list_data[i].title + '</p></div>');
-              self.videoIndex ++;
-              jQuery('.popup-iframe').magnificPopup({type:'iframe'});
-            };
-          })
-        }
+        self.getImages()
 
         $$$('#conteudo_info').perfectScrollbar('update');
         
@@ -147,16 +129,6 @@
 
       this.$on('destroy-scrollbar', function() {
         $$$('#conteudo_info').perfectScrollbar('destroy');
-        for (var i = 0; i < this.imageIndex; i++) {
-          jQuery('.image-list').slick('slickRemove', 0);
-        }
-        // console.log('videoIndex no destroy ' + this.videoIndex);
-        for (var i = 0; i < this.videoIndex + 1; i++) {
-          // console.log('no destroy i = '+ i + ' e videoIndex = ' + this.videoIndex);
-          jQuery('.video-list').slick('slickRemove', 0);
-        }
-        this.imageIndex = 0;
-        this.videoIndex = 0;
       })
 
       this.$on('so-scrollbar', function() {
@@ -170,17 +142,68 @@
       this.$off('create-scrollbar')
       this.$off('destroy-scrollbar')
     },
-
+    methods: {
+      changeTab: function(tab) {
+        this.tab = tab
+      },
+      getImages: function() {
+        var self = this
+        Trello.get("/cards/"+this.$parent.db.eventos[parseInt(this.conteudo.id)].card+"/attachments", function(attach) {
+          // console.log(attach)
+          if (attach.length > 0) {
+            self.conteudo = Object.assign({}, self.conteudo, {
+              imagens: [],
+              comentarios: []
+            })
+            // self.conteudo.imagens = []
+            // self.conteudo.comentarios = []
+            for (var i = attach.length - 1; i >= 0; i--) {
+              self.conteudo.imagens.push(attach[i].url)
+            };
+            self.getComments()
+          } else {
+            self.conteudo = Object.assign({}, self.conteudo, {
+              comentarios: []
+            })
+            // self.conteudo.comentarios = []
+            self.getComments()
+          }
+        })
+      },
+      getComments: function() {
+        var self = this
+        Trello.get("/cards/"+self.$parent.db.eventos[parseInt(self.conteudo.id)].card+"/actions", function(comment) {
+          console.log(comment)
+          if (comment.length > 0) {
+            for (var i = comment.length - 1; i >= 0; i--) {
+              if (comment[i].type === 'commentCard') {
+                var c = {
+                  text: comment[i].data.text,
+                  usr: {
+                    foto: 'https://trello-avatars.s3.amazonaws.com/'+ comment[i].memberCreator.avatarHash +'/30.png',
+                    nome: comment[i].memberCreator.username,
+                    id: comment[i].memberCreator.id
+                  }
+                }
+                self.conteudo.comentarios.push(c)
+              }
+            };
+          }
+        })
+      }
+    },
     components: {
       'texto': require('../components/content-texto.vue'),
       'videos': require('../components/content-videos.vue'),
       'imagens': require('../components/content-imagens.vue'),
+      'links': require('../components/content-links.vue'),
       'graficos': require('../components/content-databars.vue'),
+      'comentarios': require('../components/content-comentarios.vue'),
       'mapa': require('../components/content-map.vue')
     },
 
     filters: {
-      'marked': marked
+
     }
 
   }

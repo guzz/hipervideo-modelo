@@ -1,18 +1,16 @@
 <style lang="scss">
 
-  .info-texto {
-    letter-spacing: 0;
-    padding: 30px;
-  }
-
-
 </style>
 
 <template>
-  <div class="info-texto">
-    <div  v-if="conteudo.texto">
-      {{{ conteudo.texto | marked }}}
-    </div>
+  <div class="">
+    <div v-for="coment in chat">
+      <div>
+        <img :src="coment.usr.foto">
+        <p>{{coment.usr.nome}}</p>
+      </div>
+      <div>{{coment.text}}</div>
+    </div >
   </div>
 </template>
 
@@ -26,13 +24,16 @@
     props: ['conteudo'],
     data: function(){
       return {
+        chat: []
       }
     },
     computed: {
 
     },
     attached: function() {
-      
+      for (var i = 0; i < this.conteudo.comentarios.length; i++) {
+        this.chat.push(this.conteudo.comentarios[i])
+      }
     },
     beforeDestroy: function(){
 
