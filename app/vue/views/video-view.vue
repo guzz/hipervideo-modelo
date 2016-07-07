@@ -421,7 +421,7 @@
 		<!-- INFO -->
 	
 		<div id="infopanel" class="infopanel" :class="{'is-open': hasInfo}">
-	    <in-sidebar-info :params="params" :conteudo="conteudo"></in-sidebar-info>
+	    <in-sidebar-info :params="params" :conteudo="conteudo" :user.sync="user"></in-sidebar-info>
 	  </div>
 
 		<div id="loading" class="not-loading"><i class="fa fa-refresh fa-3x fa-spin"></i></div>
@@ -440,7 +440,7 @@
 	module.exports = {
 		// replace para pegar com v-with objetos do parent
 		replace: true,
-		props: ['params', 'db', 'qualidade', 'acessibilidade', 'ready'],
+		props: ['params', 'db', 'qualidade', 'acessibilidade', 'ready', 'user'],
 		data: function(){
 			return {
 				events: null,

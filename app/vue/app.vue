@@ -117,7 +117,7 @@
 	/* estilo do botão conecte-se */
 	.connecte-se {
 		width: 100%;
-		height: 120px;
+		height: 45px;
     	font-size: 150%;
     	@media screen and (max-width: 800px){
 			font-size: 120%!important;
@@ -250,6 +250,7 @@
 		  								<div class="user-avatar">
 
 										<button @click="connectTrello" v-if="!isConnected" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored connecte-se">
+											<i class="fa fa-trello" aria-hidden="true"></i>
 										  CONECTE-SE
 										</button>
 										
@@ -346,7 +347,7 @@
 			  </div>
 			  </div>
 			  <div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button" @click="openDrawer"><i class="material-icons">menu</i></div>
-			  <main class="mdl-layout__content view" :is="view" transition="fade" :class="[className]" :db="db" :database="database" :params="params" :qualidade="qualidade" :acessibilidade.sync="acessibilidade" :ready.sync="ready" v-ref:view >
+			  <main class="mdl-layout__content view" :is="view" transition="fade" :class="[className]" :db="db" :database="database" :params="params" :qualidade="qualidade" :acessibilidade.sync="acessibilidade" :ready.sync="ready" :user.sync="user" v-ref:view >
 
 			  </main>
 			  <div class="mdl-layout__obfuscator" :class="{'is-visible': drawer}" @click="openDrawer"></div>
@@ -382,7 +383,8 @@
 				email: "",
 				img: "",
 				board: "",
-				connected: false
+				connected: false,
+				data: {}
 			},
 			params: {
 				video: null,

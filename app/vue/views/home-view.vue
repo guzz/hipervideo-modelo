@@ -287,7 +287,7 @@
 	var marked = require('marked')
 	module.exports = {
 		replace: true,
-		props: ['database', 'ready'],
+		props: ['database', 'ready', 'user'],
 		data: function(){
 			return {
 				home: false,

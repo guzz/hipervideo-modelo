@@ -24,21 +24,6 @@
     }
   }
 
-  .video-list {
-    & img {
-      position: relative;
-      float: left;
-      margin-right: 10px;
-      width: 220px;
-    }
-    .slick-next {
-      right: -25px !important;
-    }
-    .slick-prev {
-      left: -25px !important;
-    }
-  }
-
   .mdl-layout__tab {
     padding: 0 24px 0 32px;
     &.is-hidden {
@@ -76,7 +61,7 @@
             <div class="mdl-cell mdl-cell--12-col" style="height: 100%; margin: 0;">
               <div id="conteudo_info" style="padding:0;height: 100%;">
 
-                <div :is="tab" transition="fade" :conteudo="conteudo" v-ref:tab></div>
+                <div :is="tab" transition="fade" :conteudo="conteudo" :user.sync="user" v-ref:tab></div>
 
               </div>
             </div>
@@ -95,7 +80,7 @@
   module.exports = {
 
     replace: true,
-    props: ['params', 'conteudo'],
+    props: ['params', 'conteudo', 'user'],
     data: function(){
       return {
         tab: 'texto',
@@ -175,17 +160,28 @@
         Trello.get("/cards/"+self.$parent.db.eventos[parseInt(self.conteudo.id)].card+"/actions", function(comment) {
           console.log(comment)
           if (comment.length > 0) {
+            var usr_atual = {
+              id: '',
+              i: -1
+            }
             for (var i = comment.length - 1; i >= 0; i--) {
               if (comment[i].type === 'commentCard') {
                 var c = {
-                  text: comment[i].data.text,
+                  text: [],
                   usr: {
                     foto: 'https://trello-avatars.s3.amazonaws.com/'+ comment[i].memberCreator.avatarHash +'/30.png',
                     nome: comment[i].memberCreator.username,
                     id: comment[i].memberCreator.id
                   }
                 }
-                self.conteudo.comentarios.push(c)
+                if (usr_atual.id === comment[i].memberCreator.id) {
+                  self.conteudo.comentarios[usr_atual.i].text.push(comment[i].data.text)
+                } else {
+                  c.text.push(comment[i].data.text)
+                  self.conteudo.comentarios.push(c)
+                  usr_atual.id = c.usr.id
+                  usr_atual.i += 1
+                }
               }
             };
           }
