@@ -85,7 +85,6 @@
             crossDomain: true,
             dataType: 'json',
             success: function(data) {
-              console.log(data)
               var t = {}
               t.nome = data.hybridGraph.title
               t.img = data.hybridGraph.image

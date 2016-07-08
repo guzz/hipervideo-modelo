@@ -17,6 +17,20 @@
 		.mdl-button {
 			min-width: 0;
 			padding: 0;
+			&.no-back {
+				&:hover {
+					background: transparent;
+				}
+			}
+		}
+		.index {
+			margin: auto;
+			.mdl-button {
+				margin-left: 4px;
+			}
+			.material-icons {
+				font-size: 10px;
+			}
 		}
 	}
 	#cartela_nome, #cartela_funcao{
@@ -134,24 +148,29 @@
 		</div>
 		<div style="margin-top: -100px; height: 0;" class="mdl-cell mdl-cell--10-col mdl-grid">
 			<div class="mdl-cell mdl-cell--2-col" style="padding: 0;">
-				<button v-if="!content.ap" class="mdl-button mdl-js-button mdl-button--colored" @click="parentBlock(content.id - 1)" :disabled="eventoStart">
+				<button v-if="!content.ap" class="mdl-button mdl-js-button mdl-button--colored no-back" @click="parentBlock(content.id - 1)" :disabled="eventoStart">
 					<i class="material-icons">chevron_left</i>
 				</button>
 			</div>
 			<div class="mdl-cell mdl-cell--8-col" style="padding: 0;">
-				<button v-if="!content.ap" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" @click="seekVideo(content.id)" :disabled="isAp || eventoAt">
-					Ir para ponto no video
+				<button v-if="!content.ap" class="mdl-button mdl-js-button mdl-button--colored no-back" @click="seekVideo(content.id)" :disabled="isAp || eventoAt" style="width: 100%;">
+					<i class="material-icons">open_in_browser</i>
 				</button>
 			</div>
 			<div class="mdl-cell mdl-cell--2-col" style="padding: 0;">
-				<button v-if="!content.ap" class="mdl-button mdl-js-button mdl-button--colored" @click="parentBlock(content.id + 1)" :disabled="eventoEnd">
+				<button v-if="!content.ap" class="mdl-button mdl-js-button mdl-button--colored no-back" @click="parentBlock(content.id + 1)" :disabled="eventoEnd">
 					<i class="material-icons">chevron_right</i>
 				</button>
 			</div>
 		</div>
 		<div style="margin-top: -140px; height: 0;" class="mdl-cell mdl-cell--10-col mdl-grid">
 			<div class="mdl-cell mdl-cell--12-col">
-				<p v-if="!content.ap" style="color:white; text-align: center;">{{content.id + 1}} / {{numEvents}}</p>
+				<div class="index" :style="{width: (events.length * 7) + '%'}">
+					<button class="mdl-button mdl-js-button mdl-button--colored no-back" v-for="e in events"  href="" @click.prevent="parentBlock($index)" :disabled="eventoNow[$index]">
+						<i class="material-icons">lens</i>
+					</button>
+				</div>
+				<!-- <p v-if="!content.ap" style="color:white; text-align: center;">{{content.id + 1}} / {{numEvents}}</p> -->
 			</div>
 		</div>
 		
@@ -186,6 +205,17 @@
 			},
 			eventoAt: function() {
 				return this.content.start !== null
+			},
+			eventoNow: function() {
+				var list = []
+				for (var i = 0; i < this.events.length; i++) {
+					if (this.content.id === this.events[i].id) {
+						list.push(true)
+					} else {
+						list.push(false)
+					}
+				}
+				return list
 			},
 			isAp: function() {
 				if (this.content.ap !== undefined) {

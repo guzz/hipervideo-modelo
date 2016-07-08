@@ -289,6 +289,9 @@
 	    padding: 4px;
 	    box-sizing: border-box;
 	    text-align: center;
+	    @media screen and (max-width: 1440px) {
+				font-size: 14px;
+			}
     }
 	}
 
@@ -328,6 +331,9 @@
 			width: 17%;
 	    margin-left: 2%;
 	    float: left;
+	    .mdl-slider__background-upper {
+	    	background: rgba(255, 255, 255, 0.2)
+	    }
 		}
 	}
 
@@ -368,7 +374,7 @@
 						<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored botoes-player" style="float: left;" @click="mute">
 				  		<i class="material-icons margem" :style="{ marginLeft: marginIcon }">{{volume_icon}}</i>
 						</button>
-						<input id="volume_slider" class="mdl-slider mdl-js-slider mdl-color--white" type="range" min="0" max="100" :value="volume" tabindex="0">
+						<input id="volume_slider" class="mdl-slider mdl-js-slider" type="range" min="0" max="100" :value="volume" tabindex="0">
 					</div>
 
 					<!-- Botão de Play -->
@@ -527,7 +533,7 @@
 			}, false );
 
 			this.video.tag.addEventListener( "play", function() {
-				self.video.tag.volume = self.volume
+				self.video.tag.volume = self.volume / 100
 				if (!self.seeking) {
 					self.$broadcast('hipervideo-play')
 					$$$('#hipVid-' + self.params.video).removeClass('pausado')

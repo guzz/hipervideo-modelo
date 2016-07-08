@@ -4,9 +4,9 @@
 
 <template>
 	<div>
-		<div v-for="graf in conteudo.graficos">
-			<div>{{{graf.texto | marked}}}</div>
-			<div :is="graf.tipo" :graf="graf" v-ref:graf></div>
+		<div v-for="graf in conteudo.graficos" class="mdl-grid">
+			<div class="mdl-cell mdl-cell--12-col">{{{graf.texto | marked}}}</div>
+			<div class="mdl-cell mdl-cell--12-col" :is="graf.tipo" :graf="graf" v-ref:graf></div>
 		</div>
 	</div>
 </template>
