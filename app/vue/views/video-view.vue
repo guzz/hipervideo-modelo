@@ -28,7 +28,7 @@
 		position: absolute;
 		background-color: rgba(0,0,0,.8);
 		width: 300px;
-		height: 99.5%;
+		height: 99.7%;
 		top: 0;
 		left: 0;
 		transition: all .6s, height .3s ease;
@@ -38,6 +38,9 @@
 		-ms-transform: translate3d(-300px,0,0);
 		transform: translate3d(-300px,0,0);
 		z-index: 10;
+		@media screen and (max-width: 1440px) {
+			height: 99.5%;
+		}
 		.sidebar.is-open & {
 			-webkit-transform: translate3d(0,0,0);
 			-moz-transform: translate3d(0,0,0);
@@ -46,7 +49,7 @@
 			transform: translate3d(0,0,0);
 		}
 		&.cont {
-			height: 89%;
+			height: 100% !important;
 		}
 		&.info-open {
 			background-color: rgba(0, 0, 0, 0.8);
@@ -350,7 +353,7 @@
 		<div id="player">
 			<in-bg-video :db="db" :video="video" :qualidade="qualidade" :acessibilidade.sync="acessibilidade" :playing.sync="playing" v-ref:hipervideo></in-bg-video>
 
-			<div id="video-controls" :class="{ hover: playing, 'z-down': hasInfo }">
+			<div id="video-controls" :class="{ hover: playing || hasInfo, 'z-down': hasInfo }">
 
 				<!-- NAV-VIDEO -->
 				<nav id="timeline">
@@ -424,7 +427,7 @@
 
 			<!-- BACKGROUND -->
 
-			<div id="sidebar_back" class="sidebar_back" :class="{ cont: !playing && !hasInfo, 'info-open': hasInfo }"></div>
+			<div id="sidebar_back" class="sidebar_back" :style="{height: (height - 73) + 'px' }" :class="{ cont: playing && !hasInfo || !playing && hasInfo, 'info-open': hasInfo }"></div>
 		</div>
 
 		<!-- INFO -->
@@ -463,6 +466,7 @@
 				playing: true,
 				volume: 0,
 				volume_icon: 'volume_up',
+				height: window.innerHeight,
 				video: {
 					popcorn: null,
 					time: 0,
@@ -506,7 +510,7 @@
 			this.volume
 		},
 		attached: function() {
-
+			// this.height = window.innerHeight - $$$('#video-controls').height()
 			var self = this
 
 			// DATA
@@ -534,6 +538,25 @@
 				}
 
 			}, false );
+
+			document.addEventListener("webkitfullscreenchange", function() {
+				setTimeout(function() {
+					console.log('full screen web ' + window.innerHeight)
+					self.height = window.innerHeight
+				}, 500)
+			})
+			document.addEventListener("mozfullscreenchange", function() {
+				setTimeout(function() {
+					console.log('full screen moz ' + window.innerHeight)
+					self.height = window.innerHeight
+				}, 500)
+			})
+			document.addEventListener("fullscreenchange", function() {
+				setTimeout(function() {
+					console.log('full screen ' + window.innerHeight)
+					self.height = window.innerHeight
+				}, 500)
+			})
 
 			this.video.tag.addEventListener( "play", function() {
 				self.video.tag.volume = self.volume / 100
@@ -760,12 +783,12 @@
 				if (event.clientY > player.clientHeight - 140) {
 					if (this.playing) {
 						controles.className = "";
-						side.className = "sidebar_back cont";
+						side.className = "sidebar_back";
 					}
 				} else {
 					if (this.playing) {
 						controles.className = "hover";
-						side.className = "sidebar_back";
+						side.className = "sidebar_back cont";
 					}
 				}
 			},

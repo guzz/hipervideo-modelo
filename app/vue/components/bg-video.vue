@@ -34,7 +34,7 @@
 	<div class="hipVid-status" :class="{'is-play': playing}">
 		<i id="pauseplay" class="fa fa-5x" :class="{'fa-play': playing, 'fa-pause': !playing}"></i>
 	</div>
-	<video :poster="db.headers.img" class="hipVid" :id="'hipVid-' + db.headers.id">
+	<video :poster="db.headers.img" class="hipVid" :id="'hipVid-' + db.headers.id" autoplay>
 		<source :src="db.headers.url + '_' + acessibilidade + '_' + queQualidade + '.mp4'" type="video/mp4" id="mp4">
 	</video>
 </template>
@@ -125,7 +125,7 @@
 
 			this.hipervideo.addEventListener("loadedmetadata" , function() {
 				var duracao = toFormat(self.hipervideo.duration)
-				this.play();
+				// this.play();
 				var tempoTotal = function(array) {
 					var min = array[0]
 					var sec = array[1]

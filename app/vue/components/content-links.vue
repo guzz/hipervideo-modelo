@@ -13,6 +13,11 @@
         font-size: 14px;
       }
     }
+  }
+  #list_links {
+    .mdl-card {
+      min-height: 350px;
+    }
 
   }
 </style>
@@ -34,9 +39,9 @@
     <div class="mdl-grid" id="list_links">
       <div v-for="link in link_cards" class="mdl-cell mdl-cell--6-col">
         <a :href="link.link" target="_blank" :title="link.nome" style="text-decoration: none; text-align: center;">
-          <div class="mdl-card mdl-shadow--2dp single-card">
-            <img :alt="link.nome" :src="link.img">
-            <div class="mdl-card__title">
+          <div class="mdl-card mdl-shadow--2dp single-card" :style="{ backgroundImage: 'url('+link.img+')' }" style="background-size: 100%;">
+            <!-- <img :alt="link.nome" :src="link.img"> -->
+            <div class="mdl-card__title" style="background: rgba(255,255,255,0.6)">
               <h2 class="mdl-card__title-text">{{link.nome}}</h2>
             </div>
           </div>
@@ -86,10 +91,17 @@
             dataType: 'json',
             success: function(data) {
               var t = {}
-              t.nome = data.hybridGraph.title
-              t.img = data.hybridGraph.image
-              t.desc = data.hybridGraph.description
-              t.link = data.hybridGraph.url
+              if (data.error) {
+                t.nome = self.conteudo.links[i].nome
+                t.img = "https://s3-sa-east-1.amazonaws.com/jardim-sites/hipervideo-modelo/fundo_link.png"
+                t.desc = ""
+                t.link = self.conteudo.links[i].link
+              } else {
+                t.nome = data.hybridGraph.title
+                t.img = data.hybridGraph.image
+                t.desc = data.hybridGraph.description
+                t.link = data.hybridGraph.url
+              }
               self.link_cards.push(t)
             }
           })

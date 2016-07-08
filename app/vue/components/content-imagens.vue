@@ -45,14 +45,26 @@
     }
   }
 
+  .mfp-iframe {
+    img {
+      width: 100%;
+    }
+  }
+
 
 </style>
 
 <template>
   <div>
-    <div v-for="img in conteudo.imagens">
-      <img :src="img">
-    </div >
+    <div class="mdl-grid" id="video_list">
+      <div v-for="img in conteudo.imagens" class="mdl-cell mdl-cell--3-col">
+        <a :href="img" target="_blank" :title="img" style="text-decoration: none; text-align: center;" class="popup-iframe">
+          <div class="mdl-card mdl-shadow--2dp single-card">
+            <img :alt="img" :src="img">
+          </div>
+        </a>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -72,7 +84,9 @@
       
     },
     attached: function() {
-      
+      setTimeout(function() {
+        jQuery('.popup-iframe').magnificPopup({type:'image'});
+      }, 1000)
     },
     beforeDestroy: function(){
 
