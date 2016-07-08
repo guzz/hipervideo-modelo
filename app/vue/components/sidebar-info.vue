@@ -158,7 +158,6 @@
       getComments: function() {
         var self = this
         Trello.get("/cards/"+self.$parent.db.eventos[parseInt(self.conteudo.id)].card+"/actions", function(comment) {
-          console.log(comment)
           if (comment.length > 0) {
             var usr_atual = {
               id: '',

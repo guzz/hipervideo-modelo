@@ -791,7 +791,7 @@
 				}
 			},
 			addBlock: function(event){
-				console.log(event.id)
+				// console.log(event.id)
 				
 				var node = _.findWhere(this.events,{"id": event.id})
 

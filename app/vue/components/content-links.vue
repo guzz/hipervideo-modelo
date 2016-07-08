@@ -33,9 +33,9 @@
     </div>
     <div class="mdl-grid" id="list_links">
       <div v-for="link in link_cards" class="mdl-cell mdl-cell--6-col">
-        <a :href="link.link" target="_blank" :title="link.nome" style="text-decoration: none; text-align: center;" class="popup-iframe">
+        <a :href="link.link" target="_blank" :title="link.nome" style="text-decoration: none; text-align: center;">
           <div class="mdl-card mdl-shadow--2dp single-card">
-            <img :alt="link.nome" src="http://img.youtube.com/vi/Mn_3Kp576Wg/mqdefault.jpg">
+            <img :alt="link.nome" :src="link.img">
             <div class="mdl-card__title">
               <h2 class="mdl-card__title-text">{{link.nome}}</h2>
             </div>
@@ -64,6 +64,7 @@
 
     },
     attached: function() {
+      var self = this
       for (var i = 0; i < this.conteudo.links.length; i++) {
         var n = {}
         var split = this.conteudo.links[i].link.split('.')
@@ -79,12 +80,18 @@
           n.link = this.conteudo.links[i].link
           this.link_files.push(n)
         } else {
-          console.log(this.conteudo.links[i].link)
           $$$.ajax({
-            url: this.conteudo.links[i].link,
+            url: 'http://opengraph.io/api/1.0/site/'+this.conteudo.links[i].link,
             crossDomain: true,
+            dataType: 'json',
             success: function(data) {
               console.log(data)
+              var t = {}
+              t.nome = data.hybridGraph.title
+              t.img = data.hybridGraph.image
+              t.desc = data.hybridGraph.description
+              t.link = data.hybridGraph.url
+              self.link_cards.push(t)
             }
           })
         }

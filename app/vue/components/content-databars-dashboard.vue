@@ -4,10 +4,7 @@
 
 <template>
 	<div>
-		<div v-for="graf in conteudo.graficos">
-			<div>{{{graf.texto | marked}}}</div>
-			<div :is="graf.tipo" :graf="graf" v-ref:graf></div>
-		</div>
+		<h2>Teste</h2>
 	</div>
 </template>
 
@@ -20,7 +17,6 @@
 	module.exports = {
 
 		replace: true,
-		props: ['conteudo'],
 		data: function(){
 			return {
 				
@@ -39,10 +35,10 @@
 
 		},
 		filters: {
-			'marked': marked
+
 		},
 		components: {
-			'dashboard': require('../components/content-databars-dashboard.vue')
+
 		}
 	}
 
