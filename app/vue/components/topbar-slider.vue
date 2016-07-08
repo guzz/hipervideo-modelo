@@ -4,7 +4,7 @@
 		border-radius: 0;
 		width: 100%;
 		background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);
-		transition: all 0.5s ease 0s;
+		transition: all 0.3s ease;
 		.rangeslider__fill {
 			border-radius: 0;
 		}
@@ -12,7 +12,7 @@
 
 	.rangeslider__fill {
 		border-radius: 0;
-		transition: all 0.5s ease 0s;
+		transition: all 0.3s ease;
 	}
 
 	.rangeslider__buffer {
@@ -21,7 +21,7 @@
 		top: 0;
 		left: 0;
 		height: 27px;
-		transition: all 0.5s ease 0s;
+		transition: all 0.3s ease;
 		#video-controls.hover & {
 			height: 3px;
 		}
@@ -37,7 +37,7 @@
 		font-weight: 700;
 		font-size: 75%;
 		z-index: 10;
-		transition: all 0.5s ease 0s;
+		transition: all 0.3s ease;
 		#video-controls.hover & {
 			opacity: 0;
 			font-size: 0;
@@ -64,7 +64,7 @@
 		font-weight: 700;
 		font-size: 75%;
 		z-index: 10;
-		transition: all 0.5s ease 0s;
+		transition: all 0.3s ease;
 		#video-controls.hover & {
 			opacity: 0;
 			font-size: 0;

@@ -28,10 +28,10 @@
 		position: absolute;
 		background-color: rgba(0,0,0,.8);
 		width: 300px;
-		height: 100%;
+		height: 99.5%;
 		top: 0;
 		left: 0;
-		transition: all 0.6s;
+		transition: all .6s, height .3s ease;
 		-webkit-transform: translate3d(-300px,0,0);
 		-moz-transform: translate3d(-300px,0,0);
 		-o-transform: translate3d(-300px,0,0);
@@ -44,6 +44,9 @@
 			-o-transform: translate3d(0,0,0);
 			-ms-transform: translate3d(0,0,0);
 			transform: translate3d(0,0,0);
+		}
+		&.cont {
+			height: 89%;
 		}
 		&.info-open {
 			background-color: rgba(0, 0, 0, 0.8);
@@ -421,7 +424,7 @@
 
 			<!-- BACKGROUND -->
 
-			<div class="sidebar_back" :class="{ 'info-open': hasInfo }"></div>
+			<div id="sidebar_back" class="sidebar_back" :class="{ cont: !playing && !hasInfo, 'info-open': hasInfo }"></div>
 		</div>
 
 		<!-- INFO -->
@@ -750,17 +753,19 @@
 			},
 			handleMouseMove: function(event) {
 				var controles = document.getElementById('video-controls');
-				var side = document.getElementById('sidebar_click');
+				var side = document.getElementById('sidebar_back');
 				var player = document.getElementById('player');
 				event = event || window.event; // IE-ism
 				// event.clientX and event.clientY contain the mouse position
 				if (event.clientY > player.clientHeight - 140) {
 					if (this.playing) {
 						controles.className = "";
+						side.className = "sidebar_back cont";
 					}
 				} else {
 					if (this.playing) {
 						controles.className = "hover";
+						side.className = "sidebar_back";
 					}
 				}
 			},
