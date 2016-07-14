@@ -117,11 +117,15 @@
         var c = {
           text: [],
           usr: {
-            nome: 'guzz',
-            foto: 'https://trello-avatars.s3.amazonaws.com/bd79ff5b80105ca351f232b26a4150e4/30.png',
-            id: 'bd79ff5b80105ca351f232b26a4150e4'
+            nome: this.user.nome,
+            foto: this.user.img,
+            id: this.user.board
           }
         }
+
+        Trello.post('/cards/'+this.conteudo.card+'/actions/comments', {text: this.chat_text}, function(data) {
+          console.log(data)
+        })
         c.text.push(this.chat_text)
         this.conteudo.comentarios.push(c)
         this.chat_rows = 1

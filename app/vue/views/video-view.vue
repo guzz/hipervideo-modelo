@@ -695,6 +695,7 @@
 				}
 				this.conteudo.title = node.title;
 				this.conteudo.id = node.id;
+				this.conteudo.card = node.card;
 				setTimeout(function() {
 					self.$broadcast('create-scrollbar')
 				}, 500)

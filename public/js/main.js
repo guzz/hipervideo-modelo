@@ -536,11 +536,15 @@ module.exports = {
       var c = {
         text: [],
         usr: {
-          nome: 'guzz',
-          foto: 'https://trello-avatars.s3.amazonaws.com/bd79ff5b80105ca351f232b26a4150e4/30.png',
-          id: 'bd79ff5b80105ca351f232b26a4150e4'
+          nome: this.user.nome,
+          foto: this.user.img,
+          id: this.user.board
         }
       };
+
+      Trello.post('/cards/' + this.conteudo.card + '/actions/comments', { text: this.chat_text }, function (data) {
+        console.log(data);
+      });
       c.text.push(this.chat_text);
       this.conteudo.comentarios.push(c);
       this.chat_rows = 1;
@@ -1691,7 +1695,7 @@ module.exports = {
   filters: {}
 
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div style=\"height: 100%;\">\n    <div class=\"border context-bg\"></div>\n    <div class=\"mdl-layout mdl-js-layout mdl-layout--fixed-header\">\n      <header class=\"mdl-layout__header context-bg\">\n        <div class=\"mdl-layout__header-row\">\n          <!-- Add spacer, to align navigation to the right -->\n          <div class=\"mdl-layout-spacer\"></div>\n          <!-- Navigation. We hide it in small screens. -->\n          <nav class=\"mdl-navigation mdl-layout--large-screen-only\">\n            <a class=\"\" style=\"color: rgb(66,66,66);\" :href=\"'#/' + params.video\"><i style=\"font-size: 35px; float: right; color: white;\" class=\"material-icons\">close</i></a>\n          </nav>\n\n        </div>\n        <div class=\"mdl-layout__tab-bar context-bg\">\n          <a v-for=\"cont in conteudo\" href=\"\" @click.prevent=\"changeTab($key)\" class=\"mdl-layout__tab\" :class=\"{'is-active': $key === tab, 'is-hidden': $key === 'id' || $key === 'title'}\">\n            <span><i class=\"material-icons\" style=\"position: absolute; left: 0; top: 12px;\">{{icon[$key]}}</i></span>\n            {{$key}}\n          </a>\n        </div>\n      </header>\n      <main class=\"mdl-layout__content\" id=\"content_main\" style=\"height: 100%;\">\n        <div class=\"page-content\" style=\"height: 100%;\">\n          <div class=\"mdl-grid\" style=\"height: 100%; padding: 0;\">\n            <div class=\"mdl-cell mdl-cell--12-col\" style=\"height: 100%; margin: 0;\">\n              <div id=\"conteudo_info\" style=\"padding:0;height: 100%;\">\n\n                <div :is=\"tab\" transition=\"fade\" :conteudo=\"conteudo\" :user.sync=\"user\" v-ref:tab=\"\"></div>\n\n              </div>\n            </div>\n          </div>\n        </div>\n      </main>\n    </div>\n  </div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div style=\"height: 100%;\">\n    <div class=\"border context-bg\"></div>\n    <div class=\"mdl-layout mdl-js-layout mdl-layout--fixed-header\">\n      <header class=\"mdl-layout__header context-bg\">\n        <div class=\"mdl-layout__header-row\">\n          <!-- Add spacer, to align navigation to the right -->\n          <div class=\"mdl-layout-spacer\"></div>\n          <!-- Navigation. We hide it in small screens. -->\n          <nav class=\"mdl-navigation mdl-layout--large-screen-only\">\n            <a class=\"\" style=\"color: rgb(66,66,66);\" :href=\"'#/' + params.video\"><i style=\"font-size: 35px; float: right; color: white;\" class=\"material-icons\">close</i></a>\n          </nav>\n\n        </div>\n        <div class=\"mdl-layout__tab-bar context-bg\">\n          <a v-for=\"cont in conteudo\" href=\"\" @click.prevent=\"changeTab($key)\" class=\"mdl-layout__tab\" :class=\"{'is-active': $key === tab, 'is-hidden': $key === 'id' || $key === 'title' || $key === 'card'}\">\n            <span><i class=\"material-icons\" style=\"position: absolute; left: 0; top: 12px;\">{{icon[$key]}}</i></span>\n            {{$key}}\n          </a>\n        </div>\n      </header>\n      <main class=\"mdl-layout__content\" id=\"content_main\" style=\"height: 100%;\">\n        <div class=\"page-content\" style=\"height: 100%;\">\n          <div class=\"mdl-grid\" style=\"height: 100%; padding: 0;\">\n            <div class=\"mdl-cell mdl-cell--12-col\" style=\"height: 100%; margin: 0;\">\n              <div id=\"conteudo_info\" style=\"padding:0;height: 100%;\">\n\n                <div :is=\"tab\" transition=\"fade\" :conteudo=\"conteudo\" :user.sync=\"user\" v-ref:tab=\"\"></div>\n\n              </div>\n            </div>\n          </div>\n        </div>\n      </main>\n    </div>\n  </div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -2458,6 +2462,7 @@ module.exports = {
 			}
 			this.conteudo.title = node.title;
 			this.conteudo.id = node.id;
+			this.conteudo.card = node.card;
 			setTimeout(function () {
 				self.$broadcast('create-scrollbar');
 			}, 500);

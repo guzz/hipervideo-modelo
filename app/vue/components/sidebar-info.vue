@@ -49,7 +49,7 @@
 
         </div>
         <div class="mdl-layout__tab-bar context-bg">
-          <a v-for="cont in conteudo" href="" @click.prevent="changeTab($key)" class="mdl-layout__tab" :class="{'is-active': $key === tab, 'is-hidden': $key === 'id' || $key === 'title'}">
+          <a v-for="cont in conteudo" href="" @click.prevent="changeTab($key)" class="mdl-layout__tab" :class="{'is-active': $key === tab, 'is-hidden': $key === 'id' || $key === 'title' || $key === 'card'}">
             <span><i class="material-icons" style="position: absolute; left: 0; top: 12px;">{{icon[$key]}}</i></span>
             {{$key}}
           </a>
