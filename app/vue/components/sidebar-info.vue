@@ -121,6 +121,7 @@
           suppressScrollX: true
         });
       })
+      componentHandler.upgradeDom()
       
     },
     beforeDestroy: function(){

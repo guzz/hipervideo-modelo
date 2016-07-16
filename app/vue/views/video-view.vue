@@ -299,6 +299,9 @@
 				font-size: 14px;
 			}
     }
+    .mdl-tooltip {
+    	font-size: 14px;
+    }
 	}
 
 	#vid-buttons {
@@ -433,7 +436,8 @@
 		<!-- INFO -->
 	
 		<div id="infopanel" class="infopanel" :class="{'is-open': hasInfo}">
-	    <in-sidebar-info :params="params" :conteudo="conteudo" :user.sync="user"></in-sidebar-info>
+	    <in-sidebar-link v-if="link !== null" :link="link" :user.sync="user" transition="fade"></in-sidebar-link>
+	    <in-sidebar-info v-if="hasInfo" :params="params" :conteudo="conteudo" :user.sync="user"></in-sidebar-info>
 	  </div>
 
 		<div id="loading" class="not-loading"><i class="fa fa-refresh fa-3x fa-spin"></i></div>
@@ -464,6 +468,7 @@
 				conteudo: {},
 				seeking: false,
 				playing: true,
+				link: null,
 				volume: 0,
 				volume_icon: 'volume_up',
 				height: window.innerHeight,
@@ -482,7 +487,7 @@
 				return this.contentBlocks.length >= 2 || this.contentBlocks.length > 0 && !this.contentBlocks[0].funcao
 			},
 			hasInfo: function(){
-				return this.params.route.length > 1 && this.params.route[1] == 'info'
+				return this.params.route.length > 1 && this.params.route[1] == 'info' || this.link !== null
 			},
 			hasLibras: function() {
 				return this.libras
@@ -906,7 +911,8 @@
 			'in-sidebar-block': require('../components/sidebar-block.vue'),
 			'in-topbar-slider': require('../components/topbar-slider.vue'),
 			'in-bg-video': require('../components/bg-video.vue'),
-			'in-sidebar-info': require('../components/sidebar-info.vue')
+			'in-sidebar-info': require('../components/sidebar-info.vue'),
+			'in-sidebar-link': require('../components/sidebar-link.vue')
 		}
 	}
 </script>

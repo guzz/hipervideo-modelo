@@ -124,6 +124,20 @@
 			}
 		}
 	}
+	.nav-icons {
+		margin-top: -100px; 
+		height: 0;
+		.material-icons {
+			font-size: 60px;
+		}
+		.mdl-button {
+			height: 55px;
+			width: 100%; 
+		}
+		.mdl-tooltip {
+			font-size: 14px;
+		}
+	}
 </style>
 
 <template>
@@ -146,21 +160,24 @@
 			<p v-if="!content.ap" v-show="conteudo.id === undefined" style=""><strong><a style="font-weight: 900; text-decoration: none;" :href="'#/' + content.videoID + '/info/' + content.id">SAIBA MAIS</a></strong></p>
 			<p v-if="!content.ap" v-show="conteudo.id !== undefined"  style=""><strong><a style="font-weight: 900; text-decoration: none;" :href="'#/' + content.videoID">VOLTAR</a></strong></p>
 		</div>
-		<div style="margin-top: -100px; height: 0;" class="mdl-cell mdl-cell--10-col mdl-grid">
+		<div style="" class="mdl-cell mdl-cell--10-col mdl-grid nav-icons">
 			<div class="mdl-cell mdl-cell--2-col" style="padding: 0;">
-				<button v-if="!content.ap" class="mdl-button mdl-js-button mdl-button--colored no-back" @click="parentBlock(content.id - 1)" :disabled="eventoStart">
-					<i class="material-icons">chevron_left</i>
+				<button v-if="!content.ap" id="evento_prev" class="mdl-button mdl-js-button mdl-button--colored no-back" @click="parentBlock(content.id - 1)" :disabled="eventoStart">
+					<i class="material-icons" style="margin-left: -19px;">chevron_left</i>
 				</button>
+				<div class="mdl-tooltip mdl-tooltip--top" for="evento_prev">Evento anterior</div>
 			</div>
 			<div class="mdl-cell mdl-cell--8-col" style="padding: 0;">
-				<button v-if="!content.ap" class="mdl-button mdl-js-button mdl-button--colored no-back" @click="seekVideo(content.id)" :disabled="isAp || eventoAt" style="width: 100%;">
+				<button v-if="!content.ap" id="evento_now" class="mdl-button mdl-js-button mdl-button--colored no-back" @click="seekVideo(content.id)" :disabled="isAp || eventoAt" style="width: 100%;">
 					<i class="material-icons">open_in_browser</i>
 				</button>
+				<div class="mdl-tooltip mdl-tooltip--top" for="evento_now">Ir para ponto do vídeo</div>
 			</div>
 			<div class="mdl-cell mdl-cell--2-col" style="padding: 0;">
-				<button v-if="!content.ap" class="mdl-button mdl-js-button mdl-button--colored no-back" @click="parentBlock(content.id + 1)" :disabled="eventoEnd">
-					<i class="material-icons">chevron_right</i>
+				<button v-if="!content.ap" id="evento_next" class="mdl-button mdl-js-button mdl-button--colored no-back" @click="parentBlock(content.id + 1)" :disabled="eventoEnd">
+					<i class="material-icons" style="margin-left: -19px;">chevron_right</i>
 				</button>
+				<div class="mdl-tooltip mdl-tooltip--top" for="evento_next">Próximo evento</div>
 			</div>
 		</div>
 		<div style="margin-top: -140px; height: 0;" class="mdl-cell mdl-cell--10-col mdl-grid">
@@ -239,6 +256,7 @@
 			$$$('.sidebar_block__content').perfectScrollbar({
 				suppressScrollX: true
 			});
+			componentHandler.upgradeDom()
 		},
 		methods: {
 			onTimerClick: function(){

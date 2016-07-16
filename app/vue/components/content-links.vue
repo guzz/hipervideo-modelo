@@ -26,7 +26,7 @@
   <div>
     <div class="mdl-grid" id="list_files">
       <div v-for="link in link_files" class="mdl-cell mdl-cell--2-col">
-        <a :href="link.link" target="_blank" :title="link.nome" style="text-decoration: none; text-align: center;" class="popup-iframe">
+        <a :href="link.link" @click.prevent="openLink(link.link)" :title="link.nome" style="text-decoration: none; text-align: center;" class="popup-iframe">
           <div class="mdl-card mdl-shadow--2dp single-card">
             <div><i class="material-icons">{{link.icon}}</i></div>
             <div class="mdl-card__title">
@@ -38,7 +38,7 @@
     </div>
     <div class="mdl-grid" id="list_links">
       <div v-for="link in link_cards" class="mdl-cell mdl-cell--6-col">
-        <a :href="link.link" target="_blank" :title="link.nome" style="text-decoration: none; text-align: center;">
+        <a :href="link.link" @click.prevent="openLink(link.link)" :title="link.nome" style="text-decoration: none; text-align: center;">
           <div class="mdl-card mdl-shadow--2dp single-card" :style="{ backgroundImage: 'url('+link.img+')' }" style="background-size: 100%;">
             <!-- <img :alt="link.nome" :src="link.img"> -->
             <div class="mdl-card__title" style="background: rgba(255,255,255,0.6)">
@@ -107,9 +107,16 @@
           })
         }
       }
+
     },
     beforeDestroy: function(){
 
+    },
+
+    methods: {
+      openLink: function(link) {
+        this.$parent.$parent.link = link
+      }
     },
 
     components: {

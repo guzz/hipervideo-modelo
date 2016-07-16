@@ -85,6 +85,10 @@ module.exports = {
 		}
 	},
 	methods: {
+		getTo: function getTo(loc) {
+			window.location.hash = loc;
+			this.drawer = false;
+		},
 		disconnect: function disconnect() {
 			this.user = {
 				nome: "",
@@ -101,6 +105,7 @@ module.exports = {
 			var opt = {
 				type: "popup",
 				name: "hipevideo",
+				persist: false,
 				scope: { read: true, write: true, account: true },
 				expiration: "1hour",
 				success: function success() {
@@ -234,7 +239,7 @@ module.exports = {
 		'video-view': require('./views/video-view.vue')
 	}
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div>\n\t<div class=\"app_load\" v-if=\"!ready\" transition=\"fade\">\n\t\t<div id=\"p1\" class=\"mdl-progress mdl-js-progress mdl-progress__indeterminate\"></div>\n\t</div>\n\t\t<div id=\"full\" allowfullscreen=\"true\" :class=\"[className]\">\n\t\t\t<div class=\"mdl-layout mdl-js-layout\" :class=\"{ 'home-open': home }\">\n\t\t\t\t<header class=\"mdl-layout__header mdl-layout__header--waterfall header-top\" :class=\"{ 'home-menu': home }\" v-if=\"!isVideo\" transition=\"grow\" style=\"position: absolute; background-color: rgba(0, 0, 0, 1);\">\n\t\t\t    <!-- Top row, always visible -->\n\t\t\t    <div class=\"mdl-layout__header-row\">\n\t\t\t      <!-- Title -->\n\t\t\t      <span class=\"mdl-layout-title\">Hipervideo</span>\n\t\t\t      <div class=\"mdl-layout-spacer\"></div>\n\t\t\t      <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--expandable\n\t\t\t                  mdl-textfield--floating-label mdl-textfield--align-right\">\n\t\t\t        <label class=\"mdl-button mdl-js-button mdl-button--icon\" for=\"waterfall-exp\">\n\t\t\t          <i class=\"material-icons\">search</i>\n\t\t\t        </label>\n\t\t\t        <div class=\"mdl-textfield__expandable-holder\">\n\t\t\t          <input class=\"mdl-textfield__input\" type=\"text\" name=\"sample\" id=\"waterfall-exp\">\n\t\t\t        </div>\n\t\t\t      </div>\n\t\t\t    </div>\n\t\t\t  </header>\n\t\t\t\n\t\t\t<div class=\"mdl-layout__drawer\" :class=\"{'is-visible': drawer}\">\n\t\t\t<div class=\"mdl-grid\" style=\"padding: 0;\">\n\t\t\t\t<div class=\"mdl-cell mdl-cell--12-col\" style=\"margin: 0;\">\n\t\t\t\t\t\n\t\t\t\t\t\t<!-- Card Avatar -->\n  \t\t\t\t\t\t<div class=\"mdl-card mdl-shadow--4dp drawer-cards\">\n\n\t\t  \t\t\t\t\t<div class=\"mdl-card__supporting-text\">\n\t\t\t\t\t\t\t\t\t\t\n\t\t  \t\t\t\t\t\t\t\t<div class=\"user-avatar\">\n\n\t\t\t\t\t\t\t\t\t\t<button @click=\"connectTrello\" v-if=\"!isConnected\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored connecte-se\">\n\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-trello\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t\t\t\t  CONECTE-SE\n\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<img :src=\"user.img\" v-if=\"isConnected\" class=\"gravatar\" transition=\"fade\">\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t<div class=\"user-data\">\n\t\t\t\t\t\t\t\t\t\t\t<p class=\"user-name\" v-if=\"isConnected\" transition=\"fade\">@{{user.nome}}</p>\n\t\t\t\t\t\t\t\t\t    \t<p class=\"user-info\" v-if=\"isConnected\" transition=\"fade\">{{user.email}}</p>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<button @click=\"disconnect\" v-if=\"isConnected\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\">DISCONECT</button>\n\n\t\t  \t\t\t\t\t</div>\n  \t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<!-- Card Qualidade -->\n\t\t  \t\t\t\t<div class=\"mdl-card mdl-shadow--4dp drawer-cards\">\n\t\t  \t\t\t\t\t\n\t\t  \t\t\t\t\t<div class=\"mdl-card__title\">\n\t\t  \t\t\t\t\t\t<h4 class=\"mdl-card__title-text\">Qualidade</h4>\n\t\t  \t\t\t\t\t</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"mdl-card__supporting-text\">\n\t  \t\t\t\t\t\t\t\n\t  \t\t\t\t\t\t\t<div class=\"slider-wrap\">\n\t\t\t\t\t\t\t\t\t\t<input class=\"mdl-slider mdl-js-slider\" type=\"range\" min=\"0\" max=\"2\" :value=\"qualidade\" tabindex=\"0\" step=\"1\" @input=\"mudaQual\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"mdl-grid mdl-grid--no-spacing\">\n\t\t  \t\t\t\t\t\t\t\n\t\t  \t\t\t\t\t\t\t<div class=\"qual-label qual-div1\">\n\t\t  \t\t\t\t\t\t\t\t<span :class=\"{ active: isBaixa }\">Baixa</span>\n\t\t  \t\t\t\t\t\t\t</div>\n\n\t  \t\t\t\t\t\t\t\t<div class=\"qual-label qual-div2\">\n\t  \t\t\t\t\t\t\t\t\t<span :class=\"{ active: isMedia }\">Média</span>\n\t  \t\t\t\t\t\t\t\t</div>\n\n\t  \t\t\t\t\t\t\t\t<div class=\"qual-label qual-div3\">\n\t  \t\t\t\t\t\t\t\t\t<span :class=\"{ active: isAlta }\">Alta</span>\n\t  \t\t\t\t\t\t\t\t</div>\n\n\t\t  \t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n  \t\t\t\t\t\t</div>\n  \t\t\t\t\t\t\n\t\t\t\t\t\t<!-- Card Acessibilidade -->\n  \t\t\t\t\t\t<div class=\"mdl-card mdl-shadow--4dp drawer-cards\">\n\n\t\t  \t\t\t\t\t<div class=\"mdl-card__title\">\n\t\t  \t\t\t\t\t\t<h4 class=\"mdl-card__title-text\">Acessibilidade</h4>\n\t\t  \t\t\t\t\t</div>\n\n\t\t  \t\t\t\t\t<div class=\"mdl-card__supporting-text\">\n\t\t  \t\t\t\t\t\t<div class=\"mdl-grid\">\n\t\t  \t\t\t\t\t\t\t<div class=\"mdl-cell mdl-cell--12-col\">\n\t\t\t\t\t\t\t  \t\t\t<ul class=\"demo-list-control mdl-list acess\">\n\t\t\t\t\t\t\t\t\t\t\t<li class=\"mdl-list__item\">\n\t\t\t\t\t\t\t\t\t\t\t    <span class=\"mdl-list__item-primary-content\">\n\t\t\t\t\t\t\t\t\t\t\t      Libras\n\t\t\t\t\t\t\t\t\t\t\t    </span>\n\t\t\t\t\t\t\t\t\t\t\t    <span class=\"mdl-list__item-secondary-action\">\n\t\t\t\t\t\t\t\t\t\t\t\t    <label class=\"mdl-switch mdl-js-switch mdl-js-ripple-effect\" for=\"list-switch-1\" id=\"label-switch-1\">\n\t\t\t\t\t\t\t\t\t\t\t    \t<input type=\"checkbox\" id=\"list-switch-1\" class=\"mdl-switch__input\" :disabled=\"hasLibras\" :checked=\"isLibras\" @click=\"acessLibras\">\n\t\t\t\t\t\t\t\t\t\t\t    \t</label>\n\t\t\t\t\t\t\t\t\t\t\t    </span>\n\t\t\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t<li class=\"mdl-list__item\">\n\t\t\t\t\t\t\t\t\t\t\t    <span class=\"mdl-list__item-primary-content\">\n\t\t\t\t\t\t\t\t\t\t\t      Audio Descrição\n\t\t\t\t\t\t\t\t\t\t\t    </span>\n\t\t\t\t\t\t\t\t\t\t\t    <span class=\"mdl-list__item-secondary-action\">\n\t\t\t\t\t\t\t\t\t\t\t        <label class=\"mdl-switch mdl-js-switch mdl-js-ripple-effect\" for=\"list-switch-2\" id=\"label-switch-2\">\n\t\t\t\t\t\t\t\t\t\t\t        <input type=\"checkbox\" id=\"list-switch-2\" class=\"mdl-switch__input\" :disabled=\"hasAudio\" :checked=\"isAudio\" @click=\"acessAudio\">\n\t\t\t\t\t\t\t\t\t\t\t        </label>\n\t\t\t\t\t\t\t\t\t\t\t    </span>\n\t\t\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t</ul>\n\t\t  \t\t\t\t\t\t\t</div>\n\t\t  \t\t\t\t\t\t</div>\n\t\t  \t\t\t\t\t</div>\n  \t\t\t\t\t\t</div>\n\n  \t\t\t\t\t\t<button class=\"mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab\">\n  \t\t\t\t\t\t<a href=\"/#/home\" @click=\"drawer = false\">\t<i class=\"material-icons\">chevron_left</i>\t</a>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<span>Voltar ao início</span>\n\n\t\t\t\t</div>\n\n\t\t\t\t\t\n\t\t\t  </div>\n\t\t\t  </div>\n\t\t\t  <div aria-expanded=\"false\" role=\"button\" tabindex=\"0\" class=\"mdl-layout__drawer-button\" @click=\"openDrawer\"><i class=\"material-icons\">menu</i></div>\n\t\t\t  <main class=\"mdl-layout__content view\" :is=\"view\" transition=\"fade\" :class=\"[className]\" :db=\"db\" :database=\"database\" :params=\"params\" :qualidade=\"qualidade\" :acessibilidade.sync=\"acessibilidade\" :ready.sync=\"ready\" :user.sync=\"user\" v-ref:view=\"\">\n\n\t\t\t  </main>\n\t\t\t  <div class=\"mdl-layout__obfuscator\" :class=\"{'is-visible': drawer}\" @click=\"openDrawer\"></div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div id=\"demo-snackbar-example\" class=\"mdl-js-snackbar mdl-snackbar\" aria-live=\"assertive\" aria-atomic=\"true\" aria-relevant=\"text\">\n\t\t  <div class=\"mdl-snackbar__text\"></div>\n\t\t  <button class=\"mdl-snackbar__action\" type=\"button\"></button>\n\t\t</div>\n\t</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div>\n\t<div class=\"app_load\" v-if=\"!ready\" transition=\"fade\">\n\t\t<div id=\"p1\" class=\"mdl-progress mdl-js-progress mdl-progress__indeterminate\"></div>\n\t</div>\n\t\t<div id=\"full\" allowfullscreen=\"true\" :class=\"[className]\">\n\t\t\t<div class=\"mdl-layout mdl-js-layout\" :class=\"{ 'home-open': home }\">\n\t\t\t\t<header class=\"mdl-layout__header mdl-layout__header--waterfall header-top\" :class=\"{ 'home-menu': home }\" v-if=\"!isVideo\" transition=\"grow\" style=\"position: absolute; background-color: rgba(0, 0, 0, 1);\">\n\t\t\t    <!-- Top row, always visible -->\n\t\t\t    <div class=\"mdl-layout__header-row\">\n\t\t\t      <!-- Title -->\n\t\t\t      <span class=\"mdl-layout-title\">Hipervideo</span>\n\t\t\t      <div class=\"mdl-layout-spacer\"></div>\n\t\t\t      <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--expandable\n\t\t\t                  mdl-textfield--floating-label mdl-textfield--align-right\">\n\t\t\t        <label class=\"mdl-button mdl-js-button mdl-button--icon\" for=\"waterfall-exp\">\n\t\t\t          <i class=\"material-icons\">search</i>\n\t\t\t        </label>\n\t\t\t        <div class=\"mdl-textfield__expandable-holder\">\n\t\t\t          <input class=\"mdl-textfield__input\" type=\"text\" name=\"sample\" id=\"waterfall-exp\">\n\t\t\t        </div>\n\t\t\t      </div>\n\t\t\t    </div>\n\t\t\t  </header>\n\t\t\t\n\t\t\t<div class=\"mdl-layout__drawer\" :class=\"{'is-visible': drawer}\">\n\t\t\t<div class=\"mdl-grid\" style=\"padding: 0;\">\n\t\t\t\t<div class=\"mdl-cell mdl-cell--12-col\" style=\"margin: 0;\">\n\t\t\t\t\t\n\t\t\t\t\t\t<!-- Card Avatar -->\n  \t\t\t\t\t\t<div class=\"mdl-card mdl-shadow--4dp drawer-cards\">\n\n\t\t  \t\t\t\t\t<div class=\"mdl-card__supporting-text\">\n\t\t\t\t\t\t\t\t\t\t\n\t\t  \t\t\t\t\t\t\t\t<div class=\"user-avatar\">\n\n\t\t\t\t\t\t\t\t\t\t<button @click=\"connectTrello\" v-if=\"!isConnected\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored connecte-se\">\n\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-trello\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t\t\t\t  CONECTE-SE\n\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<img :src=\"user.img\" v-if=\"isConnected\" class=\"gravatar\" transition=\"fade\">\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t<div class=\"user-data\">\n\t\t\t\t\t\t\t\t\t\t\t<p class=\"user-name\" v-if=\"isConnected\" transition=\"fade\">@{{user.nome}}</p>\n\t\t\t\t\t\t\t\t\t    \t<p class=\"user-info\" v-if=\"isConnected\" transition=\"fade\">{{user.email}}</p>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<button @click=\"disconnect\" v-if=\"isConnected\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\">DISCONECT</button>\n\n\t\t  \t\t\t\t\t</div>\n  \t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<!-- Card Qualidade -->\n\t\t  \t\t\t\t<div class=\"mdl-card mdl-shadow--4dp drawer-cards\">\n\t\t  \t\t\t\t\t\n\t\t  \t\t\t\t\t<div class=\"mdl-card__title\">\n\t\t  \t\t\t\t\t\t<h4 class=\"mdl-card__title-text\">Qualidade</h4>\n\t\t  \t\t\t\t\t</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"mdl-card__supporting-text\">\n\t  \t\t\t\t\t\t\t\n\t  \t\t\t\t\t\t\t<div class=\"slider-wrap\">\n\t\t\t\t\t\t\t\t\t\t<input class=\"mdl-slider mdl-js-slider\" type=\"range\" min=\"0\" max=\"2\" :value=\"qualidade\" tabindex=\"0\" step=\"1\" @input=\"mudaQual\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"mdl-grid mdl-grid--no-spacing\">\n\t\t  \t\t\t\t\t\t\t\n\t\t  \t\t\t\t\t\t\t<div class=\"qual-label qual-div1\">\n\t\t  \t\t\t\t\t\t\t\t<span :class=\"{ active: isBaixa }\">Baixa</span>\n\t\t  \t\t\t\t\t\t\t</div>\n\n\t  \t\t\t\t\t\t\t\t<div class=\"qual-label qual-div2\">\n\t  \t\t\t\t\t\t\t\t\t<span :class=\"{ active: isMedia }\">Média</span>\n\t  \t\t\t\t\t\t\t\t</div>\n\n\t  \t\t\t\t\t\t\t\t<div class=\"qual-label qual-div3\">\n\t  \t\t\t\t\t\t\t\t\t<span :class=\"{ active: isAlta }\">Alta</span>\n\t  \t\t\t\t\t\t\t\t</div>\n\n\t\t  \t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n  \t\t\t\t\t\t</div>\n  \t\t\t\t\t\t\n\t\t\t\t\t\t<!-- Card Acessibilidade -->\n  \t\t\t\t\t\t<div class=\"mdl-card mdl-shadow--4dp drawer-cards\">\n\n\t\t  \t\t\t\t\t<div class=\"mdl-card__title\">\n\t\t  \t\t\t\t\t\t<h4 class=\"mdl-card__title-text\">Acessibilidade</h4>\n\t\t  \t\t\t\t\t</div>\n\n\t\t  \t\t\t\t\t<div class=\"mdl-card__supporting-text\">\n\t\t  \t\t\t\t\t\t<div class=\"mdl-grid\">\n\t\t  \t\t\t\t\t\t\t<div class=\"mdl-cell mdl-cell--12-col\">\n\t\t\t\t\t\t\t  \t\t\t<ul class=\"demo-list-control mdl-list acess\">\n\t\t\t\t\t\t\t\t\t\t\t<li class=\"mdl-list__item\">\n\t\t\t\t\t\t\t\t\t\t\t    <span class=\"mdl-list__item-primary-content\">\n\t\t\t\t\t\t\t\t\t\t\t      Libras\n\t\t\t\t\t\t\t\t\t\t\t    </span>\n\t\t\t\t\t\t\t\t\t\t\t    <span class=\"mdl-list__item-secondary-action\">\n\t\t\t\t\t\t\t\t\t\t\t\t    <label class=\"mdl-switch mdl-js-switch mdl-js-ripple-effect\" for=\"list-switch-1\" id=\"label-switch-1\">\n\t\t\t\t\t\t\t\t\t\t\t    \t<input type=\"checkbox\" id=\"list-switch-1\" class=\"mdl-switch__input\" :disabled=\"hasLibras\" :checked=\"isLibras\" @click=\"acessLibras\">\n\t\t\t\t\t\t\t\t\t\t\t    \t</label>\n\t\t\t\t\t\t\t\t\t\t\t    </span>\n\t\t\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t<li class=\"mdl-list__item\">\n\t\t\t\t\t\t\t\t\t\t\t    <span class=\"mdl-list__item-primary-content\">\n\t\t\t\t\t\t\t\t\t\t\t      Audio Descrição\n\t\t\t\t\t\t\t\t\t\t\t    </span>\n\t\t\t\t\t\t\t\t\t\t\t    <span class=\"mdl-list__item-secondary-action\">\n\t\t\t\t\t\t\t\t\t\t\t        <label class=\"mdl-switch mdl-js-switch mdl-js-ripple-effect\" for=\"list-switch-2\" id=\"label-switch-2\">\n\t\t\t\t\t\t\t\t\t\t\t        <input type=\"checkbox\" id=\"list-switch-2\" class=\"mdl-switch__input\" :disabled=\"hasAudio\" :checked=\"isAudio\" @click=\"acessAudio\">\n\t\t\t\t\t\t\t\t\t\t\t        </label>\n\t\t\t\t\t\t\t\t\t\t\t    </span>\n\t\t\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t</ul>\n\t\t  \t\t\t\t\t\t\t</div>\n\t\t  \t\t\t\t\t\t</div>\n\t\t  \t\t\t\t\t</div>\n  \t\t\t\t\t\t</div>\n\n  \t\t\t\t\t\t<button v-if=\"view !== home-view\" @click=\"getTo('#/')\" class=\"mdl-button mdl-js-button\" style=\"width: 100%;\">\n\t  \t\t\t\t\t\t<i class=\"material-icons\">chevron_left</i>\n\t  \t\t\t\t\t\t<span>Voltar ao início</span>\n\t\t\t\t\t\t\t</button>\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\n\t\t\t \t\t</div>\n\t\t\t  </div>\n\t\t\t  <div aria-expanded=\"false\" role=\"button\" tabindex=\"0\" class=\"mdl-layout__drawer-button\" @click=\"openDrawer\"><i class=\"material-icons\">menu</i></div>\n\t\t\t  <main class=\"mdl-layout__content view\" :is=\"view\" transition=\"fade\" :class=\"[className]\" :db=\"db\" :database=\"database\" :params=\"params\" :qualidade=\"qualidade\" :acessibilidade.sync=\"acessibilidade\" :ready.sync=\"ready\" :user.sync=\"user\" v-ref:view=\"\">\n\n\t\t\t  </main>\n\t\t\t  <div class=\"mdl-layout__obfuscator\" :class=\"{'is-visible': drawer}\" @click=\"openDrawer\"></div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div id=\"demo-snackbar-example\" class=\"mdl-js-snackbar mdl-snackbar\" aria-live=\"assertive\" aria-atomic=\"true\" aria-relevant=\"text\">\n\t\t  <div class=\"mdl-snackbar__text\"></div>\n\t\t  <button class=\"mdl-snackbar__action\" type=\"button\"></button>\n\t\t</div>\n\t</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -250,7 +255,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"./views/home-view.vue":19,"./views/video-view.vue":20,"blueimp-md5":36,"jquery":39,"perfect-scrollbar":42,"underscore":65,"vue":69,"vue-hot-reload-api":66,"vueify-insert-css":70}],2:[function(require,module,exports){
+},{"./views/home-view.vue":20,"./views/video-view.vue":21,"blueimp-md5":37,"jquery":40,"perfect-scrollbar":43,"underscore":66,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],2:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.banner-cont {\n  -webkit-transition: all .6s ease;\n  -moz-transition: all .6s ease;\n  -ms-transition: all .6s ease;\n  -o-transition: all .6s ease;\n  transition: all .6s ease;\n  opacity: 1; }\n\n/* line 13, stdin */\n.slide-enter, .slide-leave {\n  -webkit-transform: translate(24px, 0px) scale(1);\n  -moz-transform: translate(24px, 0px) scale(1);\n  -o-transform: translate(24px, 0px) scale(1);\n  -ms-transform: translate(24px, 0px) scale(1);\n  transform: translate(24px, 0px) scale(1);\n  opacity: 0 !important; }\n\n/* line 25, stdin */\n.sli-enter, .sli-leave {\n  -webkit-transform: translate(0px, 24px) scale(1);\n  -moz-transform: translate(0px, 24px) scale(1);\n  -o-transform: translate(0px, 24px) scale(1);\n  -ms-transform: translate(0px, 24px) scale(1);\n  transform: translate(0px, 24px) scale(1);\n  opacity: 0 !important; }\n\n/* line 34, stdin */\n.icons {\n  font-size: 20px;\n  vertical-align: middle;\n  cursor: default; }\n\n/* line 44, stdin */\n.banner-data {\n  filter: alpha(opacity=100);\n  opacity: 1;\n  -moz-opacity: 1;\n  -webkit-opacity: 1;\n  color: white; }\n\n/* line 52, stdin */\n.banner-overlay {\n  filter: alpha(opacity=50);\n  opacity: 0.5;\n  -moz-opacity: 0.5;\n  -webkit-opacity: 0.5; }\n\n/* line 59, stdin */\n.banner-owner {\n  filter: alpha(opacity=100);\n  opacity: 1;\n  -moz-opacity: 1;\n  -webkit-opacity: 1; }\n\n/* line 69, stdin */\n#video-data {\n  width: 90%;\n  margin-left: 5%;\n  padding-bottom: 10px; }\n\n/* line 75, stdin */\n#video-title {\n  margin-bottom: 10px;\n  font-size: 30px;\n  text-align: center;\n  line-height: 30px; }\n  @media screen and (max-width: 550px) {\n    /* line 75, stdin */\n    #video-title {\n      font-size: 18px;\n      line-height: 20px; } }\n\n/* line 86, stdin */\n#video-length {\n  width: 33%;\n  margin-right: 0.5%;\n  float: left; }\n\n/* line 92, stdin */\n#video-qual {\n  width: 33%;\n  text-align: center;\n  margin-right: 0.5%;\n  float: left; }\n\n/* line 99, stdin */\n#video-acce {\n  width: 33%;\n  text-align: right;\n  float: left; }\n\n/* line 105, stdin */\n#video-description {\n  clear: left;\n  margin-top: 10%;\n  margin-bottom: 5%; }\n  @media screen and (max-width: 550px) {\n    /* line 105, stdin */\n    #video-description {\n      font-size: 80%;\n      margin-top: 10%;\n      margin-bottom: 2%; } }\n\n/* line 116, stdin */\n#video-perks {\n  float: left;\n  width: 60%; }\n  @media screen and (max-width: 320px) {\n    /* line 116, stdin */\n    #video-perks {\n      visibility: hidden; } }\n  @media screen and (max-width: 550px) {\n    /* line 116, stdin */\n    #video-perks {\n      width: 100%; } }\n\n/* line 127, stdin */\n#video-play {\n  float: right;\n  width: 30%;\n  text-align: center; }\n  @media screen and (max-width: 550px) {\n    /* line 127, stdin */\n    #video-play {\n      visibility: hidden; } }\n\n/* line 138, stdin */\n#link-play:hover .play-arrow, #link-play:hover .play-btn {\n  -webkit-transform: scale(1.2);\n          transform: scale(1.2); }\n\n/* line 141, stdin */\n#link-play:hover .play-arrow {\n  color: #ff5252; }\n\n/* line 147, stdin */\n.play-btn, .play-arrow {\n  -webkit-transition: all .3s ease;\n  -moz-transition: all .3s ease;\n  -ms-transition: all .3s ease;\n  -o-transition: all .3s ease;\n  transition: all .3s ease; }\n\n/* line 155, stdin */\n.play-btn {\n  color: white;\n  font-size: 70px; }\n\n/* line 160, stdin */\n.play-arrow {\n  z-index: 1;\n  color: white;\n  position: absolute;\n  font-size: 46px;\n  margin-left: 14px;\n  margin-top: 12px; }\n\n/* line 169, stdin */\n#video-owner {\n  text-align: center;\n  color: white;\n  margin-top: 5%; }\n  @media screen and (max-width: 550px) {\n    /* line 169, stdin */\n    #video-owner {\n      visibility: hidden; } }\n\n/* line 178, stdin */\n.img-owner {\n  height: 70px; }\n  @media screen and (max-width: 550px) {\n    /* line 178, stdin */\n    .img-owner {\n      visibility: hidden; } }\n")
 'use strict';
 
@@ -302,7 +307,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":39,"marked":41,"vue":69,"vue-hot-reload-api":66,"vueify-insert-css":70}],3:[function(require,module,exports){
+},{"jquery":40,"marked":42,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],3:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.hipVid {\n  background-size: cover;\n  height: auto;\n  width: 100%;\n  position: fixed;\n  left: 0;\n  -webkit-transition: all 0.5s ease 0s;\n  transition: all 0.5s ease 0s;\n  z-index: -100;\n  opacity: 1; }\n  /* line 11, stdin */\n  #full:-webkit-full-screen .hipVid {\n    z-index: 0; }\n\n/* line 15, stdin */\n.hipVid-status {\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  margin-top: -40px;\n  margin-left: -35px;\n  z-index: -99;\n  -webkit-transition: all 0.5s;\n  transition: all 0.5s; }\n  /* line 23, stdin */\n  .hipVid-status.is-play {\n    opacity: 0;\n    -webkit-transform: scale(1.2);\n            transform: scale(1.2); }\n  /* line 27, stdin */\n  .hipVid-status i.fa {\n    opacity: 0.5; }\n")
 'use strict';
 
@@ -505,7 +510,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":39,"vue":69,"vue-hot-reload-api":66,"vueify-insert-css":70}],4:[function(require,module,exports){
+},{"jquery":40,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],4:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.coment {\n  background: rgba(255, 255, 255, 0.1);\n  min-height: 0; }\n  /* line 5, stdin */\n  .coment .coment_usr {\n    width: 10%;\n    border-right: 1px solid rgba(255, 255, 255, 0.3); }\n    /* line 8, stdin */\n    .coment .coment_usr img {\n      width: 40% !important;\n      border-radius: 50%;\n      margin-left: 30%; }\n\n/* line 15, stdin */\n#chat_user {\n  min-height: 0;\n  background: rgba(255, 255, 255, 0.8); }\n  /* line 18, stdin */\n  #chat_user button {\n    width: 100%;\n    height: 100%; }\n\n/* line 23, stdin */\n#chat_text {\n  min-height: 0;\n  background: rgba(255, 255, 255, 0.8); }\n  /* line 26, stdin */\n  #chat_text .mdl-textfield {\n    width: 100%; }\n  /* line 29, stdin */\n  #chat_text button {\n    width: 100%;\n    height: 100%; }\n    /* line 32, stdin */\n    #chat_text button:hover {\n      background: transparent; }\n      /* line 34, stdin */\n      #chat_text button:hover .material-icons {\n        color: rgba(0, 0, 0, 0.6); }\n  /* line 39, stdin */\n  #chat_text textarea {\n    color: rgba(0, 0, 0, 0.6); }\n  /* line 42, stdin */\n  #chat_text .material-icons {\n    font-size: 60px;\n    color: rgba(0, 0, 0, 0.2); }\n")
 'use strict';
 
@@ -583,7 +588,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":39,"marked":41,"vue":69,"vue-hot-reload-api":66,"vueify-insert-css":70}],5:[function(require,module,exports){
+},{"jquery":40,"marked":42,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],5:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 3, stdin */\n#dashboard {\n  position: relative; }\n  /* line 5, stdin */\n  #dashboard path {\n    stroke: black; }\n  /* line 7, stdin */\n  #dashboard path:hover {\n    opacity: 0.9; }\n  /* line 10, stdin */\n  #dashboard rect:hover {\n    fill: blue; }\n  /* line 12, stdin */\n  #dashboard text {\n    fill: white; }\n  /* line 15, stdin */\n  #dashboard .axis {\n    font: 10px sans-serif; }\n    /* line 17, stdin */\n    #dashboard .axis path, #dashboard .axis line {\n      fill: none;\n      stroke: #000;\n      shape-rendering: crispEdges; }\n    /* line 23, stdin */\n    #dashboard .axis.x path {\n      display: none; }\n  /* line 29, stdin */\n  #dashboard .legend {\n    margin-bottom: 76px;\n    display: inline-block;\n    border-collapse: collapse;\n    border-spacing: 0px; }\n    /* line 34, stdin */\n    #dashboard .legend td {\n      padding: 4px 5px;\n      vertical-align: bottom; }\n    /* line 38, stdin */\n    #dashboard .legend tr {\n      border-bottom: 1px solid grey; }\n      /* line 40, stdin */\n      #dashboard .legend tr:first-child {\n        border-top: 1px solid grey; }\n  /* line 45, stdin */\n  #dashboard .legendFreq, #dashboard .legendPerc {\n    align: right;\n    width: 50px; }\n")
 'use strict';
 
@@ -893,7 +898,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":39,"marked":41,"underscore":65,"vue":69,"vue-hot-reload-api":66,"vueify-insert-css":70}],6:[function(require,module,exports){
+},{"jquery":40,"marked":42,"underscore":66,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],6:[function(require,module,exports){
 'use strict';
 
 var $$$ = require('jquery');
@@ -932,7 +937,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"../components/content-databars-dashboard.vue":5,"jquery":39,"marked":41,"underscore":65,"vue":69,"vue-hot-reload-api":66}],7:[function(require,module,exports){
+},{"../components/content-databars-dashboard.vue":5,"jquery":40,"marked":42,"underscore":66,"vue":70,"vue-hot-reload-api":67}],7:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n#conteudo_info {\n  overflow: hidden;\n  position: relative;\n  height: 96%;\n  padding-left: 40px;\n  padding-right: 40px;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease; }\n  /* line 9, stdin */\n  #conteudo_info img {\n    width: 100%; }\n  /* line 10, stdin */\n  #app.marco-fechado #conteudo_info {\n    height: 100%; }\n\n/* line 15, stdin */\n.info-texto {\n  letter-spacing: 0; }\n\n/* line 20, stdin */\n.image-list img {\n  position: relative;\n  float: left;\n  margin-right: 10px; }\n\n/* line 28, stdin */\n.video-list img {\n  position: relative;\n  float: left;\n  margin-right: 10px;\n  width: 220px; }\n\n/* line 34, stdin */\n.video-list .slick-next {\n  right: -25px !important; }\n\n/* line 37, stdin */\n.video-list .slick-prev {\n  left: -25px !important; }\n\n/* line 43, stdin */\n.mdl-layout__tab.is-hidden {\n  display: none; }\n\n/* line 49, stdin */\n.mfp-iframe img {\n  width: 100%; }\n")
 'use strict';
 
@@ -974,7 +979,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":39,"vue":69,"vue-hot-reload-api":66,"vueify-insert-css":70}],8:[function(require,module,exports){
+},{"jquery":40,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],8:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 3, stdin */\n#list_files .mdl-card {\n  min-height: 100px; }\n\n/* line 6, stdin */\n#list_files .material-icons {\n  font-size: 80px; }\n\n/* line 9, stdin */\n#list_files .mdl-card__title {\n  padding: 10px;\n  background: rgba(0, 0, 0, 0.2); }\n  /* line 12, stdin */\n  #list_files .mdl-card__title .mdl-card__title-text {\n    font-size: 14px; }\n\n/* line 18, stdin */\n#list_links .mdl-card {\n  min-height: 350px; }\n")
 'use strict';
 
@@ -1033,12 +1038,18 @@ module.exports = {
   },
   beforeDestroy: function beforeDestroy() {},
 
+  methods: {
+    openLink: function openLink(link) {
+      this.$parent.$parent.link = link;
+    }
+  },
+
   components: {},
 
   filters: {}
 
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div>\n    <div class=\"mdl-grid\" id=\"list_files\">\n      <div v-for=\"link in link_files\" class=\"mdl-cell mdl-cell--2-col\">\n        <a :href=\"link.link\" target=\"_blank\" :title=\"link.nome\" style=\"text-decoration: none; text-align: center;\" class=\"popup-iframe\">\n          <div class=\"mdl-card mdl-shadow--2dp single-card\">\n            <div><i class=\"material-icons\">{{link.icon}}</i></div>\n            <div class=\"mdl-card__title\">\n              <h2 class=\"mdl-card__title-text\">{{link.nome}}</h2>\n            </div>\n          </div>\n        </a>\n      </div>\n    </div>\n    <div class=\"mdl-grid\" id=\"list_links\">\n      <div v-for=\"link in link_cards\" class=\"mdl-cell mdl-cell--6-col\">\n        <a :href=\"link.link\" target=\"_blank\" :title=\"link.nome\" style=\"text-decoration: none; text-align: center;\">\n          <div class=\"mdl-card mdl-shadow--2dp single-card\" :style=\"{ backgroundImage: 'url('+link.img+')' }\" style=\"background-size: 100%;\">\n            <!-- <img :alt=\"link.nome\" :src=\"link.img\"> -->\n            <div class=\"mdl-card__title\" style=\"background: rgba(255,255,255,0.6)\">\n              <h2 class=\"mdl-card__title-text\">{{link.nome}}</h2>\n            </div>\n          </div>\n        </a>\n      </div>\n    </div>\n  </div>\n\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div>\n    <div class=\"mdl-grid\" id=\"list_files\">\n      <div v-for=\"link in link_files\" class=\"mdl-cell mdl-cell--2-col\">\n        <a :href=\"link.link\" @click.prevent=\"openLink(link.link)\" :title=\"link.nome\" style=\"text-decoration: none; text-align: center;\" class=\"popup-iframe\">\n          <div class=\"mdl-card mdl-shadow--2dp single-card\">\n            <div><i class=\"material-icons\">{{link.icon}}</i></div>\n            <div class=\"mdl-card__title\">\n              <h2 class=\"mdl-card__title-text\">{{link.nome}}</h2>\n            </div>\n          </div>\n        </a>\n      </div>\n    </div>\n    <div class=\"mdl-grid\" id=\"list_links\">\n      <div v-for=\"link in link_cards\" class=\"mdl-cell mdl-cell--6-col\">\n        <a :href=\"link.link\" @click.prevent=\"openLink(link.link)\" :title=\"link.nome\" style=\"text-decoration: none; text-align: center;\">\n          <div class=\"mdl-card mdl-shadow--2dp single-card\" :style=\"{ backgroundImage: 'url('+link.img+')' }\" style=\"background-size: 100%;\">\n            <!-- <img :alt=\"link.nome\" :src=\"link.img\"> -->\n            <div class=\"mdl-card__title\" style=\"background: rgba(255,255,255,0.6)\">\n              <h2 class=\"mdl-card__title-text\">{{link.nome}}</h2>\n            </div>\n          </div>\n        </a>\n      </div>\n    </div>\n  </div>\n\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -1054,7 +1065,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":39,"vue":69,"vue-hot-reload-api":66,"vueify-insert-css":70}],9:[function(require,module,exports){
+},{"jquery":40,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],9:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.content_mapa {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  padding: 0;\n  margin: 0;\n  background: #333; }\n\n/* line 10, stdin */\n.leaflet-top, .leaflet-bottom {\n  z-index: 1; }\n")
 'use strict';
 
@@ -1087,6 +1098,10 @@ module.exports = {
     L.Icon.Default.imagePath = 'img/leaflet';
 
     this.loadData();
+
+    this._mapa.on('click', function (e) {
+      console.log(e);
+    });
   },
 
   methods: {
@@ -1121,7 +1136,7 @@ module.exports = {
 
           for (var i = 0; i < entries.length; i++) {
             // console.log(entries[i].lat);
-            markers.push(L.marker([parseFloat(entries[i].lat), parseFloat(entries[i].lon)]).bindPopup('<a href="' + entries[i].site + '" target="_blank">' + entries[i].nome + '</a>'));
+            markers.push(L.marker([parseFloat(entries[i].lat), parseFloat(entries[i].lon)]).bindPopup('<a href="' + entries[i].site + '" target="_blank" class="mapa-link">' + entries[i].nome + '</a>'));
           }
 
           L.layerGroup(markers).addTo(self._mapa);
@@ -1132,18 +1147,23 @@ module.exports = {
         }).complete(function () {
 
           // console.log('completed mapa-spreadsheet load!')
-
+          setTimeout(function () {
+            $$$('.mapa-link').on('click', function (e) {
+              e.preventDefault();
+              self.$parent.$parent.link = e.currentTarget.href;
+            });
+          }, 1000);
         });
       } else if (typeof this.conteudo.mapa.locais === 'object') {
-          var entries = self.conteudo.mapa.locais;
-          var markers = [];
+        var entries = self.conteudo.mapa.locais;
+        var markers = [];
 
-          for (var i = 0; i < entries.length; i++) {
-            markers.push(L.marker([entries[i].lat, entries[i].lon]).bindPopup('<a href="' + entries[i].site + '" target="_blank">' + entries[i].nome + '</a>'));
-          }
-
-          L.layerGroup(markers).addTo(self._mapa);
+        for (var i = 0; i < entries.length; i++) {
+          markers.push(L.marker([entries[i].lat, entries[i].lon]).bindPopup('<a href="' + entries[i].site + '" target="_blank">' + entries[i].nome + '</a>'));
         }
+
+        L.layerGroup(markers).addTo(self._mapa);
+      }
     }
   }
 };
@@ -1163,12 +1183,12 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":39,"leaflet":40,"vue":69,"vue-hot-reload-api":66,"vueify-insert-css":70}],10:[function(require,module,exports){
+},{"jquery":40,"leaflet":41,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],10:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 3, stdin */\n.info-texto {\n  letter-spacing: 0;\n  padding: 30px; }\n")
 'use strict';
 
 var $$$ = require('jquery');
-var marked = require('marked');
+var _marked = require('marked');
 
 module.exports = {
 
@@ -1178,17 +1198,32 @@ module.exports = {
     return {};
   },
   computed: {},
-  attached: function attached() {},
-  beforeDestroy: function beforeDestroy() {},
+  attached: function attached() {
+    var self = this;
+    setTimeout(function () {
+      $$$('#text-content a').on('click', function (e) {
+        e.preventDefault();
+        self.$parent.$parent.link = e.currentTarget.href;
+      });
+    }, 1000);
+  },
+  beforeDestroy: function beforeDestroy() {
+    $$$('#text-content a').off('click', function (e) {
+      e.preventDefault();
+      self.$parent.$parent.link = e.currentTarget.href;
+    });
+  },
 
   components: {},
 
   filters: {
-    'marked': marked
+    marked: function marked(value) {
+      return _marked(value);
+    }
   }
 
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div class=\"info-texto\">\n    <div v-if=\"conteudo.texto\">\n      {{{ conteudo.texto | marked }}}\n    </div>\n  </div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div class=\"info-texto\">\n    <div id=\"text-content\" v-if=\"conteudo.texto\">\n      {{{ conteudo.texto | marked }}}\n    </div>\n  </div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -1204,7 +1239,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":39,"marked":41,"vue":69,"vue-hot-reload-api":66,"vueify-insert-css":70}],11:[function(require,module,exports){
+},{"jquery":40,"marked":42,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],11:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 3, stdin */\n#video_list .mdl-card {\n  min-height: 150px !important; }\n\n/* line 6, stdin */\n#video_list .mdl-card__title {\n  padding: 10px; }\n  /* line 8, stdin */\n  #video_list .mdl-card__title .mdl-card__title-text {\n    font-size: 14px; }\n")
 'use strict';
 
@@ -1264,7 +1299,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":39,"vue":69,"vue-hot-reload-api":66,"vueify-insert-css":70}],12:[function(require,module,exports){
+},{"jquery":40,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],12:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 4, stdin */\n.chart-databars .axis path,\n.chart-databars .axis line {\n  fill: none;\n  stroke: #fff;\n  shape-rendering: crispEdges; }\n\n/* line 11, stdin */\n.chart-databars .axis text {\n  fill: #fff;\n  font-size: 10px; }\n\n/* line 16, stdin */\n.chart-databars .bar {\n  fill: steelblue; }\n\n/* line 20, stdin */\n.chart-databars .x.axis path {\n  display: none; }\n")
 'use strict';
 
@@ -1415,7 +1450,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":39,"marked":41,"underscore":65,"vue":69,"vue-hot-reload-api":66,"vueify-insert-css":70}],13:[function(require,module,exports){
+},{"jquery":40,"marked":42,"underscore":66,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],13:[function(require,module,exports){
 'use strict';
 
 var marked = require('marked');
@@ -1438,21 +1473,37 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"marked":41,"vue":69,"vue-hot-reload-api":66}],14:[function(require,module,exports){
+},{"marked":42,"vue":70,"vue-hot-reload-api":67}],14:[function(require,module,exports){
 'use strict';
 
 var _marked = require('marked');
+var $$$ = require('jquery');
 
 module.exports = {
 	replace: true,
 	props: ['fields'],
+	attached: function attached() {
+		var self = this;
+		$$$('#text a').on('click', function (e) {
+			e.preventDefault();
+			self.$parent.$parent.link = e.currentTarget.href;
+			self.$parent.$parent.videoPause();
+		});
+	},
+	beforeDestroy: function beforeDestroy() {
+		$$$('#text a').off('click', function (e) {
+			e.preventDefault();
+			self.$parent.$parent.link = e.currentTarget.href;
+			self.$parent.$parent.videoPause();
+		});
+	},
 	filters: {
 		marked: function marked(value) {
 			return _marked(value);
 		}
 	}
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div>\n\t\t{{{fields.excerpt | marked}}}\n\t</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div id=\"text\">\n\t\t{{{fields.excerpt | marked}}}\n\t</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -1464,8 +1515,8 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"marked":41,"vue":69,"vue-hot-reload-api":66}],15:[function(require,module,exports){
-var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.sidebar_block {\n  width: 120%;\n  height: 100%;\n  overflow: hidden;\n  -webkit-transition: all .6s ease;\n  transition: all .6s ease; }\n  /* line 7, stdin */\n  .sidebar_block.blc-enter, .sidebar_block.blc-leave {\n    -webkit-transform: translate3d(-400px, 0, 0);\n            transform: translate3d(-400px, 0, 0);\n    max-height: 0; }\n  /* line 11, stdin */\n  .sidebar.has-info .sidebar_block {\n    width: 100%; }\n  /* line 14, stdin */\n  .sidebar_block .mdl-cell--10-col {\n    padding: 0; }\n  /* line 17, stdin */\n  .sidebar_block .mdl-button {\n    min-width: 0;\n    padding: 0; }\n    /* line 21, stdin */\n    .sidebar_block .mdl-button.no-back:hover {\n      background: transparent; }\n  /* line 26, stdin */\n  .sidebar_block .index {\n    margin: auto; }\n    /* line 28, stdin */\n    .sidebar_block .index .mdl-button {\n      margin-left: 4px; }\n    /* line 31, stdin */\n    .sidebar_block .index .material-icons {\n      font-size: 10px; }\n\n/* line 36, stdin */\n#cartela_nome, #cartela_funcao {\n  float: right;\n  font-size: 16px;\n  font-size: 170%;\n  padding-left: 20px;\n  padding-right: 20px; }\n\n/* line 43, stdin */\n#cartela_funcao {\n  color: #555; }\n\n/* line 46, stdin */\n.sidebar_block__header {\n  font-family: 'fonte-bold', sans-serif;\n  font-weight: 900;\n  position: relative;\n  color: #fff;\n  padding: 10px;\n  max-height: 50px;\n  line-height: 28px; }\n  /* line 54, stdin */\n  .sidebar_block__header.open {\n    width: 100%; }\n\n/* line 58, stdin */\n.sidebar_block__content {\n  overflow: hidden;\n  height: 40%;\n  position: relative;\n  padding: 15px;\n  padding-right: 21px;\n  font-size: 14px;\n  font-weight: 300;\n  line-height: 1.4em;\n  letter-spacing: 0;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease;\n  color: white; }\n\n/* line 71, stdin */\n.timer {\n  display: block;\n  position: absolute;\n  cursor: pointer;\n  top: 10px;\n  right: 10px;\n  width: 28px;\n  height: 28px; }\n  /* line 79, stdin */\n  .timer .progress {\n    fill: transparent;\n    stroke: #fff;\n    stroke-width: 2px;\n    stroke-dasharray: 75 75;\n    stroke-linecap: round;\n    -webkit-transition: all 0.5s linear;\n    transition: all 0.5s linear;\n    -webkit-transform: translate(0px, 28px) rotate(-90deg);\n    -moz-transform: translate(0px, 28px) rotate(-90deg);\n    -o-transform: translate(0px, 28px) rotate(-90deg);\n    -ms-transform: translate(0px, 28px) rotate(-90deg);\n    transform: translate(0px, 28px) rotate(-90deg); }\n    /* line 91, stdin */\n    .timer .progress.fadeout {\n      opacity: 0; }\n  /* line 95, stdin */\n  .timer .base {\n    stroke: #fff;\n    stroke-width: 2px;\n    fill: transparent;\n    opacity: 0.2; }\n  /* line 101, stdin */\n  .timer .close {\n    -webkit-transition: opacity 0.3s linear, -webkit-transform 0.3s ease;\n    transition: opacity 0.3s linear, -webkit-transform 0.3s ease;\n    transition: transform 0.3s ease, opacity 0.3s linear;\n    transition: transform 0.3s ease, opacity 0.3s linear, -webkit-transform 0.3s ease;\n    opacity: 0;\n    -webkit-transform: translate(14px, 14px) scale(0.5);\n    -moz-transform: translate(14px, 14px) scale(0.5);\n    -o-transform: translate(14px, 14px) scale(0.5);\n    -ms-transform: translate(14px, 14px) scale(0.5);\n    transform: translate(14px, 14px) scale(0.5); }\n    /* line 109, stdin */\n    .timer .close line {\n      stroke: #fff;\n      stroke-width: 2px;\n      stroke-linecap: round; }\n  /* line 117, stdin */\n  .timer.fixed .close, .timer:hover .close {\n    opacity: 1;\n    -webkit-transform: translate(14px, 14px) scale(1);\n    -moz-transform: translate(14px, 14px) scale(1);\n    -o-transform: translate(14px, 14px) scale(1);\n    -ms-transform: translate(14px, 14px) scale(1);\n    transform: translate(14px, 14px) scale(1); }\n")
+},{"jquery":40,"marked":42,"vue":70,"vue-hot-reload-api":67}],15:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.sidebar_block {\n  width: 120%;\n  height: 100%;\n  overflow: hidden;\n  -webkit-transition: all .6s ease;\n  transition: all .6s ease; }\n  /* line 7, stdin */\n  .sidebar_block.blc-enter, .sidebar_block.blc-leave {\n    -webkit-transform: translate3d(-400px, 0, 0);\n            transform: translate3d(-400px, 0, 0);\n    max-height: 0; }\n  /* line 11, stdin */\n  .sidebar.has-info .sidebar_block {\n    width: 100%; }\n  /* line 14, stdin */\n  .sidebar_block .mdl-cell--10-col {\n    padding: 0; }\n  /* line 17, stdin */\n  .sidebar_block .mdl-button {\n    min-width: 0;\n    padding: 0; }\n    /* line 21, stdin */\n    .sidebar_block .mdl-button.no-back:hover {\n      background: transparent; }\n  /* line 26, stdin */\n  .sidebar_block .index {\n    margin: auto; }\n    /* line 28, stdin */\n    .sidebar_block .index .mdl-button {\n      margin-left: 4px; }\n    /* line 31, stdin */\n    .sidebar_block .index .material-icons {\n      font-size: 10px; }\n\n/* line 36, stdin */\n#cartela_nome, #cartela_funcao {\n  float: right;\n  font-size: 16px;\n  font-size: 170%;\n  padding-left: 20px;\n  padding-right: 20px; }\n\n/* line 43, stdin */\n#cartela_funcao {\n  color: #555; }\n\n/* line 46, stdin */\n.sidebar_block__header {\n  font-family: 'fonte-bold', sans-serif;\n  font-weight: 900;\n  position: relative;\n  color: #fff;\n  padding: 10px;\n  max-height: 50px;\n  line-height: 28px; }\n  /* line 54, stdin */\n  .sidebar_block__header.open {\n    width: 100%; }\n\n/* line 58, stdin */\n.sidebar_block__content {\n  overflow: hidden;\n  height: 40%;\n  position: relative;\n  padding: 15px;\n  padding-right: 21px;\n  font-size: 14px;\n  font-weight: 300;\n  line-height: 1.4em;\n  letter-spacing: 0;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease;\n  color: white; }\n\n/* line 71, stdin */\n.timer {\n  display: block;\n  position: absolute;\n  cursor: pointer;\n  top: 10px;\n  right: 10px;\n  width: 28px;\n  height: 28px; }\n  /* line 79, stdin */\n  .timer .progress {\n    fill: transparent;\n    stroke: #fff;\n    stroke-width: 2px;\n    stroke-dasharray: 75 75;\n    stroke-linecap: round;\n    -webkit-transition: all 0.5s linear;\n    transition: all 0.5s linear;\n    -webkit-transform: translate(0px, 28px) rotate(-90deg);\n    -moz-transform: translate(0px, 28px) rotate(-90deg);\n    -o-transform: translate(0px, 28px) rotate(-90deg);\n    -ms-transform: translate(0px, 28px) rotate(-90deg);\n    transform: translate(0px, 28px) rotate(-90deg); }\n    /* line 91, stdin */\n    .timer .progress.fadeout {\n      opacity: 0; }\n  /* line 95, stdin */\n  .timer .base {\n    stroke: #fff;\n    stroke-width: 2px;\n    fill: transparent;\n    opacity: 0.2; }\n  /* line 101, stdin */\n  .timer .close {\n    -webkit-transition: opacity 0.3s linear, -webkit-transform 0.3s ease;\n    transition: opacity 0.3s linear, -webkit-transform 0.3s ease;\n    transition: transform 0.3s ease, opacity 0.3s linear;\n    transition: transform 0.3s ease, opacity 0.3s linear, -webkit-transform 0.3s ease;\n    opacity: 0;\n    -webkit-transform: translate(14px, 14px) scale(0.5);\n    -moz-transform: translate(14px, 14px) scale(0.5);\n    -o-transform: translate(14px, 14px) scale(0.5);\n    -ms-transform: translate(14px, 14px) scale(0.5);\n    transform: translate(14px, 14px) scale(0.5); }\n    /* line 109, stdin */\n    .timer .close line {\n      stroke: #fff;\n      stroke-width: 2px;\n      stroke-linecap: round; }\n  /* line 117, stdin */\n  .timer.fixed .close, .timer:hover .close {\n    opacity: 1;\n    -webkit-transform: translate(14px, 14px) scale(1);\n    -moz-transform: translate(14px, 14px) scale(1);\n    -o-transform: translate(14px, 14px) scale(1);\n    -ms-transform: translate(14px, 14px) scale(1);\n    transform: translate(14px, 14px) scale(1); }\n\n/* line 127, stdin */\n.nav-icons {\n  margin-top: -100px;\n  height: 0; }\n  /* line 130, stdin */\n  .nav-icons .material-icons {\n    font-size: 60px; }\n  /* line 133, stdin */\n  .nav-icons .mdl-button {\n    height: 55px;\n    width: 100%; }\n  /* line 137, stdin */\n  .nav-icons .mdl-tooltip {\n    font-size: 14px; }\n")
 'use strict';
 
 var Vue = require('vue');
@@ -1529,6 +1580,7 @@ module.exports = {
 		$$$('.sidebar_block__content').perfectScrollbar({
 			suppressScrollX: true
 		});
+		componentHandler.upgradeDom();
 	},
 	methods: {
 		onTimerClick: function onTimerClick() {
@@ -1550,14 +1602,14 @@ module.exports = {
 		'databars': require('../components/sidebar-block-databars.vue')
 	}
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div style=\"padding: 0;\" class=\"sidebar_block mdl-grid\" transition=\"blc\">\n\t\t<div style=\"margin: 0;\" :class=\"{ open: conteudo !== null }\" class=\"mdl-cell mdl-cell--12-col sidebar_block__header context-bg\">\n\t\t\t{{content.title | uppercase}}\n\t\t\t<svg width=\"28\" height=\"28\" class=\"timer clickable\" @click=\"onTimerClick\" :class=\"{fixed: content.start === null}\">\n\t\t\t\t<circle class=\"base\" cx=\"14\" cy=\"14\" r=\"12\"></circle>\n\t\t\t\t<circle :class=\"{fadeout: perc < 3}\" class=\"progress\" cx=\"14\" cy=\"14\" r=\"12\" :stroke-dashoffset=\"perc\"></circle>\n\t\t\t\t<g class=\"close\">\n\t\t\t\t\t<line x1=\"-4\" y1=\"-4\" x2=\"4\" y2=\"4\"></line>\n\t\t\t\t\t<line x1=\"-4\" y1=\"4\" x2=\"4\" y2=\"-4\"></line>\n\t\t\t\t</g>\n\t\t\t</svg>\n\t\t</div>\n\t\t<div style=\"margin-top: -70px; padding-right: 15px;\" id=\"sidebar_block__content\" class=\"mdl-cell mdl-cell--10-col sidebar_block__content\">\n\t\t\t<div :is=\"content.type\" :fields=\"content.fields\"></div>\n\t\t</div>\n\t\t<div style=\"margin-top: -75px; height: 0;\" class=\"mdl-cell mdl-cell--10-col\">\n\t\t\t<p v-if=\"!content.ap\" v-show=\"conteudo.id === undefined\" style=\"\"><strong><a style=\"font-weight: 900; text-decoration: none;\" :href=\"'#/' + content.videoID + '/info/' + content.id\">SAIBA MAIS</a></strong></p>\n\t\t\t<p v-if=\"!content.ap\" v-show=\"conteudo.id !== undefined\" style=\"\"><strong><a style=\"font-weight: 900; text-decoration: none;\" :href=\"'#/' + content.videoID\">VOLTAR</a></strong></p>\n\t\t</div>\n\t\t<div style=\"margin-top: -100px; height: 0;\" class=\"mdl-cell mdl-cell--10-col mdl-grid\">\n\t\t\t<div class=\"mdl-cell mdl-cell--2-col\" style=\"padding: 0;\">\n\t\t\t\t<button v-if=\"!content.ap\" class=\"mdl-button mdl-js-button mdl-button--colored no-back\" @click=\"parentBlock(content.id - 1)\" :disabled=\"eventoStart\">\n\t\t\t\t\t<i class=\"material-icons\">chevron_left</i>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t\t<div class=\"mdl-cell mdl-cell--8-col\" style=\"padding: 0;\">\n\t\t\t\t<button v-if=\"!content.ap\" class=\"mdl-button mdl-js-button mdl-button--colored no-back\" @click=\"seekVideo(content.id)\" :disabled=\"isAp || eventoAt\" style=\"width: 100%;\">\n\t\t\t\t\t<i class=\"material-icons\">open_in_browser</i>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t\t<div class=\"mdl-cell mdl-cell--2-col\" style=\"padding: 0;\">\n\t\t\t\t<button v-if=\"!content.ap\" class=\"mdl-button mdl-js-button mdl-button--colored no-back\" @click=\"parentBlock(content.id + 1)\" :disabled=\"eventoEnd\">\n\t\t\t\t\t<i class=\"material-icons\">chevron_right</i>\n\t\t\t\t</button>\n\t\t\t</div>\n\t\t</div>\n\t\t<div style=\"margin-top: -140px; height: 0;\" class=\"mdl-cell mdl-cell--10-col mdl-grid\">\n\t\t\t<div class=\"mdl-cell mdl-cell--12-col\">\n\t\t\t\t<div class=\"index\" :style=\"{width: (events.length * 7) + '%'}\">\n\t\t\t\t\t<button class=\"mdl-button mdl-js-button mdl-button--colored no-back\" v-for=\"e in events\" href=\"\" @click.prevent=\"parentBlock($index)\" :disabled=\"eventoNow[$index]\">\n\t\t\t\t\t\t<i class=\"material-icons\">lens</i>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t\t<!-- <p v-if=\"!content.ap\" style=\"color:white; text-align: center;\">{{content.id + 1}} / {{numEvents}}</p> -->\n\t\t\t</div>\n\t\t</div>\n\t\t\n\t</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div style=\"padding: 0;\" class=\"sidebar_block mdl-grid\" transition=\"blc\">\n\t\t<div style=\"margin: 0;\" :class=\"{ open: conteudo !== null }\" class=\"mdl-cell mdl-cell--12-col sidebar_block__header context-bg\">\n\t\t\t{{content.title | uppercase}}\n\t\t\t<svg width=\"28\" height=\"28\" class=\"timer clickable\" @click=\"onTimerClick\" :class=\"{fixed: content.start === null}\">\n\t\t\t\t<circle class=\"base\" cx=\"14\" cy=\"14\" r=\"12\"></circle>\n\t\t\t\t<circle :class=\"{fadeout: perc < 3}\" class=\"progress\" cx=\"14\" cy=\"14\" r=\"12\" :stroke-dashoffset=\"perc\"></circle>\n\t\t\t\t<g class=\"close\">\n\t\t\t\t\t<line x1=\"-4\" y1=\"-4\" x2=\"4\" y2=\"4\"></line>\n\t\t\t\t\t<line x1=\"-4\" y1=\"4\" x2=\"4\" y2=\"-4\"></line>\n\t\t\t\t</g>\n\t\t\t</svg>\n\t\t</div>\n\t\t<div style=\"margin-top: -70px; padding-right: 15px;\" id=\"sidebar_block__content\" class=\"mdl-cell mdl-cell--10-col sidebar_block__content\">\n\t\t\t<div :is=\"content.type\" :fields=\"content.fields\"></div>\n\t\t</div>\n\t\t<div style=\"margin-top: -75px; height: 0;\" class=\"mdl-cell mdl-cell--10-col\">\n\t\t\t<p v-if=\"!content.ap\" v-show=\"conteudo.id === undefined\" style=\"\"><strong><a style=\"font-weight: 900; text-decoration: none;\" :href=\"'#/' + content.videoID + '/info/' + content.id\">SAIBA MAIS</a></strong></p>\n\t\t\t<p v-if=\"!content.ap\" v-show=\"conteudo.id !== undefined\" style=\"\"><strong><a style=\"font-weight: 900; text-decoration: none;\" :href=\"'#/' + content.videoID\">VOLTAR</a></strong></p>\n\t\t</div>\n\t\t<div style=\"\" class=\"mdl-cell mdl-cell--10-col mdl-grid nav-icons\">\n\t\t\t<div class=\"mdl-cell mdl-cell--2-col\" style=\"padding: 0;\">\n\t\t\t\t<button v-if=\"!content.ap\" id=\"evento_prev\" class=\"mdl-button mdl-js-button mdl-button--colored no-back\" @click=\"parentBlock(content.id - 1)\" :disabled=\"eventoStart\">\n\t\t\t\t\t<i class=\"material-icons\" style=\"margin-left: -19px;\">chevron_left</i>\n\t\t\t\t</button>\n\t\t\t\t<div class=\"mdl-tooltip mdl-tooltip--top\" for=\"evento_prev\">Evento anterior</div>\n\t\t\t</div>\n\t\t\t<div class=\"mdl-cell mdl-cell--8-col\" style=\"padding: 0;\">\n\t\t\t\t<button v-if=\"!content.ap\" id=\"evento_now\" class=\"mdl-button mdl-js-button mdl-button--colored no-back\" @click=\"seekVideo(content.id)\" :disabled=\"isAp || eventoAt\" style=\"width: 100%;\">\n\t\t\t\t\t<i class=\"material-icons\">open_in_browser</i>\n\t\t\t\t</button>\n\t\t\t\t<div class=\"mdl-tooltip mdl-tooltip--top\" for=\"evento_now\">Ir para ponto do vídeo</div>\n\t\t\t</div>\n\t\t\t<div class=\"mdl-cell mdl-cell--2-col\" style=\"padding: 0;\">\n\t\t\t\t<button v-if=\"!content.ap\" id=\"evento_next\" class=\"mdl-button mdl-js-button mdl-button--colored no-back\" @click=\"parentBlock(content.id + 1)\" :disabled=\"eventoEnd\">\n\t\t\t\t\t<i class=\"material-icons\" style=\"margin-left: -19px;\">chevron_right</i>\n\t\t\t\t</button>\n\t\t\t\t<div class=\"mdl-tooltip mdl-tooltip--top\" for=\"evento_next\">Próximo evento</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div style=\"margin-top: -140px; height: 0;\" class=\"mdl-cell mdl-cell--10-col mdl-grid\">\n\t\t\t<div class=\"mdl-cell mdl-cell--12-col\">\n\t\t\t\t<div class=\"index\" :style=\"{width: (events.length * 7) + '%'}\">\n\t\t\t\t\t<button class=\"mdl-button mdl-js-button mdl-button--colored no-back\" v-for=\"e in events\" href=\"\" @click.prevent=\"parentBlock($index)\" :disabled=\"eventoNow[$index]\">\n\t\t\t\t\t\t<i class=\"material-icons\">lens</i>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t\t<!-- <p v-if=\"!content.ap\" style=\"color:white; text-align: center;\">{{content.id + 1}} / {{numEvents}}</p> -->\n\t\t\t</div>\n\t\t</div>\n\t\t\n\t</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   var id = "/media/bambuzal/Softwares/vue-models/hipervideo-model/app/vue/components/sidebar-block.vue"
   module.hot.dispose(function () {
-    require("vueify-insert-css").cache["/* line 2, stdin */\n.sidebar_block {\n  width: 120%;\n  height: 100%;\n  overflow: hidden;\n  -webkit-transition: all .6s ease;\n  transition: all .6s ease; }\n  /* line 7, stdin */\n  .sidebar_block.blc-enter, .sidebar_block.blc-leave {\n    -webkit-transform: translate3d(-400px, 0, 0);\n            transform: translate3d(-400px, 0, 0);\n    max-height: 0; }\n  /* line 11, stdin */\n  .sidebar.has-info .sidebar_block {\n    width: 100%; }\n  /* line 14, stdin */\n  .sidebar_block .mdl-cell--10-col {\n    padding: 0; }\n  /* line 17, stdin */\n  .sidebar_block .mdl-button {\n    min-width: 0;\n    padding: 0; }\n    /* line 21, stdin */\n    .sidebar_block .mdl-button.no-back:hover {\n      background: transparent; }\n  /* line 26, stdin */\n  .sidebar_block .index {\n    margin: auto; }\n    /* line 28, stdin */\n    .sidebar_block .index .mdl-button {\n      margin-left: 4px; }\n    /* line 31, stdin */\n    .sidebar_block .index .material-icons {\n      font-size: 10px; }\n\n/* line 36, stdin */\n#cartela_nome, #cartela_funcao {\n  float: right;\n  font-size: 16px;\n  font-size: 170%;\n  padding-left: 20px;\n  padding-right: 20px; }\n\n/* line 43, stdin */\n#cartela_funcao {\n  color: #555; }\n\n/* line 46, stdin */\n.sidebar_block__header {\n  font-family: 'fonte-bold', sans-serif;\n  font-weight: 900;\n  position: relative;\n  color: #fff;\n  padding: 10px;\n  max-height: 50px;\n  line-height: 28px; }\n  /* line 54, stdin */\n  .sidebar_block__header.open {\n    width: 100%; }\n\n/* line 58, stdin */\n.sidebar_block__content {\n  overflow: hidden;\n  height: 40%;\n  position: relative;\n  padding: 15px;\n  padding-right: 21px;\n  font-size: 14px;\n  font-weight: 300;\n  line-height: 1.4em;\n  letter-spacing: 0;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease;\n  color: white; }\n\n/* line 71, stdin */\n.timer {\n  display: block;\n  position: absolute;\n  cursor: pointer;\n  top: 10px;\n  right: 10px;\n  width: 28px;\n  height: 28px; }\n  /* line 79, stdin */\n  .timer .progress {\n    fill: transparent;\n    stroke: #fff;\n    stroke-width: 2px;\n    stroke-dasharray: 75 75;\n    stroke-linecap: round;\n    -webkit-transition: all 0.5s linear;\n    transition: all 0.5s linear;\n    -webkit-transform: translate(0px, 28px) rotate(-90deg);\n    -moz-transform: translate(0px, 28px) rotate(-90deg);\n    -o-transform: translate(0px, 28px) rotate(-90deg);\n    -ms-transform: translate(0px, 28px) rotate(-90deg);\n    transform: translate(0px, 28px) rotate(-90deg); }\n    /* line 91, stdin */\n    .timer .progress.fadeout {\n      opacity: 0; }\n  /* line 95, stdin */\n  .timer .base {\n    stroke: #fff;\n    stroke-width: 2px;\n    fill: transparent;\n    opacity: 0.2; }\n  /* line 101, stdin */\n  .timer .close {\n    -webkit-transition: opacity 0.3s linear, -webkit-transform 0.3s ease;\n    transition: opacity 0.3s linear, -webkit-transform 0.3s ease;\n    transition: transform 0.3s ease, opacity 0.3s linear;\n    transition: transform 0.3s ease, opacity 0.3s linear, -webkit-transform 0.3s ease;\n    opacity: 0;\n    -webkit-transform: translate(14px, 14px) scale(0.5);\n    -moz-transform: translate(14px, 14px) scale(0.5);\n    -o-transform: translate(14px, 14px) scale(0.5);\n    -ms-transform: translate(14px, 14px) scale(0.5);\n    transform: translate(14px, 14px) scale(0.5); }\n    /* line 109, stdin */\n    .timer .close line {\n      stroke: #fff;\n      stroke-width: 2px;\n      stroke-linecap: round; }\n  /* line 117, stdin */\n  .timer.fixed .close, .timer:hover .close {\n    opacity: 1;\n    -webkit-transform: translate(14px, 14px) scale(1);\n    -moz-transform: translate(14px, 14px) scale(1);\n    -o-transform: translate(14px, 14px) scale(1);\n    -ms-transform: translate(14px, 14px) scale(1);\n    transform: translate(14px, 14px) scale(1); }\n"] = false
+    require("vueify-insert-css").cache["/* line 2, stdin */\n.sidebar_block {\n  width: 120%;\n  height: 100%;\n  overflow: hidden;\n  -webkit-transition: all .6s ease;\n  transition: all .6s ease; }\n  /* line 7, stdin */\n  .sidebar_block.blc-enter, .sidebar_block.blc-leave {\n    -webkit-transform: translate3d(-400px, 0, 0);\n            transform: translate3d(-400px, 0, 0);\n    max-height: 0; }\n  /* line 11, stdin */\n  .sidebar.has-info .sidebar_block {\n    width: 100%; }\n  /* line 14, stdin */\n  .sidebar_block .mdl-cell--10-col {\n    padding: 0; }\n  /* line 17, stdin */\n  .sidebar_block .mdl-button {\n    min-width: 0;\n    padding: 0; }\n    /* line 21, stdin */\n    .sidebar_block .mdl-button.no-back:hover {\n      background: transparent; }\n  /* line 26, stdin */\n  .sidebar_block .index {\n    margin: auto; }\n    /* line 28, stdin */\n    .sidebar_block .index .mdl-button {\n      margin-left: 4px; }\n    /* line 31, stdin */\n    .sidebar_block .index .material-icons {\n      font-size: 10px; }\n\n/* line 36, stdin */\n#cartela_nome, #cartela_funcao {\n  float: right;\n  font-size: 16px;\n  font-size: 170%;\n  padding-left: 20px;\n  padding-right: 20px; }\n\n/* line 43, stdin */\n#cartela_funcao {\n  color: #555; }\n\n/* line 46, stdin */\n.sidebar_block__header {\n  font-family: 'fonte-bold', sans-serif;\n  font-weight: 900;\n  position: relative;\n  color: #fff;\n  padding: 10px;\n  max-height: 50px;\n  line-height: 28px; }\n  /* line 54, stdin */\n  .sidebar_block__header.open {\n    width: 100%; }\n\n/* line 58, stdin */\n.sidebar_block__content {\n  overflow: hidden;\n  height: 40%;\n  position: relative;\n  padding: 15px;\n  padding-right: 21px;\n  font-size: 14px;\n  font-weight: 300;\n  line-height: 1.4em;\n  letter-spacing: 0;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease;\n  color: white; }\n\n/* line 71, stdin */\n.timer {\n  display: block;\n  position: absolute;\n  cursor: pointer;\n  top: 10px;\n  right: 10px;\n  width: 28px;\n  height: 28px; }\n  /* line 79, stdin */\n  .timer .progress {\n    fill: transparent;\n    stroke: #fff;\n    stroke-width: 2px;\n    stroke-dasharray: 75 75;\n    stroke-linecap: round;\n    -webkit-transition: all 0.5s linear;\n    transition: all 0.5s linear;\n    -webkit-transform: translate(0px, 28px) rotate(-90deg);\n    -moz-transform: translate(0px, 28px) rotate(-90deg);\n    -o-transform: translate(0px, 28px) rotate(-90deg);\n    -ms-transform: translate(0px, 28px) rotate(-90deg);\n    transform: translate(0px, 28px) rotate(-90deg); }\n    /* line 91, stdin */\n    .timer .progress.fadeout {\n      opacity: 0; }\n  /* line 95, stdin */\n  .timer .base {\n    stroke: #fff;\n    stroke-width: 2px;\n    fill: transparent;\n    opacity: 0.2; }\n  /* line 101, stdin */\n  .timer .close {\n    -webkit-transition: opacity 0.3s linear, -webkit-transform 0.3s ease;\n    transition: opacity 0.3s linear, -webkit-transform 0.3s ease;\n    transition: transform 0.3s ease, opacity 0.3s linear;\n    transition: transform 0.3s ease, opacity 0.3s linear, -webkit-transform 0.3s ease;\n    opacity: 0;\n    -webkit-transform: translate(14px, 14px) scale(0.5);\n    -moz-transform: translate(14px, 14px) scale(0.5);\n    -o-transform: translate(14px, 14px) scale(0.5);\n    -ms-transform: translate(14px, 14px) scale(0.5);\n    transform: translate(14px, 14px) scale(0.5); }\n    /* line 109, stdin */\n    .timer .close line {\n      stroke: #fff;\n      stroke-width: 2px;\n      stroke-linecap: round; }\n  /* line 117, stdin */\n  .timer.fixed .close, .timer:hover .close {\n    opacity: 1;\n    -webkit-transform: translate(14px, 14px) scale(1);\n    -moz-transform: translate(14px, 14px) scale(1);\n    -o-transform: translate(14px, 14px) scale(1);\n    -ms-transform: translate(14px, 14px) scale(1);\n    transform: translate(14px, 14px) scale(1); }\n\n/* line 127, stdin */\n.nav-icons {\n  margin-top: -100px;\n  height: 0; }\n  /* line 130, stdin */\n  .nav-icons .material-icons {\n    font-size: 60px; }\n  /* line 133, stdin */\n  .nav-icons .mdl-button {\n    height: 55px;\n    width: 100%; }\n  /* line 137, stdin */\n  .nav-icons .mdl-tooltip {\n    font-size: 14px; }\n"] = false
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
@@ -1566,7 +1618,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"../components/sidebar-block-databars.vue":12,"../components/sidebar-block-profile.vue":13,"../components/sidebar-block-text.vue":14,"jquery":39,"perfect-scrollbar/jquery":43,"vue":69,"vue-hot-reload-api":66,"vueify-insert-css":70}],16:[function(require,module,exports){
+},{"../components/sidebar-block-databars.vue":12,"../components/sidebar-block-profile.vue":13,"../components/sidebar-block-text.vue":14,"jquery":40,"perfect-scrollbar/jquery":44,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],16:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n#conteudo_info {\n  overflow: hidden;\n  position: relative;\n  height: 96%;\n  padding-left: 40px;\n  padding-right: 40px;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease; }\n  /* line 9, stdin */\n  #conteudo_info img {\n    width: 100%; }\n  /* line 10, stdin */\n  #app.marco-fechado #conteudo_info {\n    height: 100%; }\n\n/* line 15, stdin */\n.info-texto {\n  letter-spacing: 0; }\n\n/* line 20, stdin */\n.image-list img {\n  position: relative;\n  float: left;\n  margin-right: 10px; }\n\n/* line 27, stdin */\n.mdl-layout__tab {\n  padding: 0 24px 0 32px; }\n  /* line 29, stdin */\n  .mdl-layout__tab.is-hidden {\n    display: none; }\n")
 'use strict';
 
@@ -1617,6 +1669,7 @@ module.exports = {
         suppressScrollX: true
       });
     });
+    componentHandler.upgradeDom();
   },
   beforeDestroy: function beforeDestroy() {
     this.$off('create-scrollbar');
@@ -1711,7 +1764,56 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"../components/content-comentarios.vue":4,"../components/content-databars.vue":6,"../components/content-imagens.vue":7,"../components/content-links.vue":8,"../components/content-map.vue":9,"../components/content-texto.vue":10,"../components/content-videos.vue":11,"babel-runtime/core-js/object/assign":21,"jquery":39,"perfect-scrollbar":42,"vue":69,"vue-hot-reload-api":66,"vueify-insert-css":70}],17:[function(require,module,exports){
+},{"../components/content-comentarios.vue":4,"../components/content-databars.vue":6,"../components/content-imagens.vue":7,"../components/content-links.vue":8,"../components/content-map.vue":9,"../components/content-texto.vue":10,"../components/content-videos.vue":11,"babel-runtime/core-js/object/assign":22,"jquery":40,"perfect-scrollbar":43,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],17:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("/* line 3, stdin */\n#link-sidebar .mdl-layout__container {\n  z-index: 5; }\n")
+'use strict';
+
+var Vue = require('vue');
+var $$$ = require('jquery');
+var perfectScrollbar = require('perfect-scrollbar');
+
+module.exports = {
+
+  replace: true,
+  props: ['link'],
+  data: function data() {
+    return {};
+  },
+  computed: {},
+  attached: function attached() {
+    componentHandler.upgradeDom();
+  },
+  beforeDestroy: function beforeDestroy() {},
+  methods: {
+    closeLink: function closeLink() {
+      this.$parent.link = null;
+      if (this.$parent.params.route.length === 1) {
+        this.$parent.videoPlay();
+      }
+    }
+  },
+  components: {},
+
+  filters: {}
+
+};
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div id=\"link-sidebar\" style=\"height: 100%;\">\n    <div class=\"border context-bg\"></div>\n    <div class=\"mdl-layout mdl-js-layout mdl-layout--fixed-header\">\n      <header class=\"mdl-layout__header context-bg\">\n        <div class=\"mdl-layout__header-row\">\n          <!-- Add spacer, to align navigation to the right -->\n          <div class=\"mdl-layout-spacer\"></div>\n          <!-- Navigation. We hide it in small screens. -->\n          <nav class=\"mdl-navigation mdl-layout--large-screen-only\">\n            <a class=\"\" @click.prevent=\"closeLink\" style=\"color: rgb(66,66,66);\" href=\"#\"><i style=\"font-size: 35px; float: right; color: white;\" class=\"material-icons\">close</i></a>\n          </nav>\n\n        </div>\n        <div class=\"mdl-layout__tab-bar context-bg\">\n          <button class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\" style=\"margin: 6px;\">\n            <a style=\"color: black; text-decoration: none;\" :href=\"link\" target=\"_blank\">Abrir link em outra aba</a>\n          </button>\n        </div>\n      </header>\n      <main class=\"mdl-layout__content\" id=\"content_main\" style=\"height: 100%;\">\n        <div class=\"page-content\" style=\"height: 100%;\">\n          <div class=\"mdl-grid\" style=\"height: 100%; padding: 0;\">\n            <div class=\"mdl-cell mdl-cell--12-col\" style=\"height: 100%; margin: 0;\">\n              <div id=\"conteudo_info\" style=\"padding:0;height: 100%;\">\n                <iframe style=\"height: 100%;\" :src=\"link\"></iframe>\n              </div>\n            </div>\n          </div>\n        </div>\n      </main>\n    </div>\n  </div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  var id = "/media/bambuzal/Softwares/vue-models/hipervideo-model/app/vue/components/sidebar-link.vue"
+  module.hot.dispose(function () {
+    require("vueify-insert-css").cache["/* line 3, stdin */\n#link-sidebar .mdl-layout__container {\n  z-index: 5; }\n"] = false
+    document.head.removeChild(__vueify_style__)
+  })
+  if (!module.hot.data) {
+    hotAPI.createRecord(id, module.exports)
+  } else {
+    hotAPI.update(id, module.exports, module.exports.template)
+  }
+})()}
+},{"jquery":40,"perfect-scrollbar":43,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],18:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.rangeslider {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease; }\n  /* line 8, stdin */\n  .rangeslider .rangeslider__fill {\n    border-radius: 0; }\n\n/* line 13, stdin */\n.rangeslider__fill {\n  border-radius: 0;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease; }\n\n/* line 18, stdin */\n.rangeslider__buffer {\n  background: rgba(255, 255, 255, 0.2);\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 27px;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease; }\n  /* line 25, stdin */\n  #video-controls.hover .rangeslider__buffer {\n    height: 3px; }\n\n/* line 30, stdin */\n#tp-cr {\n  position: absolute;\n  margin: 7px;\n  opacity: 1;\n  top: 0;\n  left: 5px;\n  color: white;\n  font-weight: 700;\n  font-size: 75%;\n  z-index: 10;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease; }\n  /* line 41, stdin */\n  #video-controls.hover #tp-cr {\n    opacity: 0;\n    font-size: 0; }\n\n/* line 47, stdin */\n#tp-cr-min {\n  position: relative;\n  float: left; }\n\n/* line 52, stdin */\n#tp-cr-sec {\n  position: relative;\n  float: left; }\n\n/* line 57, stdin */\n#tp-tt {\n  position: absolute;\n  margin: 7px;\n  opacity: 1;\n  top: 0;\n  right: 5px;\n  color: white;\n  font-weight: 700;\n  font-size: 75%;\n  z-index: 10;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease; }\n  /* line 68, stdin */\n  #video-controls.hover #tp-tt {\n    opacity: 0;\n    font-size: 0; }\n\n/* line 74, stdin */\n#tp-tt-min {\n  position: relative;\n  float: right; }\n\n/* line 79, stdin */\n#tp-tt-sec {\n  position: relative;\n  float: right; }\n\n/* line 84, stdin */\n.noselect {\n  -webkit-touch-callout: none;\n  /* iOS Safari */\n  -webkit-user-select: none;\n  /* Chrome/Safari/Opera */\n  -khtml-user-select: none;\n  /* Konqueror */\n  -moz-user-select: none;\n  /* Firefox */\n  -ms-user-select: none;\n  /* Internet Explorer/Edge */\n  user-select: none;\n  /* Non-prefixed version, currently not supported by any browser */\n  cursor: default;\n  /* Force the default cursor to show on element */ }\n")
 'use strict';
 
@@ -1839,7 +1941,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":39,"vue":69,"vue-hot-reload-api":66,"vueify-insert-css":70}],18:[function(require,module,exports){
+},{"jquery":40,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],19:[function(require,module,exports){
 (function(){
 	var _ = require('underscore')
 	var Vue = require('vue')
@@ -2047,7 +2149,7 @@ if (module.hot) {(function () {  module.hot.accept()
 
 })()
 
-},{"./app.vue":1,"director":37,"underscore":65,"vue":69,"vue-touch":68}],19:[function(require,module,exports){
+},{"./app.vue":1,"director":38,"underscore":66,"vue":70,"vue-touch":69}],20:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.mdl-card {\n  width: auto;\n  min-height: 150px;\n  -webkit-transition: all .3s ease;\n  -moz-transition: all .3s ease;\n  -ms-transition: all .3s ease;\n  -o-transition: all .3s ease;\n  transition: all .3s ease; }\n  @media screen and (max-width: 1366px) {\n    /* line 2, stdin */\n    .mdl-card {\n      min-height: 205px; } }\n\n/* line 14, stdin */\n.mdl-cell {\n  -webkit-transition: all .3s ease;\n  -moz-transition: all .3s ease;\n  -ms-transition: all .3s ease;\n  -o-transition: all .3s ease;\n  transition: all .3s ease; }\n  /* line 20, stdin */\n  .mdl-cell.ativo {\n    position: fixed;\n    top: 0;\n    z-index: 999999999;\n    right: 0;\n    width: 95%;\n    margin: 0;\n    display: block !important;\n    height: 100%; }\n    /* line 29, stdin */\n    .mdl-cell.ativo .mdl-card {\n      height: 100%; }\n\n/* line 34, stdin */\n.mdl-card__actions {\n  position: absolute;\n  bottom: 0; }\n\n/* line 38, stdin */\n.display-home {\n  display: none; }\n  /* line 40, stdin */\n  .display-home.ativo {\n    display: block;\n    background-color: white; }\n\n/* line 45, stdin */\n.play-div {\n  padding: 0;\n  margin: 73px auto; }\n  @media screen and (min-width: 1440px) {\n    /* line 45, stdin */\n    .play-div {\n      margin: 95px auto; } }\n  /* line 51, stdin */\n  .play-div .play-img {\n    position: absolute;\n    top: 0;\n    left: 0;\n    opacity: 1;\n    width: 100%; }\n  /* line 58, stdin */\n  .play-div .mdl-button {\n    -webkit-transition: all .1s ease;\n    -moz-transition: all .1s ease;\n    -ms-transition: all .1s ease;\n    -o-transition: all .1s ease;\n    transition: all .1s ease;\n    overflow: visible;\n    -webkit-transform: scale(0.7);\n            transform: scale(0.7); }\n    /* line 66, stdin */\n    .play-div .mdl-button:hover {\n      background-color: transparent;\n      -webkit-transform: scale(0.8);\n              transform: scale(0.8); }\n      /* line 69, stdin */\n      .play-div .mdl-button:hover .dot {\n        color: #ff5252; }\n  /* line 74, stdin */\n  .play-div .material-icons {\n    font-size: 63px;\n    left: 40%; }\n    /* line 77, stdin */\n    .play-div .material-icons.dot {\n      font-size: 43px;\n      margin-left: 11px;\n      z-index: 1; }\n      @media screen and (min-width: 1440px) {\n        /* line 77, stdin */\n        .play-div .material-icons.dot {\n          font-size: 68px;\n          margin-left: 18px; } }\n    @media screen and (min-width: 1440px) {\n      /* line 74, stdin */\n      .play-div .material-icons {\n        font-size: 100px;\n        left: -60%; } }\n\n/* line 93, stdin */\n.clear {\n  clear: both; }\n\n/* line 100, stdin */\n.banner-conteiner {\n  -webkit-transition: all .4s ease .1s;\n  -moz-transition: all .4s ease .1s;\n  -ms-transition: all .4s ease .1s;\n  -o-transition: all .4s ease .1s;\n  transition: all .4s ease .1s;\n  height: 60%;\n  overflow: hidden;\n  position: relative;\n  background: transparent; }\n  /* line 110, stdin */\n  .banner-conteiner.aberto {\n    height: 0;\n    padding: 0; }\n\n/* line 120, stdin */\n.content {\n  margin-top: 64px; }\n  @media screen and (max-width: 1023px) {\n    /* line 120, stdin */\n    .content {\n      margin-top: 56px; } }\n\n/* line 128, stdin */\n.hiper-list {\n  padding: 0 50px;\n  margin-bottom: 0; }\n  /* line 131, stdin */\n  .hiper-list .slick-slide {\n    margin-top: 16px; }\n    /* line 133, stdin */\n    .hiper-list .slick-slide .material-icons {\n      color: white;\n      -webkit-transition: all .2s ease;\n      -moz-transition: all .2s ease;\n      -ms-transition: all .2s ease;\n      -o-transition: all .2s ease;\n      transition: all .2s ease;\n      opacity: 0; }\n    /* line 143, stdin */\n    .hiper-list .slick-slide:hover .material-icons {\n      opacity: 1; }\n  /* line 148, stdin */\n  .hiper-list .slick-list {\n    margin-bottom: 0; }\n  /* line 151, stdin */\n  .hiper-list .list-h {\n    background: transparent;\n    height: 95%;\n    top: 8px;\n    position: absolute;\n    width: 40px;\n    color: gainsboro;\n    position: absolute;\n    border: none;\n    cursor: pointer; }\n    /* line 161, stdin */\n    .hiper-list .list-h:focus {\n      outline: 0; }\n    /* line 164, stdin */\n    .hiper-list .list-h .material-icons {\n      -webkit-transition: all .1s ease;\n      -moz-transition: all .1s ease;\n      -ms-transition: all .1s ease;\n      -o-transition: all .1s ease;\n      transition: all .1s ease;\n      font-size: 50px;\n      margin-left: -9px; }\n    /* line 174, stdin */\n    .hiper-list .list-h.slick-disabled .material-icons {\n      color: black;\n      opacity: .5; }\n    /* line 180, stdin */\n    .hiper-list .list-h:hover .material-icons {\n      -webkit-transform: scale(1.3);\n              transform: scale(1.3); }\n    /* line 184, stdin */\n    .hiper-list .list-h:hover.slick-disabled .material-icons {\n      -webkit-transform: scale(1);\n              transform: scale(1); }\n  /* line 190, stdin */\n  .hiper-list .list-prev {\n    left: 9px; }\n  /* line 193, stdin */\n  .hiper-list .list-next {\n    right: 9px; }\n  /* line 198, stdin */\n  .hiper-list .slider-cards.select .mdl-card {\n    border: 5px solid white; }\n    /* line 201, stdin */\n    .hiper-list .slider-cards.select .mdl-card .mdl-card__menu .mdl-button {\n      opacity: 0 !important;\n      cursor: default; }\n    /* line 207, stdin */\n    .hiper-list .slider-cards.select .mdl-card .play-div .material-icons {\n      opacity: 1 !important; }\n  @media screen and (max-width: 720px) {\n    /* line 196, stdin */\n    .hiper-list .slider-cards {\n      max-height: 140px; } }\n  /* line 217, stdin */\n  .hiper-list .single-card {\n    max-height: auto !important; }\n    @media screen and (max-width: 730px) {\n      /* line 217, stdin */\n      .hiper-list .single-card {\n        max-height: 20px !important; } }\n  /* line 223, stdin */\n  .hiper-list .mdl-card__menu {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%; }\n    /* line 228, stdin */\n    .hiper-list .mdl-card__menu .mdl-button {\n      width: 100%; }\n      /* line 230, stdin */\n      .hiper-list .mdl-card__menu .mdl-button:hover {\n        background: transparent; }\n        /* line 232, stdin */\n        .hiper-list .mdl-card__menu .mdl-button:hover .material-icons {\n          -webkit-transform: scale(1.2);\n                  transform: scale(1.2); }\n      /* line 236, stdin */\n      .hiper-list .mdl-card__menu .mdl-button .material-icons {\n        font-size: 60px;\n        text-shadow: 1px 3px 8px black;\n        margin-top: -9px;\n        color: white; }\n")
 'use strict';
 
@@ -2218,8 +2320,8 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"../components/banner-conteiner.vue":2,"jquery":39,"marked":41,"vue":69,"vue-hot-reload-api":66,"vueify-insert-css":70}],20:[function(require,module,exports){
-var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n#player {\n  height: 100%;\n  width: 100%;\n  position: absolute;\n  top: 0;\n  left: 0; }\n\n/* line 9, stdin */\n.sidebar {\n  width: 22%;\n  margin-top: 48px;\n  height: 100%; }\n  @media screen and (min-width: 1600px) {\n    /* line 9, stdin */\n    .sidebar {\n      width: 15%; } }\n  @media screen and (min-width: 1600px) {\n    /* line 16, stdin */\n    .sidebar.has-info {\n      width: 15.9%; } }\n\n/* line 22, stdin */\n.sidebar_content {\n  position: relative;\n  height: 100%;\n  z-index: 20; }\n\n/* line 27, stdin */\n.sidebar_back {\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0.8);\n  width: 300px;\n  height: 99.7%;\n  top: 0;\n  left: 0;\n  -webkit-transition: all .6s, height .3s ease;\n  transition: all .6s, height .3s ease;\n  -webkit-transform: translate3d(-300px, 0, 0);\n  -moz-transform: translate3d(-300px, 0, 0);\n  -o-transform: translate3d(-300px, 0, 0);\n  -ms-transform: translate3d(-300px, 0, 0);\n  transform: translate3d(-300px, 0, 0);\n  z-index: 10; }\n  @media screen and (max-width: 1440px) {\n    /* line 27, stdin */\n    .sidebar_back {\n      height: 99.5%; } }\n  /* line 44, stdin */\n  .sidebar.is-open .sidebar_back {\n    -webkit-transform: translate3d(0, 0, 0);\n    -moz-transform: translate3d(0, 0, 0);\n    -o-transform: translate3d(0, 0, 0);\n    -ms-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0); }\n  /* line 51, stdin */\n  .sidebar_back.cont {\n    height: 100% !important; }\n  /* line 54, stdin */\n  .sidebar_back.info-open {\n    background-color: rgba(0, 0, 0, 0.8); }\n\n/* line 59, stdin */\n.sidebar-right {\n  position: absolute;\n  right: 0;\n  top: 57px;\n  width: 300px; }\n\n/* line 66, stdin */\n.infopanel {\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0.8);\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  z-index: 10;\n  -webkit-transition: all 0.6s;\n  transition: all 0.6s;\n  color: white;\n  -webkit-transform: translate3d(127%, 0, 0);\n  -moz-transform: translate3d(127%, 0, 0);\n  -o-transform: translate3d(127%, 0, 0);\n  -ms-transform: translate3d(127%, 0, 0);\n  transform: translate3d(127%, 0, 0); }\n  /* line 81, stdin */\n  .infopanel header {\n    background-color: rgba(0, 0, 0, 0.8);\n    color: white; }\n  /* line 85, stdin */\n  .infopanel.is-open {\n    -webkit-transform: translate3d(300px, 0, 0);\n    -moz-transform: translate3d(300px, 0, 0);\n    -o-transform: translate3d(300px, 0, 0);\n    -ms-transform: translate3d(300px, 0, 0);\n    transform: translate3d(300px, 0, 0); }\n  /* line 92, stdin */\n  .infopanel .mdl-layout__header-row {\n    height: 48px; }\n  /* line 95, stdin */\n  .infopanel .mdl-layout__tab-bar-container {\n    background-color: red;\n    height: 50px; }\n  /* line 99, stdin */\n  .infopanel .mdl-layout__tab-bar-button {\n    background-color: transparent; }\n  /* line 102, stdin */\n  .infopanel .mdl-layout__tab {\n    color: white !important;\n    opacity: .5;\n    height: 50px !important; }\n    /* line 106, stdin */\n    .infopanel .mdl-layout__tab.is-active {\n      opacity: 1; }\n      /* line 108, stdin */\n      .infopanel .mdl-layout__tab.is-active:after {\n        background: white !important; }\n  /* line 113, stdin */\n  .infopanel .border {\n    position: absolute;\n    z-index: 5;\n    height: 100%;\n    width: 5px;\n    top: 0;\n    left: 0; }\n  /* line 121, stdin */\n  .infopanel .back {\n    position: absolute;\n    top: 10%;\n    left: 79%;\n    color: #fff;\n    font-size: 24px; }\n\n/* line 130, stdin */\n.debug {\n  position: absolute;\n  width: 400px;\n  left: 50%;\n  top: 40%;\n  margin-left: -200px;\n  text-align: center; }\n  /* line 137, stdin */\n  .debug .btn {\n    cursor: pointer;\n    padding: 10px;\n    background: #ccc;\n    display: inline-block;\n    margin: 4px;\n    color: black;\n    font-size: 10px; }\n\n/* line 148, stdin */\n#video-controls {\n  -webkit-transition: bottom .3s ease;\n  -moz-transition: bottom .3s ease;\n  -ms-transition: bottom .3s ease;\n  -o-transition: bottom .3s ease;\n  transition: bottom .3s ease;\n  position: absolute;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.7);\n  width: 100%;\n  display: block;\n  z-index: 25; }\n  /* line 160, stdin */\n  #video-controls.hover {\n    bottom: -49px; }\n    /* line 162, stdin */\n    #video-controls.hover .rangeslider, #video-controls.hover .rangeslider__fill {\n      height: 3px; }\n    /* line 165, stdin */\n    #video-controls.hover .rangeslider {\n      top: -3px; }\n    /* line 168, stdin */\n    #video-controls.hover .rangeslider__fill {\n      top: 0px; }\n    /* line 171, stdin */\n    #video-controls.hover .evento {\n      top: -3px; }\n  /* line 175, stdin */\n  #video-controls.z-down {\n    z-index: 10; }\n\n/* line 180, stdin */\n.sidebar_opener {\n  -webkit-transition: all 0.3s ease;\n  -moz-transition: all 0.3s ease;\n  -ms-transition: all 0.3s ease;\n  -o-transition: all 0.3s ease;\n  transition: all 0.3s ease; }\n  /* line 186, stdin */\n  .sidebar_opener.cima {\n    left: 0; }\n  /* line 189, stdin */\n  .sidebar_opener.hide {\n    display: none; }\n  /* line 194, stdin */\n  .sidebar_opener:hover .sidebar_opener__inside .material-icons {\n    opacity: 1; }\n  /* line 199, stdin */\n  .sidebar_opener.sidebar-enter, .sidebar_opener.sidebar-leave {\n    left: -50px; }\n  /* line 202, stdin */\n  .sidebar_opener.sidebar-leave {\n    -webkit-transition: all 0.3s ease;\n    -moz-transition: all 0.3s ease;\n    -ms-transition: all 0.3s ease;\n    -o-transition: all 0.3s ease;\n    transition: all 0.3s ease; }\n  /* line 209, stdin */\n  .sidebar_opener .sidebar_opener__inside {\n    -webkit-transition: all 0.6s ease;\n    -moz-transition: all 0.6s ease;\n    -ms-transition: all 0.6s ease;\n    -o-transition: all 0.6s ease;\n    transition: all 0.6s ease;\n    display: inline-block;\n    padding: 0;\n    line-height: 0;\n    cursor: pointer;\n    background: rgba(0, 0, 0, 0.8); }\n    /* line 220, stdin */\n    .sidebar_opener .sidebar_opener__inside .material-icons {\n      -webkit-transition: opacity .3s ease;\n      -moz-transition: opacity .3s ease;\n      -ms-transition: opacity .3s ease;\n      -o-transition: opacity .3s ease;\n      font-size: 48px;\n      margin-left: 0;\n      color: white;\n      opacity: .5; }\n\n/* line 233, stdin */\n.infopanel {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  padding: 0;\n  width: 79%; }\n  @media screen and (min-width: 1600px) {\n    /* line 233, stdin */\n    .infopanel {\n      width: 85%; } }\n\n/* line 244, stdin */\n.is-cartela {\n  height: auto !important; }\n\n/* line 248, stdin */\n.sidebar_cartela {\n  -webkit-transition: all 0.5s ease 0.5s;\n  transition: all 0.5s ease 0.5s;\n  position: fixed;\n  bottom: 60px;\n  left: 0;\n  min-width: 40%; }\n  /* line 254, stdin */\n  .sidebar_cartela.expand-enter, .sidebar_cartela.expand-leave {\n    left: -800px; }\n\n/* line 259, stdin */\n.not-loading {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -150;\n  opacity: 0;\n  padding-top: 22%;\n  text-align: center;\n  background-color: rgba(50, 50, 50, 0.6);\n  -webkit-transition: opacity 0.5s;\n  transition: opacity 0.5s; }\n\n/* line 273, stdin */\n.loading {\n  opacity: 1;\n  color: white;\n  z-index: 150; }\n\n/* line 279, stdin */\n.pausado {\n  opacity: 0.3 !important; }\n\n/* line 283, stdin */\n#timeline {\n  position: relative;\n  width: 100%;\n  float: left; }\n  /* line 287, stdin */\n  #timeline .evento {\n    height: 100%;\n    position: absolute;\n    z-index: 1;\n    font-size: 20px;\n    cursor: pointer;\n    font-weight: 900;\n    background-color: rgba(247, 233, 63, 0.47);\n    padding: 4px;\n    box-sizing: border-box;\n    text-align: center; }\n    @media screen and (max-width: 1440px) {\n      /* line 287, stdin */\n      #timeline .evento {\n        font-size: 14px; } }\n\n/* line 304, stdin */\n#vid-buttons {\n  position: relative;\n  width: 100%;\n  float: left; }\n  /* line 308, stdin */\n  #vid-buttons button {\n    -webkit-transition: opacity .3s ease;\n    -moz-transition: opacity .3s ease;\n    -ms-transition: opacity .3s ease;\n    -o-transition: opacity .3s ease;\n    transition: opacity .3s ease;\n    /*color: rgb(96,125,139);*/\n    color: white;\n    opacity: .8;\n    height: 46px;\n    width: 46px; }\n    /* line 319, stdin */\n    #vid-buttons button:hover {\n      background-color: transparent;\n      opacity: 1; }\n  /* line 324, stdin */\n  #vid-buttons .material-icons {\n    font-size: 45px; }\n    /* line 326, stdin */\n    #vid-buttons .material-icons.margem {\n      margin-left: -7px; }\n    /* line 329, stdin */\n    #vid-buttons .material-icons.margem2 {\n      margin-left: -16px; }\n  /* line 333, stdin */\n  #vid-buttons .mdl-slider__container {\n    height: 42px; }\n  /* line 336, stdin */\n  #vid-buttons #volume {\n    width: 17%;\n    margin-left: 2%;\n    float: left; }\n    /* line 340, stdin */\n    #vid-buttons #volume .mdl-slider__background-upper {\n      background: rgba(255, 255, 255, 0.2); }\n")
+},{"../components/banner-conteiner.vue":2,"jquery":40,"marked":42,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],21:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n#player {\n  height: 100%;\n  width: 100%;\n  position: absolute;\n  top: 0;\n  left: 0; }\n\n/* line 9, stdin */\n.sidebar {\n  width: 22%;\n  margin-top: 48px;\n  height: 100%; }\n  @media screen and (min-width: 1600px) {\n    /* line 9, stdin */\n    .sidebar {\n      width: 15%; } }\n  @media screen and (min-width: 1600px) {\n    /* line 16, stdin */\n    .sidebar.has-info {\n      width: 15.9%; } }\n\n/* line 22, stdin */\n.sidebar_content {\n  position: relative;\n  height: 100%;\n  z-index: 20; }\n\n/* line 27, stdin */\n.sidebar_back {\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0.8);\n  width: 300px;\n  height: 99.7%;\n  top: 0;\n  left: 0;\n  -webkit-transition: all .6s, height .3s ease;\n  transition: all .6s, height .3s ease;\n  -webkit-transform: translate3d(-300px, 0, 0);\n  -moz-transform: translate3d(-300px, 0, 0);\n  -o-transform: translate3d(-300px, 0, 0);\n  -ms-transform: translate3d(-300px, 0, 0);\n  transform: translate3d(-300px, 0, 0);\n  z-index: 10; }\n  @media screen and (max-width: 1440px) {\n    /* line 27, stdin */\n    .sidebar_back {\n      height: 99.5%; } }\n  /* line 44, stdin */\n  .sidebar.is-open .sidebar_back {\n    -webkit-transform: translate3d(0, 0, 0);\n    -moz-transform: translate3d(0, 0, 0);\n    -o-transform: translate3d(0, 0, 0);\n    -ms-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0); }\n  /* line 51, stdin */\n  .sidebar_back.cont {\n    height: 100% !important; }\n  /* line 54, stdin */\n  .sidebar_back.info-open {\n    background-color: rgba(0, 0, 0, 0.8); }\n\n/* line 59, stdin */\n.sidebar-right {\n  position: absolute;\n  right: 0;\n  top: 57px;\n  width: 300px; }\n\n/* line 66, stdin */\n.infopanel {\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0.8);\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  z-index: 10;\n  -webkit-transition: all 0.6s;\n  transition: all 0.6s;\n  color: white;\n  -webkit-transform: translate3d(127%, 0, 0);\n  -moz-transform: translate3d(127%, 0, 0);\n  -o-transform: translate3d(127%, 0, 0);\n  -ms-transform: translate3d(127%, 0, 0);\n  transform: translate3d(127%, 0, 0); }\n  /* line 81, stdin */\n  .infopanel header {\n    background-color: rgba(0, 0, 0, 0.8);\n    color: white; }\n  /* line 85, stdin */\n  .infopanel.is-open {\n    -webkit-transform: translate3d(300px, 0, 0);\n    -moz-transform: translate3d(300px, 0, 0);\n    -o-transform: translate3d(300px, 0, 0);\n    -ms-transform: translate3d(300px, 0, 0);\n    transform: translate3d(300px, 0, 0); }\n  /* line 92, stdin */\n  .infopanel .mdl-layout__header-row {\n    height: 48px; }\n  /* line 95, stdin */\n  .infopanel .mdl-layout__tab-bar-container {\n    background-color: red;\n    height: 50px; }\n  /* line 99, stdin */\n  .infopanel .mdl-layout__tab-bar-button {\n    background-color: transparent; }\n  /* line 102, stdin */\n  .infopanel .mdl-layout__tab {\n    color: white !important;\n    opacity: .5;\n    height: 50px !important; }\n    /* line 106, stdin */\n    .infopanel .mdl-layout__tab.is-active {\n      opacity: 1; }\n      /* line 108, stdin */\n      .infopanel .mdl-layout__tab.is-active:after {\n        background: white !important; }\n  /* line 113, stdin */\n  .infopanel .border {\n    position: absolute;\n    z-index: 5;\n    height: 100%;\n    width: 5px;\n    top: 0;\n    left: 0; }\n  /* line 121, stdin */\n  .infopanel .back {\n    position: absolute;\n    top: 10%;\n    left: 79%;\n    color: #fff;\n    font-size: 24px; }\n\n/* line 130, stdin */\n.debug {\n  position: absolute;\n  width: 400px;\n  left: 50%;\n  top: 40%;\n  margin-left: -200px;\n  text-align: center; }\n  /* line 137, stdin */\n  .debug .btn {\n    cursor: pointer;\n    padding: 10px;\n    background: #ccc;\n    display: inline-block;\n    margin: 4px;\n    color: black;\n    font-size: 10px; }\n\n/* line 148, stdin */\n#video-controls {\n  -webkit-transition: bottom .3s ease;\n  -moz-transition: bottom .3s ease;\n  -ms-transition: bottom .3s ease;\n  -o-transition: bottom .3s ease;\n  transition: bottom .3s ease;\n  position: absolute;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.7);\n  width: 100%;\n  display: block;\n  z-index: 25; }\n  /* line 160, stdin */\n  #video-controls.hover {\n    bottom: -49px; }\n    /* line 162, stdin */\n    #video-controls.hover .rangeslider, #video-controls.hover .rangeslider__fill {\n      height: 3px; }\n    /* line 165, stdin */\n    #video-controls.hover .rangeslider {\n      top: -3px; }\n    /* line 168, stdin */\n    #video-controls.hover .rangeslider__fill {\n      top: 0px; }\n    /* line 171, stdin */\n    #video-controls.hover .evento {\n      top: -3px; }\n  /* line 175, stdin */\n  #video-controls.z-down {\n    z-index: 10; }\n\n/* line 180, stdin */\n.sidebar_opener {\n  -webkit-transition: all 0.3s ease;\n  -moz-transition: all 0.3s ease;\n  -ms-transition: all 0.3s ease;\n  -o-transition: all 0.3s ease;\n  transition: all 0.3s ease; }\n  /* line 186, stdin */\n  .sidebar_opener.cima {\n    left: 0; }\n  /* line 189, stdin */\n  .sidebar_opener.hide {\n    display: none; }\n  /* line 194, stdin */\n  .sidebar_opener:hover .sidebar_opener__inside .material-icons {\n    opacity: 1; }\n  /* line 199, stdin */\n  .sidebar_opener.sidebar-enter, .sidebar_opener.sidebar-leave {\n    left: -50px; }\n  /* line 202, stdin */\n  .sidebar_opener.sidebar-leave {\n    -webkit-transition: all 0.3s ease;\n    -moz-transition: all 0.3s ease;\n    -ms-transition: all 0.3s ease;\n    -o-transition: all 0.3s ease;\n    transition: all 0.3s ease; }\n  /* line 209, stdin */\n  .sidebar_opener .sidebar_opener__inside {\n    -webkit-transition: all 0.6s ease;\n    -moz-transition: all 0.6s ease;\n    -ms-transition: all 0.6s ease;\n    -o-transition: all 0.6s ease;\n    transition: all 0.6s ease;\n    display: inline-block;\n    padding: 0;\n    line-height: 0;\n    cursor: pointer;\n    background: rgba(0, 0, 0, 0.8); }\n    /* line 220, stdin */\n    .sidebar_opener .sidebar_opener__inside .material-icons {\n      -webkit-transition: opacity .3s ease;\n      -moz-transition: opacity .3s ease;\n      -ms-transition: opacity .3s ease;\n      -o-transition: opacity .3s ease;\n      font-size: 48px;\n      margin-left: 0;\n      color: white;\n      opacity: .5; }\n\n/* line 233, stdin */\n.infopanel {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  padding: 0;\n  width: 79%; }\n  @media screen and (min-width: 1600px) {\n    /* line 233, stdin */\n    .infopanel {\n      width: 85%; } }\n\n/* line 244, stdin */\n.is-cartela {\n  height: auto !important; }\n\n/* line 248, stdin */\n.sidebar_cartela {\n  -webkit-transition: all 0.5s ease 0.5s;\n  transition: all 0.5s ease 0.5s;\n  position: fixed;\n  bottom: 60px;\n  left: 0;\n  min-width: 40%; }\n  /* line 254, stdin */\n  .sidebar_cartela.expand-enter, .sidebar_cartela.expand-leave {\n    left: -800px; }\n\n/* line 259, stdin */\n.not-loading {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -150;\n  opacity: 0;\n  padding-top: 22%;\n  text-align: center;\n  background-color: rgba(50, 50, 50, 0.6);\n  -webkit-transition: opacity 0.5s;\n  transition: opacity 0.5s; }\n\n/* line 273, stdin */\n.loading {\n  opacity: 1;\n  color: white;\n  z-index: 150; }\n\n/* line 279, stdin */\n.pausado {\n  opacity: 0.3 !important; }\n\n/* line 283, stdin */\n#timeline {\n  position: relative;\n  width: 100%;\n  float: left; }\n  /* line 287, stdin */\n  #timeline .evento {\n    height: 100%;\n    position: absolute;\n    z-index: 1;\n    font-size: 20px;\n    cursor: pointer;\n    font-weight: 900;\n    background-color: rgba(247, 233, 63, 0.47);\n    padding: 4px;\n    box-sizing: border-box;\n    text-align: center; }\n    @media screen and (max-width: 1440px) {\n      /* line 287, stdin */\n      #timeline .evento {\n        font-size: 14px; } }\n  /* line 302, stdin */\n  #timeline .mdl-tooltip {\n    font-size: 14px; }\n\n/* line 307, stdin */\n#vid-buttons {\n  position: relative;\n  width: 100%;\n  float: left; }\n  /* line 311, stdin */\n  #vid-buttons button {\n    -webkit-transition: opacity .3s ease;\n    -moz-transition: opacity .3s ease;\n    -ms-transition: opacity .3s ease;\n    -o-transition: opacity .3s ease;\n    transition: opacity .3s ease;\n    /*color: rgb(96,125,139);*/\n    color: white;\n    opacity: .8;\n    height: 46px;\n    width: 46px; }\n    /* line 322, stdin */\n    #vid-buttons button:hover {\n      background-color: transparent;\n      opacity: 1; }\n  /* line 327, stdin */\n  #vid-buttons .material-icons {\n    font-size: 45px; }\n    /* line 329, stdin */\n    #vid-buttons .material-icons.margem {\n      margin-left: -7px; }\n    /* line 332, stdin */\n    #vid-buttons .material-icons.margem2 {\n      margin-left: -16px; }\n  /* line 336, stdin */\n  #vid-buttons .mdl-slider__container {\n    height: 42px; }\n  /* line 339, stdin */\n  #vid-buttons #volume {\n    width: 17%;\n    margin-left: 2%;\n    float: left; }\n    /* line 343, stdin */\n    #vid-buttons #volume .mdl-slider__background-upper {\n      background: rgba(255, 255, 255, 0.2); }\n")
 'use strict';
 
 var Vue = require('vue');
@@ -2242,6 +2344,7 @@ module.exports = {
 			conteudo: {},
 			seeking: false,
 			playing: true,
+			link: null,
 			volume: 0,
 			volume_icon: 'volume_up',
 			height: window.innerHeight,
@@ -2260,7 +2363,7 @@ module.exports = {
 			return this.contentBlocks.length >= 2 || this.contentBlocks.length > 0 && !this.contentBlocks[0].funcao;
 		},
 		hasInfo: function hasInfo() {
-			return this.params.route.length > 1 && this.params.route[1] == 'info';
+			return this.params.route.length > 1 && this.params.route[1] == 'info' || this.link !== null;
 		},
 		hasLibras: function hasLibras() {
 			return this.libras;
@@ -2672,17 +2775,18 @@ module.exports = {
 		'in-sidebar-block': require('../components/sidebar-block.vue'),
 		'in-topbar-slider': require('../components/topbar-slider.vue'),
 		'in-bg-video': require('../components/bg-video.vue'),
-		'in-sidebar-info': require('../components/sidebar-info.vue')
+		'in-sidebar-info': require('../components/sidebar-info.vue'),
+		'in-sidebar-link': require('../components/sidebar-link.vue')
 	}
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div>\n\n\t\t<!-- VIDEO -->\n\t\t<div id=\"player\">\n\t\t\t<in-bg-video :db=\"db\" :video=\"video\" :qualidade=\"qualidade\" :acessibilidade.sync=\"acessibilidade\" :playing.sync=\"playing\" v-ref:hipervideo=\"\"></in-bg-video>\n\n\t\t\t<div id=\"video-controls\" :class=\"{ hover: playing || hasInfo, 'z-down': hasInfo }\">\n\n\t\t\t\t<!-- NAV-VIDEO -->\n\t\t\t\t<nav id=\"timeline\">\n\t\t\t\t\t<div v-for=\"evento in db.eventos\">\n\t\t\t\t\t\t<div class=\"evento\" :id=\"evento.card\" @click=\"addBlockById(evento.id)\">{{evento.title | uppercase | maxSize 8}}</div>\n\t\t\t\t\t\t<div class=\"mdl-tooltip mdl-tooltip--top\" :for=\"evento.card\">{{evento.title}}</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<in-topbar-slider :db=\"db\"></in-topbar-slider>\n\t\t\t\t\t<input type=\"range\" id=\"seek-bar-{{params.video}}\" min=\"0\" max=\"1000\" data-rangeslider=\"\" style=\"display: none;\">\n\t\t\t\t</nav>\n\n\n\n\t\t\t\t<div id=\"vid-buttons\">\n\t\t\t\t\t<!-- Botão de Play -->\n\t\t\t\t\t<button class=\"mdl-button mdl-js-button mdl-button--icon mdl-button--colored\" style=\"float: left; margin-left: 10px;\" v-if=\"!playing\" @click=\"videoPlay\">\n\t\t\t  \t\t<i class=\"material-icons margem\">play_arrow</i>\n\t\t\t\t\t</button>\n\t\t\t\t\t<button class=\"mdl-button mdl-js-button mdl-button--icon mdl-button--colored\" style=\"float: left; margin-left: 10px;\" v-if=\"playing\" @click=\"videoPause\">\n\t\t\t  \t\t<i class=\"material-icons margem\">pause</i>\n\t\t\t\t\t</button>\n\t\t\t\t\t<!-- Botão de Play -->\n\t\t\t\t\t<div id=\"volume\">\n\t\t\t\t\t\t<button class=\"mdl-button mdl-js-button mdl-button--icon mdl-button--colored botoes-player\" style=\"float: left;\" @click=\"mute\">\n\t\t\t\t  \t\t<i class=\"material-icons margem\" :style=\"{ marginLeft: marginIcon }\">{{volume_icon}}</i>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<input id=\"volume_slider\" class=\"mdl-slider mdl-js-slider\" type=\"range\" min=\"0\" max=\"100\" :value=\"volume\" tabindex=\"0\">\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<!-- Botão de Play -->\n\t\t\t\t\t<button class=\"mdl-button mdl-js-button mdl-button--icon mdl-button--colored botoes-player\" style=\"float: right;\" @click=\"toggleFullScreen\">\n\t\t\t  \t\t<i class=\"material-icons margem2\">fullscreen</i>\n\t\t\t\t\t</button>\n\n\t\t\t\t</div>\n\n\n\n\t\t\t</div>\n\t\t</div>\n\t\t\n\t\t<!-- SIDEBAR -->\n\n\t\t<div class=\"sidebar\" :class=\"{'is-open': hasBlocks || hasInfo || fixedSidebar, 'has-info': hasInfo}\">\n\n\t\t\t<!-- CONTENT -->\n\n\t\t\t<div class=\"sidebar_content\">\n\t\t\t\t<in-sidebar-block v-for=\"content in contentBlocks\" :content=\"content\" :video=\"video\" :conteudo=\"conteudo\" :events=\"events\" transition=\"sidebar\"></in-sidebar-block>\n\t\t\t\t<div id=\"sidebar_click\" class=\"sidebar_opener clickable\" @click=\"openDefaultBlock\" v-show=\"!hasBlocks &amp;&amp; !fixedSidebar\" transition=\"sidebar\" :class=\"{hide: hasInfo}\">\n\t\t\t\t\t<div class=\"sidebar_opener__inside\">\n\t\t\t\t\t\t<i class=\"material-icons\">chevron_right</i>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<!-- CARTELAS -->\n\n\t\t\t<!-- <div v-show=\"cartela\" class=\"sidebar_cartela\" transition=\"expand\">\n\t\t\t\t<div class=\"sidebar_block__header context-bg\" style=\"font-size: 100%;\">\n\t\t\t\t\t<div id=\"cartela_nome\">\n\t\t\t\t\t\t{{contentCartela.title | uppercase}}\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"sidebar_block__header\" style=\"background: #fff;\">\n\t\t\t\t\t<div id=\"cartela_funcao\">\n\t\t\t\t\t\t{{contentCartela.funcao}}\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div> -->\n\n\t\t\t<!-- BACKGROUND -->\n\n\t\t\t<div id=\"sidebar_back\" class=\"sidebar_back\" :style=\"{height: (height - 73) + 'px' }\" :class=\"{ cont: playing &amp;&amp; !hasInfo || !playing &amp;&amp; hasInfo, 'info-open': hasInfo }\"></div>\n\t\t</div>\n\n\t\t<!-- INFO -->\n\t\n\t\t<div id=\"infopanel\" class=\"infopanel\" :class=\"{'is-open': hasInfo}\">\n\t    <in-sidebar-info :params=\"params\" :conteudo=\"conteudo\" :user.sync=\"user\"></in-sidebar-info>\n\t  </div>\n\n\t\t<div id=\"loading\" class=\"not-loading\"><i class=\"fa fa-refresh fa-3x fa-spin\"></i></div>\n\t\n\t\t\n\t</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div>\n\n\t\t<!-- VIDEO -->\n\t\t<div id=\"player\">\n\t\t\t<in-bg-video :db=\"db\" :video=\"video\" :qualidade=\"qualidade\" :acessibilidade.sync=\"acessibilidade\" :playing.sync=\"playing\" v-ref:hipervideo=\"\"></in-bg-video>\n\n\t\t\t<div id=\"video-controls\" :class=\"{ hover: playing || hasInfo, 'z-down': hasInfo }\">\n\n\t\t\t\t<!-- NAV-VIDEO -->\n\t\t\t\t<nav id=\"timeline\">\n\t\t\t\t\t<div v-for=\"evento in db.eventos\">\n\t\t\t\t\t\t<div class=\"evento\" :id=\"evento.card\" @click=\"addBlockById(evento.id)\">{{evento.title | uppercase | maxSize 8}}</div>\n\t\t\t\t\t\t<div class=\"mdl-tooltip mdl-tooltip--top\" :for=\"evento.card\">{{evento.title}}</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<in-topbar-slider :db=\"db\"></in-topbar-slider>\n\t\t\t\t\t<input type=\"range\" id=\"seek-bar-{{params.video}}\" min=\"0\" max=\"1000\" data-rangeslider=\"\" style=\"display: none;\">\n\t\t\t\t</nav>\n\n\n\n\t\t\t\t<div id=\"vid-buttons\">\n\t\t\t\t\t<!-- Botão de Play -->\n\t\t\t\t\t<button class=\"mdl-button mdl-js-button mdl-button--icon mdl-button--colored\" style=\"float: left; margin-left: 10px;\" v-if=\"!playing\" @click=\"videoPlay\">\n\t\t\t  \t\t<i class=\"material-icons margem\">play_arrow</i>\n\t\t\t\t\t</button>\n\t\t\t\t\t<button class=\"mdl-button mdl-js-button mdl-button--icon mdl-button--colored\" style=\"float: left; margin-left: 10px;\" v-if=\"playing\" @click=\"videoPause\">\n\t\t\t  \t\t<i class=\"material-icons margem\">pause</i>\n\t\t\t\t\t</button>\n\t\t\t\t\t<!-- Botão de Play -->\n\t\t\t\t\t<div id=\"volume\">\n\t\t\t\t\t\t<button class=\"mdl-button mdl-js-button mdl-button--icon mdl-button--colored botoes-player\" style=\"float: left;\" @click=\"mute\">\n\t\t\t\t  \t\t<i class=\"material-icons margem\" :style=\"{ marginLeft: marginIcon }\">{{volume_icon}}</i>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<input id=\"volume_slider\" class=\"mdl-slider mdl-js-slider\" type=\"range\" min=\"0\" max=\"100\" :value=\"volume\" tabindex=\"0\">\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<!-- Botão de Play -->\n\t\t\t\t\t<button class=\"mdl-button mdl-js-button mdl-button--icon mdl-button--colored botoes-player\" style=\"float: right;\" @click=\"toggleFullScreen\">\n\t\t\t  \t\t<i class=\"material-icons margem2\">fullscreen</i>\n\t\t\t\t\t</button>\n\n\t\t\t\t</div>\n\n\n\n\t\t\t</div>\n\t\t</div>\n\t\t\n\t\t<!-- SIDEBAR -->\n\n\t\t<div class=\"sidebar\" :class=\"{'is-open': hasBlocks || hasInfo || fixedSidebar, 'has-info': hasInfo}\">\n\n\t\t\t<!-- CONTENT -->\n\n\t\t\t<div class=\"sidebar_content\">\n\t\t\t\t<in-sidebar-block v-for=\"content in contentBlocks\" :content=\"content\" :video=\"video\" :conteudo=\"conteudo\" :events=\"events\" transition=\"sidebar\"></in-sidebar-block>\n\t\t\t\t<div id=\"sidebar_click\" class=\"sidebar_opener clickable\" @click=\"openDefaultBlock\" v-show=\"!hasBlocks &amp;&amp; !fixedSidebar\" transition=\"sidebar\" :class=\"{hide: hasInfo}\">\n\t\t\t\t\t<div class=\"sidebar_opener__inside\">\n\t\t\t\t\t\t<i class=\"material-icons\">chevron_right</i>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<!-- CARTELAS -->\n\n\t\t\t<!-- <div v-show=\"cartela\" class=\"sidebar_cartela\" transition=\"expand\">\n\t\t\t\t<div class=\"sidebar_block__header context-bg\" style=\"font-size: 100%;\">\n\t\t\t\t\t<div id=\"cartela_nome\">\n\t\t\t\t\t\t{{contentCartela.title | uppercase}}\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"sidebar_block__header\" style=\"background: #fff;\">\n\t\t\t\t\t<div id=\"cartela_funcao\">\n\t\t\t\t\t\t{{contentCartela.funcao}}\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div> -->\n\n\t\t\t<!-- BACKGROUND -->\n\n\t\t\t<div id=\"sidebar_back\" class=\"sidebar_back\" :style=\"{height: (height - 73) + 'px' }\" :class=\"{ cont: playing &amp;&amp; !hasInfo || !playing &amp;&amp; hasInfo, 'info-open': hasInfo }\"></div>\n\t\t</div>\n\n\t\t<!-- INFO -->\n\t\n\t\t<div id=\"infopanel\" class=\"infopanel\" :class=\"{'is-open': hasInfo}\">\n\t    <in-sidebar-link v-if=\"link !== null\" :link=\"link\" :user.sync=\"user\" transition=\"fade\"></in-sidebar-link>\n\t    <in-sidebar-info v-if=\"hasInfo\" :params=\"params\" :conteudo=\"conteudo\" :user.sync=\"user\"></in-sidebar-info>\n\t  </div>\n\n\t\t<div id=\"loading\" class=\"not-loading\"><i class=\"fa fa-refresh fa-3x fa-spin\"></i></div>\n\t\n\t\t\n\t</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   var id = "/media/bambuzal/Softwares/vue-models/hipervideo-model/app/vue/views/video-view.vue"
   module.hot.dispose(function () {
-    require("vueify-insert-css").cache["/* line 2, stdin */\n#player {\n  height: 100%;\n  width: 100%;\n  position: absolute;\n  top: 0;\n  left: 0; }\n\n/* line 9, stdin */\n.sidebar {\n  width: 22%;\n  margin-top: 48px;\n  height: 100%; }\n  @media screen and (min-width: 1600px) {\n    /* line 9, stdin */\n    .sidebar {\n      width: 15%; } }\n  @media screen and (min-width: 1600px) {\n    /* line 16, stdin */\n    .sidebar.has-info {\n      width: 15.9%; } }\n\n/* line 22, stdin */\n.sidebar_content {\n  position: relative;\n  height: 100%;\n  z-index: 20; }\n\n/* line 27, stdin */\n.sidebar_back {\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0.8);\n  width: 300px;\n  height: 99.7%;\n  top: 0;\n  left: 0;\n  -webkit-transition: all .6s, height .3s ease;\n  transition: all .6s, height .3s ease;\n  -webkit-transform: translate3d(-300px, 0, 0);\n  -moz-transform: translate3d(-300px, 0, 0);\n  -o-transform: translate3d(-300px, 0, 0);\n  -ms-transform: translate3d(-300px, 0, 0);\n  transform: translate3d(-300px, 0, 0);\n  z-index: 10; }\n  @media screen and (max-width: 1440px) {\n    /* line 27, stdin */\n    .sidebar_back {\n      height: 99.5%; } }\n  /* line 44, stdin */\n  .sidebar.is-open .sidebar_back {\n    -webkit-transform: translate3d(0, 0, 0);\n    -moz-transform: translate3d(0, 0, 0);\n    -o-transform: translate3d(0, 0, 0);\n    -ms-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0); }\n  /* line 51, stdin */\n  .sidebar_back.cont {\n    height: 100% !important; }\n  /* line 54, stdin */\n  .sidebar_back.info-open {\n    background-color: rgba(0, 0, 0, 0.8); }\n\n/* line 59, stdin */\n.sidebar-right {\n  position: absolute;\n  right: 0;\n  top: 57px;\n  width: 300px; }\n\n/* line 66, stdin */\n.infopanel {\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0.8);\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  z-index: 10;\n  -webkit-transition: all 0.6s;\n  transition: all 0.6s;\n  color: white;\n  -webkit-transform: translate3d(127%, 0, 0);\n  -moz-transform: translate3d(127%, 0, 0);\n  -o-transform: translate3d(127%, 0, 0);\n  -ms-transform: translate3d(127%, 0, 0);\n  transform: translate3d(127%, 0, 0); }\n  /* line 81, stdin */\n  .infopanel header {\n    background-color: rgba(0, 0, 0, 0.8);\n    color: white; }\n  /* line 85, stdin */\n  .infopanel.is-open {\n    -webkit-transform: translate3d(300px, 0, 0);\n    -moz-transform: translate3d(300px, 0, 0);\n    -o-transform: translate3d(300px, 0, 0);\n    -ms-transform: translate3d(300px, 0, 0);\n    transform: translate3d(300px, 0, 0); }\n  /* line 92, stdin */\n  .infopanel .mdl-layout__header-row {\n    height: 48px; }\n  /* line 95, stdin */\n  .infopanel .mdl-layout__tab-bar-container {\n    background-color: red;\n    height: 50px; }\n  /* line 99, stdin */\n  .infopanel .mdl-layout__tab-bar-button {\n    background-color: transparent; }\n  /* line 102, stdin */\n  .infopanel .mdl-layout__tab {\n    color: white !important;\n    opacity: .5;\n    height: 50px !important; }\n    /* line 106, stdin */\n    .infopanel .mdl-layout__tab.is-active {\n      opacity: 1; }\n      /* line 108, stdin */\n      .infopanel .mdl-layout__tab.is-active:after {\n        background: white !important; }\n  /* line 113, stdin */\n  .infopanel .border {\n    position: absolute;\n    z-index: 5;\n    height: 100%;\n    width: 5px;\n    top: 0;\n    left: 0; }\n  /* line 121, stdin */\n  .infopanel .back {\n    position: absolute;\n    top: 10%;\n    left: 79%;\n    color: #fff;\n    font-size: 24px; }\n\n/* line 130, stdin */\n.debug {\n  position: absolute;\n  width: 400px;\n  left: 50%;\n  top: 40%;\n  margin-left: -200px;\n  text-align: center; }\n  /* line 137, stdin */\n  .debug .btn {\n    cursor: pointer;\n    padding: 10px;\n    background: #ccc;\n    display: inline-block;\n    margin: 4px;\n    color: black;\n    font-size: 10px; }\n\n/* line 148, stdin */\n#video-controls {\n  -webkit-transition: bottom .3s ease;\n  -moz-transition: bottom .3s ease;\n  -ms-transition: bottom .3s ease;\n  -o-transition: bottom .3s ease;\n  transition: bottom .3s ease;\n  position: absolute;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.7);\n  width: 100%;\n  display: block;\n  z-index: 25; }\n  /* line 160, stdin */\n  #video-controls.hover {\n    bottom: -49px; }\n    /* line 162, stdin */\n    #video-controls.hover .rangeslider, #video-controls.hover .rangeslider__fill {\n      height: 3px; }\n    /* line 165, stdin */\n    #video-controls.hover .rangeslider {\n      top: -3px; }\n    /* line 168, stdin */\n    #video-controls.hover .rangeslider__fill {\n      top: 0px; }\n    /* line 171, stdin */\n    #video-controls.hover .evento {\n      top: -3px; }\n  /* line 175, stdin */\n  #video-controls.z-down {\n    z-index: 10; }\n\n/* line 180, stdin */\n.sidebar_opener {\n  -webkit-transition: all 0.3s ease;\n  -moz-transition: all 0.3s ease;\n  -ms-transition: all 0.3s ease;\n  -o-transition: all 0.3s ease;\n  transition: all 0.3s ease; }\n  /* line 186, stdin */\n  .sidebar_opener.cima {\n    left: 0; }\n  /* line 189, stdin */\n  .sidebar_opener.hide {\n    display: none; }\n  /* line 194, stdin */\n  .sidebar_opener:hover .sidebar_opener__inside .material-icons {\n    opacity: 1; }\n  /* line 199, stdin */\n  .sidebar_opener.sidebar-enter, .sidebar_opener.sidebar-leave {\n    left: -50px; }\n  /* line 202, stdin */\n  .sidebar_opener.sidebar-leave {\n    -webkit-transition: all 0.3s ease;\n    -moz-transition: all 0.3s ease;\n    -ms-transition: all 0.3s ease;\n    -o-transition: all 0.3s ease;\n    transition: all 0.3s ease; }\n  /* line 209, stdin */\n  .sidebar_opener .sidebar_opener__inside {\n    -webkit-transition: all 0.6s ease;\n    -moz-transition: all 0.6s ease;\n    -ms-transition: all 0.6s ease;\n    -o-transition: all 0.6s ease;\n    transition: all 0.6s ease;\n    display: inline-block;\n    padding: 0;\n    line-height: 0;\n    cursor: pointer;\n    background: rgba(0, 0, 0, 0.8); }\n    /* line 220, stdin */\n    .sidebar_opener .sidebar_opener__inside .material-icons {\n      -webkit-transition: opacity .3s ease;\n      -moz-transition: opacity .3s ease;\n      -ms-transition: opacity .3s ease;\n      -o-transition: opacity .3s ease;\n      font-size: 48px;\n      margin-left: 0;\n      color: white;\n      opacity: .5; }\n\n/* line 233, stdin */\n.infopanel {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  padding: 0;\n  width: 79%; }\n  @media screen and (min-width: 1600px) {\n    /* line 233, stdin */\n    .infopanel {\n      width: 85%; } }\n\n/* line 244, stdin */\n.is-cartela {\n  height: auto !important; }\n\n/* line 248, stdin */\n.sidebar_cartela {\n  -webkit-transition: all 0.5s ease 0.5s;\n  transition: all 0.5s ease 0.5s;\n  position: fixed;\n  bottom: 60px;\n  left: 0;\n  min-width: 40%; }\n  /* line 254, stdin */\n  .sidebar_cartela.expand-enter, .sidebar_cartela.expand-leave {\n    left: -800px; }\n\n/* line 259, stdin */\n.not-loading {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -150;\n  opacity: 0;\n  padding-top: 22%;\n  text-align: center;\n  background-color: rgba(50, 50, 50, 0.6);\n  -webkit-transition: opacity 0.5s;\n  transition: opacity 0.5s; }\n\n/* line 273, stdin */\n.loading {\n  opacity: 1;\n  color: white;\n  z-index: 150; }\n\n/* line 279, stdin */\n.pausado {\n  opacity: 0.3 !important; }\n\n/* line 283, stdin */\n#timeline {\n  position: relative;\n  width: 100%;\n  float: left; }\n  /* line 287, stdin */\n  #timeline .evento {\n    height: 100%;\n    position: absolute;\n    z-index: 1;\n    font-size: 20px;\n    cursor: pointer;\n    font-weight: 900;\n    background-color: rgba(247, 233, 63, 0.47);\n    padding: 4px;\n    box-sizing: border-box;\n    text-align: center; }\n    @media screen and (max-width: 1440px) {\n      /* line 287, stdin */\n      #timeline .evento {\n        font-size: 14px; } }\n\n/* line 304, stdin */\n#vid-buttons {\n  position: relative;\n  width: 100%;\n  float: left; }\n  /* line 308, stdin */\n  #vid-buttons button {\n    -webkit-transition: opacity .3s ease;\n    -moz-transition: opacity .3s ease;\n    -ms-transition: opacity .3s ease;\n    -o-transition: opacity .3s ease;\n    transition: opacity .3s ease;\n    /*color: rgb(96,125,139);*/\n    color: white;\n    opacity: .8;\n    height: 46px;\n    width: 46px; }\n    /* line 319, stdin */\n    #vid-buttons button:hover {\n      background-color: transparent;\n      opacity: 1; }\n  /* line 324, stdin */\n  #vid-buttons .material-icons {\n    font-size: 45px; }\n    /* line 326, stdin */\n    #vid-buttons .material-icons.margem {\n      margin-left: -7px; }\n    /* line 329, stdin */\n    #vid-buttons .material-icons.margem2 {\n      margin-left: -16px; }\n  /* line 333, stdin */\n  #vid-buttons .mdl-slider__container {\n    height: 42px; }\n  /* line 336, stdin */\n  #vid-buttons #volume {\n    width: 17%;\n    margin-left: 2%;\n    float: left; }\n    /* line 340, stdin */\n    #vid-buttons #volume .mdl-slider__background-upper {\n      background: rgba(255, 255, 255, 0.2); }\n"] = false
+    require("vueify-insert-css").cache["/* line 2, stdin */\n#player {\n  height: 100%;\n  width: 100%;\n  position: absolute;\n  top: 0;\n  left: 0; }\n\n/* line 9, stdin */\n.sidebar {\n  width: 22%;\n  margin-top: 48px;\n  height: 100%; }\n  @media screen and (min-width: 1600px) {\n    /* line 9, stdin */\n    .sidebar {\n      width: 15%; } }\n  @media screen and (min-width: 1600px) {\n    /* line 16, stdin */\n    .sidebar.has-info {\n      width: 15.9%; } }\n\n/* line 22, stdin */\n.sidebar_content {\n  position: relative;\n  height: 100%;\n  z-index: 20; }\n\n/* line 27, stdin */\n.sidebar_back {\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0.8);\n  width: 300px;\n  height: 99.7%;\n  top: 0;\n  left: 0;\n  -webkit-transition: all .6s, height .3s ease;\n  transition: all .6s, height .3s ease;\n  -webkit-transform: translate3d(-300px, 0, 0);\n  -moz-transform: translate3d(-300px, 0, 0);\n  -o-transform: translate3d(-300px, 0, 0);\n  -ms-transform: translate3d(-300px, 0, 0);\n  transform: translate3d(-300px, 0, 0);\n  z-index: 10; }\n  @media screen and (max-width: 1440px) {\n    /* line 27, stdin */\n    .sidebar_back {\n      height: 99.5%; } }\n  /* line 44, stdin */\n  .sidebar.is-open .sidebar_back {\n    -webkit-transform: translate3d(0, 0, 0);\n    -moz-transform: translate3d(0, 0, 0);\n    -o-transform: translate3d(0, 0, 0);\n    -ms-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0); }\n  /* line 51, stdin */\n  .sidebar_back.cont {\n    height: 100% !important; }\n  /* line 54, stdin */\n  .sidebar_back.info-open {\n    background-color: rgba(0, 0, 0, 0.8); }\n\n/* line 59, stdin */\n.sidebar-right {\n  position: absolute;\n  right: 0;\n  top: 57px;\n  width: 300px; }\n\n/* line 66, stdin */\n.infopanel {\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0.8);\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  z-index: 10;\n  -webkit-transition: all 0.6s;\n  transition: all 0.6s;\n  color: white;\n  -webkit-transform: translate3d(127%, 0, 0);\n  -moz-transform: translate3d(127%, 0, 0);\n  -o-transform: translate3d(127%, 0, 0);\n  -ms-transform: translate3d(127%, 0, 0);\n  transform: translate3d(127%, 0, 0); }\n  /* line 81, stdin */\n  .infopanel header {\n    background-color: rgba(0, 0, 0, 0.8);\n    color: white; }\n  /* line 85, stdin */\n  .infopanel.is-open {\n    -webkit-transform: translate3d(300px, 0, 0);\n    -moz-transform: translate3d(300px, 0, 0);\n    -o-transform: translate3d(300px, 0, 0);\n    -ms-transform: translate3d(300px, 0, 0);\n    transform: translate3d(300px, 0, 0); }\n  /* line 92, stdin */\n  .infopanel .mdl-layout__header-row {\n    height: 48px; }\n  /* line 95, stdin */\n  .infopanel .mdl-layout__tab-bar-container {\n    background-color: red;\n    height: 50px; }\n  /* line 99, stdin */\n  .infopanel .mdl-layout__tab-bar-button {\n    background-color: transparent; }\n  /* line 102, stdin */\n  .infopanel .mdl-layout__tab {\n    color: white !important;\n    opacity: .5;\n    height: 50px !important; }\n    /* line 106, stdin */\n    .infopanel .mdl-layout__tab.is-active {\n      opacity: 1; }\n      /* line 108, stdin */\n      .infopanel .mdl-layout__tab.is-active:after {\n        background: white !important; }\n  /* line 113, stdin */\n  .infopanel .border {\n    position: absolute;\n    z-index: 5;\n    height: 100%;\n    width: 5px;\n    top: 0;\n    left: 0; }\n  /* line 121, stdin */\n  .infopanel .back {\n    position: absolute;\n    top: 10%;\n    left: 79%;\n    color: #fff;\n    font-size: 24px; }\n\n/* line 130, stdin */\n.debug {\n  position: absolute;\n  width: 400px;\n  left: 50%;\n  top: 40%;\n  margin-left: -200px;\n  text-align: center; }\n  /* line 137, stdin */\n  .debug .btn {\n    cursor: pointer;\n    padding: 10px;\n    background: #ccc;\n    display: inline-block;\n    margin: 4px;\n    color: black;\n    font-size: 10px; }\n\n/* line 148, stdin */\n#video-controls {\n  -webkit-transition: bottom .3s ease;\n  -moz-transition: bottom .3s ease;\n  -ms-transition: bottom .3s ease;\n  -o-transition: bottom .3s ease;\n  transition: bottom .3s ease;\n  position: absolute;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.7);\n  width: 100%;\n  display: block;\n  z-index: 25; }\n  /* line 160, stdin */\n  #video-controls.hover {\n    bottom: -49px; }\n    /* line 162, stdin */\n    #video-controls.hover .rangeslider, #video-controls.hover .rangeslider__fill {\n      height: 3px; }\n    /* line 165, stdin */\n    #video-controls.hover .rangeslider {\n      top: -3px; }\n    /* line 168, stdin */\n    #video-controls.hover .rangeslider__fill {\n      top: 0px; }\n    /* line 171, stdin */\n    #video-controls.hover .evento {\n      top: -3px; }\n  /* line 175, stdin */\n  #video-controls.z-down {\n    z-index: 10; }\n\n/* line 180, stdin */\n.sidebar_opener {\n  -webkit-transition: all 0.3s ease;\n  -moz-transition: all 0.3s ease;\n  -ms-transition: all 0.3s ease;\n  -o-transition: all 0.3s ease;\n  transition: all 0.3s ease; }\n  /* line 186, stdin */\n  .sidebar_opener.cima {\n    left: 0; }\n  /* line 189, stdin */\n  .sidebar_opener.hide {\n    display: none; }\n  /* line 194, stdin */\n  .sidebar_opener:hover .sidebar_opener__inside .material-icons {\n    opacity: 1; }\n  /* line 199, stdin */\n  .sidebar_opener.sidebar-enter, .sidebar_opener.sidebar-leave {\n    left: -50px; }\n  /* line 202, stdin */\n  .sidebar_opener.sidebar-leave {\n    -webkit-transition: all 0.3s ease;\n    -moz-transition: all 0.3s ease;\n    -ms-transition: all 0.3s ease;\n    -o-transition: all 0.3s ease;\n    transition: all 0.3s ease; }\n  /* line 209, stdin */\n  .sidebar_opener .sidebar_opener__inside {\n    -webkit-transition: all 0.6s ease;\n    -moz-transition: all 0.6s ease;\n    -ms-transition: all 0.6s ease;\n    -o-transition: all 0.6s ease;\n    transition: all 0.6s ease;\n    display: inline-block;\n    padding: 0;\n    line-height: 0;\n    cursor: pointer;\n    background: rgba(0, 0, 0, 0.8); }\n    /* line 220, stdin */\n    .sidebar_opener .sidebar_opener__inside .material-icons {\n      -webkit-transition: opacity .3s ease;\n      -moz-transition: opacity .3s ease;\n      -ms-transition: opacity .3s ease;\n      -o-transition: opacity .3s ease;\n      font-size: 48px;\n      margin-left: 0;\n      color: white;\n      opacity: .5; }\n\n/* line 233, stdin */\n.infopanel {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  padding: 0;\n  width: 79%; }\n  @media screen and (min-width: 1600px) {\n    /* line 233, stdin */\n    .infopanel {\n      width: 85%; } }\n\n/* line 244, stdin */\n.is-cartela {\n  height: auto !important; }\n\n/* line 248, stdin */\n.sidebar_cartela {\n  -webkit-transition: all 0.5s ease 0.5s;\n  transition: all 0.5s ease 0.5s;\n  position: fixed;\n  bottom: 60px;\n  left: 0;\n  min-width: 40%; }\n  /* line 254, stdin */\n  .sidebar_cartela.expand-enter, .sidebar_cartela.expand-leave {\n    left: -800px; }\n\n/* line 259, stdin */\n.not-loading {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -150;\n  opacity: 0;\n  padding-top: 22%;\n  text-align: center;\n  background-color: rgba(50, 50, 50, 0.6);\n  -webkit-transition: opacity 0.5s;\n  transition: opacity 0.5s; }\n\n/* line 273, stdin */\n.loading {\n  opacity: 1;\n  color: white;\n  z-index: 150; }\n\n/* line 279, stdin */\n.pausado {\n  opacity: 0.3 !important; }\n\n/* line 283, stdin */\n#timeline {\n  position: relative;\n  width: 100%;\n  float: left; }\n  /* line 287, stdin */\n  #timeline .evento {\n    height: 100%;\n    position: absolute;\n    z-index: 1;\n    font-size: 20px;\n    cursor: pointer;\n    font-weight: 900;\n    background-color: rgba(247, 233, 63, 0.47);\n    padding: 4px;\n    box-sizing: border-box;\n    text-align: center; }\n    @media screen and (max-width: 1440px) {\n      /* line 287, stdin */\n      #timeline .evento {\n        font-size: 14px; } }\n  /* line 302, stdin */\n  #timeline .mdl-tooltip {\n    font-size: 14px; }\n\n/* line 307, stdin */\n#vid-buttons {\n  position: relative;\n  width: 100%;\n  float: left; }\n  /* line 311, stdin */\n  #vid-buttons button {\n    -webkit-transition: opacity .3s ease;\n    -moz-transition: opacity .3s ease;\n    -ms-transition: opacity .3s ease;\n    -o-transition: opacity .3s ease;\n    transition: opacity .3s ease;\n    /*color: rgb(96,125,139);*/\n    color: white;\n    opacity: .8;\n    height: 46px;\n    width: 46px; }\n    /* line 322, stdin */\n    #vid-buttons button:hover {\n      background-color: transparent;\n      opacity: 1; }\n  /* line 327, stdin */\n  #vid-buttons .material-icons {\n    font-size: 45px; }\n    /* line 329, stdin */\n    #vid-buttons .material-icons.margem {\n      margin-left: -7px; }\n    /* line 332, stdin */\n    #vid-buttons .material-icons.margem2 {\n      margin-left: -16px; }\n  /* line 336, stdin */\n  #vid-buttons .mdl-slider__container {\n    height: 42px; }\n  /* line 339, stdin */\n  #vid-buttons #volume {\n    width: 17%;\n    margin-left: 2%;\n    float: left; }\n    /* line 343, stdin */\n    #vid-buttons #volume .mdl-slider__background-upper {\n      background: rgba(255, 255, 255, 0.2); }\n"] = false
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
@@ -2691,26 +2795,26 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"../components/bg-video.vue":3,"../components/sidebar-block.vue":15,"../components/sidebar-info.vue":16,"../components/topbar-slider.vue":17,"jquery":39,"perfect-scrollbar":42,"underscore":65,"vue":69,"vue-hot-reload-api":66,"vueify-insert-css":70}],21:[function(require,module,exports){
+},{"../components/bg-video.vue":3,"../components/sidebar-block.vue":15,"../components/sidebar-info.vue":16,"../components/sidebar-link.vue":17,"../components/topbar-slider.vue":18,"jquery":40,"perfect-scrollbar":43,"underscore":66,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],22:[function(require,module,exports){
 module.exports = { "default": require("core-js/library/fn/object/assign"), __esModule: true };
-},{"core-js/library/fn/object/assign":22}],22:[function(require,module,exports){
+},{"core-js/library/fn/object/assign":23}],23:[function(require,module,exports){
 require('../../modules/es6.object.assign');
 module.exports = require('../../modules/$.core').Object.assign;
-},{"../../modules/$.core":25,"../../modules/es6.object.assign":35}],23:[function(require,module,exports){
+},{"../../modules/$.core":26,"../../modules/es6.object.assign":36}],24:[function(require,module,exports){
 module.exports = function(it){
   if(typeof it != 'function')throw TypeError(it + ' is not a function!');
   return it;
 };
-},{}],24:[function(require,module,exports){
+},{}],25:[function(require,module,exports){
 var toString = {}.toString;
 
 module.exports = function(it){
   return toString.call(it).slice(8, -1);
 };
-},{}],25:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 var core = module.exports = {version: '1.2.6'};
 if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
-},{}],26:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 // optional / simple context binding
 var aFunction = require('./$.a-function');
 module.exports = function(fn, that, length){
@@ -2731,13 +2835,13 @@ module.exports = function(fn, that, length){
     return fn.apply(that, arguments);
   };
 };
-},{"./$.a-function":23}],27:[function(require,module,exports){
+},{"./$.a-function":24}],28:[function(require,module,exports){
 // 7.2.1 RequireObjectCoercible(argument)
 module.exports = function(it){
   if(it == undefined)throw TypeError("Can't call method on  " + it);
   return it;
 };
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 var global    = require('./$.global')
   , core      = require('./$.core')
   , ctx       = require('./$.ctx')
@@ -2784,7 +2888,7 @@ $export.P = 8;  // proto
 $export.B = 16; // bind
 $export.W = 32; // wrap
 module.exports = $export;
-},{"./$.core":25,"./$.ctx":26,"./$.global":30}],29:[function(require,module,exports){
+},{"./$.core":26,"./$.ctx":27,"./$.global":31}],30:[function(require,module,exports){
 module.exports = function(exec){
   try {
     return !!exec();
@@ -2792,18 +2896,18 @@ module.exports = function(exec){
     return true;
   }
 };
-},{}],30:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 // https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
 var global = module.exports = typeof window != 'undefined' && window.Math == Math
   ? window : typeof self != 'undefined' && self.Math == Math ? self : Function('return this')();
 if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
-},{}],31:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 // fallback for non-array-like ES3 and non-enumerable old V8 strings
 var cof = require('./$.cof');
 module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
   return cof(it) == 'String' ? it.split('') : Object(it);
 };
-},{"./$.cof":24}],32:[function(require,module,exports){
+},{"./$.cof":25}],33:[function(require,module,exports){
 var $Object = Object;
 module.exports = {
   create:     $Object.create,
@@ -2817,7 +2921,7 @@ module.exports = {
   getSymbols: $Object.getOwnPropertySymbols,
   each:       [].forEach
 };
-},{}],33:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 // 19.1.2.1 Object.assign(target, source, ...)
 var $        = require('./$')
   , toObject = require('./$.to-object')
@@ -2851,18 +2955,18 @@ module.exports = require('./$.fails')(function(){
   }
   return T;
 } : Object.assign;
-},{"./$":32,"./$.fails":29,"./$.iobject":31,"./$.to-object":34}],34:[function(require,module,exports){
+},{"./$":33,"./$.fails":30,"./$.iobject":32,"./$.to-object":35}],35:[function(require,module,exports){
 // 7.1.13 ToObject(argument)
 var defined = require('./$.defined');
 module.exports = function(it){
   return Object(defined(it));
 };
-},{"./$.defined":27}],35:[function(require,module,exports){
+},{"./$.defined":28}],36:[function(require,module,exports){
 // 19.1.3.1 Object.assign(target, source)
 var $export = require('./$.export');
 
 $export($export.S + $export.F, 'Object', {assign: require('./$.object-assign')});
-},{"./$.export":28,"./$.object-assign":33}],36:[function(require,module,exports){
+},{"./$.export":29,"./$.object-assign":34}],37:[function(require,module,exports){
 /*
  * JavaScript MD5
  * https://github.com/blueimp/JavaScript-MD5
@@ -3143,7 +3247,7 @@ $export($export.S + $export.F, 'Object', {assign: require('./$.object-assign')})
   }
 }(this))
 
-},{}],37:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 
 
 //
@@ -3869,7 +3973,7 @@ Router.prototype.mount = function(routes, path) {
 
 
 }(typeof exports === "object" ? exports : window));
-},{}],38:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -3934,7 +4038,7 @@ process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
 };
 
-},{}],39:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.2.4
  * http://jquery.com/
@@ -13750,7 +13854,7 @@ if ( !noGlobal ) {
 return jQuery;
 }));
 
-},{}],40:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 /*
  Leaflet, a JavaScript library for mobile-friendly interactive maps. http://leafletjs.com
  (c) 2010-2013, Vladimir Agafonkin
@@ -22919,7 +23023,7 @@ L.Map.include({
 
 
 }(window, document));
-},{}],41:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 (function (global){
 /**
  * marked - a markdown parser
@@ -24208,17 +24312,17 @@ if (typeof module !== 'undefined' && typeof exports === 'object') {
 }());
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],42:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 'use strict';
 
 module.exports = require('./src/js/main');
 
-},{"./src/js/main":50}],43:[function(require,module,exports){
+},{"./src/js/main":51}],44:[function(require,module,exports){
 'use strict';
 
 module.exports = require('./src/js/adaptor/jquery');
 
-},{"./src/js/adaptor/jquery":44}],44:[function(require,module,exports){
+},{"./src/js/adaptor/jquery":45}],45:[function(require,module,exports){
 'use strict';
 
 var ps = require('../main');
@@ -24261,7 +24365,7 @@ if (typeof define === 'function' && define.amd) {
 
 module.exports = mountJQuery;
 
-},{"../main":50,"../plugin/instances":61}],45:[function(require,module,exports){
+},{"../main":51,"../plugin/instances":62}],46:[function(require,module,exports){
 'use strict';
 
 function oldAdd(element, className) {
@@ -24305,7 +24409,7 @@ exports.list = function (element) {
   }
 };
 
-},{}],46:[function(require,module,exports){
+},{}],47:[function(require,module,exports){
 'use strict';
 
 var DOM = {};
@@ -24391,7 +24495,7 @@ DOM.queryChildren = function (element, selector) {
 
 module.exports = DOM;
 
-},{}],47:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 'use strict';
 
 var EventElement = function (element) {
@@ -24464,7 +24568,7 @@ EventManager.prototype.once = function (element, eventName, handler) {
 
 module.exports = EventManager;
 
-},{}],48:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
 'use strict';
 
 module.exports = (function () {
@@ -24479,7 +24583,7 @@ module.exports = (function () {
   };
 })();
 
-},{}],49:[function(require,module,exports){
+},{}],50:[function(require,module,exports){
 'use strict';
 
 var cls = require('./class');
@@ -24564,7 +24668,7 @@ exports.env = {
   supportsIePointer: window.navigator.msMaxTouchPoints !== null
 };
 
-},{"./class":45,"./dom":46}],50:[function(require,module,exports){
+},{"./class":46,"./dom":47}],51:[function(require,module,exports){
 'use strict';
 
 var destroy = require('./plugin/destroy');
@@ -24577,7 +24681,7 @@ module.exports = {
   destroy: destroy
 };
 
-},{"./plugin/destroy":52,"./plugin/initialize":60,"./plugin/update":64}],51:[function(require,module,exports){
+},{"./plugin/destroy":53,"./plugin/initialize":61,"./plugin/update":65}],52:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -24596,7 +24700,7 @@ module.exports = {
   theme: 'default'
 };
 
-},{}],52:[function(require,module,exports){
+},{}],53:[function(require,module,exports){
 'use strict';
 
 var _ = require('../lib/helper');
@@ -24620,7 +24724,7 @@ module.exports = function (element) {
   instances.remove(element);
 };
 
-},{"../lib/dom":46,"../lib/helper":49,"./instances":61}],53:[function(require,module,exports){
+},{"../lib/dom":47,"../lib/helper":50,"./instances":62}],54:[function(require,module,exports){
 'use strict';
 
 var _ = require('../../lib/helper');
@@ -24682,7 +24786,7 @@ module.exports = function (element) {
   bindClickRailHandler(element, i);
 };
 
-},{"../../lib/helper":49,"../instances":61,"../update-geometry":62,"../update-scroll":63}],54:[function(require,module,exports){
+},{"../../lib/helper":50,"../instances":62,"../update-geometry":63,"../update-scroll":64}],55:[function(require,module,exports){
 'use strict';
 
 var _ = require('../../lib/helper');
@@ -24787,7 +24891,7 @@ module.exports = function (element) {
   bindMouseScrollYHandler(element, i);
 };
 
-},{"../../lib/dom":46,"../../lib/helper":49,"../instances":61,"../update-geometry":62,"../update-scroll":63}],55:[function(require,module,exports){
+},{"../../lib/dom":47,"../../lib/helper":50,"../instances":62,"../update-geometry":63,"../update-scroll":64}],56:[function(require,module,exports){
 'use strict';
 
 var _ = require('../../lib/helper');
@@ -24919,7 +25023,7 @@ module.exports = function (element) {
   bindKeyboardHandler(element, i);
 };
 
-},{"../../lib/dom":46,"../../lib/helper":49,"../instances":61,"../update-geometry":62,"../update-scroll":63}],56:[function(require,module,exports){
+},{"../../lib/dom":47,"../../lib/helper":50,"../instances":62,"../update-geometry":63,"../update-scroll":64}],57:[function(require,module,exports){
 'use strict';
 
 var instances = require('../instances');
@@ -25057,7 +25161,7 @@ module.exports = function (element) {
   bindMouseWheelHandler(element, i);
 };
 
-},{"../instances":61,"../update-geometry":62,"../update-scroll":63}],57:[function(require,module,exports){
+},{"../instances":62,"../update-geometry":63,"../update-scroll":64}],58:[function(require,module,exports){
 'use strict';
 
 var instances = require('../instances');
@@ -25074,7 +25178,7 @@ module.exports = function (element) {
   bindNativeScrollHandler(element, i);
 };
 
-},{"../instances":61,"../update-geometry":62}],58:[function(require,module,exports){
+},{"../instances":62,"../update-geometry":63}],59:[function(require,module,exports){
 'use strict';
 
 var _ = require('../../lib/helper');
@@ -25185,7 +25289,7 @@ module.exports = function (element) {
   bindSelectionHandler(element, i);
 };
 
-},{"../../lib/helper":49,"../instances":61,"../update-geometry":62,"../update-scroll":63}],59:[function(require,module,exports){
+},{"../../lib/helper":50,"../instances":62,"../update-geometry":63,"../update-scroll":64}],60:[function(require,module,exports){
 'use strict';
 
 var _ = require('../../lib/helper');
@@ -25363,7 +25467,7 @@ module.exports = function (element) {
   bindTouchHandler(element, i, _.env.supportsTouch, _.env.supportsIePointer);
 };
 
-},{"../../lib/helper":49,"../instances":61,"../update-geometry":62,"../update-scroll":63}],60:[function(require,module,exports){
+},{"../../lib/helper":50,"../instances":62,"../update-geometry":63,"../update-scroll":64}],61:[function(require,module,exports){
 'use strict';
 
 var _ = require('../lib/helper');
@@ -25402,7 +25506,7 @@ module.exports = function (element, userSettings) {
   updateGeometry(element);
 };
 
-},{"../lib/class":45,"../lib/helper":49,"./handler/click-rail":53,"./handler/drag-scrollbar":54,"./handler/keyboard":55,"./handler/mouse-wheel":56,"./handler/native-scroll":57,"./handler/selection":58,"./handler/touch":59,"./instances":61,"./update-geometry":62}],61:[function(require,module,exports){
+},{"../lib/class":46,"../lib/helper":50,"./handler/click-rail":54,"./handler/drag-scrollbar":55,"./handler/keyboard":56,"./handler/mouse-wheel":57,"./handler/native-scroll":58,"./handler/selection":59,"./handler/touch":60,"./instances":62,"./update-geometry":63}],62:[function(require,module,exports){
 'use strict';
 
 var _ = require('../lib/helper');
@@ -25511,7 +25615,7 @@ exports.get = function (element) {
   return instances[getId(element)];
 };
 
-},{"../lib/class":45,"../lib/dom":46,"../lib/event-manager":47,"../lib/guid":48,"../lib/helper":49,"./default-setting":51}],62:[function(require,module,exports){
+},{"../lib/class":46,"../lib/dom":47,"../lib/event-manager":48,"../lib/guid":49,"../lib/helper":50,"./default-setting":52}],63:[function(require,module,exports){
 'use strict';
 
 var _ = require('../lib/helper');
@@ -25639,7 +25743,7 @@ module.exports = function (element) {
   }
 };
 
-},{"../lib/class":45,"../lib/dom":46,"../lib/helper":49,"./instances":61,"./update-scroll":63}],63:[function(require,module,exports){
+},{"../lib/class":46,"../lib/dom":47,"../lib/helper":50,"./instances":62,"./update-scroll":64}],64:[function(require,module,exports){
 'use strict';
 
 var instances = require('./instances');
@@ -25753,7 +25857,7 @@ module.exports = function (element, axis, value) {
 
 };
 
-},{"./instances":61}],64:[function(require,module,exports){
+},{"./instances":62}],65:[function(require,module,exports){
 'use strict';
 
 var _ = require('../lib/helper');
@@ -25792,7 +25896,7 @@ module.exports = function (element) {
   dom.css(i.scrollbarYRail, 'display', '');
 };
 
-},{"../lib/dom":46,"../lib/helper":49,"./instances":61,"./update-geometry":62,"./update-scroll":63}],65:[function(require,module,exports){
+},{"../lib/dom":47,"../lib/helper":50,"./instances":62,"./update-geometry":63,"./update-scroll":64}],66:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -27342,7 +27446,7 @@ module.exports = function (element) {
   }
 }.call(this));
 
-},{}],66:[function(require,module,exports){
+},{}],67:[function(require,module,exports){
 var Vue // late bind
 var map = Object.create(null)
 var shimmed = false
@@ -27642,7 +27746,7 @@ function format (id) {
   return id.match(/[^\/]+\.vue$/)[0]
 }
 
-},{}],67:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 /*! Hammer.JS - v2.0.7 - 2016-04-22
  * http://hammerjs.github.io/
  *
@@ -30287,7 +30391,7 @@ if (typeof define === 'function' && define.amd) {
 
 })(window, document, 'Hammer');
 
-},{}],68:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 ;(function () {
 
   var vueTouch = {}
@@ -30453,7 +30557,7 @@ if (typeof define === 'function' && define.amd) {
 
 })()
 
-},{"hammerjs":67}],69:[function(require,module,exports){
+},{"hammerjs":68}],70:[function(require,module,exports){
 (function (process,global){
 /*!
  * Vue.js v1.0.24
@@ -40486,7 +40590,7 @@ setTimeout(function () {
 
 module.exports = Vue;
 }).call(this,require("oMfpAn"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"oMfpAn":38}],70:[function(require,module,exports){
+},{"oMfpAn":39}],71:[function(require,module,exports){
 var inserted = exports.cache = {}
 
 exports.insert = function (css) {
@@ -40506,4 +40610,4 @@ exports.insert = function (css) {
   return elem
 }
 
-},{}]},{},[18])
+},{}]},{},[19])

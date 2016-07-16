@@ -336,15 +336,15 @@
 		  					</div>
   						</div>
 
-  						<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
-  						<a href="/#/home" @click="drawer = false">	<i class="material-icons">chevron_left</i>	</a>
-						</button>
-						<span>Voltar ao início</span>
+  						<button v-if="view !== home-view" @click="getTo('#/')" class="mdl-button mdl-js-button" style="width: 100%;">
+	  						<i class="material-icons">chevron_left</i>
+	  						<span>Voltar ao início</span>
+							</button>
 
-				</div>
+						</div>
 
 					
-			  </div>
+			 		</div>
 			  </div>
 			  <div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button" @click="openDrawer"><i class="material-icons">menu</i></div>
 			  <main class="mdl-layout__content view" :is="view" transition="fade" :class="[className]" :db="db" :database="database" :params="params" :qualidade="qualidade" :acessibilidade.sync="acessibilidade" :ready.sync="ready" :user.sync="user" v-ref:view >
@@ -444,6 +444,10 @@
       }
 		},
 		methods: {
+			getTo: function(loc) {
+				window.location.hash = loc
+				this.drawer = false
+			},
 			disconnect: function() {
 				this.user = {
 					nome: "",
@@ -460,6 +464,7 @@
 				var opt = {
 					type: "popup",
 					name: "hipevideo",
+					persist: false,
 					scope:  { read: true, write: true, account: true },
 					expiration: "1hour",
 					success: function () {
