@@ -17,7 +17,7 @@
           <div class="mdl-layout-spacer"></div>
           <!-- Navigation. We hide it in small screens. -->
           <nav class="mdl-navigation mdl-layout--large-screen-only">
-            <a class="" @click.prevent="closeLink" style="color: rgb(66,66,66);" href="#"><i style="font-size: 35px; float: right; color: white;" class="material-icons">close</i></a>
+            <a class="" @click.prevent="closeLink" style="color: rgb(66,66,66);" href="#"><i style="font-size: 35px; float: right; color: white;" class="material-icons">arrow_back</i></a>
           </nav>
 
         </div>
