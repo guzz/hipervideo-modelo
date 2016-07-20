@@ -47,7 +47,7 @@
 </style>
 
 <template>
-  <div class="mdl-grid">
+  <div id="posts" class="mdl-grid">
     <div v-for="coment in conteudo.comentarios" class="mdl-cell mdl-cell--12-col">
       <div class="coment mdl-card mdl-shadow--2dp single-card mdl-grid">
         <div class="coment_usr mdl-cell mdl-cell--2-col">
@@ -103,10 +103,19 @@
 
     },
     attached: function() {
+      self=this
+      $$$('#posts a').on('click', function(e) {
+        e.preventDefault()
+        self.$parent.$parent.link = e.currentTarget.href
+      })
+
       componentHandler.upgradeDom()
     },
     beforeDestroy: function(){
-
+      $$$('#posts a').off('click', function(e) {
+        e.preventDefault()
+        self.$parent.$parent.link = e.currentTarget.href
+      })
     },
 
     methods: {

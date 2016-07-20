@@ -89,18 +89,21 @@
             url: 'http://opengraph.io/api/1.0/site/'+this.conteudo.links[i].link,
             crossDomain: true,
             dataType: 'json',
+            xhrFields: {
+              a: i
+            },
             success: function(data) {
               var t = {}
               if (data.error) {
-                t.nome = self.conteudo.links[i].nome
+                t.nome = self.conteudo.links[this.xhrFields.a].nome
                 t.img = "https://s3-sa-east-1.amazonaws.com/jardim-sites/hipervideo-modelo/fundo_link.png"
                 t.desc = ""
-                t.link = self.conteudo.links[i].link
+                t.link = self.conteudo.links[this.xhrFields.a].link
               } else {
                 t.nome = data.hybridGraph.title
                 t.img = data.hybridGraph.image
                 t.desc = data.hybridGraph.description
-                t.link = self.conteudo.links[i].link
+                t.link = self.conteudo.links[this.xhrFields.a].link
               }
               self.link_cards.push(t)
             }

@@ -288,7 +288,7 @@
     	height: 100%;
 	    position: absolute;
 	    z-index: 1;
-	    font-size: 20px;
+	    font-size: 14px;
 	    cursor: pointer;
 	    font-weight: 900;
 	    background-color: rgba(247, 233, 63, 0.47);
@@ -296,7 +296,7 @@
 	    box-sizing: border-box;
 	    text-align: center;
 	    @media screen and (max-width: 1440px) {
-				font-size: 14px;
+				font-size: 10px;
 			}
     }
     .mdl-tooltip {
