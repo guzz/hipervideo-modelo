@@ -1,4 +1,5 @@
 <style lang="scss">
+	@import "app/sass/globals";
 	#player {
 		height: 100%;
 		width: 100%;
@@ -93,7 +94,7 @@
 			height: 48px;
 		}
 		.mdl-layout__tab-bar-container {
-			background-color: red;
+			background-color: $bg;
 			height: 50px;
 		}
 		.mdl-layout__tab-bar-button {
@@ -289,9 +290,10 @@
 	    position: absolute;
 	    z-index: 1;
 	    font-size: 14px;
+	    overflow: hidden;
 	    cursor: pointer;
 	    font-weight: 900;
-	    background-color: rgba(247, 233, 63, 0.47);
+	    color: white;
 	    padding: 4px;
 	    box-sizing: border-box;
 	    text-align: center;
@@ -361,7 +363,7 @@
 				<!-- NAV-VIDEO -->
 				<nav id="timeline">
 					<div v-for="evento in db.eventos">
-						<div class="evento" :id="evento.card" @click="addBlockById(evento.id)">{{evento.title | uppercase | maxSize 8}}</div>
+						<div class="evento" :id="evento.card" @click="addBlockById(evento.id)">{{evento.title | uppercase }}</div>
 						<div class="mdl-tooltip mdl-tooltip--top" :for="evento.card">{{evento.title}}</div>
 					</div >
 					<in-topbar-slider :db="db"></in-topbar-slider>

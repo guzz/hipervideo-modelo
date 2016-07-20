@@ -16,7 +16,7 @@
 	}
 
 	.rangeslider__buffer {
-		background: rgba(255,255,255,0.2);
+		background: rgba(255,255,255,0);
 		position: absolute;
 		top: 0;
 		left: 0;

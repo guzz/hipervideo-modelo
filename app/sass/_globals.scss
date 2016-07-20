@@ -2,35 +2,5 @@
 
 // paleta de cores
 
-$color-video-1: #ed1e79;
-$color-video-2: #00a300;
-$color-video-3: #0cc;
-$color-video-4: #f00;
-$color-video-5: #00c;
-
-
-// links
-
-.link {
-	font-weight: 900;    
-	margin-bottom: 10px;
-	a {
-		display: block;
-		padding: 8px;
-		text-decoration: none;
-		line-height: 22px;
-	}
-}
-
-// utils
-
-.clickable {
-	cursor: pointer;
-}
-
-.disable-select {
-	-webkit-user-select: none;  
-	-moz-user-select: none;    
-	-ms-user-select: none;      
-	user-select: none;
-}
+$bg: #311B92;
+$link: #8BC34A;

@@ -1,5 +1,8 @@
 <style lang="scss">
-	$bg: red;
+	@import "app/sass/globals";
+	a {
+		color: $link;
+	}
 	.view {
 		height: 100%;
 		&.is-video {
