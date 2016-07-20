@@ -34,7 +34,7 @@
 	<div class="hipVid-status" :class="{'is-play': playing}">
 		<i id="pauseplay" class="fa fa-5x" :class="{'fa-play': playing, 'fa-pause': !playing}"></i>
 	</div>
-	<video :poster="db.headers.img" class="hipVid" :id="'hipVid-' + db.headers.id">
+	<video :poster="db.headers.img" class="hipVid" :id="'hipVid-' + db.headers.id" autoplay>
 		<source :src="db.headers.url + '_' + acessibilidade + '_' + queQualidade + '.mp4'" type="video/mp4" id="mp4">
 	</video>
 </template>
@@ -75,7 +75,12 @@
 			}
 		},
 		created: function() {
-			// this.qual = this.queQualidade(this.qualidade)
+			if (this.acessibilidade === "libras" && !this.db.headers.acessibilidade.libras) {
+				console.log('libras')
+				this.acessibilidade = "normal"
+			} else if (this.acessibilidade === "audio" && !this.db.headers.acessibilidade.audio) {
+				this.acessibilidade = "normal"
+			}
 		},
 		attached: function() {
 			
@@ -85,10 +90,6 @@
 			this.hipervideo.load()
 			var seekBar = $$$('#seek-bar-'+this.db.headers.id).get(0)
 			var selector = $$$('.rangeslider').get(0)
-
-			this.$on('pong', function() {
-				self.playing = true;
-			})
 
 			var tempoCorrido = function(array) {
 				var min = array[0]
@@ -119,12 +120,12 @@
 				setTimeout(function() {
 					$$$('#loading').removeClass('loading')
 					self.$dispatch('hipervideo-canplay')
-				}, 1000)
+				}, 500)
 			})
 
 			this.hipervideo.addEventListener("loadedmetadata" , function() {
 				var duracao = toFormat(self.hipervideo.duration)
-				this.play();
+				// this.play();
 				var tempoTotal = function(array) {
 					var min = array[0]
 					var sec = array[1]

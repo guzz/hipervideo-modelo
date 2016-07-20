@@ -265,7 +265,7 @@
       },
       "conteudo": {
         "texto": "",
-        "video_list": "PLMSHbkIRallm3ahHyjW7xXOBZ1e0YguRJ",
+        "videos": "PLMSHbkIRallm3ahHyjW7xXOBZ1e0YguRJ",
          "arquivos": [{
           "nome": "Guia Prático de Matriciamento em Saúde Mental",
           "link": "https://s3-sa-east-1.amazonaws.com/avnaweb/DAPES/BH/arquivos/Matriciamento.pdf"
@@ -284,7 +284,7 @@
       },
       "conteudo": {
         "texto": "",
-        "video_list": "PLMSHbkIRallnGm2PvVjeyB9gtiJkOesGM" 
+        "videos": "PLMSHbkIRallnGm2PvVjeyB9gtiJkOesGM" 
       }
     },
     {

@@ -1,7 +1,7 @@
 <style lang="scss">
 	.mdl-card {
 		width: auto;
-		min-height: 270px;
+		min-height: 150px;
 		-webkit-transition: all .3s ease;
 		   -moz-transition: all .3s ease;
 		    -ms-transition: all .3s ease;
@@ -46,7 +46,7 @@
 		padding: 0;
     	margin: 73px auto;
     	@media screen and (min-width: 1440px) {
-			margin: 100px auto;
+			margin: 95px auto;
 		}
     .play-img {
     	position: absolute;
@@ -62,11 +62,12 @@
 			     -o-transition: all .1s ease;
 			        transition: all .1s ease;
     	overflow: visible;
+    	transform: scale(.7);
     	&:hover {
     		background-color: transparent;
-    		transform: scale(1.1);
+    		transform: scale(.8);
     		.dot {
-    			color: red;
+    			color: rgb(255,82,82);
     		}
     	}
     }
@@ -78,8 +79,8 @@
 		    margin-left: 11px;
 		    z-index: 1;
 		    @media screen and (min-width: 1440px) {
-					font-size: 63px;
-    			margin-left: 21px;
+					font-size: 68px;
+    			margin-left: 18px;
 				}
     		}
     		@media screen and (min-width: 1440px) {
@@ -87,13 +88,6 @@
     		left: -60%;
 			}
     }
-	}
-
-
-
-	.icons {
-		font-size: 20px;
-		vertical-align: middle;
 	}
 
 	.clear {
@@ -109,9 +103,10 @@
 		    -ms-transition: all .4s ease .1s;
 		     -o-transition: all .4s ease .1s;
 		        transition: all .4s ease .1s;
-		height: 56%;
+		height: 60%;
 		overflow: hidden;
-		background-image: url("http://i.imgur.com/wOWmkC7.jpg");
+		position: relative;
+		background: transparent;
 		&.aberto {
 			height: 0;
 			padding: 0;
@@ -119,101 +114,36 @@
 
 	}
 
-	.banner-data {
-		filter:alpha(opacity=100);
-    	opacity: 1;
-	    -moz-opacity: 1;
-	    -webkit-opacity: 1;
-	    color: white;
-	}
-
-	.banner-overlay {
-		filter:alpha(opacity=50);
-    	opacity: 0.5;
-	    -moz-opacity:0.5;
-	    -webkit-opacity:0.5;
-	}
-
-	.banner-owner {
-		filter:alpha(opacity=100);
-    	opacity: 1;
-	    -moz-opacity: 1;
-	    -webkit-opacity: 1;
-	}
-
 
 // Classes das divs internas dos containers
 
-	#video-data {
-		width: 90%;
-		margin-left: 5%;
-		padding-top: 10px;
-		padding-bottom: 10px;
-	}
+	.content{
+		margin-top: 64px;
 
-	#video-title {
-		margin-bottom: 5px;
-		font-size: 30px;
-		text-align: center;
-		line-height: 30px;
-	}
-
-	#video-length {
-		width: 25%;
-		margin-left: 5%;
-		float: left;
-	}
-
-	#video-qual {
-		width: 25%;
-		text-align: center;
-		margin-left: 7.5%;
-		margin-right: 7.5%;
-		float: left;
-	}
-
-	#video-acce {
-		width: 25%;
-		margin-right: 5%;
-		text-align: right;
-		float: left;
-	}
-
-	#video-description {
-		clear: left;
-		margin-top: 10%;
-		margin-bottom: 5%;
-	}
-
-	#video-perks {
-		float: left;
-		width: 40%;
-		margin-left: 5%;
-	}
-
-	#video-play {
-		float: right;
-		width: 40%;
-		text-align: center;
-		margin-right: 5%;
-	}
-
-	#video-owner {
-		text-align: center;
-		color: white;
-		margin-top: 5%;
-	}
+		@media screen and (max-width: 1023px) {
+				margin-top: 56px;	
+			}
+	}		
 
 	.hiper-list {
 		padding: 0 50px;
 		margin-bottom: 0;
 		.slick-slide {
 			margin-top: 16px;
-/*			&:hover {
-				transform: scale(1.1);
-		    margin-left: 16px;
-		    margin-right: 16px;
-			}*/
+			.material-icons {
+				color: white;
+				-webkit-transition: all .2s ease;
+				   -moz-transition: all .2s ease;
+				    -ms-transition: all .2s ease;
+				     -o-transition: all .2s ease;
+				        transition: all .2s ease;
+				opacity: 0;
+			}
+			&:hover {
+				.material-icons {
+					opacity: 1;
+				}
+			}
 		}
 		.slick-list {
 			margin-bottom: 0;
@@ -224,7 +154,7 @@
 	    top: 8px;
 	    position: absolute;
 	    width: 40px;
-	    color: black;
+	    color: gainsboro;
 	    position: absolute;
 	    border: none;
 	    cursor: pointer;
@@ -242,7 +172,8 @@
 	    }
 	    &.slick-disabled {
 	    	.material-icons {
-	    		color: gainsboro;
+	    		color: black;
+	    		opacity: .5
 	    	}
 	    }
 	    &:hover {
@@ -262,102 +193,86 @@
 		.list-next {
 			right: 9px;
 		}
-	}
+		.slider-cards {
+			&.select {
+				.mdl-card {
+					border: 5px solid white;
+					.mdl-card__menu {
+						.mdl-button {
+							opacity: 0!important;
+							cursor: default;
+						}
+					}
+					.play-div {
+						.material-icons {
+							opacity: 1!important;
+						}
+					}
+				}
+			}
+			@media screen and (max-width: 720px){
+				max-height: 140px;
+			}
+		}
+		.single-card {
+			max-height: auto!important;
+			@media screen and (max-width: 730px){
+				max-height: 20px!important;
+			}
+		}
+		.mdl-card__menu {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			.mdl-button {
+				width: 100%;
+				&:hover {
+					background: transparent;
+					.material-icons {
+						transform: scale(1.2)
+					}
+				}
+				.material-icons {
+					font-size: 60px;
+			    text-shadow: 1px 3px 8px black;
+			    margin-top: -9px;
+			    color: white;
+				}
+			}
+		}
 
+	}
 </style>
 
 <template>
-<div id="content" style="margin-top: 64px">
+<div id="content" class="content">
 	
 	<div class="mdl-grid banner-conteiner">
-		<div class="mdl-cell mdl-cell--6-col banner-data">
-
-			<div id="video-data">
-				<div id="video-title">Título longo pra caramba de exemplo de um vídeo</div>
-				
-				<div id="video-length">
-					<i class="fa fa-clock-o icons"></i> 01:15:25
-				</div>
-				
-				<div id="video-qual">
-					<i class="material-icons icons">videocam</i>
-					<i class="material-icons icons">hd</i>
-					<i class="material-icons icons" style="color: red">hd</i>
-				</div>
-				
-				<div id="video-acce">
-					<i class="fa fa-audio-description"></i>
-					<i class="fa fa-cc"></i>
-					<i class="fa fa-signing"></i>
-				</div>
-			
-				<div id="video-description">
-					Esta é uma descrição de exemplo de um vídeo que tem uma hora de duração, quinze minutos e vinte e cinco segundos. Alem disso ele conta com versões em alta qualidade (720p) e Full HD (1080p) e ainda conta com closed captions (legendas) e descrição do vídeo em audio.
-				</div>
-
-				<div id="video-perks">
-					<i class="material-icons icons">check_circle</i> Perk 1 <br>
-					<i class="material-icons icons">check_circle</i> Perk 2 <br>
-					<i class="material-icons icons">check_circle</i> Perk 3 <br>
-				</div>
-
-				<div id="video-play">
-				  	<a class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" href="#">
-			  		<i class="material-icons dot">play_arrow</i>
-					<i class="material-icons">play_circle_outline</i>
-			    	</a>
-				</div>
-
-				<div class="clear"> </div>
-
-			</div>
-
-		</div>
 		
-		<div class="mdl-cell mdl-cell--4-col banner-overlay">
-		</div>
-		
-		<div class="mdl-cell mdl-cell--2-col banner-owner">
-			
-			<div id="video-owner">
-				<div>
-				Jardim Digital
-				</div>
-			</div>
-
-		</div>
+		<banner-conteiner :banner.sync="banner" v-if="banner"></banner-conteiner>
+		<div style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: -2; background: black"></div>
 
 	</div>
 
-	<div class="mdl-grid hiper-list">
+	<div class="mdl-grid hiper-list slider-cards">
 
-	  <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone" id="hip-{{hipId[$index]}}" v-for="hipervideo in database" transition="fade">
-	  	<div class="demo-card-wide mdl-card mdl-shadow--2dp">
-			  <div class="mdl-card__title display-home" :class="{ativo: home}">
+	  <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone slider-cards" :class="{ select: banner !== null && banner.id === database[$index].headers.id }" id="hip-{{hipId[$index]}}" v-for="hipervideo in database" transition="fade">
+	  	<div class="mdl-card mdl-shadow--2dp single-card" style="background-size: 100% 100%;" :style="{'background-image': 'url('+hipervideo.headers.img+')'}">
+			  <div class="mdl-card__title display-home">
 			    <h2 class="mdl-card__title-text">{{hipervideo.headers.nome}}</h2>
 			  </div>
-			  <div class="mdl-card__supporting-text display-home" :class="{ativo: home}">
-			    {{{ hipervideo.headers.descricao | marked }}}
-			  </div>
 			  <dir class="play-div">
-			  	<img v-if="hipervideo.headers.img" :src="hipervideo.headers.img" class="play-img">
+			  	<!-- <img v-if="hipervideo.headers.img" :src="hipervideo.headers.img" class="play-img"> -->
 			  	<a class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" href="/#/{{hipId[$index]}}">
 			  		<i class="material-icons dot">play_arrow</i>
 			      <i class="material-icons">play_circle_outline</i>
 			    </a>
 			  </dir>
-			  <div class="mdl-card__actions mdl-card--border display-home" :class="{ativo: !home}" style="padding:0;">
-			    <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="/#/home/{{hipId[$index]}}" style="width:100%;">
-			      {{hipervideo.headers.nome}}
-			    </a>
-			  </div>
 			  <div class="mdl-card__menu">
-			    <a class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" v-if="!home" href="/#/home/{{hipId[$index]}}">
-			      <i class="material-icons">add</i>
-			    </a>
-			    <a class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" v-if="home" href="/#/home">
-			      <i class="material-icons">close</i>
-			    </a>
+			    <button class="mdl-button mdl-js-button" v-if="!home" @click="changeBanner($index)">
+			      <i class="material-icons">expand_less</i>
+			    </button>
 			  </div>
 			</div>
 	  </div>
@@ -372,10 +287,11 @@
 	var marked = require('marked')
 	module.exports = {
 		replace: true,
-		props: ['database', 'ready'],
+		props: ['database', 'ready', 'user'],
 		data: function(){
 			return {
-				home: false
+				home: false,
+				banner: null
 			}
 		},
 		methods: {
@@ -391,6 +307,15 @@
 				$$$('.'+id).removeClass('ativo')
 				var head = $$$('header')
 				head.removeClass('ativo')
+			},
+			changeBanner: function(id) {
+				var self = this
+				if (this.banner.id !== this.database[id].headers.id) {
+					this.banner = null
+					setTimeout(function() {
+						self.banner = self.database[id].headers
+					}, 1000)
+				}
 			}
 		},
 		computed: {
@@ -404,6 +329,17 @@
 					}
 					return ids
       	}
+      },
+      isSelect: function() {
+      	var states = []
+      	for (var i = 0; i < this.database.length; i++) {
+      		if (this.database[i].id === this.banner.id ) {
+      			states.push(true)
+      		} else {
+      			states.push(false)
+      		}
+      	}
+      	return states
       }
 		},
 		attached: function () {
@@ -464,9 +400,9 @@
 			}
 
 			this.ready = true
+			this.banner = this.database[0].headers
 
 			componentHandler.upgradeDom()
-
 
 			jQuery('.hiper-list').slick({
         infinite: false,
@@ -481,14 +417,25 @@
         			slidesToShow: 1,
         			slidesToScroll: 1
         		}
+<<<<<<< HEAD
+=======
+        	},
+        	{
+        		breakpoint: 1440,
+        		settings: {
+        			slidesToShow: 3,
+        			slidesToScroll: 3
+        		}
+>>>>>>> guzz
         	}
         ]
       })
 
+      jQuery('.hiper-list').slick('slickGoTo', 0)
 
 		},
 		components: {
-			
+			'banner-conteiner': require('../components/banner-conteiner.vue')
 		},
 		filters: {
       marked: function(value) {

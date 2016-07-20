@@ -1,5 +1,5 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-var __vueify_style__ = require("vueify-insert-css").insert("@charset \"UTF-8\";\n/* line 2, stdin */\n.view {\n  height: 100%; }\n  /* line 4, stdin */\n  .view.is-video {\n    overflow: hidden; }\n\n/* line 8, stdin */\n.context-bg {\n  background-color: #607d8b; }\n\n/* line 11, stdin */\n.app_load {\n  position: fixed;\n  top: 0;\n  left: 0;\n  overflow: hidden;\n  height: 100%;\n  width: 100%;\n  background-color: #ffffff;\n  z-index: 4; }\n\n/* line 22, stdin */\n#p1 {\n  margin: 22% auto; }\n\n/* line 26, stdin */\n.header-top {\n  -webkit-transition: width .3s ease;\n  -moz-transition: width .3s ease;\n  -ms-transition: width .3s ease;\n  -o-transition: width .3s ease;\n  transition: width .3s ease;\n  -webkit-transition: height .6s ease;\n  -moz-transition: height .6s ease;\n  -ms-transition: height .6s ease;\n  -o-transition: height .6s ease;\n  transition: height .6s ease; }\n  /* line 37, stdin */\n  .header-top.home-menu {\n    width: 5%;\n    min-height: 0;\n    height: 0; }\n    /* line 41, stdin */\n    .header-top.home-menu .mdl-layout-title {\n      display: none; }\n  /* line 45, stdin */\n  .header-top.hide {\n    display: none; }\n\n/* line 49, stdin */\n.fade-transition {\n  -webkit-transition: opacity .6s ease;\n  transition: opacity .6s ease;\n  opacity: 1; }\n\n/* line 53, stdin */\n.fade-enter, .fade-leave {\n  opacity: 0;\n  position: absolute;\n  width: 100%; }\n\n/* line 58, stdin */\n.grow-transition {\n  min-height: inherit; }\n\n/* line 61, stdin */\n.grow-enter, .grow-leave {\n  min-height: 0;\n  height: 0; }\n\n/* line 65, stdin */\n.header__down {\n  min-height: 500px; }\n  @media screen and (max-width: 1024px) {\n    /* line 65, stdin */\n    .header__down {\n      min-height: 190px; } }\n  @media screen and (max-width: 1366px) {\n    /* line 65, stdin */\n    .header__down {\n      min-height: 350px; } }\n\n@media screen and (max-width: 1024px) {\n  /* line 74, stdin */\n  .mdl-layout__header {\n    display: block; } }\n\n/* line 79, stdin */\n.mdl-layout__drawer {\n  overflow: hidden;\n  overflow: hidden;\n  -webkit-transform: translateX(-100%);\n          transform: translateX(-100%); }\n  /* line 83, stdin */\n  .mdl-layout__drawer .mdl-cell--12-col {\n    width: 100%; }\n\n/* line 91, stdin */\n.gravatar {\n  border-radius: 150px;\n  width: 40%;\n  height: 40%;\n  margin-left: 30%; }\n\n/* line 98, stdin */\n.user-avatar {\n  width: 100%;\n  height: 30%; }\n\n/* line 103, stdin */\n.user-data {\n  width: 100%;\n  text-align: center; }\n\n/* line 108, stdin */\n.user-name {\n  font-size: 30px; }\n\n/* line 112, stdin */\n.user-info {\n  font-size: 18px; }\n\n/* estilo do botão conecte-se */\n/* line 117, stdin */\n.connecte-se {\n  width: 100%;\n  height: 100px;\n  font-size: 200%; }\n  @media screen and (max-width: 800px) {\n    /* line 117, stdin */\n    .connecte-se {\n      font-size: 120% !important; } }\n\n/* line 126, stdin */\n.qual-label {\n  width: 100%; }\n  /* line 129, stdin */\n  .qual-label span {\n    -webkit-transition: all .1s ease;\n    -moz-transition: all .1s ease;\n    -ms-transition: all .1s ease;\n    -o-transition: all .1s ease;\n    transition: all .1s ease; }\n  /* line 136, stdin */\n  .qual-label .active {\n    font-weight: 900;\n    font-size: 16px; }\n  /* line 140, stdin */\n  .qual-label .span {\n    margin: 0 27%;\n    text-align: center; }\n\n/* line 147, stdin */\n.acess {\n  margin-top: 0;\n  padding-top: 0; }\n  /* line 150, stdin */\n  .acess li {\n    min-height: 37px;\n    padding: 0 20px; }\n\n/* line 155, stdin */\n.mdl-layout__drawer-button {\n  -webkit-transition: height .3s ease;\n  -moz-transition: height .3s ease;\n  -ms-transition: height .3s ease;\n  -o-transition: height .3s ease;\n  transition: height .3s ease; }\n  /* line 161, stdin */\n  .home-open .mdl-layout__drawer-button {\n    background: #607d8b;\n    margin: 0;\n    padding: 10px;\n    height: 97%; }\n    @media screen and (min-width: 1440px) {\n      /* line 161, stdin */\n      .home-open .mdl-layout__drawer-button {\n        padding: 20px;\n        height: 95.5%; } }\n\n/* line 173, stdin */\n.infos {\n  cursor: default; }\n\n/* line 177, stdin */\n.drawer-cards {\n  width: 90%;\n  margin-bottom: 4%;\n  min-height: auto !important; }\n\n/* line 185, stdin */\n.mdl-layout__container {\n  top: 0;\n  left: 0;\n  background-color: white; }\n\n/* line 191, stdin */\n.qual-div1 {\n  text-align: left;\n  width: 33%; }\n\n/* line 196, stdin */\n.qual-div2 {\n  text-align: center;\n  width: 33%; }\n\n/* line 201, stdin */\n.qual-div3 {\n  text-align: right;\n  width: 33%; }\n\n/* line 206, stdin */\n.slider-wrap {\n  width: 100%; }\n")
+var __vueify_style__ = require("vueify-insert-css").insert("@charset \"UTF-8\";\n/* line 3, stdin */\n.view {\n  height: 100%; }\n  /* line 5, stdin */\n  .view.is-video {\n    overflow: hidden; }\n\n/* line 9, stdin */\n.context-bg {\n  background-color: red; }\n\n/* line 12, stdin */\n.app_load {\n  position: fixed;\n  top: 0;\n  left: 0;\n  overflow: hidden;\n  height: 100%;\n  width: 100%;\n  background-color: #ffffff;\n  z-index: 4; }\n\n/* line 23, stdin */\n#p1 {\n  margin: 22% auto; }\n\n/* line 27, stdin */\n.header-top {\n  -webkit-transition: width .3s ease;\n  -moz-transition: width .3s ease;\n  -ms-transition: width .3s ease;\n  -o-transition: width .3s ease;\n  transition: width .3s ease;\n  -webkit-transition: height .6s ease;\n  -moz-transition: height .6s ease;\n  -ms-transition: height .6s ease;\n  -o-transition: height .6s ease;\n  transition: height .6s ease;\n  color: white; }\n  /* line 39, stdin */\n  .header-top.home-menu {\n    width: 5%;\n    min-height: 0;\n    height: 0; }\n    /* line 43, stdin */\n    .header-top.home-menu .mdl-layout-title {\n      display: none; }\n  /* line 47, stdin */\n  .header-top.hide {\n    display: none; }\n\n/* line 51, stdin */\n.fade-transition {\n  -webkit-transition: opacity .6s ease;\n  transition: opacity .6s ease;\n  opacity: 1; }\n\n/* line 55, stdin */\n.fade-enter, .fade-leave {\n  opacity: 0;\n  position: absolute;\n  width: 100%; }\n\n/* line 60, stdin */\n.grow-transition {\n  min-height: inherit; }\n\n/* line 63, stdin */\n.grow-enter, .grow-leave {\n  min-height: 0;\n  height: 0; }\n\n/* line 67, stdin */\n.header__down {\n  min-height: 500px; }\n  @media screen and (max-width: 1024px) {\n    /* line 67, stdin */\n    .header__down {\n      min-height: 190px; } }\n  @media screen and (max-width: 1366px) {\n    /* line 67, stdin */\n    .header__down {\n      min-height: 350px; } }\n\n@media screen and (max-width: 1024px) {\n  /* line 76, stdin */\n  .mdl-layout__header {\n    display: block; } }\n\n/* line 81, stdin */\n.mdl-layout__drawer {\n  overflow-x: hidden;\n  -webkit-transform: translateX(-100%);\n          transform: translateX(-100%); }\n  /* line 84, stdin */\n  .mdl-layout__drawer .mdl-cell--12-col {\n    width: 100%; }\n\n/* line 92, stdin */\n.gravatar {\n  border-radius: 150px;\n  width: 40%;\n  height: 40%;\n  margin-left: 30%; }\n\n/* line 99, stdin */\n.user-avatar {\n  width: 100%;\n  height: 30%; }\n\n/* line 104, stdin */\n.user-data {\n  width: 100%;\n  text-align: center; }\n\n/* line 109, stdin */\n.user-name {\n  font-size: 30px; }\n\n/* line 113, stdin */\n.user-info {\n  font-size: 18px; }\n\n/* estilo do botão conecte-se */\n/* line 118, stdin */\n.connecte-se {\n  width: 100%;\n  height: 45px;\n  font-size: 150%; }\n  @media screen and (max-width: 800px) {\n    /* line 118, stdin */\n    .connecte-se {\n      font-size: 120% !important; } }\n\n/* line 127, stdin */\n.qual-label {\n  width: 100%; }\n  /* line 130, stdin */\n  .qual-label span {\n    -webkit-transition: all .1s ease;\n    -moz-transition: all .1s ease;\n    -ms-transition: all .1s ease;\n    -o-transition: all .1s ease;\n    transition: all .1s ease; }\n  /* line 137, stdin */\n  .qual-label .active {\n    font-weight: 900;\n    font-size: 16px; }\n  /* line 141, stdin */\n  .qual-label .span {\n    margin: 0 27%;\n    text-align: center; }\n\n/* line 148, stdin */\n.acess {\n  margin-top: 0;\n  padding-top: 0; }\n  /* line 151, stdin */\n  .acess li {\n    min-height: 37px;\n    padding: 0 20px; }\n\n/* line 156, stdin */\n.mdl-layout__drawer-button {\n  -webkit-transition: all .6s ease;\n  -moz-transition: all .6s ease;\n  -ms-transition: all .6s ease;\n  -o-transition: all .6s ease;\n  transition: all .6s ease;\n  color: white; }\n  /* line 163, stdin */\n  .is-video .mdl-layout__drawer-button {\n    margin: 0;\n    background-color: rgba(0, 0, 0, 0.1); }\n    /* line 166, stdin */\n    .is-video .mdl-layout__drawer-button:hover {\n      background-color: rgba(0, 0, 0, 0.5); }\n\n/* line 172, stdin */\n.infos {\n  cursor: default; }\n\n/* line 176, stdin */\n.drawer-cards {\n  width: 90%;\n  margin: 5px auto;\n  min-height: auto !important; }\n  @media screen and (max-width: 550px) {\n    /* line 176, stdin */\n    .drawer-cards {\n      max-height: 180px !important; } }\n\n/* line 187, stdin */\n.mdl-layout__container {\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0.9); }\n\n/* line 193, stdin */\n.qual-div1 {\n  text-align: left;\n  width: 33%; }\n\n/* line 198, stdin */\n.qual-div2 {\n  text-align: center;\n  width: 33%; }\n\n/* line 203, stdin */\n.qual-div3 {\n  text-align: right;\n  width: 33%; }\n\n/* line 208, stdin */\n.slider-wrap {\n  width: 100%; }\n")
 'use strict';
 
 var _ = require('underscore');
@@ -24,7 +24,8 @@ module.exports = {
 			email: "",
 			img: "",
 			board: "",
-			connected: false
+			connected: false,
+			data: {}
 		},
 		params: {
 			video: null,
@@ -33,10 +34,10 @@ module.exports = {
 	},
 	watch: {
 		qualidade: function qualidade(_qualidade) {
-			document.cookie = "qualidade = " + _qualidade;
+			document.cookie = "qualidade=" + _qualidade;
 		},
 		acessibilidade: function acessibilidade(val) {
-			document.cookie = "acessibilidade = " + val;
+			document.cookie = "acessibilidade=" + val;
 		}
 	},
 	computed: {
@@ -63,16 +64,50 @@ module.exports = {
 		},
 		isVideo: function isVideo() {
 			return this.$data.view === 'video-view';
+		},
+		hasAudio: function hasAudio() {
+			if (this.db && this.db.headers.acessibilidade.audio) {
+				return false;
+				componentHandler.upgradeDom();
+			} else {
+				return true;
+				componentHandler.upgradeDom();
+			}
+		},
+		hasLibras: function hasLibras() {
+			if (this.db && this.db.headers.acessibilidade.libras) {
+				return false;
+				componentHandler.upgradeDom();
+			} else {
+				return true;
+				componentHandler.upgradeDom();
+			}
 		}
 	},
 	methods: {
+		getTo: function getTo(loc) {
+			window.location.hash = loc;
+			this.drawer = false;
+		},
+		disconnect: function disconnect() {
+			this.user = {
+				nome: "",
+				email: "",
+				img: "",
+				board: "",
+				connected: false
+			};
+			document.cookie = "user=false";
+			localStorage.removeItem('trello_token');
+		},
 		connectTrello: function connectTrello() {
 			var self = this;
 			var opt = {
 				type: "popup",
 				name: "hipevideo",
+				persist: false,
 				scope: { read: true, write: true, account: true },
-				expiration: "never",
+				expiration: "1hour",
 				success: function success() {
 					self.user.connected = true;
 					document.cookie = "user=true";
@@ -126,6 +161,9 @@ module.exports = {
 			} else if (!obj.target.checked) {
 				this.acessibilidade = "normal";
 			}
+		},
+		acessLegenda: function acessLegenda(obj) {
+			console.log(obj);
 		},
 		getCookie: function getCookie(cname) {
 			var name = cname + "=";
@@ -201,14 +239,18 @@ module.exports = {
 		'video-view': require('./views/video-view.vue')
 	}
 };
+<<<<<<< HEAD
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div>\n\t<div class=\"app_load\" v-if=\"!ready\" transition=\"fade\">\n\t\t<div id=\"p1\" class=\"mdl-progress mdl-js-progress mdl-progress__indeterminate\"></div>\n\t</div>\n\t\t<div id=\"full\" allowfullscreen=\"true\">\n\t\t\t<div class=\"mdl-layout mdl-js-layout\" :class=\"{ 'home-open': home }\">\n\t\t\t\t<header class=\"mdl-layout__header mdl-layout__header--waterfall header-top\" :class=\"{ 'home-menu': home }\" v-if=\"!isVideo\" transition=\"grow\" style=\"position: absolute; background-color: rgba(0, 0, 0, .5);\">\n\t\t\t    <!-- Top row, always visible -->\n\t\t\t    <div class=\"mdl-layout__header-row\">\n\t\t\t      <!-- Title -->\n\t\t\t      <span class=\"mdl-layout-title\">Hipervideo</span>\n\t\t\t      <div class=\"mdl-layout-spacer\"></div>\n\t\t\t      <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--expandable\n\t\t\t                  mdl-textfield--floating-label mdl-textfield--align-right\">\n\t\t\t        <label class=\"mdl-button mdl-js-button mdl-button--icon\" for=\"waterfall-exp\">\n\t\t\t          <i class=\"material-icons\">search</i>\n\t\t\t        </label>\n\t\t\t        <div class=\"mdl-textfield__expandable-holder\">\n\t\t\t          <input class=\"mdl-textfield__input\" type=\"text\" name=\"sample\" id=\"waterfall-exp\">\n\t\t\t        </div>\n\t\t\t      </div>\n\t\t\t    </div>\n\t\t\t  </header>\n\t\t\t\n\t\t\t<div class=\"mdl-layout__drawer\" :class=\"{'is-visible': drawer}\">\n\t\t\t<div class=\"mdl-grid\" style=\"padding: 0;\">\n\t\t\t\t<div class=\"mdl-cell mdl-cell--12-col\" style=\"margin: 0;\">\n\t\t\t\t\t\n\t\t\t\t\t\t<!-- Card Avatar -->\n  \t\t\t\t\t\t<div class=\"mdl-card mdl-shadow--4dp drawer-cards\">\n\n\t\t  \t\t\t\t\t<div class=\"mdl-card__supporting-text\">\n\t\t\t\t\t\t\t\t\t\t\n\t\t  \t\t\t\t\t\t\t\t<div class=\"user-avatar\">\n\n\t\t\t\t\t\t\t\t\t\t<button @click=\"connectTrello\" v-if=\"!isConnected\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored connecte-se\">\n\t\t\t\t\t\t\t\t\t\t  CONECTE-SE\n\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<img :src=\"user.img\" v-if=\"isConnected\" class=\"gravatar\" transition=\"fade\">\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t<div class=\"user-data\">\n\t\t\t\t\t\t\t\t\t\t\t<p class=\"user-name\" v-if=\"isConnected\" transition=\"fade\">@{{user.nome}}</p>\n\t\t\t\t\t\t\t\t\t    \t<p class=\"user-info\" v-if=\"isConnected\" transition=\"fade\">{{user.email}}</p>\n\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t  \t\t\t\t\t</div>\n  \t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<!-- Card Qualidade -->\n\t\t  \t\t\t\t<div class=\"mdl-card mdl-shadow--4dp drawer-cards\">\n\t\t  \t\t\t\t\t\n\t\t  \t\t\t\t\t<div class=\"mdl-card__title\">\n\t\t  \t\t\t\t\t\t<h4 class=\"mdl-card__title-text\">Qualidade</h4>\n\t\t  \t\t\t\t\t</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"mdl-card__supporting-text\">\n\t  \t\t\t\t\t\t\t\n\t  \t\t\t\t\t\t\t<div class=\"slider-wrap\">\n\t\t\t\t\t\t\t\t\t\t<input class=\"mdl-slider mdl-js-slider\" type=\"range\" min=\"0\" max=\"2\" :value=\"qualidade\" tabindex=\"0\" step=\"1\" @input=\"mudaQual\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"mdl-grid mdl-grid--no-spacing\">\n\t\t  \t\t\t\t\t\t\t\n\t\t  \t\t\t\t\t\t\t<div class=\"qual-label qual-div1\">\n\t\t  \t\t\t\t\t\t\t\t<span :class=\"{ active: isBaixa }\">Baixa</span>\n\t\t  \t\t\t\t\t\t\t</div>\n\n\t  \t\t\t\t\t\t\t\t<div class=\"qual-label qual-div2\">\n\t  \t\t\t\t\t\t\t\t\t<span :class=\"{ active: isMedia }\">Média</span>\n\t  \t\t\t\t\t\t\t\t</div>\n\n\t  \t\t\t\t\t\t\t\t<div class=\"qual-label qual-div3\">\n\t  \t\t\t\t\t\t\t\t\t<span :class=\"{ active: isAlta }\">Alta</span>\n\t  \t\t\t\t\t\t\t\t</div>\n\n\t\t  \t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n  \t\t\t\t\t\t</div>\n  \t\t\t\t\t\t\n\t\t\t\t\t\t<!-- Card Acessibilidade -->\n  \t\t\t\t\t\t<div class=\"mdl-card mdl-shadow--4dp drawer-cards\">\n\n\t\t  \t\t\t\t\t<div class=\"mdl-card__title\">\n\t\t  \t\t\t\t\t\t<h4 class=\"mdl-card__title-text\">Acessibilidade</h4>\n\t\t  \t\t\t\t\t</div>\n\n\t\t  \t\t\t\t\t<div class=\"mdl-card__supporting-text\">\n\t\t  \t\t\t\t\t\t<div class=\"mdl-grid\">\n\t\t  \t\t\t\t\t\t\t<div class=\"mdl-cell mdl-cell--12-col\">\n\t\t\t\t\t\t\t  \t\t\t<ul class=\"demo-list-control mdl-list acess\">\n\t\t\t\t\t\t\t\t\t\t\t<li class=\"mdl-list__item\">\n\t\t\t\t\t\t\t\t\t\t\t    <span class=\"mdl-list__item-primary-content\">\n\t\t\t\t\t\t\t\t\t\t\t      Libras\n\t\t\t\t\t\t\t\t\t\t\t    </span>\n\t\t\t\t\t\t\t\t\t\t\t    <span class=\"mdl-list__item-secondary-action\">\n\t\t\t\t\t\t\t\t\t\t\t\t    <label class=\"mdl-switch mdl-js-switch mdl-js-ripple-effect\" for=\"list-switch-1\" id=\"label-switch-1\">\n\t\t\t\t\t\t\t\t\t\t\t    \t<input type=\"checkbox\" id=\"list-switch-1\" class=\"mdl-switch__input\" :checked=\"isLibras\" @click=\"acessLibras\">\n\t\t\t\t\t\t\t\t\t\t\t    \t</label>\n\t\t\t\t\t\t\t\t\t\t\t    </span>\n\t\t\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t<li class=\"mdl-list__item\">\n\t\t\t\t\t\t\t\t\t\t\t    <span class=\"mdl-list__item-primary-content\">\n\t\t\t\t\t\t\t\t\t\t\t      Audio Descrição\n\t\t\t\t\t\t\t\t\t\t\t    </span>\n\t\t\t\t\t\t\t\t\t\t\t    <span class=\"mdl-list__item-secondary-action\">\n\t\t\t\t\t\t\t\t\t\t\t        <label class=\"mdl-switch mdl-js-switch mdl-js-ripple-effect\" for=\"list-switch-2\" id=\"label-switch-2\">\n\t\t\t\t\t\t\t\t\t\t\t        <input type=\"checkbox\" id=\"list-switch-2\" class=\"mdl-switch__input\" :checked=\"isAudio\" @click=\"acessAudio\">\n\t\t\t\t\t\t\t\t\t\t\t        </label>\n\t\t\t\t\t\t\t\t\t\t\t    </span>\n\t\t\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t</ul>\n\t\t  \t\t\t\t\t\t\t</div>\n\t\t  \t\t\t\t\t\t</div>\n\t\t  \t\t\t\t\t</div>\n  \t\t\t\t\t\t</div>\n\n  \t\t\t\t\t\t<button class=\"mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab\">\n  \t\t\t\t\t\t<a href=\"/#/home\" @click=\"drawer = false\">\t<i class=\"material-icons\">chevron_left</i>\t</a>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<span>Voltar ao início</span>\n\n\t\t\t\t</div>\n\n\t\t\t\t\t\n\t\t\t  </div>\n\t\t\t  </div>\n\t\t\t  <div aria-expanded=\"false\" role=\"button\" tabindex=\"0\" class=\"mdl-layout__drawer-button\" @click=\"openDrawer\"><i class=\"material-icons\">menu</i></div>\n\t\t\t  <main class=\"mdl-layout__content view\" :is=\"view\" transition=\"fade\" :class=\"[className]\" :db=\"db\" :database=\"database\" :params=\"params\" :qualidade=\"qualidade\" :acessibilidade=\"acessibilidade\" :ready.sync=\"ready\" v-ref:view=\"\">\n\n\t\t\t  </main>\n\t\t\t  <div class=\"mdl-layout__obfuscator\" :class=\"{'is-visible': drawer}\" @click=\"openDrawer\"></div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div id=\"demo-snackbar-example\" class=\"mdl-js-snackbar mdl-snackbar\" aria-live=\"assertive\" aria-atomic=\"true\" aria-relevant=\"text\">\n\t\t  <div class=\"mdl-snackbar__text\"></div>\n\t\t  <button class=\"mdl-snackbar__action\" type=\"button\"></button>\n\t\t</div>\n\t</div>\n"
+=======
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div>\n\t<div class=\"app_load\" v-if=\"!ready\" transition=\"fade\">\n\t\t<div id=\"p1\" class=\"mdl-progress mdl-js-progress mdl-progress__indeterminate\"></div>\n\t</div>\n\t\t<div id=\"full\" allowfullscreen=\"true\" :class=\"[className]\">\n\t\t\t<div class=\"mdl-layout mdl-js-layout\" :class=\"{ 'home-open': home }\">\n\t\t\t\t<header class=\"mdl-layout__header mdl-layout__header--waterfall header-top\" :class=\"{ 'home-menu': home }\" v-if=\"!isVideo\" transition=\"grow\" style=\"position: absolute; background-color: rgba(0, 0, 0, 1);\">\n\t\t\t    <!-- Top row, always visible -->\n\t\t\t    <div class=\"mdl-layout__header-row\">\n\t\t\t      <!-- Title -->\n\t\t\t      <span class=\"mdl-layout-title\">Hipervideo</span>\n\t\t\t      <div class=\"mdl-layout-spacer\"></div>\n\t\t\t      <div class=\"mdl-textfield mdl-js-textfield mdl-textfield--expandable\n\t\t\t                  mdl-textfield--floating-label mdl-textfield--align-right\">\n\t\t\t        <label class=\"mdl-button mdl-js-button mdl-button--icon\" for=\"waterfall-exp\">\n\t\t\t          <i class=\"material-icons\">search</i>\n\t\t\t        </label>\n\t\t\t        <div class=\"mdl-textfield__expandable-holder\">\n\t\t\t          <input class=\"mdl-textfield__input\" type=\"text\" name=\"sample\" id=\"waterfall-exp\">\n\t\t\t        </div>\n\t\t\t      </div>\n\t\t\t    </div>\n\t\t\t  </header>\n\t\t\t\n\t\t\t<div class=\"mdl-layout__drawer\" :class=\"{'is-visible': drawer}\">\n\t\t\t<div class=\"mdl-grid\" style=\"padding: 0;\">\n\t\t\t\t<div class=\"mdl-cell mdl-cell--12-col\" style=\"margin: 0;\">\n\t\t\t\t\t\n\t\t\t\t\t\t<!-- Card Avatar -->\n  \t\t\t\t\t\t<div class=\"mdl-card mdl-shadow--4dp drawer-cards\">\n\n\t\t  \t\t\t\t\t<div class=\"mdl-card__supporting-text\">\n\t\t\t\t\t\t\t\t\t\t\n\t\t  \t\t\t\t\t\t\t\t<div class=\"user-avatar\">\n\n\t\t\t\t\t\t\t\t\t\t<button @click=\"connectTrello\" v-if=\"!isConnected\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored connecte-se\">\n\t\t\t\t\t\t\t\t\t\t\t<i class=\"fa fa-trello\" aria-hidden=\"true\"></i>\n\t\t\t\t\t\t\t\t\t\t  CONECTE-SE\n\t\t\t\t\t\t\t\t\t\t</button>\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t<img :src=\"user.img\" v-if=\"isConnected\" class=\"gravatar\" transition=\"fade\">\n\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t\t\t\t\t<div class=\"user-data\">\n\t\t\t\t\t\t\t\t\t\t\t<p class=\"user-name\" v-if=\"isConnected\" transition=\"fade\">@{{user.nome}}</p>\n\t\t\t\t\t\t\t\t\t    \t<p class=\"user-info\" v-if=\"isConnected\" transition=\"fade\">{{user.email}}</p>\n\t\t\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\t\t<button @click=\"disconnect\" v-if=\"isConnected\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\">DISCONECT</button>\n\n\t\t  \t\t\t\t\t</div>\n  \t\t\t\t\t\t</div>\n\n\t\t\t\t\t\t<!-- Card Qualidade -->\n\t\t  \t\t\t\t<div class=\"mdl-card mdl-shadow--4dp drawer-cards\">\n\t\t  \t\t\t\t\t\n\t\t  \t\t\t\t\t<div class=\"mdl-card__title\">\n\t\t  \t\t\t\t\t\t<h4 class=\"mdl-card__title-text\">Qualidade</h4>\n\t\t  \t\t\t\t\t</div>\n\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t<div class=\"mdl-card__supporting-text\">\n\t  \t\t\t\t\t\t\t\n\t  \t\t\t\t\t\t\t<div class=\"slider-wrap\">\n\t\t\t\t\t\t\t\t\t\t<input class=\"mdl-slider mdl-js-slider\" type=\"range\" min=\"0\" max=\"2\" :value=\"qualidade\" tabindex=\"0\" step=\"1\" @input=\"mudaQual\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t<div class=\"mdl-grid mdl-grid--no-spacing\">\n\t\t  \t\t\t\t\t\t\t\n\t\t  \t\t\t\t\t\t\t<div class=\"qual-label qual-div1\">\n\t\t  \t\t\t\t\t\t\t\t<span :class=\"{ active: isBaixa }\">Baixa</span>\n\t\t  \t\t\t\t\t\t\t</div>\n\n\t  \t\t\t\t\t\t\t\t<div class=\"qual-label qual-div2\">\n\t  \t\t\t\t\t\t\t\t\t<span :class=\"{ active: isMedia }\">Média</span>\n\t  \t\t\t\t\t\t\t\t</div>\n\n\t  \t\t\t\t\t\t\t\t<div class=\"qual-label qual-div3\">\n\t  \t\t\t\t\t\t\t\t\t<span :class=\"{ active: isAlta }\">Alta</span>\n\t  \t\t\t\t\t\t\t\t</div>\n\n\t\t  \t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n  \t\t\t\t\t\t</div>\n  \t\t\t\t\t\t\n\t\t\t\t\t\t<!-- Card Acessibilidade -->\n  \t\t\t\t\t\t<div class=\"mdl-card mdl-shadow--4dp drawer-cards\">\n\n\t\t  \t\t\t\t\t<div class=\"mdl-card__title\">\n\t\t  \t\t\t\t\t\t<h4 class=\"mdl-card__title-text\">Acessibilidade</h4>\n\t\t  \t\t\t\t\t</div>\n\n\t\t  \t\t\t\t\t<div class=\"mdl-card__supporting-text\">\n\t\t  \t\t\t\t\t\t<div class=\"mdl-grid\">\n\t\t  \t\t\t\t\t\t\t<div class=\"mdl-cell mdl-cell--12-col\">\n\t\t\t\t\t\t\t  \t\t\t<ul class=\"demo-list-control mdl-list acess\">\n\t\t\t\t\t\t\t\t\t\t\t<li class=\"mdl-list__item\">\n\t\t\t\t\t\t\t\t\t\t\t    <span class=\"mdl-list__item-primary-content\">\n\t\t\t\t\t\t\t\t\t\t\t      Libras\n\t\t\t\t\t\t\t\t\t\t\t    </span>\n\t\t\t\t\t\t\t\t\t\t\t    <span class=\"mdl-list__item-secondary-action\">\n\t\t\t\t\t\t\t\t\t\t\t\t    <label class=\"mdl-switch mdl-js-switch mdl-js-ripple-effect\" for=\"list-switch-1\" id=\"label-switch-1\">\n\t\t\t\t\t\t\t\t\t\t\t    \t<input type=\"checkbox\" id=\"list-switch-1\" class=\"mdl-switch__input\" :disabled=\"hasLibras\" :checked=\"isLibras\" @click=\"acessLibras\">\n\t\t\t\t\t\t\t\t\t\t\t    \t</label>\n\t\t\t\t\t\t\t\t\t\t\t    </span>\n\t\t\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t\t<li class=\"mdl-list__item\">\n\t\t\t\t\t\t\t\t\t\t\t    <span class=\"mdl-list__item-primary-content\">\n\t\t\t\t\t\t\t\t\t\t\t      Audio Descrição\n\t\t\t\t\t\t\t\t\t\t\t    </span>\n\t\t\t\t\t\t\t\t\t\t\t    <span class=\"mdl-list__item-secondary-action\">\n\t\t\t\t\t\t\t\t\t\t\t        <label class=\"mdl-switch mdl-js-switch mdl-js-ripple-effect\" for=\"list-switch-2\" id=\"label-switch-2\">\n\t\t\t\t\t\t\t\t\t\t\t        <input type=\"checkbox\" id=\"list-switch-2\" class=\"mdl-switch__input\" :disabled=\"hasAudio\" :checked=\"isAudio\" @click=\"acessAudio\">\n\t\t\t\t\t\t\t\t\t\t\t        </label>\n\t\t\t\t\t\t\t\t\t\t\t    </span>\n\t\t\t\t\t\t\t\t\t\t\t</li>\n\t\t\t\t\t\t\t\t\t\t</ul>\n\t\t  \t\t\t\t\t\t\t</div>\n\t\t  \t\t\t\t\t\t</div>\n\t\t  \t\t\t\t\t</div>\n  \t\t\t\t\t\t</div>\n\n  \t\t\t\t\t\t<button v-if=\"view !== home-view\" @click=\"getTo('#/')\" class=\"mdl-button mdl-js-button\" style=\"width: 100%;\">\n\t  \t\t\t\t\t\t<i class=\"material-icons\">chevron_left</i>\n\t  \t\t\t\t\t\t<span>Voltar ao início</span>\n\t\t\t\t\t\t\t</button>\n\n\t\t\t\t\t\t</div>\n\n\t\t\t\t\t\n\t\t\t \t\t</div>\n\t\t\t  </div>\n\t\t\t  <div aria-expanded=\"false\" role=\"button\" tabindex=\"0\" class=\"mdl-layout__drawer-button\" @click=\"openDrawer\"><i class=\"material-icons\">menu</i></div>\n\t\t\t  <main class=\"mdl-layout__content view\" :is=\"view\" transition=\"fade\" :class=\"[className]\" :db=\"db\" :database=\"database\" :params=\"params\" :qualidade=\"qualidade\" :acessibilidade.sync=\"acessibilidade\" :ready.sync=\"ready\" :user.sync=\"user\" v-ref:view=\"\">\n\n\t\t\t  </main>\n\t\t\t  <div class=\"mdl-layout__obfuscator\" :class=\"{'is-visible': drawer}\" @click=\"openDrawer\"></div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div id=\"demo-snackbar-example\" class=\"mdl-js-snackbar mdl-snackbar\" aria-live=\"assertive\" aria-atomic=\"true\" aria-relevant=\"text\">\n\t\t  <div class=\"mdl-snackbar__text\"></div>\n\t\t  <button class=\"mdl-snackbar__action\" type=\"button\"></button>\n\t\t</div>\n\t</div>\n"
+>>>>>>> guzz
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   var id = "/media/bambuzal/Softwares/vue-models/hipervideo-model/app/vue/app.vue"
   module.hot.dispose(function () {
-    require("vueify-insert-css").cache["@charset \"UTF-8\";\n/* line 2, stdin */\n.view {\n  height: 100%; }\n  /* line 4, stdin */\n  .view.is-video {\n    overflow: hidden; }\n\n/* line 8, stdin */\n.context-bg {\n  background-color: #607d8b; }\n\n/* line 11, stdin */\n.app_load {\n  position: fixed;\n  top: 0;\n  left: 0;\n  overflow: hidden;\n  height: 100%;\n  width: 100%;\n  background-color: #ffffff;\n  z-index: 4; }\n\n/* line 22, stdin */\n#p1 {\n  margin: 22% auto; }\n\n/* line 26, stdin */\n.header-top {\n  -webkit-transition: width .3s ease;\n  -moz-transition: width .3s ease;\n  -ms-transition: width .3s ease;\n  -o-transition: width .3s ease;\n  transition: width .3s ease;\n  -webkit-transition: height .6s ease;\n  -moz-transition: height .6s ease;\n  -ms-transition: height .6s ease;\n  -o-transition: height .6s ease;\n  transition: height .6s ease; }\n  /* line 37, stdin */\n  .header-top.home-menu {\n    width: 5%;\n    min-height: 0;\n    height: 0; }\n    /* line 41, stdin */\n    .header-top.home-menu .mdl-layout-title {\n      display: none; }\n  /* line 45, stdin */\n  .header-top.hide {\n    display: none; }\n\n/* line 49, stdin */\n.fade-transition {\n  -webkit-transition: opacity .6s ease;\n  transition: opacity .6s ease;\n  opacity: 1; }\n\n/* line 53, stdin */\n.fade-enter, .fade-leave {\n  opacity: 0;\n  position: absolute;\n  width: 100%; }\n\n/* line 58, stdin */\n.grow-transition {\n  min-height: inherit; }\n\n/* line 61, stdin */\n.grow-enter, .grow-leave {\n  min-height: 0;\n  height: 0; }\n\n/* line 65, stdin */\n.header__down {\n  min-height: 500px; }\n  @media screen and (max-width: 1024px) {\n    /* line 65, stdin */\n    .header__down {\n      min-height: 190px; } }\n  @media screen and (max-width: 1366px) {\n    /* line 65, stdin */\n    .header__down {\n      min-height: 350px; } }\n\n@media screen and (max-width: 1024px) {\n  /* line 74, stdin */\n  .mdl-layout__header {\n    display: block; } }\n\n/* line 79, stdin */\n.mdl-layout__drawer {\n  overflow: hidden;\n  overflow: hidden;\n  -webkit-transform: translateX(-100%);\n          transform: translateX(-100%); }\n  /* line 83, stdin */\n  .mdl-layout__drawer .mdl-cell--12-col {\n    width: 100%; }\n\n/* line 91, stdin */\n.gravatar {\n  border-radius: 150px;\n  width: 40%;\n  height: 40%;\n  margin-left: 30%; }\n\n/* line 98, stdin */\n.user-avatar {\n  width: 100%;\n  height: 30%; }\n\n/* line 103, stdin */\n.user-data {\n  width: 100%;\n  text-align: center; }\n\n/* line 108, stdin */\n.user-name {\n  font-size: 30px; }\n\n/* line 112, stdin */\n.user-info {\n  font-size: 18px; }\n\n/* estilo do botão conecte-se */\n/* line 117, stdin */\n.connecte-se {\n  width: 100%;\n  height: 100px;\n  font-size: 200%; }\n  @media screen and (max-width: 800px) {\n    /* line 117, stdin */\n    .connecte-se {\n      font-size: 120% !important; } }\n\n/* line 126, stdin */\n.qual-label {\n  width: 100%; }\n  /* line 129, stdin */\n  .qual-label span {\n    -webkit-transition: all .1s ease;\n    -moz-transition: all .1s ease;\n    -ms-transition: all .1s ease;\n    -o-transition: all .1s ease;\n    transition: all .1s ease; }\n  /* line 136, stdin */\n  .qual-label .active {\n    font-weight: 900;\n    font-size: 16px; }\n  /* line 140, stdin */\n  .qual-label .span {\n    margin: 0 27%;\n    text-align: center; }\n\n/* line 147, stdin */\n.acess {\n  margin-top: 0;\n  padding-top: 0; }\n  /* line 150, stdin */\n  .acess li {\n    min-height: 37px;\n    padding: 0 20px; }\n\n/* line 155, stdin */\n.mdl-layout__drawer-button {\n  -webkit-transition: height .3s ease;\n  -moz-transition: height .3s ease;\n  -ms-transition: height .3s ease;\n  -o-transition: height .3s ease;\n  transition: height .3s ease; }\n  /* line 161, stdin */\n  .home-open .mdl-layout__drawer-button {\n    background: #607d8b;\n    margin: 0;\n    padding: 10px;\n    height: 97%; }\n    @media screen and (min-width: 1440px) {\n      /* line 161, stdin */\n      .home-open .mdl-layout__drawer-button {\n        padding: 20px;\n        height: 95.5%; } }\n\n/* line 173, stdin */\n.infos {\n  cursor: default; }\n\n/* line 177, stdin */\n.drawer-cards {\n  width: 90%;\n  margin-bottom: 4%;\n  min-height: auto !important; }\n\n/* line 185, stdin */\n.mdl-layout__container {\n  top: 0;\n  left: 0;\n  background-color: white; }\n\n/* line 191, stdin */\n.qual-div1 {\n  text-align: left;\n  width: 33%; }\n\n/* line 196, stdin */\n.qual-div2 {\n  text-align: center;\n  width: 33%; }\n\n/* line 201, stdin */\n.qual-div3 {\n  text-align: right;\n  width: 33%; }\n\n/* line 206, stdin */\n.slider-wrap {\n  width: 100%; }\n"] = false
+    require("vueify-insert-css").cache["@charset \"UTF-8\";\n/* line 3, stdin */\n.view {\n  height: 100%; }\n  /* line 5, stdin */\n  .view.is-video {\n    overflow: hidden; }\n\n/* line 9, stdin */\n.context-bg {\n  background-color: red; }\n\n/* line 12, stdin */\n.app_load {\n  position: fixed;\n  top: 0;\n  left: 0;\n  overflow: hidden;\n  height: 100%;\n  width: 100%;\n  background-color: #ffffff;\n  z-index: 4; }\n\n/* line 23, stdin */\n#p1 {\n  margin: 22% auto; }\n\n/* line 27, stdin */\n.header-top {\n  -webkit-transition: width .3s ease;\n  -moz-transition: width .3s ease;\n  -ms-transition: width .3s ease;\n  -o-transition: width .3s ease;\n  transition: width .3s ease;\n  -webkit-transition: height .6s ease;\n  -moz-transition: height .6s ease;\n  -ms-transition: height .6s ease;\n  -o-transition: height .6s ease;\n  transition: height .6s ease;\n  color: white; }\n  /* line 39, stdin */\n  .header-top.home-menu {\n    width: 5%;\n    min-height: 0;\n    height: 0; }\n    /* line 43, stdin */\n    .header-top.home-menu .mdl-layout-title {\n      display: none; }\n  /* line 47, stdin */\n  .header-top.hide {\n    display: none; }\n\n/* line 51, stdin */\n.fade-transition {\n  -webkit-transition: opacity .6s ease;\n  transition: opacity .6s ease;\n  opacity: 1; }\n\n/* line 55, stdin */\n.fade-enter, .fade-leave {\n  opacity: 0;\n  position: absolute;\n  width: 100%; }\n\n/* line 60, stdin */\n.grow-transition {\n  min-height: inherit; }\n\n/* line 63, stdin */\n.grow-enter, .grow-leave {\n  min-height: 0;\n  height: 0; }\n\n/* line 67, stdin */\n.header__down {\n  min-height: 500px; }\n  @media screen and (max-width: 1024px) {\n    /* line 67, stdin */\n    .header__down {\n      min-height: 190px; } }\n  @media screen and (max-width: 1366px) {\n    /* line 67, stdin */\n    .header__down {\n      min-height: 350px; } }\n\n@media screen and (max-width: 1024px) {\n  /* line 76, stdin */\n  .mdl-layout__header {\n    display: block; } }\n\n/* line 81, stdin */\n.mdl-layout__drawer {\n  overflow-x: hidden;\n  -webkit-transform: translateX(-100%);\n          transform: translateX(-100%); }\n  /* line 84, stdin */\n  .mdl-layout__drawer .mdl-cell--12-col {\n    width: 100%; }\n\n/* line 92, stdin */\n.gravatar {\n  border-radius: 150px;\n  width: 40%;\n  height: 40%;\n  margin-left: 30%; }\n\n/* line 99, stdin */\n.user-avatar {\n  width: 100%;\n  height: 30%; }\n\n/* line 104, stdin */\n.user-data {\n  width: 100%;\n  text-align: center; }\n\n/* line 109, stdin */\n.user-name {\n  font-size: 30px; }\n\n/* line 113, stdin */\n.user-info {\n  font-size: 18px; }\n\n/* estilo do botão conecte-se */\n/* line 118, stdin */\n.connecte-se {\n  width: 100%;\n  height: 45px;\n  font-size: 150%; }\n  @media screen and (max-width: 800px) {\n    /* line 118, stdin */\n    .connecte-se {\n      font-size: 120% !important; } }\n\n/* line 127, stdin */\n.qual-label {\n  width: 100%; }\n  /* line 130, stdin */\n  .qual-label span {\n    -webkit-transition: all .1s ease;\n    -moz-transition: all .1s ease;\n    -ms-transition: all .1s ease;\n    -o-transition: all .1s ease;\n    transition: all .1s ease; }\n  /* line 137, stdin */\n  .qual-label .active {\n    font-weight: 900;\n    font-size: 16px; }\n  /* line 141, stdin */\n  .qual-label .span {\n    margin: 0 27%;\n    text-align: center; }\n\n/* line 148, stdin */\n.acess {\n  margin-top: 0;\n  padding-top: 0; }\n  /* line 151, stdin */\n  .acess li {\n    min-height: 37px;\n    padding: 0 20px; }\n\n/* line 156, stdin */\n.mdl-layout__drawer-button {\n  -webkit-transition: all .6s ease;\n  -moz-transition: all .6s ease;\n  -ms-transition: all .6s ease;\n  -o-transition: all .6s ease;\n  transition: all .6s ease;\n  color: white; }\n  /* line 163, stdin */\n  .is-video .mdl-layout__drawer-button {\n    margin: 0;\n    background-color: rgba(0, 0, 0, 0.1); }\n    /* line 166, stdin */\n    .is-video .mdl-layout__drawer-button:hover {\n      background-color: rgba(0, 0, 0, 0.5); }\n\n/* line 172, stdin */\n.infos {\n  cursor: default; }\n\n/* line 176, stdin */\n.drawer-cards {\n  width: 90%;\n  margin: 5px auto;\n  min-height: auto !important; }\n  @media screen and (max-width: 550px) {\n    /* line 176, stdin */\n    .drawer-cards {\n      max-height: 180px !important; } }\n\n/* line 187, stdin */\n.mdl-layout__container {\n  top: 0;\n  left: 0;\n  background-color: rgba(0, 0, 0, 0.9); }\n\n/* line 193, stdin */\n.qual-div1 {\n  text-align: left;\n  width: 33%; }\n\n/* line 198, stdin */\n.qual-div2 {\n  text-align: center;\n  width: 33%; }\n\n/* line 203, stdin */\n.qual-div3 {\n  text-align: right;\n  width: 33%; }\n\n/* line 208, stdin */\n.slider-wrap {\n  width: 100%; }\n"] = false
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
@@ -217,7 +259,59 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"./views/home-view.vue":12,"./views/video-view.vue":13,"blueimp-md5":14,"jquery":17,"perfect-scrollbar":20,"underscore":43,"vue":47,"vue-hot-reload-api":44,"vueify-insert-css":48}],2:[function(require,module,exports){
+},{"./views/home-view.vue":20,"./views/video-view.vue":21,"blueimp-md5":37,"jquery":40,"perfect-scrollbar":43,"underscore":66,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],2:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.banner-cont {\n  -webkit-transition: all .6s ease;\n  -moz-transition: all .6s ease;\n  -ms-transition: all .6s ease;\n  -o-transition: all .6s ease;\n  transition: all .6s ease;\n  opacity: 1; }\n\n/* line 13, stdin */\n.slide-enter, .slide-leave {\n  -webkit-transform: translate(24px, 0px) scale(1);\n  -moz-transform: translate(24px, 0px) scale(1);\n  -o-transform: translate(24px, 0px) scale(1);\n  -ms-transform: translate(24px, 0px) scale(1);\n  transform: translate(24px, 0px) scale(1);\n  opacity: 0 !important; }\n\n/* line 25, stdin */\n.sli-enter, .sli-leave {\n  -webkit-transform: translate(0px, 24px) scale(1);\n  -moz-transform: translate(0px, 24px) scale(1);\n  -o-transform: translate(0px, 24px) scale(1);\n  -ms-transform: translate(0px, 24px) scale(1);\n  transform: translate(0px, 24px) scale(1);\n  opacity: 0 !important; }\n\n/* line 34, stdin */\n.icons {\n  font-size: 20px;\n  vertical-align: middle;\n  cursor: default; }\n\n/* line 44, stdin */\n.banner-data {\n  filter: alpha(opacity=100);\n  opacity: 1;\n  -moz-opacity: 1;\n  -webkit-opacity: 1;\n  color: white; }\n\n/* line 52, stdin */\n.banner-overlay {\n  filter: alpha(opacity=50);\n  opacity: 0.5;\n  -moz-opacity: 0.5;\n  -webkit-opacity: 0.5; }\n\n/* line 59, stdin */\n.banner-owner {\n  filter: alpha(opacity=100);\n  opacity: 1;\n  -moz-opacity: 1;\n  -webkit-opacity: 1; }\n\n/* line 69, stdin */\n#video-data {\n  width: 90%;\n  margin-left: 5%;\n  padding-bottom: 10px; }\n\n/* line 75, stdin */\n#video-title {\n  margin-bottom: 10px;\n  font-size: 30px;\n  text-align: center;\n  line-height: 30px; }\n  @media screen and (max-width: 550px) {\n    /* line 75, stdin */\n    #video-title {\n      font-size: 18px;\n      line-height: 20px; } }\n\n/* line 86, stdin */\n#video-length {\n  width: 33%;\n  margin-right: 0.5%;\n  float: left; }\n\n/* line 92, stdin */\n#video-qual {\n  width: 33%;\n  text-align: center;\n  margin-right: 0.5%;\n  float: left; }\n\n/* line 99, stdin */\n#video-acce {\n  width: 33%;\n  text-align: right;\n  float: left; }\n\n/* line 105, stdin */\n#video-description {\n  clear: left;\n  margin-top: 10%;\n  margin-bottom: 5%; }\n  @media screen and (max-width: 550px) {\n    /* line 105, stdin */\n    #video-description {\n      font-size: 80%;\n      margin-top: 10%;\n      margin-bottom: 2%; } }\n\n/* line 116, stdin */\n#video-perks {\n  float: left;\n  width: 60%; }\n  @media screen and (max-width: 320px) {\n    /* line 116, stdin */\n    #video-perks {\n      visibility: hidden; } }\n  @media screen and (max-width: 550px) {\n    /* line 116, stdin */\n    #video-perks {\n      width: 100%; } }\n\n/* line 127, stdin */\n#video-play {\n  float: right;\n  width: 30%;\n  text-align: center; }\n  @media screen and (max-width: 550px) {\n    /* line 127, stdin */\n    #video-play {\n      visibility: hidden; } }\n\n/* line 138, stdin */\n#link-play:hover .play-arrow, #link-play:hover .play-btn {\n  -webkit-transform: scale(1.2);\n          transform: scale(1.2); }\n\n/* line 141, stdin */\n#link-play:hover .play-arrow {\n  color: #ff5252; }\n\n/* line 147, stdin */\n.play-btn, .play-arrow {\n  -webkit-transition: all .3s ease;\n  -moz-transition: all .3s ease;\n  -ms-transition: all .3s ease;\n  -o-transition: all .3s ease;\n  transition: all .3s ease; }\n\n/* line 155, stdin */\n.play-btn {\n  color: white;\n  font-size: 70px; }\n\n/* line 160, stdin */\n.play-arrow {\n  z-index: 1;\n  color: white;\n  position: absolute;\n  font-size: 46px;\n  margin-left: 14px;\n  margin-top: 12px; }\n\n/* line 169, stdin */\n#video-owner {\n  text-align: center;\n  color: white;\n  margin-top: 5%; }\n  @media screen and (max-width: 550px) {\n    /* line 169, stdin */\n    #video-owner {\n      visibility: hidden; } }\n\n/* line 178, stdin */\n.img-owner {\n  height: 70px; }\n  @media screen and (max-width: 550px) {\n    /* line 178, stdin */\n    .img-owner {\n      visibility: hidden; } }\n")
+'use strict';
+
+var $$$ = require('jquery');
+var _marked = require('marked');
+module.exports = {
+  replace: true,
+  props: ['banner'],
+  data: function data() {
+    return {
+      tagsA: [],
+      tagsB: []
+    };
+  },
+  methods: {},
+  computed: {},
+  attached: function attached() {
+
+    for (var i = 0; i < this.banner.tags.length; i++) {
+      if (i % 2 == 0) {
+        this.tagsA.push(this.banner.tags[i]);
+      } else {
+        this.tagsB.push(this.banner.tags[i]);
+      }
+    }
+
+    componentHandler.upgradeDom();
+  },
+  components: {},
+  filters: {
+    marked: function marked(value) {
+      return _marked(value);
+    }
+  }
+};
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  \n  <div v-if=\"banner\" class=\"mdl-cell mdl-cell--6-col banner-data banner-cont\" transition=\"slide\">\n\n    <div id=\"video-data\">\n      <div id=\"video-title\">{{ banner.nome }}</div>\n      \n      <div id=\"video-length\">\n        <i class=\"fa fa-clock-o icons\"></i> {{ banner.duracao }}\n      </div>\n      \n      <div id=\"video-qual\">\n        <div v-if=\"banner.qualidades['baixa']\" id=\"vidqual1\" class=\"icon material-icons icons\">videocam</div>\n        <div v-if=\"banner.qualidades['baixa']\" class=\"mdl-tooltip\" for=\"vidqual1\">Qualidade Baixa</div>\n        \n        <div v-if=\"banner.qualidades['media']\" id=\"vidqual2\" class=\"icon material-icons icons\">hd</div>\n        <div v-if=\"banner.qualidades['media']\" class=\"mdl-tooltip\" for=\"vidqual2\">Qualidade Média</div>\n        \n        <div v-if=\"banner.qualidades['alta']\" id=\"vidqual3\" class=\"icon material-icons icons\" style=\"color: red\">hd</div>\n        <div v-if=\"banner.qualidades['alta']\" class=\"mdl-tooltip\" for=\"vidqual3\">Qualidade Alta</div>\n      </div>\n      \n      <div id=\"video-acce\">\n        <i v-if=\"banner.acessibilidade['audio']\" id=\"audiodescr\" class=\"fa fa-audio-description\"></i>\n        <div v-if=\"banner.acessibilidade['audio']\" class=\"mdl-tooltip mdl-tooltip--left\" for=\"audiodescr\">Audio Descrição</div>\n        \n        <i v-if=\"banner.acessibilidade['cc']\" id=\"closedcapts\" class=\"fa fa-cc\"></i>\n        <div v-if=\"banner.acessibilidade['cc']\" class=\"mdl-tooltip mdl-tooltip--left\" for=\"closedcapts\">Legendas</div>\n\n        <i v-if=\"banner.acessibilidade['libras']\" id=\"signing\" class=\"fa fa-signing\"></i>\n        <div v-if=\"banner.acessibilidade['libras']\" class=\"mdl-tooltip mdl-tooltip--left\" for=\"signing\">Libras</div>\n      </div>\n    \n      <div id=\"video-description\">\n        {{{ banner.descricao | marked }}}\n      </div>\n\n      <div id=\"video-perks\">\n\n        <div style=\"width: 50%; float: left\">\n          <div v-for=\"tagA in tagsA\">\n            <i class=\"material-icons icons\">check_circle</i> {{tagA}} <br>\n          </div>\n        </div>\n\n        <div style=\"width: 50%; float: left\">\n          <div v-for=\"tagB in tagsB\">\n            <i class=\"material-icons icons\">check_circle</i> {{tagB}} <br>\n          </div>\n        </div>\n\n      </div>\n\n      <div id=\"video-play\">\n          <a href=\"/#/{{banner.id}}\" id=\"link-play\">\n            <i class=\"material-icons play-arrow\">play_arrow</i>\n            <i class=\"material-icons play-btn\">play_circle_outline</i>\n          </a>\n      </div>\n\n      <div class=\"clear\"> </div>\n\n    </div>\n\n  </div>\n  \n  <div v-if=\"banner\" class=\"mdl-cell mdl-cell--4-col banner-overlay banner-cont\" transition=\"slide\">\n  </div>\n  \n  <div v-if=\"banner\" class=\"mdl-cell mdl-cell--2-col mdl-cell--4-col-phone banner-owner banner-cont\" transition=\"sli\">\n    \n    <div id=\"video-owner\">\n      <div>\n      <a :href=\"banner.owner.url\" target=\"_blank\" transition=\"fade\">\n      <img class=\"img-owner\" :src=\"banner.owner.img\" transition=\"fade\">\n      </a>\n      </div>\n    </div>\n\n  </div>\n  <div v-if=\"banner\" style=\"width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: -1; background-size: 100%;\" transition=\"fade\" :style=\"{'background-image': 'url('+banner.capa+')'}\"></div>\n\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  var id = "/media/bambuzal/Softwares/vue-models/hipervideo-model/app/vue/components/banner-conteiner.vue"
+  module.hot.dispose(function () {
+    require("vueify-insert-css").cache["/* line 2, stdin */\n.banner-cont {\n  -webkit-transition: all .6s ease;\n  -moz-transition: all .6s ease;\n  -ms-transition: all .6s ease;\n  -o-transition: all .6s ease;\n  transition: all .6s ease;\n  opacity: 1; }\n\n/* line 13, stdin */\n.slide-enter, .slide-leave {\n  -webkit-transform: translate(24px, 0px) scale(1);\n  -moz-transform: translate(24px, 0px) scale(1);\n  -o-transform: translate(24px, 0px) scale(1);\n  -ms-transform: translate(24px, 0px) scale(1);\n  transform: translate(24px, 0px) scale(1);\n  opacity: 0 !important; }\n\n/* line 25, stdin */\n.sli-enter, .sli-leave {\n  -webkit-transform: translate(0px, 24px) scale(1);\n  -moz-transform: translate(0px, 24px) scale(1);\n  -o-transform: translate(0px, 24px) scale(1);\n  -ms-transform: translate(0px, 24px) scale(1);\n  transform: translate(0px, 24px) scale(1);\n  opacity: 0 !important; }\n\n/* line 34, stdin */\n.icons {\n  font-size: 20px;\n  vertical-align: middle;\n  cursor: default; }\n\n/* line 44, stdin */\n.banner-data {\n  filter: alpha(opacity=100);\n  opacity: 1;\n  -moz-opacity: 1;\n  -webkit-opacity: 1;\n  color: white; }\n\n/* line 52, stdin */\n.banner-overlay {\n  filter: alpha(opacity=50);\n  opacity: 0.5;\n  -moz-opacity: 0.5;\n  -webkit-opacity: 0.5; }\n\n/* line 59, stdin */\n.banner-owner {\n  filter: alpha(opacity=100);\n  opacity: 1;\n  -moz-opacity: 1;\n  -webkit-opacity: 1; }\n\n/* line 69, stdin */\n#video-data {\n  width: 90%;\n  margin-left: 5%;\n  padding-bottom: 10px; }\n\n/* line 75, stdin */\n#video-title {\n  margin-bottom: 10px;\n  font-size: 30px;\n  text-align: center;\n  line-height: 30px; }\n  @media screen and (max-width: 550px) {\n    /* line 75, stdin */\n    #video-title {\n      font-size: 18px;\n      line-height: 20px; } }\n\n/* line 86, stdin */\n#video-length {\n  width: 33%;\n  margin-right: 0.5%;\n  float: left; }\n\n/* line 92, stdin */\n#video-qual {\n  width: 33%;\n  text-align: center;\n  margin-right: 0.5%;\n  float: left; }\n\n/* line 99, stdin */\n#video-acce {\n  width: 33%;\n  text-align: right;\n  float: left; }\n\n/* line 105, stdin */\n#video-description {\n  clear: left;\n  margin-top: 10%;\n  margin-bottom: 5%; }\n  @media screen and (max-width: 550px) {\n    /* line 105, stdin */\n    #video-description {\n      font-size: 80%;\n      margin-top: 10%;\n      margin-bottom: 2%; } }\n\n/* line 116, stdin */\n#video-perks {\n  float: left;\n  width: 60%; }\n  @media screen and (max-width: 320px) {\n    /* line 116, stdin */\n    #video-perks {\n      visibility: hidden; } }\n  @media screen and (max-width: 550px) {\n    /* line 116, stdin */\n    #video-perks {\n      width: 100%; } }\n\n/* line 127, stdin */\n#video-play {\n  float: right;\n  width: 30%;\n  text-align: center; }\n  @media screen and (max-width: 550px) {\n    /* line 127, stdin */\n    #video-play {\n      visibility: hidden; } }\n\n/* line 138, stdin */\n#link-play:hover .play-arrow, #link-play:hover .play-btn {\n  -webkit-transform: scale(1.2);\n          transform: scale(1.2); }\n\n/* line 141, stdin */\n#link-play:hover .play-arrow {\n  color: #ff5252; }\n\n/* line 147, stdin */\n.play-btn, .play-arrow {\n  -webkit-transition: all .3s ease;\n  -moz-transition: all .3s ease;\n  -ms-transition: all .3s ease;\n  -o-transition: all .3s ease;\n  transition: all .3s ease; }\n\n/* line 155, stdin */\n.play-btn {\n  color: white;\n  font-size: 70px; }\n\n/* line 160, stdin */\n.play-arrow {\n  z-index: 1;\n  color: white;\n  position: absolute;\n  font-size: 46px;\n  margin-left: 14px;\n  margin-top: 12px; }\n\n/* line 169, stdin */\n#video-owner {\n  text-align: center;\n  color: white;\n  margin-top: 5%; }\n  @media screen and (max-width: 550px) {\n    /* line 169, stdin */\n    #video-owner {\n      visibility: hidden; } }\n\n/* line 178, stdin */\n.img-owner {\n  height: 70px; }\n  @media screen and (max-width: 550px) {\n    /* line 178, stdin */\n    .img-owner {\n      visibility: hidden; } }\n"] = false
+    document.head.removeChild(__vueify_style__)
+  })
+  if (!module.hot.data) {
+    hotAPI.createRecord(id, module.exports)
+  } else {
+    hotAPI.update(id, module.exports, module.exports.template)
+  }
+})()}
+},{"jquery":40,"marked":42,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],3:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.hipVid {\n  background-size: cover;\n  height: auto;\n  width: 100%;\n  position: fixed;\n  left: 0;\n  -webkit-transition: all 0.5s ease 0s;\n  transition: all 0.5s ease 0s;\n  z-index: -100;\n  opacity: 1; }\n  /* line 11, stdin */\n  #full:-webkit-full-screen .hipVid {\n    z-index: 0; }\n\n/* line 15, stdin */\n.hipVid-status {\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  margin-top: -40px;\n  margin-left: -35px;\n  z-index: -99;\n  -webkit-transition: all 0.5s;\n  transition: all 0.5s; }\n  /* line 23, stdin */\n  .hipVid-status.is-play {\n    opacity: 0;\n    -webkit-transform: scale(1.2);\n            transform: scale(1.2); }\n  /* line 27, stdin */\n  .hipVid-status i.fa {\n    opacity: 0.5; }\n")
 'use strict';
 
@@ -255,7 +349,12 @@ module.exports = {
 		}
 	},
 	created: function created() {
-		// this.qual = this.queQualidade(this.qualidade)
+		if (this.acessibilidade === "libras" && !this.db.headers.acessibilidade.libras) {
+			console.log('libras');
+			this.acessibilidade = "normal";
+		} else if (this.acessibilidade === "audio" && !this.db.headers.acessibilidade.audio) {
+			this.acessibilidade = "normal";
+		}
 	},
 	attached: function attached() {
 
@@ -265,10 +364,6 @@ module.exports = {
 		this.hipervideo.load();
 		var seekBar = $$$('#seek-bar-' + this.db.headers.id).get(0);
 		var selector = $$$('.rangeslider').get(0);
-
-		this.$on('pong', function () {
-			self.playing = true;
-		});
 
 		var tempoCorrido = function tempoCorrido(array) {
 			var min = array[0];
@@ -299,12 +394,12 @@ module.exports = {
 			setTimeout(function () {
 				$$$('#loading').removeClass('loading');
 				self.$dispatch('hipervideo-canplay');
-			}, 1000);
+			}, 500);
 		});
 
 		this.hipervideo.addEventListener("loadedmetadata", function () {
 			var duracao = toFormat(self.hipervideo.duration);
-			this.play();
+			// this.play();
 			var tempoTotal = function tempoTotal(array) {
 				var min = array[0];
 				var sec = array[1];
@@ -403,7 +498,7 @@ module.exports = {
 		}
 	}
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div class=\"hipVid-status\" :class=\"{'is-play': playing}\">\n\t\t<i id=\"pauseplay\" class=\"fa fa-5x\" :class=\"{'fa-play': playing, 'fa-pause': !playing}\"></i>\n\t</div>\n\t<video :poster=\"db.headers.img\" class=\"hipVid\" :id=\"'hipVid-' + db.headers.id\">\n\t\t<source :src=\"db.headers.url + '_' + acessibilidade + '_' + queQualidade + '.mp4'\" type=\"video/mp4\" id=\"mp4\">\n\t</video>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div class=\"hipVid-status\" :class=\"{'is-play': playing}\">\n\t\t<i id=\"pauseplay\" class=\"fa fa-5x\" :class=\"{'fa-play': playing, 'fa-pause': !playing}\"></i>\n\t</div>\n\t<video :poster=\"db.headers.img\" class=\"hipVid\" :id=\"'hipVid-' + db.headers.id\" autoplay=\"\">\n\t\t<source :src=\"db.headers.url + '_' + acessibilidade + '_' + queQualidade + '.mp4'\" type=\"video/mp4\" id=\"mp4\">\n\t</video>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -419,168 +514,76 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":17,"vue":47,"vue-hot-reload-api":44,"vueify-insert-css":48}],3:[function(require,module,exports){
-var __vueify_style__ = require("vueify-insert-css").insert("/* line 4, stdin */\n.info-chart-databars .labels text,\n.info-chart-databars .axis text {\n  fill: #fff; }\n\n/* line 9, stdin */\n.info-chart-databars .axis path,\n.info-chart-databars .axis line {\n  fill: none;\n  stroke: #fff;\n  shape-rendering: crispEdges; }\n\n/* line 16, stdin */\n.info-chart-databars .bar {\n  fill: steelblue; }\n\n/* line 20, stdin */\n.info-chart-databars .x.axis path {\n  display: none; }\n")
+},{"jquery":40,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],4:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.coment {\n  background: rgba(255, 255, 255, 0.1);\n  min-height: 0; }\n  /* line 5, stdin */\n  .coment .coment_usr {\n    width: 10%;\n    border-right: 1px solid rgba(255, 255, 255, 0.3); }\n    /* line 8, stdin */\n    .coment .coment_usr img {\n      width: 40% !important;\n      border-radius: 50%;\n      margin-left: 30%; }\n\n/* line 15, stdin */\n#chat_user {\n  min-height: 0;\n  background: rgba(255, 255, 255, 0.8); }\n  /* line 18, stdin */\n  #chat_user button {\n    width: 100%;\n    height: 100%; }\n\n/* line 23, stdin */\n#chat_text {\n  min-height: 0;\n  background: rgba(255, 255, 255, 0.8); }\n  /* line 26, stdin */\n  #chat_text .mdl-textfield {\n    width: 100%; }\n  /* line 29, stdin */\n  #chat_text button {\n    width: 100%;\n    height: 100%; }\n    /* line 32, stdin */\n    #chat_text button:hover {\n      background: transparent; }\n      /* line 34, stdin */\n      #chat_text button:hover .material-icons {\n        color: rgba(0, 0, 0, 0.6); }\n  /* line 39, stdin */\n  #chat_text textarea {\n    color: rgba(0, 0, 0, 0.6); }\n  /* line 42, stdin */\n  #chat_text .material-icons {\n    font-size: 60px;\n    color: rgba(0, 0, 0, 0.2); }\n")
 'use strict';
 
 var $$$ = require('jquery');
-var _ = require('underscore');
-var perfectScrollbar = require('perfect-scrollbar');
+var marked = require('marked');
 
 module.exports = {
 
-	replace: true,
-	props: ['stat'],
-	data: function data() {
-		return {
-			_entries: null,
-			_svg: null
-		};
-	},
+  replace: true,
+  props: ['conteudo', 'user'],
+  data: function data() {
+    return {
+      chat_rows: 1,
+      chat_text: ''
+    };
+  },
+  computed: {},
+  attached: function attached() {
+    componentHandler.upgradeDom();
+  },
+  beforeDestroy: function beforeDestroy() {},
 
-	ready: function ready() {
-		// console.log('content-databars ready!')
-	},
+  methods: {
+    addRow: function addRow() {
+      this.chat_rows += 1;
+    },
+    sendChat: function sendChat() {
+      var c = {
+        text: [],
+        usr: {
+          nome: this.user.nome,
+          foto: this.user.img,
+          id: this.user.board
+        }
+      };
 
-	attached: function attached() {
+      Trello.post('/cards/' + this.conteudo.card + '/actions/comments', { text: this.chat_text }, function (data) {
+        console.log(data);
+      });
+      c.text.push(this.chat_text);
+      this.conteudo.comentarios.push(c);
+      this.chat_rows = 1;
+      this.chat_text = '';
+    },
+    enterEvent: function enterEvent(e) {
+      if (e.ctrlKey) {
+        this.sendChat();
+      } else {
+        this.addRow();
+      }
+    },
+    connect: function connect() {
+      this.$root.connectTrello();
+    }
+  },
 
-		// console.log('content-databars attached!')
+  filters: {
+    'marked': marked
+  }
 
-		// load spreadsheet
-
-		this.loadData();
-	},
-
-	methods: {
-
-		loadData: function loadData() {
-			var self = this;
-			var url = 'https://spreadsheets.google.com/feeds/list/' + this.stat.conteudo + '/od6/public/values?alt=json-in-script&callback=?';
-
-			// console.log('spreadsheet will load now')
-
-			$$$.getJSON(url).success(function (data) {
-
-				var entries = [];
-
-				data.feed.entry.map(function (d, i) {
-
-					var o = {}; // object
-					var s = 'gsx$'; // string
-
-					for (var prop in d) {
-						if (d.hasOwnProperty(prop) && prop.indexOf(s) == 0) {
-							o[prop.split(s).join('')] = d[prop]['$t'];
-						}
-					}
-
-					entries.push(o);
-				});
-
-				self._entries = entries;
-				self.buildChart();
-			}).error(function (message) {
-
-				// console.log('spreadsheet error: ' + message)
-
-			}).complete(function () {
-
-				// console.log('completed spreadsheet load!')
-
-			});
-		},
-
-		buildChart: function buildChart() {
-
-			var self = this;
-
-			var margin = { top: 80, right: 20, bottom: 30, left: 40 },
-			    width = 400 - margin.left - margin.right,
-			    height = 300 - margin.top - margin.bottom;
-
-			var x0 = d3.scale.ordinal().rangeRoundBands([0, width], .1);
-
-			var x1 = d3.scale.ordinal();
-
-			var y = d3.scale.linear().range([height, 0]);
-
-			var color = d3.scale.ordinal().range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
-
-			var xAxis = d3.svg.axis().scale(x0).orient("bottom");
-
-			var yAxis = d3.svg.axis().scale(y).orient("left").tickFormat(d3.format(".2s"));
-
-			self._svg = d3.select(this.$el.chart).append("svg").attr("width", width + margin.left + margin.right).attr("height", height + margin.top + margin.bottom).append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-			data = self._entries;
-
-			var filtro = d3.keys(data[0]).filter(function (key) {
-				return key !== "filtro";
-			});
-
-			data.forEach(function (d) {
-				d.legenda = filtro.map(function (name) {
-					return { name: name, value: +d[name] };
-				});
-			});
-
-			x0.domain(data.map(function (d) {
-				return d.filtro;
-			}));
-			x1.domain(filtro).rangeRoundBands([0, x0.rangeBand()]);
-			y.domain([0, d3.max(data, function (d) {
-				return d3.max(d.legenda, function (d) {
-					return d.value;
-				});
-			})]);
-
-			self._svg.append("g").attr("class", "x axis").attr("transform", "translate(0," + height + ")").call(xAxis);
-
-			self._svg.append("g").attr("class", "y axis").call(yAxis);
-			// .append("text")
-			// 	.attr("transform", "rotate(-90)")
-			// 	.attr("y", 6)
-			// 	.attr("dy", ".71em")
-			// 	.style("text-anchor", "end")
-			// 	.text("Population");
-
-			var state = self._svg.selectAll(".state").data(data).enter().append("g").attr("class", "g").attr("transform", function (d) {
-				return "translate(" + x0(d.filtro) + ",0)";
-			});
-
-			state.selectAll("rect").data(function (d) {
-				return d.legenda;
-			}).enter().append("rect").attr("width", x1.rangeBand()).attr("x", function (d) {
-				return x1(d.name);
-			}).attr("y", function (d) {
-				return y(d.value);
-			}).attr("height", function (d) {
-				return height - y(d.value);
-			}).style("fill", function (d) {
-				return color(d.name);
-			});
-
-			var labels = self._svg.selectAll(".labels").data(filtro.slice().reverse()).enter().append("g").attr("class", "labels").attr("transform", function (d, i) {
-				return "translate(0," + (i * 20 - margin.top) + ")";
-			});
-
-			labels.append("rect").attr("x", width - 18).attr("width", 18).attr("height", 18).style("fill", color);
-
-			labels.append("text").attr("x", width - 24).attr("y", 9).attr("dy", ".35em").style("text-anchor", "end").text(function (d) {
-				return d;
-			});
-			console.log(self._svg);
-		}
-	}
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div>\n\t\t<div v-el:chart=\"\" class=\"info-chart-databars\"></div>\n\t</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div class=\"mdl-grid\">\n    <div v-for=\"coment in conteudo.comentarios\" class=\"mdl-cell mdl-cell--12-col\">\n      <div class=\"coment mdl-card mdl-shadow--2dp single-card mdl-grid\">\n        <div class=\"coment_usr mdl-cell mdl-cell--2-col\">\n          <img :src=\"coment.usr.foto\">\n          <p style=\"text-align: center;\">{{coment.usr.nome}}</p>\n        </div>\n        <div class=\"coment_text mdl-cell mdl-cell--10-col\">\n          <p v-for=\"c in coment.text\">{{{c | marked}}}</p>\n        </div>\n      </div>\n    </div>\n    <div class=\"mdl-cell mdl-cell--12-col\">\n      <div v-if=\"user.connected\" id=\"chat_text\" class=\"mdl-card mdl-shadow--2dp single-card mdl-grid\">\n        <div class=\"mdl-cell mdl-cell--10-col\">\n          <div class=\"mdl-textfield mdl-js-textfield\">\n            <textarea class=\"mdl-textfield__input\" type=\"text\" :rows=\"chat_rows\" @keyup.enter=\"enterEvent\" id=\"comente\" v-model=\"chat_text\"></textarea>\n            <label class=\"mdl-textfield__label\" for=\"address\">Deixe um comentário...</label>\n          </div>\n        </div>\n        <div class=\"coment_text mdl-cell mdl-cell--2-col\">\n          <button @click=\"sendChat\" class=\"mdl-button mdl-js-button mdl-button--icon\">\n            <i class=\"material-icons\">send</i>\n          </button>\n        </div>\n      </div>\n      <div v-if=\"!user.connected\" id=\"chat_user\" class=\"mdl-card mdl-shadow--2dp single-card mdl-grid\">\n        <div class=\"mdl-cell mdl-cell--12-col\">\n          <button @click=\"connect\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\">\n            <i class=\"fa fa-trello\" aria-hidden=\"true\"></i>\n            Conecte-se com o Trello\n          </button>\n        </div>\n      </div>\n    </div>\n  </div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
-  var id = "/media/bambuzal/Softwares/vue-models/hipervideo-model/app/vue/components/content-databars.vue"
+  var id = "/media/bambuzal/Softwares/vue-models/hipervideo-model/app/vue/components/content-comentarios.vue"
   module.hot.dispose(function () {
-    require("vueify-insert-css").cache["/* line 4, stdin */\n.info-chart-databars .labels text,\n.info-chart-databars .axis text {\n  fill: #fff; }\n\n/* line 9, stdin */\n.info-chart-databars .axis path,\n.info-chart-databars .axis line {\n  fill: none;\n  stroke: #fff;\n  shape-rendering: crispEdges; }\n\n/* line 16, stdin */\n.info-chart-databars .bar {\n  fill: steelblue; }\n\n/* line 20, stdin */\n.info-chart-databars .x.axis path {\n  display: none; }\n"] = false
+    require("vueify-insert-css").cache["/* line 2, stdin */\n.coment {\n  background: rgba(255, 255, 255, 0.1);\n  min-height: 0; }\n  /* line 5, stdin */\n  .coment .coment_usr {\n    width: 10%;\n    border-right: 1px solid rgba(255, 255, 255, 0.3); }\n    /* line 8, stdin */\n    .coment .coment_usr img {\n      width: 40% !important;\n      border-radius: 50%;\n      margin-left: 30%; }\n\n/* line 15, stdin */\n#chat_user {\n  min-height: 0;\n  background: rgba(255, 255, 255, 0.8); }\n  /* line 18, stdin */\n  #chat_user button {\n    width: 100%;\n    height: 100%; }\n\n/* line 23, stdin */\n#chat_text {\n  min-height: 0;\n  background: rgba(255, 255, 255, 0.8); }\n  /* line 26, stdin */\n  #chat_text .mdl-textfield {\n    width: 100%; }\n  /* line 29, stdin */\n  #chat_text button {\n    width: 100%;\n    height: 100%; }\n    /* line 32, stdin */\n    #chat_text button:hover {\n      background: transparent; }\n      /* line 34, stdin */\n      #chat_text button:hover .material-icons {\n        color: rgba(0, 0, 0, 0.6); }\n  /* line 39, stdin */\n  #chat_text textarea {\n    color: rgba(0, 0, 0, 0.6); }\n  /* line 42, stdin */\n  #chat_text .material-icons {\n    font-size: 60px;\n    color: rgba(0, 0, 0, 0.2); }\n"] = false
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
@@ -589,8 +592,485 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":17,"perfect-scrollbar":20,"underscore":43,"vue":47,"vue-hot-reload-api":44,"vueify-insert-css":48}],4:[function(require,module,exports){
-var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.content_mapa {\n  position: relative;\n  width: 100%;\n  height: 400px;\n  background: #333; }\n\n/* line 8, stdin */\n.leaflet-top, .leaflet-bottom {\n  z-index: 1; }\n")
+},{"jquery":40,"marked":42,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],5:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("/* line 3, stdin */\n#dashboard {\n  position: relative; }\n  /* line 5, stdin */\n  #dashboard path {\n    stroke: black; }\n  /* line 7, stdin */\n  #dashboard path:hover {\n    opacity: 0.9; }\n  /* line 10, stdin */\n  #dashboard rect:hover {\n    fill: blue; }\n  /* line 12, stdin */\n  #dashboard text {\n    fill: white; }\n  /* line 15, stdin */\n  #dashboard .axis {\n    font: 10px sans-serif; }\n    /* line 17, stdin */\n    #dashboard .axis path, #dashboard .axis line {\n      fill: none;\n      stroke: #000;\n      shape-rendering: crispEdges; }\n    /* line 23, stdin */\n    #dashboard .axis.x path {\n      display: none; }\n  /* line 29, stdin */\n  #dashboard .legend {\n    margin-bottom: 76px;\n    display: inline-block;\n    border-collapse: collapse;\n    border-spacing: 0px; }\n    /* line 34, stdin */\n    #dashboard .legend td {\n      padding: 4px 5px;\n      vertical-align: bottom; }\n    /* line 38, stdin */\n    #dashboard .legend tr {\n      border-bottom: 1px solid grey; }\n      /* line 40, stdin */\n      #dashboard .legend tr:first-child {\n        border-top: 1px solid grey; }\n  /* line 45, stdin */\n  #dashboard .legendFreq, #dashboard .legendPerc {\n    align: right;\n    width: 50px; }\n")
+'use strict';
+
+var $$$ = require('jquery');
+var _ = require('underscore');
+var marked = require('marked');
+
+module.exports = {
+
+	replace: true,
+	props: ['graf'],
+	data: function data() {
+		return {
+			freqData: []
+		};
+	},
+
+	ready: function ready() {},
+
+	attached: function attached() {
+		this.loadData();
+	},
+
+	methods: {
+		loadData: function loadData() {
+			var self = this;
+			var url = 'https://spreadsheets.google.com/feeds/list/' + this.graf.conteudo + '/od6/public/values?alt=json-in-script&callback=?';
+
+			console.log('spreadsheet will load now');
+
+			$$$.getJSON(url).success(function (data) {
+
+				for (var i = 0; i < data.feed.entry.length; i++) {
+					var node = {
+						State: "",
+						freq: {
+							chrome: 0,
+							firefox: 0,
+							ie: 0
+						}
+					};
+					node.State = data.feed.entry[i].gsx$ano.$t;
+					node.freq.chrome = parseInt(data.feed.entry[i].gsx$chrome.$t);
+					node.freq.firefox = parseInt(data.feed.entry[i].gsx$firefox.$t);
+					node.freq.ie = parseInt(data.feed.entry[i].gsx$ie.$t);
+					self.freqData.push(node);
+				}
+			}).error(function (message) {
+
+				console.log('spreadsheet error: ' + message);
+			}).complete(function () {
+
+				console.log('completed spreadsheet load!');
+				self.dashboard('#dashboard', self.freqData);
+			});
+		},
+		dashboard: function dashboard(id, fData) {
+
+			var barColor = 'steelblue';
+			function segColor(c) {
+				return ({ chrome: "#D32F2F", firefox: "#512DA8", ie: "#0288D1" })[c];
+			}
+
+			// compute total for each state.
+			fData.forEach(function (d) {
+				d.total = d.freq.chrome + d.freq.firefox + d.freq.ie;
+			});
+
+			// function to handle histogram.
+			function histoGram(fD) {
+				var hG = {},
+				    hGDim = { t: 60, r: 0, b: 30, l: 0 };
+				hGDim.w = 500 - hGDim.l - hGDim.r, hGDim.h = 300 - hGDim.t - hGDim.b;
+
+				//create svg for histogram.
+				var hGsvg = d3.select(id).append("svg").attr("width", hGDim.w + hGDim.l + hGDim.r).attr("height", hGDim.h + hGDim.t + hGDim.b).append("g").attr("transform", "translate(" + hGDim.l + "," + hGDim.t + ")");
+
+				// create function for x-axis mapping.
+				var x = d3.scale.ordinal().rangeRoundBands([0, hGDim.w], 0.1).domain(fD.map(function (d) {
+					return d[0];
+				}));
+
+				// Add x-axis to the histogram svg.
+				hGsvg.append("g").attr("class", "x axis").attr("transform", "translate(0," + hGDim.h + ")").call(d3.svg.axis().scale(x).orient("bottom"));
+
+				// Create function for y-axis map.
+				var y = d3.scale.linear().range([hGDim.h, 0]).domain([0, d3.max(fD, function (d) {
+					return d[1];
+				})]);
+
+				// Create bars for histogram to contain rectangles and freq labels.
+				var bars = hGsvg.selectAll(".bar").data(fD).enter().append("g").attr("class", "bar");
+
+				//create the rectangles.
+				bars.append("rect").attr("x", function (d) {
+					return x(d[0]);
+				}).attr("y", function (d) {
+					return y(d[1]);
+				}).attr("width", x.rangeBand()).attr("height", function (d) {
+					return hGDim.h - y(d[1]);
+				}).attr('fill', barColor).on("mouseover", mouseover) // mouseover is defined bechrome.
+				.on("mouseout", mouseout); // mouseout is defined bechrome.
+
+				//Create the frequency labels above the rectangles.
+				bars.append("text").text(function (d) {
+					return d3.format(",")(d[1]);
+				}).attr("x", function (d) {
+					return x(d[0]) + x.rangeBand() / 2;
+				}).attr("y", function (d) {
+					return y(d[1]) - 5;
+				}).attr("text-anchor", "firefoxdle");
+
+				function mouseover(d) {
+					// utility function to be called on mouseover.
+					// filter for selected state.
+					var st = fData.filter(function (s) {
+						return s.State == d[0];
+					})[0],
+					    nD = d3.keys(st.freq).map(function (s) {
+						return { type: s, freq: st.freq[s] };
+					});
+
+					// call update functions of pie-chart and legend.   
+					pC.update(nD);
+					leg.update(nD);
+				}
+
+				function mouseout(d) {
+					// utility function to be called on mouseout.
+					// reset the pie-chart and legend.   
+					pC.update(tF);
+					leg.update(tF);
+				}
+
+				// create function to update the bars. This will be used by pie-chart.
+				hG.update = function (nD, color) {
+					// update the domain of the y-axis map to reflect change in frequencies.
+					y.domain([0, d3.max(nD, function (d) {
+						return d[1];
+					})]);
+
+					// Attach the new data to the bars.
+					var bars = hGsvg.selectAll(".bar").data(nD);
+
+					// transition the height and color of rectangles.
+					bars.select("rect").transition().duration(500).attr("y", function (d) {
+						return y(d[1]);
+					}).attr("height", function (d) {
+						return hGDim.h - y(d[1]);
+					}).attr("fill", color);
+
+					// transition the frequency labels location and change value.
+					bars.select("text").transition().duration(500).text(function (d) {
+						return d3.format(",")(d[1]);
+					}).attr("y", function (d) {
+						return y(d[1]) - 5;
+					});
+				};
+				return hG;
+			}
+
+			// function to handle pieChart.
+			function pieChart(pD) {
+				var pC = {},
+				    pieDim = { w: 250, h: 250 };
+				pieDim.r = Math.min(pieDim.w, pieDim.h) / 2;
+
+				// create svg for pie chart.
+				var piesvg = d3.select(id).append("svg").attr("width", pieDim.w).attr("height", pieDim.h).append("g").attr("transform", "translate(" + pieDim.w / 2 + "," + pieDim.h / 2 + ")");
+
+				// create function to draw the arcs of the pie slices.
+				var arc = d3.svg.arc().outerRadius(pieDim.r - 10).innerRadius(0);
+
+				// create a function to compute the pie slice angles.
+				var pie = d3.layout.pie().sort(null).value(function (d) {
+					return d.freq;
+				});
+
+				// Draw the pie slices.
+				piesvg.selectAll("path").data(pie(pD)).enter().append("path").attr("d", arc).each(function (d) {
+					this._current = d;
+				}).style("fill", function (d) {
+					return segColor(d.data.type);
+				}).on("mouseover", mouseover).on("mouseout", mouseout);
+
+				// create function to update pie-chart. This will be used by histogram.
+				pC.update = function (nD) {
+					piesvg.selectAll("path").data(pie(nD)).transition().duration(500).attrTween("d", arcTween);
+				};
+				// Utility function to be called on mouseover a pie slice.
+				function mouseover(d) {
+					// call the update function of histogram with new data.
+					hG.update(fData.map(function (v) {
+						return [v.State, v.freq[d.data.type]];
+					}), segColor(d.data.type));
+				}
+				//Utility function to be called on mouseout a pie slice.
+				function mouseout(d) {
+					// call the update function of histogram with all data.
+					hG.update(fData.map(function (v) {
+						return [v.State, v.total];
+					}), barColor);
+				}
+				// Animating the pie-slice requiring a custom function which specifies
+				// how the intermediate paths should be drawn.
+				function arcTween(a) {
+					var i = d3.interpolate(this._current, a);
+					this._current = i(0);
+					return function (t) {
+						return arc(i(t));
+					};
+				}
+				return pC;
+			}
+
+			// function to handle legend.
+			function legend(lD) {
+				var leg = {};
+
+				// create table for legend.
+				var legend = d3.select(id).append("table").attr('class', 'legend');
+
+				// create one row per segment.
+				var tr = legend.append("tbody").selectAll("tr").data(lD).enter().append("tr");
+
+				// create the first column for each segment.
+				tr.append("td").append("svg").attr("width", '16').attr("height", '16').append("rect").attr("width", '16').attr("height", '16').attr("fill", function (d) {
+					return segColor(d.type);
+				});
+
+				// create the second column for each segment.
+				tr.append("td").text(function (d) {
+					return d.type;
+				});
+
+				// create the third column for each segment.
+				tr.append("td").attr("class", 'legendFreq').text(function (d) {
+					return d3.format(",")(d.freq);
+				});
+
+				// create the fourth column for each segment.
+				tr.append("td").attr("class", 'legendPerc').text(function (d) {
+					return getLegend(d, lD);
+				});
+
+				// Utility function to be used to update the legend.
+				leg.update = function (nD) {
+					// update the data attached to the row elements.
+					var l = legend.select("tbody").selectAll("tr").data(nD);
+
+					// update the frequencies.
+					l.select(".legendFreq").text(function (d) {
+						return d3.format(",")(d.freq);
+					});
+
+					// update the percentage column.
+					l.select(".legendPerc").text(function (d) {
+						return getLegend(d, nD);
+					});
+				};
+
+				function getLegend(d, aD) {
+					// Utility function to compute percentage.
+					return d3.format("%")(d.freq / d3.sum(aD.map(function (v) {
+						return v.freq;
+					})));
+				}
+
+				return leg;
+			}
+
+			// calculate total frequency by segment for all state.
+			var tF = ['chrome', 'firefox', 'ie'].map(function (d) {
+				return { type: d, freq: d3.sum(fData.map(function (t) {
+						return t.freq[d];
+					})) };
+			});
+
+			// calculate total frequency by state for all segment.
+			var sF = fData.map(function (d) {
+				return [d.State, d.total];
+			});
+
+			var hG = histoGram(sF),
+			    // create the histogram.
+			pC = pieChart(tF),
+			    // create the pie-chart.
+			leg = legend(tF); // create the legend.
+		}
+	},
+	filters: {},
+	components: {}
+};
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div>\n\t\t<div id=\"dashboard\" v-el:chart=\"\">\n\t</div>\n</div>"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  var id = "/media/bambuzal/Softwares/vue-models/hipervideo-model/app/vue/components/content-databars-dashboard.vue"
+  module.hot.dispose(function () {
+    require("vueify-insert-css").cache["/* line 3, stdin */\n#dashboard {\n  position: relative; }\n  /* line 5, stdin */\n  #dashboard path {\n    stroke: black; }\n  /* line 7, stdin */\n  #dashboard path:hover {\n    opacity: 0.9; }\n  /* line 10, stdin */\n  #dashboard rect:hover {\n    fill: blue; }\n  /* line 12, stdin */\n  #dashboard text {\n    fill: white; }\n  /* line 15, stdin */\n  #dashboard .axis {\n    font: 10px sans-serif; }\n    /* line 17, stdin */\n    #dashboard .axis path, #dashboard .axis line {\n      fill: none;\n      stroke: #000;\n      shape-rendering: crispEdges; }\n    /* line 23, stdin */\n    #dashboard .axis.x path {\n      display: none; }\n  /* line 29, stdin */\n  #dashboard .legend {\n    margin-bottom: 76px;\n    display: inline-block;\n    border-collapse: collapse;\n    border-spacing: 0px; }\n    /* line 34, stdin */\n    #dashboard .legend td {\n      padding: 4px 5px;\n      vertical-align: bottom; }\n    /* line 38, stdin */\n    #dashboard .legend tr {\n      border-bottom: 1px solid grey; }\n      /* line 40, stdin */\n      #dashboard .legend tr:first-child {\n        border-top: 1px solid grey; }\n  /* line 45, stdin */\n  #dashboard .legendFreq, #dashboard .legendPerc {\n    align: right;\n    width: 50px; }\n"] = false
+    document.head.removeChild(__vueify_style__)
+  })
+  if (!module.hot.data) {
+    hotAPI.createRecord(id, module.exports)
+  } else {
+    hotAPI.update(id, module.exports, module.exports.template)
+  }
+})()}
+},{"jquery":40,"marked":42,"underscore":66,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],6:[function(require,module,exports){
+'use strict';
+
+var $$$ = require('jquery');
+var _ = require('underscore');
+var marked = require('marked');
+
+module.exports = {
+
+	replace: true,
+	props: ['conteudo'],
+	data: function data() {
+		return {};
+	},
+
+	ready: function ready() {},
+
+	attached: function attached() {},
+
+	methods: {},
+	filters: {
+		'marked': marked
+	},
+	components: {
+		'dashboard': require('../components/content-databars-dashboard.vue')
+	}
+};
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div>\n\t\t<div v-for=\"graf in conteudo.graficos\" class=\"mdl-grid\">\n\t\t\t<div class=\"mdl-cell mdl-cell--12-col\">{{{graf.texto | marked}}}</div>\n\t\t\t<div class=\"mdl-cell mdl-cell--12-col\" :is=\"graf.tipo\" :graf=\"graf\" v-ref:graf=\"\"></div>\n\t\t</div>\n\t</div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  var id = "/media/bambuzal/Softwares/vue-models/hipervideo-model/app/vue/components/content-databars.vue"
+  if (!module.hot.data) {
+    hotAPI.createRecord(id, module.exports)
+  } else {
+    hotAPI.update(id, module.exports, module.exports.template)
+  }
+})()}
+},{"../components/content-databars-dashboard.vue":5,"jquery":40,"marked":42,"underscore":66,"vue":70,"vue-hot-reload-api":67}],7:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n#conteudo_info {\n  overflow: hidden;\n  position: relative;\n  height: 96%;\n  padding-left: 40px;\n  padding-right: 40px;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease; }\n  /* line 9, stdin */\n  #conteudo_info img {\n    width: 100%; }\n  /* line 10, stdin */\n  #app.marco-fechado #conteudo_info {\n    height: 100%; }\n\n/* line 15, stdin */\n.info-texto {\n  letter-spacing: 0; }\n\n/* line 20, stdin */\n.image-list img {\n  position: relative;\n  float: left;\n  margin-right: 10px; }\n\n/* line 28, stdin */\n.video-list img {\n  position: relative;\n  float: left;\n  margin-right: 10px;\n  width: 220px; }\n\n/* line 34, stdin */\n.video-list .slick-next {\n  right: -25px !important; }\n\n/* line 37, stdin */\n.video-list .slick-prev {\n  left: -25px !important; }\n\n/* line 43, stdin */\n.mdl-layout__tab.is-hidden {\n  display: none; }\n\n/* line 49, stdin */\n.mfp-iframe img {\n  width: 100%; }\n")
+'use strict';
+
+var $$$ = require('jquery');
+
+module.exports = {
+
+  replace: true,
+  props: ['conteudo'],
+  data: function data() {
+    return {};
+  },
+  computed: {},
+  attached: function attached() {
+    setTimeout(function () {
+      jQuery('.popup-iframe').magnificPopup({ type: 'image' });
+    }, 1000);
+  },
+  beforeDestroy: function beforeDestroy() {},
+
+  components: {},
+
+  filters: {}
+
+};
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div>\n    <div class=\"mdl-grid\" id=\"video_list\">\n      <div v-for=\"img in conteudo.imagens\" class=\"mdl-cell mdl-cell--3-col\">\n        <a :href=\"img\" target=\"_blank\" :title=\"img\" style=\"text-decoration: none; text-align: center;\" class=\"popup-iframe\">\n          <div class=\"mdl-card mdl-shadow--2dp single-card\">\n            <img :alt=\"img\" :src=\"img\">\n          </div>\n        </a>\n      </div>\n    </div>\n  </div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  var id = "/media/bambuzal/Softwares/vue-models/hipervideo-model/app/vue/components/content-imagens.vue"
+  module.hot.dispose(function () {
+    require("vueify-insert-css").cache["/* line 2, stdin */\n#conteudo_info {\n  overflow: hidden;\n  position: relative;\n  height: 96%;\n  padding-left: 40px;\n  padding-right: 40px;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease; }\n  /* line 9, stdin */\n  #conteudo_info img {\n    width: 100%; }\n  /* line 10, stdin */\n  #app.marco-fechado #conteudo_info {\n    height: 100%; }\n\n/* line 15, stdin */\n.info-texto {\n  letter-spacing: 0; }\n\n/* line 20, stdin */\n.image-list img {\n  position: relative;\n  float: left;\n  margin-right: 10px; }\n\n/* line 28, stdin */\n.video-list img {\n  position: relative;\n  float: left;\n  margin-right: 10px;\n  width: 220px; }\n\n/* line 34, stdin */\n.video-list .slick-next {\n  right: -25px !important; }\n\n/* line 37, stdin */\n.video-list .slick-prev {\n  left: -25px !important; }\n\n/* line 43, stdin */\n.mdl-layout__tab.is-hidden {\n  display: none; }\n\n/* line 49, stdin */\n.mfp-iframe img {\n  width: 100%; }\n"] = false
+    document.head.removeChild(__vueify_style__)
+  })
+  if (!module.hot.data) {
+    hotAPI.createRecord(id, module.exports)
+  } else {
+    hotAPI.update(id, module.exports, module.exports.template)
+  }
+})()}
+},{"jquery":40,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],8:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("/* line 3, stdin */\n#list_files .mdl-card {\n  min-height: 100px; }\n\n/* line 6, stdin */\n#list_files .material-icons {\n  font-size: 80px; }\n\n/* line 9, stdin */\n#list_files .mdl-card__title {\n  padding: 10px;\n  background: rgba(0, 0, 0, 0.2); }\n  /* line 12, stdin */\n  #list_files .mdl-card__title .mdl-card__title-text {\n    font-size: 14px; }\n\n/* line 18, stdin */\n#list_links .mdl-card {\n  min-height: 350px; }\n")
+'use strict';
+
+var $$$ = require('jquery');
+
+module.exports = {
+
+  replace: true,
+  props: ['conteudo'],
+  data: function data() {
+    return {
+      link_files: [],
+      link_cards: []
+    };
+  },
+  computed: {},
+  attached: function attached() {
+    var self = this;
+    for (var i = 0; i < this.conteudo.links.length; i++) {
+      var n = {};
+      var split = this.conteudo.links[i].link.split('.');
+      var format = split[split.length - 1];
+      if (format === "jpg" || format === "png" || format === "jpeg") {
+        n.icon = 'photo';
+        n.nome = this.conteudo.links[i].nome;
+        n.link = this.conteudo.links[i].link;
+        this.link_files.push(n);
+      } else if (format === "pdf" || format === "doc" || format === "odt" || format === "docx") {
+        n.icon = 'insert_drive_file';
+        n.nome = this.conteudo.links[i].nome;
+        n.link = this.conteudo.links[i].link;
+        this.link_files.push(n);
+      } else {
+        $$$.ajax({
+          url: 'http://opengraph.io/api/1.0/site/' + this.conteudo.links[i].link,
+          crossDomain: true,
+          dataType: 'json',
+          success: function success(data) {
+            var t = {};
+            if (data.error) {
+              t.nome = self.conteudo.links[i].nome;
+              t.img = "https://s3-sa-east-1.amazonaws.com/jardim-sites/hipervideo-modelo/fundo_link.png";
+              t.desc = "";
+              t.link = self.conteudo.links[i].link;
+            } else {
+              t.nome = data.hybridGraph.title;
+              t.img = data.hybridGraph.image;
+              t.desc = data.hybridGraph.description;
+              t.link = data.hybridGraph.url;
+            }
+            self.link_cards.push(t);
+          }
+        });
+      }
+    }
+  },
+  beforeDestroy: function beforeDestroy() {},
+
+  methods: {
+    openLink: function openLink(link) {
+      this.$parent.$parent.link = link;
+    }
+  },
+
+  components: {},
+
+  filters: {}
+
+};
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div>\n    <div class=\"mdl-grid\" id=\"list_files\">\n      <div v-for=\"link in link_files\" class=\"mdl-cell mdl-cell--2-col\">\n        <a :href=\"link.link\" @click.prevent=\"openLink(link.link)\" :title=\"link.nome\" style=\"text-decoration: none; text-align: center;\" class=\"popup-iframe\">\n          <div class=\"mdl-card mdl-shadow--2dp single-card\">\n            <div><i class=\"material-icons\">{{link.icon}}</i></div>\n            <div class=\"mdl-card__title\">\n              <h2 class=\"mdl-card__title-text\">{{link.nome}}</h2>\n            </div>\n          </div>\n        </a>\n      </div>\n    </div>\n    <div class=\"mdl-grid\" id=\"list_links\">\n      <div v-for=\"link in link_cards\" class=\"mdl-cell mdl-cell--6-col\">\n        <a :href=\"link.link\" @click.prevent=\"openLink(link.link)\" :title=\"link.nome\" style=\"text-decoration: none; text-align: center;\">\n          <div class=\"mdl-card mdl-shadow--2dp single-card\" :style=\"{ backgroundImage: 'url('+link.img+')' }\" style=\"background-size: 100%;\">\n            <!-- <img :alt=\"link.nome\" :src=\"link.img\"> -->\n            <div class=\"mdl-card__title\" style=\"background: rgba(255,255,255,0.6)\">\n              <h2 class=\"mdl-card__title-text\">{{link.nome}}</h2>\n            </div>\n          </div>\n        </a>\n      </div>\n    </div>\n  </div>\n\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  var id = "/media/bambuzal/Softwares/vue-models/hipervideo-model/app/vue/components/content-links.vue"
+  module.hot.dispose(function () {
+    require("vueify-insert-css").cache["/* line 3, stdin */\n#list_files .mdl-card {\n  min-height: 100px; }\n\n/* line 6, stdin */\n#list_files .material-icons {\n  font-size: 80px; }\n\n/* line 9, stdin */\n#list_files .mdl-card__title {\n  padding: 10px;\n  background: rgba(0, 0, 0, 0.2); }\n  /* line 12, stdin */\n  #list_files .mdl-card__title .mdl-card__title-text {\n    font-size: 14px; }\n\n/* line 18, stdin */\n#list_links .mdl-card {\n  min-height: 350px; }\n"] = false
+    document.head.removeChild(__vueify_style__)
+  })
+  if (!module.hot.data) {
+    hotAPI.createRecord(id, module.exports)
+  } else {
+    hotAPI.update(id, module.exports, module.exports.template)
+  }
+})()}
+},{"jquery":40,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],9:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.content_mapa {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  padding: 0;\n  margin: 0;\n  background: #333; }\n\n/* line 10, stdin */\n.leaflet-top, .leaflet-bottom {\n  z-index: 1; }\n")
 'use strict';
 
 var L = require('leaflet');
@@ -622,6 +1102,10 @@ module.exports = {
     L.Icon.Default.imagePath = 'img/leaflet';
 
     this.loadData();
+
+    this._mapa.on('click', function (e) {
+      console.log(e);
+    });
   },
 
   methods: {
@@ -656,7 +1140,7 @@ module.exports = {
 
           for (var i = 0; i < entries.length; i++) {
             // console.log(entries[i].lat);
-            markers.push(L.marker([parseFloat(entries[i].lat), parseFloat(entries[i].lon)]).bindPopup('<a href="' + entries[i].site + '" target="_blank">' + entries[i].nome + '</a>'));
+            markers.push(L.marker([parseFloat(entries[i].lat), parseFloat(entries[i].lon)]).bindPopup('<a href="' + entries[i].site + '" target="_blank" class="mapa-link">' + entries[i].nome + '</a>'));
           }
 
           L.layerGroup(markers).addTo(self._mapa);
@@ -667,18 +1151,23 @@ module.exports = {
         }).complete(function () {
 
           // console.log('completed mapa-spreadsheet load!')
-
+          setTimeout(function () {
+            $$$('.mapa-link').on('click', function (e) {
+              e.preventDefault();
+              self.$parent.$parent.link = e.currentTarget.href;
+            });
+          }, 1000);
         });
       } else if (typeof this.conteudo.mapa.locais === 'object') {
-          var entries = self.conteudo.mapa.locais;
-          var markers = [];
+        var entries = self.conteudo.mapa.locais;
+        var markers = [];
 
-          for (var i = 0; i < entries.length; i++) {
-            markers.push(L.marker([entries[i].lat, entries[i].lon]).bindPopup('<a href="' + entries[i].site + '" target="_blank">' + entries[i].nome + '</a>'));
-          }
-
-          L.layerGroup(markers).addTo(self._mapa);
+        for (var i = 0; i < entries.length; i++) {
+          markers.push(L.marker([entries[i].lat, entries[i].lon]).bindPopup('<a href="' + entries[i].site + '" target="_blank">' + entries[i].nome + '</a>'));
         }
+
+        L.layerGroup(markers).addTo(self._mapa);
+      }
     }
   }
 };
@@ -689,7 +1178,7 @@ if (module.hot) {(function () {  module.hot.accept()
   if (!hotAPI.compatible) return
   var id = "/media/bambuzal/Softwares/vue-models/hipervideo-model/app/vue/components/content-map.vue"
   module.hot.dispose(function () {
-    require("vueify-insert-css").cache["/* line 2, stdin */\n.content_mapa {\n  position: relative;\n  width: 100%;\n  height: 400px;\n  background: #333; }\n\n/* line 8, stdin */\n.leaflet-top, .leaflet-bottom {\n  z-index: 1; }\n"] = false
+    require("vueify-insert-css").cache["/* line 2, stdin */\n.content_mapa {\n  position: relative;\n  height: 100%;\n  width: 100%;\n  padding: 0;\n  margin: 0;\n  background: #333; }\n\n/* line 10, stdin */\n.leaflet-top, .leaflet-bottom {\n  z-index: 1; }\n"] = false
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
@@ -698,7 +1187,123 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":17,"leaflet":18,"vue":47,"vue-hot-reload-api":44,"vueify-insert-css":48}],5:[function(require,module,exports){
+},{"jquery":40,"leaflet":41,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],10:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("/* line 3, stdin */\n.info-texto {\n  letter-spacing: 0;\n  padding: 30px; }\n")
+'use strict';
+
+var $$$ = require('jquery');
+var _marked = require('marked');
+
+module.exports = {
+
+  replace: true,
+  props: ['conteudo'],
+  data: function data() {
+    return {};
+  },
+  computed: {},
+  attached: function attached() {
+    var self = this;
+    setTimeout(function () {
+      $$$('#text-content a').on('click', function (e) {
+        e.preventDefault();
+        self.$parent.$parent.link = e.currentTarget.href;
+      });
+    }, 1000);
+  },
+  beforeDestroy: function beforeDestroy() {
+    $$$('#text-content a').off('click', function (e) {
+      e.preventDefault();
+      self.$parent.$parent.link = e.currentTarget.href;
+    });
+  },
+
+  components: {},
+
+  filters: {
+    marked: function marked(value) {
+      return _marked(value);
+    }
+  }
+
+};
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div class=\"info-texto\">\n    <div id=\"text-content\" v-if=\"conteudo.texto\">\n      {{{ conteudo.texto | marked }}}\n    </div>\n  </div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  var id = "/media/bambuzal/Softwares/vue-models/hipervideo-model/app/vue/components/content-texto.vue"
+  module.hot.dispose(function () {
+    require("vueify-insert-css").cache["/* line 3, stdin */\n.info-texto {\n  letter-spacing: 0;\n  padding: 30px; }\n"] = false
+    document.head.removeChild(__vueify_style__)
+  })
+  if (!module.hot.data) {
+    hotAPI.createRecord(id, module.exports)
+  } else {
+    hotAPI.update(id, module.exports, module.exports.template)
+  }
+})()}
+},{"jquery":40,"marked":42,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],11:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("/* line 3, stdin */\n#video_list .mdl-card {\n  min-height: 150px !important; }\n\n/* line 6, stdin */\n#video_list .mdl-card__title {\n  padding: 10px; }\n  /* line 8, stdin */\n  #video_list .mdl-card__title .mdl-card__title-text {\n    font-size: 14px; }\n")
+'use strict';
+
+var $$$ = require('jquery');
+
+module.exports = {
+
+  replace: true,
+  props: ['conteudo'],
+  data: function data() {
+    return {
+      videos: []
+    };
+  },
+  computed: {},
+  attached: function attached() {
+    var self = this;
+
+    var playlistUrl = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=25&playlistId=' + this.conteudo.videos + '&key=AIzaSyBmFsHCZeHcrFIb9Fskr718noTVpqRysKc';
+    var videoURL = 'http://www.youtube.com/watch?v=';
+    $$$.getJSON(playlistUrl, function (data) {
+      // console.log(data);
+      $$$.each(data.items, function (i, item) {
+        // console.log(item)
+        var video_data = {};
+        video_data.title = item.snippet.title;
+        video_data.id = item.snippet.resourceId.videoId;
+        video_data.url = videoURL + video_data.id;
+        self.videos.push(video_data);
+      });
+    });
+
+    setTimeout(function () {
+      jQuery('.popup-iframe').magnificPopup({ type: 'iframe' });
+    }, 1000);
+  },
+  beforeDestroy: function beforeDestroy() {},
+
+  components: {},
+
+  filters: {}
+
+};
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div>\n    <div class=\"mdl-grid\" id=\"video_list\">\n      <div v-for=\"video in videos\" class=\"mdl-cell mdl-cell--3-col\">\n        <a :href=\"video.url\" target=\"_blank\" :title=\"video.title\" style=\"text-decoration: none; text-align: center;\" class=\"popup-iframe\">\n          <div class=\"mdl-card mdl-shadow--2dp single-card\">\n            <img :alt=\"video.title\" src=\"http://img.youtube.com/vi/{{video.id}}/mqdefault.jpg\">\n            <div class=\"mdl-card__title\">\n              <h2 class=\"mdl-card__title-text\">{{video.title}}</h2>\n            </div>\n          </div>\n        </a>\n      </div>\n    </div>\n  </div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  var id = "/media/bambuzal/Softwares/vue-models/hipervideo-model/app/vue/components/content-videos.vue"
+  module.hot.dispose(function () {
+    require("vueify-insert-css").cache["/* line 3, stdin */\n#video_list .mdl-card {\n  min-height: 150px !important; }\n\n/* line 6, stdin */\n#video_list .mdl-card__title {\n  padding: 10px; }\n  /* line 8, stdin */\n  #video_list .mdl-card__title .mdl-card__title-text {\n    font-size: 14px; }\n"] = false
+    document.head.removeChild(__vueify_style__)
+  })
+  if (!module.hot.data) {
+    hotAPI.createRecord(id, module.exports)
+  } else {
+    hotAPI.update(id, module.exports, module.exports.template)
+  }
+})()}
+},{"jquery":40,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],12:[function(require,module,exports){
 var __vueify_style__ = require("vueify-insert-css").insert("/* line 4, stdin */\n.chart-databars .axis path,\n.chart-databars .axis line {\n  fill: none;\n  stroke: #fff;\n  shape-rendering: crispEdges; }\n\n/* line 11, stdin */\n.chart-databars .axis text {\n  fill: #fff;\n  font-size: 10px; }\n\n/* line 16, stdin */\n.chart-databars .bar {\n  fill: steelblue; }\n\n/* line 20, stdin */\n.chart-databars .x.axis path {\n  display: none; }\n")
 'use strict';
 
@@ -849,7 +1454,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":17,"marked":19,"underscore":43,"vue":47,"vue-hot-reload-api":44,"vueify-insert-css":48}],6:[function(require,module,exports){
+},{"jquery":40,"marked":42,"underscore":66,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],13:[function(require,module,exports){
 'use strict';
 
 var marked = require('marked');
@@ -872,21 +1477,37 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"marked":19,"vue":47,"vue-hot-reload-api":44}],7:[function(require,module,exports){
+},{"marked":42,"vue":70,"vue-hot-reload-api":67}],14:[function(require,module,exports){
 'use strict';
 
 var _marked = require('marked');
+var $$$ = require('jquery');
 
 module.exports = {
 	replace: true,
 	props: ['fields'],
+	attached: function attached() {
+		var self = this;
+		$$$('#text a').on('click', function (e) {
+			e.preventDefault();
+			self.$parent.$parent.link = e.currentTarget.href;
+			self.$parent.$parent.videoPause();
+		});
+	},
+	beforeDestroy: function beforeDestroy() {
+		$$$('#text a').off('click', function (e) {
+			e.preventDefault();
+			self.$parent.$parent.link = e.currentTarget.href;
+			self.$parent.$parent.videoPause();
+		});
+	},
 	filters: {
 		marked: function marked(value) {
 			return _marked(value);
 		}
 	}
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div>\n\t\t{{{fields.excerpt | marked}}}\n\t</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div id=\"text\">\n\t\t{{{fields.excerpt | marked}}}\n\t</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
@@ -898,8 +1519,8 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"marked":19,"vue":47,"vue-hot-reload-api":44}],8:[function(require,module,exports){
-var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.sidebar_block {\n  width: 120%;\n  height: 100%;\n  overflow: hidden;\n  -webkit-transition: all .6s ease;\n  transition: all .6s ease; }\n  /* line 7, stdin */\n  .sidebar_block.blc-enter, .sidebar_block.blc-leave {\n    -webkit-transform: translate3d(-400px, 0, 0);\n            transform: translate3d(-400px, 0, 0);\n    max-height: 0; }\n  /* line 11, stdin */\n  .sidebar.has-info .sidebar_block {\n    width: 100%;\n    max-height: 48px; }\n\n/* line 16, stdin */\n#cartela_nome, #cartela_funcao {\n  float: right;\n  font-size: 16px;\n  font-size: 170%;\n  padding-left: 20px;\n  padding-right: 20px; }\n\n/* line 23, stdin */\n#cartela_funcao {\n  color: #555; }\n\n/* line 26, stdin */\n.sidebar_block__header {\n  font-family: 'fonte-bold', sans-serif;\n  font-weight: 900;\n  position: relative;\n  color: #fff;\n  padding: 10px;\n  height: 28px;\n  line-height: 28px; }\n\n/* line 35, stdin */\n.sidebar_block__content {\n  overflow: hidden;\n  height: 40%;\n  position: relative;\n  padding: 15px;\n  padding-right: 21px;\n  font-size: 14px;\n  font-weight: 300;\n  line-height: 1.4em;\n  width: 85%;\n  letter-spacing: 0;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease;\n  color: white; }\n\n/* line 49, stdin */\n.timer {\n  display: block;\n  position: absolute;\n  cursor: pointer;\n  top: 10px;\n  right: 10px;\n  width: 28px;\n  height: 28px; }\n  /* line 57, stdin */\n  .timer .progress {\n    fill: transparent;\n    stroke: #fff;\n    stroke-width: 2px;\n    stroke-dasharray: 75 75;\n    stroke-linecap: round;\n    -webkit-transition: all 0.5s linear;\n    transition: all 0.5s linear;\n    -webkit-transform: translate(0px, 28px) rotate(-90deg);\n    -moz-transform: translate(0px, 28px) rotate(-90deg);\n    -o-transform: translate(0px, 28px) rotate(-90deg);\n    -ms-transform: translate(0px, 28px) rotate(-90deg);\n    transform: translate(0px, 28px) rotate(-90deg); }\n    /* line 69, stdin */\n    .timer .progress.fadeout {\n      opacity: 0; }\n  /* line 73, stdin */\n  .timer .base {\n    stroke: #fff;\n    stroke-width: 2px;\n    fill: transparent;\n    opacity: 0.2; }\n  /* line 79, stdin */\n  .timer .close {\n    -webkit-transition: opacity 0.3s linear, -webkit-transform 0.3s ease;\n    transition: opacity 0.3s linear, -webkit-transform 0.3s ease;\n    transition: transform 0.3s ease, opacity 0.3s linear;\n    transition: transform 0.3s ease, opacity 0.3s linear, -webkit-transform 0.3s ease;\n    opacity: 0;\n    -webkit-transform: translate(14px, 14px) scale(0.5);\n    -moz-transform: translate(14px, 14px) scale(0.5);\n    -o-transform: translate(14px, 14px) scale(0.5);\n    -ms-transform: translate(14px, 14px) scale(0.5);\n    transform: translate(14px, 14px) scale(0.5); }\n    /* line 87, stdin */\n    .timer .close line {\n      stroke: #fff;\n      stroke-width: 2px;\n      stroke-linecap: round; }\n  /* line 95, stdin */\n  .timer.fixed .close, .timer:hover .close {\n    opacity: 1;\n    -webkit-transform: translate(14px, 14px) scale(1);\n    -moz-transform: translate(14px, 14px) scale(1);\n    -o-transform: translate(14px, 14px) scale(1);\n    -ms-transform: translate(14px, 14px) scale(1);\n    transform: translate(14px, 14px) scale(1); }\n")
+},{"jquery":40,"marked":42,"vue":70,"vue-hot-reload-api":67}],15:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.sidebar_block {\n  width: 120%;\n  height: 100%;\n  overflow: hidden;\n  -webkit-transition: all .6s ease;\n  transition: all .6s ease; }\n  /* line 7, stdin */\n  .sidebar_block.blc-enter, .sidebar_block.blc-leave {\n    -webkit-transform: translate3d(-400px, 0, 0);\n            transform: translate3d(-400px, 0, 0);\n    max-height: 0; }\n  /* line 11, stdin */\n  .sidebar.has-info .sidebar_block {\n    width: 100%; }\n  /* line 14, stdin */\n  .sidebar_block .mdl-cell--10-col {\n    padding: 0; }\n  /* line 17, stdin */\n  .sidebar_block .mdl-button {\n    min-width: 0;\n    padding: 0; }\n    /* line 21, stdin */\n    .sidebar_block .mdl-button.no-back:hover {\n      background: transparent; }\n  /* line 26, stdin */\n  .sidebar_block .index {\n    margin: auto; }\n    /* line 28, stdin */\n    .sidebar_block .index .mdl-button {\n      margin-left: 4px; }\n    /* line 31, stdin */\n    .sidebar_block .index .material-icons {\n      font-size: 10px; }\n\n/* line 36, stdin */\n#cartela_nome, #cartela_funcao {\n  float: right;\n  font-size: 16px;\n  font-size: 170%;\n  padding-left: 20px;\n  padding-right: 20px; }\n\n/* line 43, stdin */\n#cartela_funcao {\n  color: #555; }\n\n/* line 46, stdin */\n.sidebar_block__header {\n  font-family: 'fonte-bold', sans-serif;\n  font-weight: 900;\n  position: relative;\n  color: #fff;\n  padding: 10px;\n  max-height: 50px;\n  line-height: 28px; }\n  /* line 54, stdin */\n  .sidebar_block__header.open {\n    width: 100%; }\n\n/* line 58, stdin */\n.sidebar_block__content {\n  overflow: hidden;\n  height: 40%;\n  position: relative;\n  padding: 15px;\n  padding-right: 21px;\n  font-size: 14px;\n  font-weight: 300;\n  line-height: 1.4em;\n  letter-spacing: 0;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease;\n  color: white; }\n\n/* line 71, stdin */\n.timer {\n  display: block;\n  position: absolute;\n  cursor: pointer;\n  top: 10px;\n  right: 10px;\n  width: 28px;\n  height: 28px; }\n  /* line 79, stdin */\n  .timer .progress {\n    fill: transparent;\n    stroke: #fff;\n    stroke-width: 2px;\n    stroke-dasharray: 75 75;\n    stroke-linecap: round;\n    -webkit-transition: all 0.5s linear;\n    transition: all 0.5s linear;\n    -webkit-transform: translate(0px, 28px) rotate(-90deg);\n    -moz-transform: translate(0px, 28px) rotate(-90deg);\n    -o-transform: translate(0px, 28px) rotate(-90deg);\n    -ms-transform: translate(0px, 28px) rotate(-90deg);\n    transform: translate(0px, 28px) rotate(-90deg); }\n    /* line 91, stdin */\n    .timer .progress.fadeout {\n      opacity: 0; }\n  /* line 95, stdin */\n  .timer .base {\n    stroke: #fff;\n    stroke-width: 2px;\n    fill: transparent;\n    opacity: 0.2; }\n  /* line 101, stdin */\n  .timer .close {\n    -webkit-transition: opacity 0.3s linear, -webkit-transform 0.3s ease;\n    transition: opacity 0.3s linear, -webkit-transform 0.3s ease;\n    transition: transform 0.3s ease, opacity 0.3s linear;\n    transition: transform 0.3s ease, opacity 0.3s linear, -webkit-transform 0.3s ease;\n    opacity: 0;\n    -webkit-transform: translate(14px, 14px) scale(0.5);\n    -moz-transform: translate(14px, 14px) scale(0.5);\n    -o-transform: translate(14px, 14px) scale(0.5);\n    -ms-transform: translate(14px, 14px) scale(0.5);\n    transform: translate(14px, 14px) scale(0.5); }\n    /* line 109, stdin */\n    .timer .close line {\n      stroke: #fff;\n      stroke-width: 2px;\n      stroke-linecap: round; }\n  /* line 117, stdin */\n  .timer.fixed .close, .timer:hover .close {\n    opacity: 1;\n    -webkit-transform: translate(14px, 14px) scale(1);\n    -moz-transform: translate(14px, 14px) scale(1);\n    -o-transform: translate(14px, 14px) scale(1);\n    -ms-transform: translate(14px, 14px) scale(1);\n    transform: translate(14px, 14px) scale(1); }\n\n/* line 127, stdin */\n.nav-icons {\n  margin-top: -100px;\n  height: 0; }\n  /* line 130, stdin */\n  .nav-icons .material-icons {\n    font-size: 60px; }\n  /* line 133, stdin */\n  .nav-icons .mdl-button {\n    height: 55px;\n    width: 100%; }\n  /* line 137, stdin */\n  .nav-icons .mdl-tooltip {\n    font-size: 14px; }\n")
 'use strict';
 
 var Vue = require('vue');
@@ -930,6 +1551,20 @@ module.exports = {
 		eventoAt: function eventoAt() {
 			return this.content.start !== null;
 		},
+<<<<<<< HEAD
+=======
+		eventoNow: function eventoNow() {
+			var list = [];
+			for (var i = 0; i < this.events.length; i++) {
+				if (this.content.id === this.events[i].id) {
+					list.push(true);
+				} else {
+					list.push(false);
+				}
+			}
+			return list;
+		},
+>>>>>>> guzz
 		isAp: function isAp() {
 			if (this.content.ap !== undefined) {
 				return true;
@@ -939,12 +1574,23 @@ module.exports = {
 		},
 		numEvents: function numEvents() {
 			return this.events.length;
+<<<<<<< HEAD
+=======
+		},
+		hasConteudo: function hasConteudo() {
+			if (this.conteudo !== {}) {
+				return true;
+			} else {
+				return false;
+			}
+>>>>>>> guzz
 		}
 	},
 	attached: function attached() {
 		$$$('.sidebar_block__content').perfectScrollbar({
 			suppressScrollX: true
 		});
+		componentHandler.upgradeDom();
 	},
 	methods: {
 		onTimerClick: function onTimerClick() {
@@ -966,14 +1612,18 @@ module.exports = {
 		'databars': require('../components/sidebar-block-databars.vue')
 	}
 };
+<<<<<<< HEAD
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div class=\"sidebar_block\" transition=\"blc\">\n\t\t<div class=\"sidebar_block__header context-bg\">\n\t\t\t{{content.title | uppercase}}\n\t\t\t<svg width=\"28\" height=\"28\" class=\"timer clickable\" @click=\"onTimerClick\" :class=\"{fixed: content.start === null}\">\n\t\t\t\t<circle class=\"base\" cx=\"14\" cy=\"14\" r=\"12\"></circle>\n\t\t\t\t<circle :class=\"{fadeout: perc < 3}\" class=\"progress\" cx=\"14\" cy=\"14\" r=\"12\" :stroke-dashoffset=\"perc\"></circle>\n\t\t\t\t<g class=\"close\">\n\t\t\t\t\t<line x1=\"-4\" y1=\"-4\" x2=\"4\" y2=\"4\"></line>\n\t\t\t\t\t<line x1=\"-4\" y1=\"4\" x2=\"4\" y2=\"-4\"></line>\n\t\t\t\t</g>\n\t\t\t</svg>\n\t\t</div>\n\t\t<div id=\"sidebar_block__content\" class=\"sidebar_block__content\">\n\t\t\t<div :is=\"content.type\" :fields=\"content.fields\"></div>\n\t\t</div>\n\t\t<p v-if=\"!content.ap\" style=\"padding-left: 10px;\"><strong><a style=\"font-weight: 900; text-decoration: none;\" :href=\"'#/' + content.videoID + '/info/' + content.id\">SAIBA MAIS</a></strong></p>\n\t\t<button v-if=\"!content.ap\" class=\"mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored\" @click=\"parentBlock(content.id - 1)\" :disabled=\"eventoStart\">\n\t\t\t<i class=\"material-icons\">chevron_left</i>\n\t\t</button>\n\t\t<button v-if=\"!content.ap\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\" @click=\"seekVideo(content.id)\" :disabled=\"isAp || eventoAt\">\n\t\t\tIr para ponto no video\n\t\t</button>\n\t\t<button v-if=\"!content.ap\" class=\"mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored\" @click=\"parentBlock(content.id + 1)\" :disabled=\"eventoEnd\">\n\t\t\t<i class=\"material-icons\">chevron_right</i>\n\t\t</button>\n\t\t<p v-if=\"!content.ap\" style=\"color:white; text-align: center;\">{{content.id + 1}} / {{numEvents}}</p>\n\t</div>\n"
+=======
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div style=\"padding: 0;\" class=\"sidebar_block mdl-grid\" transition=\"blc\">\n\t\t<div style=\"margin: 0;\" :class=\"{ open: conteudo !== null }\" class=\"mdl-cell mdl-cell--12-col sidebar_block__header context-bg\">\n\t\t\t{{content.title | uppercase}}\n\t\t\t<svg width=\"28\" height=\"28\" class=\"timer clickable\" @click=\"onTimerClick\" :class=\"{fixed: content.start === null}\">\n\t\t\t\t<circle class=\"base\" cx=\"14\" cy=\"14\" r=\"12\"></circle>\n\t\t\t\t<circle :class=\"{fadeout: perc < 3}\" class=\"progress\" cx=\"14\" cy=\"14\" r=\"12\" :stroke-dashoffset=\"perc\"></circle>\n\t\t\t\t<g class=\"close\">\n\t\t\t\t\t<line x1=\"-4\" y1=\"-4\" x2=\"4\" y2=\"4\"></line>\n\t\t\t\t\t<line x1=\"-4\" y1=\"4\" x2=\"4\" y2=\"-4\"></line>\n\t\t\t\t</g>\n\t\t\t</svg>\n\t\t</div>\n\t\t<div style=\"margin-top: -70px; padding-right: 15px;\" id=\"sidebar_block__content\" class=\"mdl-cell mdl-cell--10-col sidebar_block__content\">\n\t\t\t<div :is=\"content.type\" :fields=\"content.fields\"></div>\n\t\t</div>\n\t\t<div style=\"margin-top: -75px; height: 0;\" class=\"mdl-cell mdl-cell--10-col\">\n\t\t\t<p v-if=\"!content.ap\" v-show=\"conteudo.id === undefined\" style=\"\"><strong><a style=\"font-weight: 900; text-decoration: none;\" :href=\"'#/' + content.videoID + '/info/' + content.id\">SAIBA MAIS</a></strong></p>\n\t\t\t<p v-if=\"!content.ap\" v-show=\"conteudo.id !== undefined\" style=\"\"><strong><a style=\"font-weight: 900; text-decoration: none;\" :href=\"'#/' + content.videoID\">VOLTAR</a></strong></p>\n\t\t</div>\n\t\t<div style=\"\" class=\"mdl-cell mdl-cell--10-col mdl-grid nav-icons\">\n\t\t\t<div class=\"mdl-cell mdl-cell--2-col\" style=\"padding: 0;\">\n\t\t\t\t<button v-if=\"!content.ap\" id=\"evento_prev\" class=\"mdl-button mdl-js-button mdl-button--colored no-back\" @click=\"parentBlock(content.id - 1)\" :disabled=\"eventoStart\">\n\t\t\t\t\t<i class=\"material-icons\" style=\"margin-left: -19px;\">chevron_left</i>\n\t\t\t\t</button>\n\t\t\t\t<div class=\"mdl-tooltip mdl-tooltip--top\" for=\"evento_prev\">Evento anterior</div>\n\t\t\t</div>\n\t\t\t<div class=\"mdl-cell mdl-cell--8-col\" style=\"padding: 0;\">\n\t\t\t\t<button v-if=\"!content.ap\" id=\"evento_now\" class=\"mdl-button mdl-js-button mdl-button--colored no-back\" @click=\"seekVideo(content.id)\" :disabled=\"isAp || eventoAt\" style=\"width: 100%;\">\n\t\t\t\t\t<i class=\"material-icons\">open_in_browser</i>\n\t\t\t\t</button>\n\t\t\t\t<div class=\"mdl-tooltip mdl-tooltip--top\" for=\"evento_now\">Ir para ponto do vídeo</div>\n\t\t\t</div>\n\t\t\t<div class=\"mdl-cell mdl-cell--2-col\" style=\"padding: 0;\">\n\t\t\t\t<button v-if=\"!content.ap\" id=\"evento_next\" class=\"mdl-button mdl-js-button mdl-button--colored no-back\" @click=\"parentBlock(content.id + 1)\" :disabled=\"eventoEnd\">\n\t\t\t\t\t<i class=\"material-icons\" style=\"margin-left: -19px;\">chevron_right</i>\n\t\t\t\t</button>\n\t\t\t\t<div class=\"mdl-tooltip mdl-tooltip--top\" for=\"evento_next\">Próximo evento</div>\n\t\t\t</div>\n\t\t</div>\n\t\t<div style=\"margin-top: -140px; height: 0;\" class=\"mdl-cell mdl-cell--10-col mdl-grid\">\n\t\t\t<div class=\"mdl-cell mdl-cell--12-col\">\n\t\t\t\t<div class=\"index\" :style=\"{width: (events.length * 7) + '%'}\">\n\t\t\t\t\t<button class=\"mdl-button mdl-js-button mdl-button--colored no-back\" v-for=\"e in events\" href=\"\" @click.prevent=\"parentBlock($index)\" :disabled=\"eventoNow[$index]\">\n\t\t\t\t\t\t<i class=\"material-icons\">lens</i>\n\t\t\t\t\t</button>\n\t\t\t\t</div>\n\t\t\t\t<!-- <p v-if=\"!content.ap\" style=\"color:white; text-align: center;\">{{content.id + 1}} / {{numEvents}}</p> -->\n\t\t\t</div>\n\t\t</div>\n\t\t\n\t</div>\n"
+>>>>>>> guzz
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   var id = "/media/bambuzal/Softwares/vue-models/hipervideo-model/app/vue/components/sidebar-block.vue"
   module.hot.dispose(function () {
-    require("vueify-insert-css").cache["/* line 2, stdin */\n.sidebar_block {\n  width: 120%;\n  height: 100%;\n  overflow: hidden;\n  -webkit-transition: all .6s ease;\n  transition: all .6s ease; }\n  /* line 7, stdin */\n  .sidebar_block.blc-enter, .sidebar_block.blc-leave {\n    -webkit-transform: translate3d(-400px, 0, 0);\n            transform: translate3d(-400px, 0, 0);\n    max-height: 0; }\n  /* line 11, stdin */\n  .sidebar.has-info .sidebar_block {\n    width: 100%;\n    max-height: 48px; }\n\n/* line 16, stdin */\n#cartela_nome, #cartela_funcao {\n  float: right;\n  font-size: 16px;\n  font-size: 170%;\n  padding-left: 20px;\n  padding-right: 20px; }\n\n/* line 23, stdin */\n#cartela_funcao {\n  color: #555; }\n\n/* line 26, stdin */\n.sidebar_block__header {\n  font-family: 'fonte-bold', sans-serif;\n  font-weight: 900;\n  position: relative;\n  color: #fff;\n  padding: 10px;\n  height: 28px;\n  line-height: 28px; }\n\n/* line 35, stdin */\n.sidebar_block__content {\n  overflow: hidden;\n  height: 40%;\n  position: relative;\n  padding: 15px;\n  padding-right: 21px;\n  font-size: 14px;\n  font-weight: 300;\n  line-height: 1.4em;\n  width: 85%;\n  letter-spacing: 0;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease;\n  color: white; }\n\n/* line 49, stdin */\n.timer {\n  display: block;\n  position: absolute;\n  cursor: pointer;\n  top: 10px;\n  right: 10px;\n  width: 28px;\n  height: 28px; }\n  /* line 57, stdin */\n  .timer .progress {\n    fill: transparent;\n    stroke: #fff;\n    stroke-width: 2px;\n    stroke-dasharray: 75 75;\n    stroke-linecap: round;\n    -webkit-transition: all 0.5s linear;\n    transition: all 0.5s linear;\n    -webkit-transform: translate(0px, 28px) rotate(-90deg);\n    -moz-transform: translate(0px, 28px) rotate(-90deg);\n    -o-transform: translate(0px, 28px) rotate(-90deg);\n    -ms-transform: translate(0px, 28px) rotate(-90deg);\n    transform: translate(0px, 28px) rotate(-90deg); }\n    /* line 69, stdin */\n    .timer .progress.fadeout {\n      opacity: 0; }\n  /* line 73, stdin */\n  .timer .base {\n    stroke: #fff;\n    stroke-width: 2px;\n    fill: transparent;\n    opacity: 0.2; }\n  /* line 79, stdin */\n  .timer .close {\n    -webkit-transition: opacity 0.3s linear, -webkit-transform 0.3s ease;\n    transition: opacity 0.3s linear, -webkit-transform 0.3s ease;\n    transition: transform 0.3s ease, opacity 0.3s linear;\n    transition: transform 0.3s ease, opacity 0.3s linear, -webkit-transform 0.3s ease;\n    opacity: 0;\n    -webkit-transform: translate(14px, 14px) scale(0.5);\n    -moz-transform: translate(14px, 14px) scale(0.5);\n    -o-transform: translate(14px, 14px) scale(0.5);\n    -ms-transform: translate(14px, 14px) scale(0.5);\n    transform: translate(14px, 14px) scale(0.5); }\n    /* line 87, stdin */\n    .timer .close line {\n      stroke: #fff;\n      stroke-width: 2px;\n      stroke-linecap: round; }\n  /* line 95, stdin */\n  .timer.fixed .close, .timer:hover .close {\n    opacity: 1;\n    -webkit-transform: translate(14px, 14px) scale(1);\n    -moz-transform: translate(14px, 14px) scale(1);\n    -o-transform: translate(14px, 14px) scale(1);\n    -ms-transform: translate(14px, 14px) scale(1);\n    transform: translate(14px, 14px) scale(1); }\n"] = false
+    require("vueify-insert-css").cache["/* line 2, stdin */\n.sidebar_block {\n  width: 120%;\n  height: 100%;\n  overflow: hidden;\n  -webkit-transition: all .6s ease;\n  transition: all .6s ease; }\n  /* line 7, stdin */\n  .sidebar_block.blc-enter, .sidebar_block.blc-leave {\n    -webkit-transform: translate3d(-400px, 0, 0);\n            transform: translate3d(-400px, 0, 0);\n    max-height: 0; }\n  /* line 11, stdin */\n  .sidebar.has-info .sidebar_block {\n    width: 100%; }\n  /* line 14, stdin */\n  .sidebar_block .mdl-cell--10-col {\n    padding: 0; }\n  /* line 17, stdin */\n  .sidebar_block .mdl-button {\n    min-width: 0;\n    padding: 0; }\n    /* line 21, stdin */\n    .sidebar_block .mdl-button.no-back:hover {\n      background: transparent; }\n  /* line 26, stdin */\n  .sidebar_block .index {\n    margin: auto; }\n    /* line 28, stdin */\n    .sidebar_block .index .mdl-button {\n      margin-left: 4px; }\n    /* line 31, stdin */\n    .sidebar_block .index .material-icons {\n      font-size: 10px; }\n\n/* line 36, stdin */\n#cartela_nome, #cartela_funcao {\n  float: right;\n  font-size: 16px;\n  font-size: 170%;\n  padding-left: 20px;\n  padding-right: 20px; }\n\n/* line 43, stdin */\n#cartela_funcao {\n  color: #555; }\n\n/* line 46, stdin */\n.sidebar_block__header {\n  font-family: 'fonte-bold', sans-serif;\n  font-weight: 900;\n  position: relative;\n  color: #fff;\n  padding: 10px;\n  max-height: 50px;\n  line-height: 28px; }\n  /* line 54, stdin */\n  .sidebar_block__header.open {\n    width: 100%; }\n\n/* line 58, stdin */\n.sidebar_block__content {\n  overflow: hidden;\n  height: 40%;\n  position: relative;\n  padding: 15px;\n  padding-right: 21px;\n  font-size: 14px;\n  font-weight: 300;\n  line-height: 1.4em;\n  letter-spacing: 0;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease;\n  color: white; }\n\n/* line 71, stdin */\n.timer {\n  display: block;\n  position: absolute;\n  cursor: pointer;\n  top: 10px;\n  right: 10px;\n  width: 28px;\n  height: 28px; }\n  /* line 79, stdin */\n  .timer .progress {\n    fill: transparent;\n    stroke: #fff;\n    stroke-width: 2px;\n    stroke-dasharray: 75 75;\n    stroke-linecap: round;\n    -webkit-transition: all 0.5s linear;\n    transition: all 0.5s linear;\n    -webkit-transform: translate(0px, 28px) rotate(-90deg);\n    -moz-transform: translate(0px, 28px) rotate(-90deg);\n    -o-transform: translate(0px, 28px) rotate(-90deg);\n    -ms-transform: translate(0px, 28px) rotate(-90deg);\n    transform: translate(0px, 28px) rotate(-90deg); }\n    /* line 91, stdin */\n    .timer .progress.fadeout {\n      opacity: 0; }\n  /* line 95, stdin */\n  .timer .base {\n    stroke: #fff;\n    stroke-width: 2px;\n    fill: transparent;\n    opacity: 0.2; }\n  /* line 101, stdin */\n  .timer .close {\n    -webkit-transition: opacity 0.3s linear, -webkit-transform 0.3s ease;\n    transition: opacity 0.3s linear, -webkit-transform 0.3s ease;\n    transition: transform 0.3s ease, opacity 0.3s linear;\n    transition: transform 0.3s ease, opacity 0.3s linear, -webkit-transform 0.3s ease;\n    opacity: 0;\n    -webkit-transform: translate(14px, 14px) scale(0.5);\n    -moz-transform: translate(14px, 14px) scale(0.5);\n    -o-transform: translate(14px, 14px) scale(0.5);\n    -ms-transform: translate(14px, 14px) scale(0.5);\n    transform: translate(14px, 14px) scale(0.5); }\n    /* line 109, stdin */\n    .timer .close line {\n      stroke: #fff;\n      stroke-width: 2px;\n      stroke-linecap: round; }\n  /* line 117, stdin */\n  .timer.fixed .close, .timer:hover .close {\n    opacity: 1;\n    -webkit-transform: translate(14px, 14px) scale(1);\n    -moz-transform: translate(14px, 14px) scale(1);\n    -o-transform: translate(14px, 14px) scale(1);\n    -ms-transform: translate(14px, 14px) scale(1);\n    transform: translate(14px, 14px) scale(1); }\n\n/* line 127, stdin */\n.nav-icons {\n  margin-top: -100px;\n  height: 0; }\n  /* line 130, stdin */\n  .nav-icons .material-icons {\n    font-size: 60px; }\n  /* line 133, stdin */\n  .nav-icons .mdl-button {\n    height: 55px;\n    width: 100%; }\n  /* line 137, stdin */\n  .nav-icons .mdl-tooltip {\n    font-size: 14px; }\n"] = false
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
@@ -982,107 +1632,50 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"../components/sidebar-block-databars.vue":5,"../components/sidebar-block-profile.vue":6,"../components/sidebar-block-text.vue":7,"jquery":17,"perfect-scrollbar/jquery":21,"vue":47,"vue-hot-reload-api":44,"vueify-insert-css":48}],9:[function(require,module,exports){
-var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n#conteudo_info {\n  overflow: hidden;\n  position: relative;\n  height: 96%;\n  padding-left: 40px;\n  padding-right: 40px;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease; }\n  /* line 9, stdin */\n  #conteudo_info img {\n    width: 100%; }\n  /* line 10, stdin */\n  #app.marco-fechado #conteudo_info {\n    height: 100%; }\n\n/* line 15, stdin */\n.info-texto {\n  letter-spacing: 0; }\n\n/* line 20, stdin */\n.image-list img {\n  position: relative;\n  float: left;\n  margin-right: 10px; }\n\n/* line 28, stdin */\n.video-list img {\n  position: relative;\n  float: left;\n  margin-right: 10px;\n  width: 220px; }\n\n/* line 34, stdin */\n.video-list .slick-next {\n  right: -25px !important; }\n\n/* line 37, stdin */\n.video-list .slick-prev {\n  left: -25px !important; }\n\n/* line 42, stdin */\n.mulher-bg {\n  background-color: #ed1e79; }\n\n/* line 46, stdin */\n.adolescente-bg {\n  background-color: #00a300; }\n\n/* line 50, stdin */\n.crianca-bg {\n  background-color: #0cc; }\n\n/* line 54, stdin */\n.prisional-bg {\n  background-color: #f00; }\n\n/* line 58, stdin */\n.deficiencia-bg {\n  background-color: #00c; }\n")
+},{"../components/sidebar-block-databars.vue":12,"../components/sidebar-block-profile.vue":13,"../components/sidebar-block-text.vue":14,"jquery":40,"perfect-scrollbar/jquery":44,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],16:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n#conteudo_info {\n  overflow: hidden;\n  position: relative;\n  height: 96%;\n  padding-left: 40px;\n  padding-right: 40px;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease; }\n  /* line 9, stdin */\n  #conteudo_info img {\n    width: 100%; }\n  /* line 10, stdin */\n  #app.marco-fechado #conteudo_info {\n    height: 100%; }\n\n/* line 15, stdin */\n.info-texto {\n  letter-spacing: 0; }\n\n/* line 20, stdin */\n.image-list img {\n  position: relative;\n  float: left;\n  margin-right: 10px; }\n\n/* line 27, stdin */\n.mdl-layout__tab {\n  padding: 0 24px 0 32px; }\n  /* line 29, stdin */\n  .mdl-layout__tab.is-hidden {\n    display: none; }\n")
 'use strict';
+
+var _Object$assign = require('babel-runtime/core-js/object/assign')['default'];
 
 var Vue = require('vue');
 var $$$ = require('jquery');
 var perfectScrollbar = require('perfect-scrollbar');
-var marked = require('marked');
 
 module.exports = {
 
   replace: true,
-  props: ['params', 'conteudo'],
+  props: ['params', 'conteudo', 'user'],
   data: function data() {
     return {
-      html_texto: '',
-      videoIndex: 0,
-      imageIndex: 0
+      tab: 'texto',
+      icon: {
+        texto: 'format_align_left',
+        links: 'link',
+        videos: 'video_library',
+        imagens: 'photo_library',
+        mapa: 'map',
+        graficos: 'pie_chart',
+        comentarios: 'forum'
+      }
     };
   },
-  computed: {
-    hasDatabars: function hasDatabars() {
-      return this.conteudo.stats !== undefined;
-    },
-    hasMap: function hasMap() {
-      return this.conteudo.mapa !== undefined;
-    }
-  },
+  computed: {},
   attached: function attached() {
     var self = this;
-
-    jQuery('.image-list').slick({
-      infinite: false,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      adaptiveHeight: true
-    });
-
-    jQuery('.video-list').slick({
-      infinite: false,
-      slidesToShow: 3,
-      slidesToScroll: 3
-    });
 
     this.$on('create-scrollbar', function () {
       $$$('#conteudo_info').perfectScrollbar({
         suppressScrollX: true
       });
 
-      if (self.conteudo.texto !== "") {
-        self.html_texto = self.conteudo.texto;
-      } else {
-        self.html_texto = self.$parent.component.fields.excerpt;
-      }
-
-      Trello.get("/cards/" + self.$parent.db.eventos[parseInt(self.conteudo.id)].card + "/attachments", function (attach) {
-        // console.log(attach)
-        if (attach.length > 0) {
-          for (var i = attach.length - 1; i >= 0; i--) {
-            jQuery('.image-list').slick('slickAdd', '<img src="' + attach[i].url + '">');
-            self.imageIndex++;
-          };
-        }
-      });
-
-      if (self.$parent.conteudo.video_list) {
-        var playlistUrl = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=25&playlistId=' + self.conteudo.video_list + '&key=AIzaSyBmFsHCZeHcrFIb9Fskr718noTVpqRysKc';
-        var videoURL = 'http://www.youtube.com/watch?v=';
-        $$$.getJSON(playlistUrl, function (data) {
-          // console.log(data);
-          var list_data = [];
-          $$$.each(data.items, function (i, item) {
-            var video_data = {};
-            video_data.title = item.snippet.title;
-            video_data.id = item.snippet.resourceId.videoId;
-            video_data.url = videoURL + video_data.id;
-            list_data.push(video_data);
-          });
-          for (var i = list_data.length - 1; i >= 0; i--) {
-            jQuery('.video-list').slick('slickAdd', '<div><a href="' + list_data[i].url + '" target="_blank" title="' + list_data[i].title + '" style="text-decoration: none; text-align: center;" class="popup-iframe"><img alt="' + list_data[i].title + '" src="http://img.youtube.com/vi/' + list_data[i].id + '/0.jpg"</a><p>' + list_data[i].title + '</p></div>');
-            self.videoIndex++;
-            jQuery('.popup-iframe').magnificPopup({ type: 'iframe' });
-          };
-        });
-      }
+      self.getImages();
 
       $$$('#conteudo_info').perfectScrollbar('update');
     });
 
     this.$on('destroy-scrollbar', function () {
       $$$('#conteudo_info').perfectScrollbar('destroy');
-      for (var i = 0; i < this.imageIndex; i++) {
-        jQuery('.image-list').slick('slickRemove', 0);
-      }
-      // console.log('videoIndex no destroy ' + this.videoIndex);
-      for (var i = 0; i < this.videoIndex + 1; i++) {
-        // console.log('no destroy i = '+ i + ' e videoIndex = ' + this.videoIndex);
-        jQuery('.video-list').slick('slickRemove', 0);
-      }
-      this.imageIndex = 0;
-      this.videoIndex = 0;
     });
 
     this.$on('so-scrollbar', function () {
@@ -1090,30 +1683,93 @@ module.exports = {
         suppressScrollX: true
       });
     });
+    componentHandler.upgradeDom();
   },
   beforeDestroy: function beforeDestroy() {
     this.$off('create-scrollbar');
     this.$off('destroy-scrollbar');
   },
-
+  methods: {
+    changeTab: function changeTab(tab) {
+      this.tab = tab;
+    },
+    getImages: function getImages() {
+      var self = this;
+      Trello.get("/cards/" + this.$parent.db.eventos[parseInt(this.conteudo.id)].card + "/attachments", function (attach) {
+        // console.log(attach)
+        if (attach.length > 0) {
+          self.conteudo = _Object$assign({}, self.conteudo, {
+            imagens: [],
+            comentarios: []
+          });
+          // self.conteudo.imagens = []
+          // self.conteudo.comentarios = []
+          for (var i = attach.length - 1; i >= 0; i--) {
+            self.conteudo.imagens.push(attach[i].url);
+          };
+          self.getComments();
+        } else {
+          self.conteudo = _Object$assign({}, self.conteudo, {
+            comentarios: []
+          });
+          // self.conteudo.comentarios = []
+          self.getComments();
+        }
+      });
+    },
+    getComments: function getComments() {
+      var self = this;
+      Trello.get("/cards/" + self.$parent.db.eventos[parseInt(self.conteudo.id)].card + "/actions", function (comment) {
+        if (comment.length > 0) {
+          var usr_atual = {
+            id: '',
+            i: -1
+          };
+          for (var i = comment.length - 1; i >= 0; i--) {
+            if (comment[i].type === 'commentCard') {
+              var c = {
+                text: [],
+                usr: {
+                  foto: 'https://trello-avatars.s3.amazonaws.com/' + comment[i].memberCreator.avatarHash + '/30.png',
+                  nome: comment[i].memberCreator.username,
+                  id: comment[i].memberCreator.id
+                }
+              };
+              if (usr_atual.id === comment[i].memberCreator.id) {
+                self.conteudo.comentarios[usr_atual.i].text.push(comment[i].data.text);
+              } else {
+                c.text.push(comment[i].data.text);
+                self.conteudo.comentarios.push(c);
+                usr_atual.id = c.usr.id;
+                usr_atual.i += 1;
+              }
+            }
+          };
+        }
+      });
+    }
+  },
   components: {
-    'in-databars': require('../components/content-databars.vue'),
-    'in-mapa': require('../components/content-map.vue')
+    'texto': require('../components/content-texto.vue'),
+    'videos': require('../components/content-videos.vue'),
+    'imagens': require('../components/content-imagens.vue'),
+    'links': require('../components/content-links.vue'),
+    'graficos': require('../components/content-databars.vue'),
+    'comentarios': require('../components/content-comentarios.vue'),
+    'mapa': require('../components/content-map.vue')
   },
 
-  filters: {
-    'marked': marked
-  }
+  filters: {}
 
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div style=\"height: 100%;\">\n  <div class=\"border context-bg\"></div>\n  <div id=\"conteudo_info\">\n\n    <in-mapa :conteudo=\"conteudo\" v-if=\"conteudo &amp;&amp; hasMap\"></in-mapa>\n\n    <!-- <in-databars v-for=\"stat in conteudo.stats\" :stat=\"stat\" v-if=\"conteudo && hasDatabars\"></in-databars> -->\n\n    <h2 v-if=\"conteudo &amp;&amp; conteudo.title\"> \n      {{conteudo.title}} \n    </h2>\n    <div class=\"info-texto\">\n      {{{html_texto | marked}}}\n    </div>\n    \n    <h3 v-if=\"conteudo &amp;&amp; conteudo.imagens\"> IMAGENS </h3>\n    <div class=\"image-list\"></div>\n    <h3 v-if=\"conteudo &amp;&amp; conteudo.video_list\"> VÍDEOS </h3>\n    <div class=\"video-list\"></div>\n    <h3 v-if=\"conteudo &amp;&amp; conteudo.arquivos\"> LINKS </h3>\n    <div class=\"link context-bg\" v-for=\"cont in conteudo.arquivos\">\n      <a :href=\"cont.link\" target=\"_blank\" class=\"context-bg\">\n        {{cont.nome | uppercase}}\n      </a>\n    </div>\n    <h3 v-if=\"conteudo &amp;&amp; conteudo.discursoes\"> DISCUSSÃO </h3>\n    <div class=\"link context-bg\" v-for=\"cont in conteudo.discursoes\">\n      <a :href=\"cont.link\" target=\"_blank\" class=\"context-bg\">\n        {{cont.nome | uppercase}}\n      </a>\n    </div>\n    <div class=\"link\" :class=\"conteudo.icon + '-bg'\" v-if=\"conteudo &amp;&amp; conteudo.hipervideo\">\n      <a :href=\"conteudo.hipervideo.link\" :class=\"conteudo.icon + '-bg'\">\n        {{conteudo.hipervideo.nome | uppercase}}\n      </a>\n    </div>\n  </div>\n  <a class=\"back\" :href=\"'#/' + params.video\">voltar ao vídeo</a>\n  </div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div style=\"height: 100%;\">\n    <div class=\"border context-bg\"></div>\n    <div class=\"mdl-layout mdl-js-layout mdl-layout--fixed-header\">\n      <header class=\"mdl-layout__header context-bg\">\n        <div class=\"mdl-layout__header-row\">\n          <!-- Add spacer, to align navigation to the right -->\n          <div class=\"mdl-layout-spacer\"></div>\n          <!-- Navigation. We hide it in small screens. -->\n          <nav class=\"mdl-navigation mdl-layout--large-screen-only\">\n            <a class=\"\" style=\"color: rgb(66,66,66);\" :href=\"'#/' + params.video\"><i style=\"font-size: 35px; float: right; color: white;\" class=\"material-icons\">close</i></a>\n          </nav>\n\n        </div>\n        <div class=\"mdl-layout__tab-bar context-bg\">\n          <a v-for=\"cont in conteudo\" href=\"\" @click.prevent=\"changeTab($key)\" class=\"mdl-layout__tab\" :class=\"{'is-active': $key === tab, 'is-hidden': $key === 'id' || $key === 'title' || $key === 'card'}\">\n            <span><i class=\"material-icons\" style=\"position: absolute; left: 0; top: 12px;\">{{icon[$key]}}</i></span>\n            {{$key}}\n          </a>\n        </div>\n      </header>\n      <main class=\"mdl-layout__content\" id=\"content_main\" style=\"height: 100%;\">\n        <div class=\"page-content\" style=\"height: 100%;\">\n          <div class=\"mdl-grid\" style=\"height: 100%; padding: 0;\">\n            <div class=\"mdl-cell mdl-cell--12-col\" style=\"height: 100%; margin: 0;\">\n              <div id=\"conteudo_info\" style=\"padding:0;height: 100%;\">\n\n                <div :is=\"tab\" transition=\"fade\" :conteudo=\"conteudo\" :user.sync=\"user\" v-ref:tab=\"\"></div>\n\n              </div>\n            </div>\n          </div>\n        </div>\n      </main>\n    </div>\n  </div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   var id = "/media/bambuzal/Softwares/vue-models/hipervideo-model/app/vue/components/sidebar-info.vue"
   module.hot.dispose(function () {
-    require("vueify-insert-css").cache["/* line 2, stdin */\n#conteudo_info {\n  overflow: hidden;\n  position: relative;\n  height: 96%;\n  padding-left: 40px;\n  padding-right: 40px;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease; }\n  /* line 9, stdin */\n  #conteudo_info img {\n    width: 100%; }\n  /* line 10, stdin */\n  #app.marco-fechado #conteudo_info {\n    height: 100%; }\n\n/* line 15, stdin */\n.info-texto {\n  letter-spacing: 0; }\n\n/* line 20, stdin */\n.image-list img {\n  position: relative;\n  float: left;\n  margin-right: 10px; }\n\n/* line 28, stdin */\n.video-list img {\n  position: relative;\n  float: left;\n  margin-right: 10px;\n  width: 220px; }\n\n/* line 34, stdin */\n.video-list .slick-next {\n  right: -25px !important; }\n\n/* line 37, stdin */\n.video-list .slick-prev {\n  left: -25px !important; }\n\n/* line 42, stdin */\n.mulher-bg {\n  background-color: #ed1e79; }\n\n/* line 46, stdin */\n.adolescente-bg {\n  background-color: #00a300; }\n\n/* line 50, stdin */\n.crianca-bg {\n  background-color: #0cc; }\n\n/* line 54, stdin */\n.prisional-bg {\n  background-color: #f00; }\n\n/* line 58, stdin */\n.deficiencia-bg {\n  background-color: #00c; }\n"] = false
+    require("vueify-insert-css").cache["/* line 2, stdin */\n#conteudo_info {\n  overflow: hidden;\n  position: relative;\n  height: 96%;\n  padding-left: 40px;\n  padding-right: 40px;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease; }\n  /* line 9, stdin */\n  #conteudo_info img {\n    width: 100%; }\n  /* line 10, stdin */\n  #app.marco-fechado #conteudo_info {\n    height: 100%; }\n\n/* line 15, stdin */\n.info-texto {\n  letter-spacing: 0; }\n\n/* line 20, stdin */\n.image-list img {\n  position: relative;\n  float: left;\n  margin-right: 10px; }\n\n/* line 27, stdin */\n.mdl-layout__tab {\n  padding: 0 24px 0 32px; }\n  /* line 29, stdin */\n  .mdl-layout__tab.is-hidden {\n    display: none; }\n"] = false
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
@@ -1122,8 +1778,57 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"../components/content-databars.vue":3,"../components/content-map.vue":4,"jquery":17,"marked":19,"perfect-scrollbar":20,"vue":47,"vue-hot-reload-api":44,"vueify-insert-css":48}],10:[function(require,module,exports){
-var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.rangeslider {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);\n  -webkit-transition: all 0.5s ease 0s;\n  transition: all 0.5s ease 0s; }\n  /* line 8, stdin */\n  .rangeslider .rangeslider__fill {\n    border-radius: 0; }\n\n/* line 13, stdin */\n.rangeslider__fill {\n  border-radius: 0;\n  -webkit-transition: all 0.5s ease 0s;\n  transition: all 0.5s ease 0s; }\n\n/* line 18, stdin */\n.rangeslider__buffer {\n  background: rgba(255, 255, 255, 0.2);\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 27px;\n  -webkit-transition: all 0.5s ease 0s;\n  transition: all 0.5s ease 0s; }\n  /* line 25, stdin */\n  #video-controls.hover .rangeslider__buffer {\n    height: 3px; }\n\n/* line 30, stdin */\n#tp-cr {\n  position: absolute;\n  margin: 7px;\n  opacity: 1;\n  top: 0;\n  left: 5px;\n  color: white;\n  font-weight: 700;\n  font-size: 75%;\n  z-index: 10;\n  -webkit-transition: all 0.5s ease 0s;\n  transition: all 0.5s ease 0s; }\n  /* line 41, stdin */\n  #video-controls.hover #tp-cr {\n    opacity: 0;\n    font-size: 0; }\n\n/* line 47, stdin */\n#tp-cr-min {\n  position: relative;\n  float: left; }\n\n/* line 52, stdin */\n#tp-cr-sec {\n  position: relative;\n  float: left; }\n\n/* line 57, stdin */\n#tp-tt {\n  position: absolute;\n  margin: 7px;\n  opacity: 1;\n  top: 0;\n  right: 5px;\n  color: white;\n  font-weight: 700;\n  font-size: 75%;\n  z-index: 10;\n  -webkit-transition: all 0.5s ease 0s;\n  transition: all 0.5s ease 0s; }\n  /* line 68, stdin */\n  #video-controls.hover #tp-tt {\n    opacity: 0;\n    font-size: 0; }\n\n/* line 74, stdin */\n#tp-tt-min {\n  position: relative;\n  float: right; }\n\n/* line 79, stdin */\n#tp-tt-sec {\n  position: relative;\n  float: right; }\n\n/* line 84, stdin */\n.noselect {\n  -webkit-touch-callout: none;\n  /* iOS Safari */\n  -webkit-user-select: none;\n  /* Chrome/Safari/Opera */\n  -khtml-user-select: none;\n  /* Konqueror */\n  -moz-user-select: none;\n  /* Firefox */\n  -ms-user-select: none;\n  /* Internet Explorer/Edge */\n  user-select: none;\n  /* Non-prefixed version, currently not supported by any browser */\n  cursor: default;\n  /* Force the default cursor to show on element */ }\n")
+},{"../components/content-comentarios.vue":4,"../components/content-databars.vue":6,"../components/content-imagens.vue":7,"../components/content-links.vue":8,"../components/content-map.vue":9,"../components/content-texto.vue":10,"../components/content-videos.vue":11,"babel-runtime/core-js/object/assign":22,"jquery":40,"perfect-scrollbar":43,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],17:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("/* line 3, stdin */\n#link-sidebar .mdl-layout__container {\n  z-index: 5; }\n")
+'use strict';
+
+var Vue = require('vue');
+var $$$ = require('jquery');
+var perfectScrollbar = require('perfect-scrollbar');
+
+module.exports = {
+
+  replace: true,
+  props: ['link'],
+  data: function data() {
+    return {};
+  },
+  computed: {},
+  attached: function attached() {
+    componentHandler.upgradeDom();
+  },
+  beforeDestroy: function beforeDestroy() {},
+  methods: {
+    closeLink: function closeLink() {
+      this.$parent.link = null;
+      if (this.$parent.params.route.length === 1) {
+        this.$parent.videoPlay();
+      }
+    }
+  },
+  components: {},
+
+  filters: {}
+
+};
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n  <div id=\"link-sidebar\" style=\"height: 100%;\">\n    <div class=\"border context-bg\"></div>\n    <div class=\"mdl-layout mdl-js-layout mdl-layout--fixed-header\">\n      <header class=\"mdl-layout__header context-bg\">\n        <div class=\"mdl-layout__header-row\">\n          <!-- Add spacer, to align navigation to the right -->\n          <div class=\"mdl-layout-spacer\"></div>\n          <!-- Navigation. We hide it in small screens. -->\n          <nav class=\"mdl-navigation mdl-layout--large-screen-only\">\n            <a class=\"\" @click.prevent=\"closeLink\" style=\"color: rgb(66,66,66);\" href=\"#\"><i style=\"font-size: 35px; float: right; color: white;\" class=\"material-icons\">close</i></a>\n          </nav>\n\n        </div>\n        <div class=\"mdl-layout__tab-bar context-bg\">\n          <button class=\"mdl-button mdl-js-button mdl-button--raised mdl-button--colored\" style=\"margin: 6px;\">\n            <a style=\"color: black; text-decoration: none;\" :href=\"link\" target=\"_blank\">Abrir link em outra aba</a>\n          </button>\n        </div>\n      </header>\n      <main class=\"mdl-layout__content\" id=\"content_main\" style=\"height: 100%;\">\n        <div class=\"page-content\" style=\"height: 100%;\">\n          <div class=\"mdl-grid\" style=\"height: 100%; padding: 0;\">\n            <div class=\"mdl-cell mdl-cell--12-col\" style=\"height: 100%; margin: 0;\">\n              <div id=\"conteudo_info\" style=\"padding:0;height: 100%;\">\n                <iframe style=\"height: 100%;\" :src=\"link\"></iframe>\n              </div>\n            </div>\n          </div>\n        </div>\n      </main>\n    </div>\n  </div>\n"
+if (module.hot) {(function () {  module.hot.accept()
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), true)
+  if (!hotAPI.compatible) return
+  var id = "/media/bambuzal/Softwares/vue-models/hipervideo-model/app/vue/components/sidebar-link.vue"
+  module.hot.dispose(function () {
+    require("vueify-insert-css").cache["/* line 3, stdin */\n#link-sidebar .mdl-layout__container {\n  z-index: 5; }\n"] = false
+    document.head.removeChild(__vueify_style__)
+  })
+  if (!module.hot.data) {
+    hotAPI.createRecord(id, module.exports)
+  } else {
+    hotAPI.update(id, module.exports, module.exports.template)
+  }
+})()}
+},{"jquery":40,"perfect-scrollbar":43,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],18:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.rangeslider {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease; }\n  /* line 8, stdin */\n  .rangeslider .rangeslider__fill {\n    border-radius: 0; }\n\n/* line 13, stdin */\n.rangeslider__fill {\n  border-radius: 0;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease; }\n\n/* line 18, stdin */\n.rangeslider__buffer {\n  background: rgba(255, 255, 255, 0.2);\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 27px;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease; }\n  /* line 25, stdin */\n  #video-controls.hover .rangeslider__buffer {\n    height: 3px; }\n\n/* line 30, stdin */\n#tp-cr {\n  position: absolute;\n  margin: 7px;\n  opacity: 1;\n  top: 0;\n  left: 5px;\n  color: white;\n  font-weight: 700;\n  font-size: 75%;\n  z-index: 10;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease; }\n  /* line 41, stdin */\n  #video-controls.hover #tp-cr {\n    opacity: 0;\n    font-size: 0; }\n\n/* line 47, stdin */\n#tp-cr-min {\n  position: relative;\n  float: left; }\n\n/* line 52, stdin */\n#tp-cr-sec {\n  position: relative;\n  float: left; }\n\n/* line 57, stdin */\n#tp-tt {\n  position: absolute;\n  margin: 7px;\n  opacity: 1;\n  top: 0;\n  right: 5px;\n  color: white;\n  font-weight: 700;\n  font-size: 75%;\n  z-index: 10;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease; }\n  /* line 68, stdin */\n  #video-controls.hover #tp-tt {\n    opacity: 0;\n    font-size: 0; }\n\n/* line 74, stdin */\n#tp-tt-min {\n  position: relative;\n  float: right; }\n\n/* line 79, stdin */\n#tp-tt-sec {\n  position: relative;\n  float: right; }\n\n/* line 84, stdin */\n.noselect {\n  -webkit-touch-callout: none;\n  /* iOS Safari */\n  -webkit-user-select: none;\n  /* Chrome/Safari/Opera */\n  -khtml-user-select: none;\n  /* Konqueror */\n  -moz-user-select: none;\n  /* Firefox */\n  -ms-user-select: none;\n  /* Internet Explorer/Edge */\n  user-select: none;\n  /* Non-prefixed version, currently not supported by any browser */\n  cursor: default;\n  /* Force the default cursor to show on element */ }\n")
 'use strict';
 
 var $$$ = require('jquery');
@@ -1241,7 +1946,7 @@ if (module.hot) {(function () {  module.hot.accept()
   if (!hotAPI.compatible) return
   var id = "/media/bambuzal/Softwares/vue-models/hipervideo-model/app/vue/components/topbar-slider.vue"
   module.hot.dispose(function () {
-    require("vueify-insert-css").cache["/* line 2, stdin */\n.rangeslider {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);\n  -webkit-transition: all 0.5s ease 0s;\n  transition: all 0.5s ease 0s; }\n  /* line 8, stdin */\n  .rangeslider .rangeslider__fill {\n    border-radius: 0; }\n\n/* line 13, stdin */\n.rangeslider__fill {\n  border-radius: 0;\n  -webkit-transition: all 0.5s ease 0s;\n  transition: all 0.5s ease 0s; }\n\n/* line 18, stdin */\n.rangeslider__buffer {\n  background: rgba(255, 255, 255, 0.2);\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 27px;\n  -webkit-transition: all 0.5s ease 0s;\n  transition: all 0.5s ease 0s; }\n  /* line 25, stdin */\n  #video-controls.hover .rangeslider__buffer {\n    height: 3px; }\n\n/* line 30, stdin */\n#tp-cr {\n  position: absolute;\n  margin: 7px;\n  opacity: 1;\n  top: 0;\n  left: 5px;\n  color: white;\n  font-weight: 700;\n  font-size: 75%;\n  z-index: 10;\n  -webkit-transition: all 0.5s ease 0s;\n  transition: all 0.5s ease 0s; }\n  /* line 41, stdin */\n  #video-controls.hover #tp-cr {\n    opacity: 0;\n    font-size: 0; }\n\n/* line 47, stdin */\n#tp-cr-min {\n  position: relative;\n  float: left; }\n\n/* line 52, stdin */\n#tp-cr-sec {\n  position: relative;\n  float: left; }\n\n/* line 57, stdin */\n#tp-tt {\n  position: absolute;\n  margin: 7px;\n  opacity: 1;\n  top: 0;\n  right: 5px;\n  color: white;\n  font-weight: 700;\n  font-size: 75%;\n  z-index: 10;\n  -webkit-transition: all 0.5s ease 0s;\n  transition: all 0.5s ease 0s; }\n  /* line 68, stdin */\n  #video-controls.hover #tp-tt {\n    opacity: 0;\n    font-size: 0; }\n\n/* line 74, stdin */\n#tp-tt-min {\n  position: relative;\n  float: right; }\n\n/* line 79, stdin */\n#tp-tt-sec {\n  position: relative;\n  float: right; }\n\n/* line 84, stdin */\n.noselect {\n  -webkit-touch-callout: none;\n  /* iOS Safari */\n  -webkit-user-select: none;\n  /* Chrome/Safari/Opera */\n  -khtml-user-select: none;\n  /* Konqueror */\n  -moz-user-select: none;\n  /* Firefox */\n  -ms-user-select: none;\n  /* Internet Explorer/Edge */\n  user-select: none;\n  /* Non-prefixed version, currently not supported by any browser */\n  cursor: default;\n  /* Force the default cursor to show on element */ }\n"] = false
+    require("vueify-insert-css").cache["/* line 2, stdin */\n.rangeslider {\n  position: relative;\n  border-radius: 0;\n  width: 100%;\n  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease; }\n  /* line 8, stdin */\n  .rangeslider .rangeslider__fill {\n    border-radius: 0; }\n\n/* line 13, stdin */\n.rangeslider__fill {\n  border-radius: 0;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease; }\n\n/* line 18, stdin */\n.rangeslider__buffer {\n  background: rgba(255, 255, 255, 0.2);\n  position: absolute;\n  top: 0;\n  left: 0;\n  height: 27px;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease; }\n  /* line 25, stdin */\n  #video-controls.hover .rangeslider__buffer {\n    height: 3px; }\n\n/* line 30, stdin */\n#tp-cr {\n  position: absolute;\n  margin: 7px;\n  opacity: 1;\n  top: 0;\n  left: 5px;\n  color: white;\n  font-weight: 700;\n  font-size: 75%;\n  z-index: 10;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease; }\n  /* line 41, stdin */\n  #video-controls.hover #tp-cr {\n    opacity: 0;\n    font-size: 0; }\n\n/* line 47, stdin */\n#tp-cr-min {\n  position: relative;\n  float: left; }\n\n/* line 52, stdin */\n#tp-cr-sec {\n  position: relative;\n  float: left; }\n\n/* line 57, stdin */\n#tp-tt {\n  position: absolute;\n  margin: 7px;\n  opacity: 1;\n  top: 0;\n  right: 5px;\n  color: white;\n  font-weight: 700;\n  font-size: 75%;\n  z-index: 10;\n  -webkit-transition: all 0.3s ease;\n  transition: all 0.3s ease; }\n  /* line 68, stdin */\n  #video-controls.hover #tp-tt {\n    opacity: 0;\n    font-size: 0; }\n\n/* line 74, stdin */\n#tp-tt-min {\n  position: relative;\n  float: right; }\n\n/* line 79, stdin */\n#tp-tt-sec {\n  position: relative;\n  float: right; }\n\n/* line 84, stdin */\n.noselect {\n  -webkit-touch-callout: none;\n  /* iOS Safari */\n  -webkit-user-select: none;\n  /* Chrome/Safari/Opera */\n  -khtml-user-select: none;\n  /* Konqueror */\n  -moz-user-select: none;\n  /* Firefox */\n  -ms-user-select: none;\n  /* Internet Explorer/Edge */\n  user-select: none;\n  /* Non-prefixed version, currently not supported by any browser */\n  cursor: default;\n  /* Force the default cursor to show on element */ }\n"] = false
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
@@ -1250,7 +1955,7 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":17,"vue":47,"vue-hot-reload-api":44,"vueify-insert-css":48}],11:[function(require,module,exports){
+},{"jquery":40,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],19:[function(require,module,exports){
 (function(){
 	var _ = require('underscore')
 	var Vue = require('vue')
@@ -1411,7 +2116,12 @@ if (module.hot) {(function () {  module.hot.accept()
 			// console.log(n + " - attachs")
 			var headers = getHeaders(hip)
 			if (attach.length !== 0) {
-				headers.img = attach[0].url
+				headers.capa = attach[0].url
+				if (attach.length > 1) {
+					headers.img = attach[1].url
+				} else {
+					headers.img = attach[0].url
+				}
 			}
 			var plugins = getElement(hip, "plugins")
 			var eventos = getElement(hip, "eventos")
@@ -1453,18 +2163,19 @@ if (module.hot) {(function () {  module.hot.accept()
 
 })()
 
-},{"./app.vue":1,"director":15,"underscore":43,"vue":47,"vue-touch":46}],12:[function(require,module,exports){
-var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.mdl-card {\n  width: auto;\n  min-height: 270px;\n  -webkit-transition: all .3s ease;\n  -moz-transition: all .3s ease;\n  -ms-transition: all .3s ease;\n  -o-transition: all .3s ease;\n  transition: all .3s ease; }\n  @media screen and (max-width: 1366px) {\n    /* line 2, stdin */\n    .mdl-card {\n      min-height: 205px; } }\n\n/* line 14, stdin */\n.mdl-cell {\n  -webkit-transition: all .3s ease;\n  -moz-transition: all .3s ease;\n  -ms-transition: all .3s ease;\n  -o-transition: all .3s ease;\n  transition: all .3s ease; }\n  /* line 20, stdin */\n  .mdl-cell.ativo {\n    position: fixed;\n    top: 0;\n    z-index: 999999999;\n    right: 0;\n    width: 95%;\n    margin: 0;\n    display: block !important;\n    height: 100%; }\n    /* line 29, stdin */\n    .mdl-cell.ativo .mdl-card {\n      height: 100%; }\n\n/* line 34, stdin */\n.mdl-card__actions {\n  position: absolute;\n  bottom: 0; }\n\n/* line 38, stdin */\n.display-home {\n  display: none; }\n  /* line 40, stdin */\n  .display-home.ativo {\n    display: block;\n    background-color: white; }\n\n/* line 45, stdin */\n.play-div {\n  padding: 0;\n  margin: 73px auto; }\n  @media screen and (min-width: 1440px) {\n    /* line 45, stdin */\n    .play-div {\n      margin: 100px auto; } }\n  /* line 51, stdin */\n  .play-div .play-img {\n    position: absolute;\n    top: 0;\n    left: 0;\n    opacity: 1;\n    width: 100%; }\n  /* line 58, stdin */\n  .play-div .mdl-button {\n    -webkit-transition: all .1s ease;\n    -moz-transition: all .1s ease;\n    -ms-transition: all .1s ease;\n    -o-transition: all .1s ease;\n    transition: all .1s ease;\n    overflow: visible; }\n    /* line 65, stdin */\n    .play-div .mdl-button:hover {\n      background-color: transparent;\n      -webkit-transform: scale(1.1);\n              transform: scale(1.1); }\n      /* line 68, stdin */\n      .play-div .mdl-button:hover .dot {\n        color: red; }\n  /* line 73, stdin */\n  .play-div .material-icons {\n    font-size: 63px;\n    left: 40%; }\n    /* line 76, stdin */\n    .play-div .material-icons.dot {\n      font-size: 43px;\n      margin-left: 11px;\n      z-index: 1; }\n      @media screen and (min-width: 1440px) {\n        /* line 76, stdin */\n        .play-div .material-icons.dot {\n          font-size: 63px;\n          margin-left: 21px; } }\n    @media screen and (min-width: 1440px) {\n      /* line 73, stdin */\n      .play-div .material-icons {\n        font-size: 100px;\n        left: -60%; } }\n\n/* line 94, stdin */\n.icons {\n  font-size: 20px;\n  vertical-align: middle; }\n\n/* line 99, stdin */\n.clear {\n  clear: both; }\n\n/* line 106, stdin */\n.banner-conteiner {\n  -webkit-transition: all .4s ease .1s;\n  -moz-transition: all .4s ease .1s;\n  -ms-transition: all .4s ease .1s;\n  -o-transition: all .4s ease .1s;\n  transition: all .4s ease .1s;\n  height: 56%;\n  overflow: hidden;\n  background-image: url(\"http://i.imgur.com/wOWmkC7.jpg\"); }\n  /* line 115, stdin */\n  .banner-conteiner.aberto {\n    height: 0;\n    padding: 0; }\n\n/* line 122, stdin */\n.banner-data {\n  filter: alpha(opacity=100);\n  opacity: 1;\n  -moz-opacity: 1;\n  -webkit-opacity: 1;\n  color: white; }\n\n/* line 130, stdin */\n.banner-overlay {\n  filter: alpha(opacity=50);\n  opacity: 0.5;\n  -moz-opacity: 0.5;\n  -webkit-opacity: 0.5; }\n\n/* line 137, stdin */\n.banner-owner {\n  filter: alpha(opacity=100);\n  opacity: 1;\n  -moz-opacity: 1;\n  -webkit-opacity: 1; }\n\n/* line 147, stdin */\n#video-data {\n  width: 90%;\n  margin-left: 5%;\n  padding-top: 10px;\n  padding-bottom: 10px; }\n\n/* line 154, stdin */\n#video-title {\n  margin-bottom: 5px;\n  font-size: 30px;\n  text-align: center;\n  line-height: 30px; }\n\n/* line 161, stdin */\n#video-length {\n  width: 25%;\n  margin-left: 5%;\n  float: left; }\n\n/* line 167, stdin */\n#video-qual {\n  width: 25%;\n  text-align: center;\n  margin-left: 7.5%;\n  margin-right: 7.5%;\n  float: left; }\n\n/* line 175, stdin */\n#video-acce {\n  width: 25%;\n  margin-right: 5%;\n  text-align: right;\n  float: left; }\n\n/* line 182, stdin */\n#video-description {\n  clear: left;\n  margin-top: 10%;\n  margin-bottom: 5%; }\n\n/* line 188, stdin */\n#video-perks {\n  float: left;\n  width: 40%;\n  margin-left: 5%; }\n\n/* line 194, stdin */\n#video-play {\n  float: right;\n  width: 40%;\n  text-align: center;\n  margin-right: 5%; }\n\n/* line 201, stdin */\n#video-owner {\n  text-align: center;\n  color: white;\n  margin-top: 5%; }\n\n/* line 207, stdin */\n.hiper-list {\n  padding: 0 50px;\n  margin-bottom: 0; }\n  /* line 210, stdin */\n  .hiper-list .slick-slide {\n    margin-top: 16px;\n    /*\t\t\t&:hover {\n\t\t\t\ttransform: scale(1.1);\n\t\t    margin-left: 16px;\n\t\t    margin-right: 16px;\n\t\t\t}*/ }\n  /* line 218, stdin */\n  .hiper-list .slick-list {\n    margin-bottom: 0; }\n  /* line 221, stdin */\n  .hiper-list .list-h {\n    background: transparent;\n    height: 95%;\n    top: 8px;\n    position: absolute;\n    width: 40px;\n    color: black;\n    position: absolute;\n    border: none;\n    cursor: pointer; }\n    /* line 231, stdin */\n    .hiper-list .list-h:focus {\n      outline: 0; }\n    /* line 234, stdin */\n    .hiper-list .list-h .material-icons {\n      -webkit-transition: all .1s ease;\n      -moz-transition: all .1s ease;\n      -ms-transition: all .1s ease;\n      -o-transition: all .1s ease;\n      transition: all .1s ease;\n      font-size: 50px;\n      margin-left: -9px; }\n    /* line 244, stdin */\n    .hiper-list .list-h.slick-disabled .material-icons {\n      color: gainsboro; }\n    /* line 249, stdin */\n    .hiper-list .list-h:hover .material-icons {\n      -webkit-transform: scale(1.3);\n              transform: scale(1.3); }\n    /* line 253, stdin */\n    .hiper-list .list-h:hover.slick-disabled .material-icons {\n      -webkit-transform: scale(1);\n              transform: scale(1); }\n  /* line 259, stdin */\n  .hiper-list .list-prev {\n    left: 9px; }\n  /* line 262, stdin */\n  .hiper-list .list-next {\n    right: 9px; }\n")
+},{"./app.vue":1,"director":38,"underscore":66,"vue":70,"vue-touch":69}],20:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n.mdl-card {\n  width: auto;\n  min-height: 150px;\n  -webkit-transition: all .3s ease;\n  -moz-transition: all .3s ease;\n  -ms-transition: all .3s ease;\n  -o-transition: all .3s ease;\n  transition: all .3s ease; }\n  @media screen and (max-width: 1366px) {\n    /* line 2, stdin */\n    .mdl-card {\n      min-height: 205px; } }\n\n/* line 14, stdin */\n.mdl-cell {\n  -webkit-transition: all .3s ease;\n  -moz-transition: all .3s ease;\n  -ms-transition: all .3s ease;\n  -o-transition: all .3s ease;\n  transition: all .3s ease; }\n  /* line 20, stdin */\n  .mdl-cell.ativo {\n    position: fixed;\n    top: 0;\n    z-index: 999999999;\n    right: 0;\n    width: 95%;\n    margin: 0;\n    display: block !important;\n    height: 100%; }\n    /* line 29, stdin */\n    .mdl-cell.ativo .mdl-card {\n      height: 100%; }\n\n/* line 34, stdin */\n.mdl-card__actions {\n  position: absolute;\n  bottom: 0; }\n\n/* line 38, stdin */\n.display-home {\n  display: none; }\n  /* line 40, stdin */\n  .display-home.ativo {\n    display: block;\n    background-color: white; }\n\n/* line 45, stdin */\n.play-div {\n  padding: 0;\n  margin: 73px auto; }\n  @media screen and (min-width: 1440px) {\n    /* line 45, stdin */\n    .play-div {\n      margin: 95px auto; } }\n  /* line 51, stdin */\n  .play-div .play-img {\n    position: absolute;\n    top: 0;\n    left: 0;\n    opacity: 1;\n    width: 100%; }\n  /* line 58, stdin */\n  .play-div .mdl-button {\n    -webkit-transition: all .1s ease;\n    -moz-transition: all .1s ease;\n    -ms-transition: all .1s ease;\n    -o-transition: all .1s ease;\n    transition: all .1s ease;\n    overflow: visible;\n    -webkit-transform: scale(0.7);\n            transform: scale(0.7); }\n    /* line 66, stdin */\n    .play-div .mdl-button:hover {\n      background-color: transparent;\n      -webkit-transform: scale(0.8);\n              transform: scale(0.8); }\n      /* line 69, stdin */\n      .play-div .mdl-button:hover .dot {\n        color: #ff5252; }\n  /* line 74, stdin */\n  .play-div .material-icons {\n    font-size: 63px;\n    left: 40%; }\n    /* line 77, stdin */\n    .play-div .material-icons.dot {\n      font-size: 43px;\n      margin-left: 11px;\n      z-index: 1; }\n      @media screen and (min-width: 1440px) {\n        /* line 77, stdin */\n        .play-div .material-icons.dot {\n          font-size: 68px;\n          margin-left: 18px; } }\n    @media screen and (min-width: 1440px) {\n      /* line 74, stdin */\n      .play-div .material-icons {\n        font-size: 100px;\n        left: -60%; } }\n\n/* line 93, stdin */\n.clear {\n  clear: both; }\n\n/* line 100, stdin */\n.banner-conteiner {\n  -webkit-transition: all .4s ease .1s;\n  -moz-transition: all .4s ease .1s;\n  -ms-transition: all .4s ease .1s;\n  -o-transition: all .4s ease .1s;\n  transition: all .4s ease .1s;\n  height: 60%;\n  overflow: hidden;\n  position: relative;\n  background: transparent; }\n  /* line 110, stdin */\n  .banner-conteiner.aberto {\n    height: 0;\n    padding: 0; }\n\n/* line 120, stdin */\n.content {\n  margin-top: 64px; }\n  @media screen and (max-width: 1023px) {\n    /* line 120, stdin */\n    .content {\n      margin-top: 56px; } }\n\n/* line 128, stdin */\n.hiper-list {\n  padding: 0 50px;\n  margin-bottom: 0; }\n  /* line 131, stdin */\n  .hiper-list .slick-slide {\n    margin-top: 16px; }\n    /* line 133, stdin */\n    .hiper-list .slick-slide .material-icons {\n      color: white;\n      -webkit-transition: all .2s ease;\n      -moz-transition: all .2s ease;\n      -ms-transition: all .2s ease;\n      -o-transition: all .2s ease;\n      transition: all .2s ease;\n      opacity: 0; }\n    /* line 143, stdin */\n    .hiper-list .slick-slide:hover .material-icons {\n      opacity: 1; }\n  /* line 148, stdin */\n  .hiper-list .slick-list {\n    margin-bottom: 0; }\n  /* line 151, stdin */\n  .hiper-list .list-h {\n    background: transparent;\n    height: 95%;\n    top: 8px;\n    position: absolute;\n    width: 40px;\n    color: gainsboro;\n    position: absolute;\n    border: none;\n    cursor: pointer; }\n    /* line 161, stdin */\n    .hiper-list .list-h:focus {\n      outline: 0; }\n    /* line 164, stdin */\n    .hiper-list .list-h .material-icons {\n      -webkit-transition: all .1s ease;\n      -moz-transition: all .1s ease;\n      -ms-transition: all .1s ease;\n      -o-transition: all .1s ease;\n      transition: all .1s ease;\n      font-size: 50px;\n      margin-left: -9px; }\n    /* line 174, stdin */\n    .hiper-list .list-h.slick-disabled .material-icons {\n      color: black;\n      opacity: .5; }\n    /* line 180, stdin */\n    .hiper-list .list-h:hover .material-icons {\n      -webkit-transform: scale(1.3);\n              transform: scale(1.3); }\n    /* line 184, stdin */\n    .hiper-list .list-h:hover.slick-disabled .material-icons {\n      -webkit-transform: scale(1);\n              transform: scale(1); }\n  /* line 190, stdin */\n  .hiper-list .list-prev {\n    left: 9px; }\n  /* line 193, stdin */\n  .hiper-list .list-next {\n    right: 9px; }\n  /* line 198, stdin */\n  .hiper-list .slider-cards.select .mdl-card {\n    border: 5px solid white; }\n    /* line 201, stdin */\n    .hiper-list .slider-cards.select .mdl-card .mdl-card__menu .mdl-button {\n      opacity: 0 !important;\n      cursor: default; }\n    /* line 207, stdin */\n    .hiper-list .slider-cards.select .mdl-card .play-div .material-icons {\n      opacity: 1 !important; }\n  @media screen and (max-width: 720px) {\n    /* line 196, stdin */\n    .hiper-list .slider-cards {\n      max-height: 140px; } }\n  /* line 217, stdin */\n  .hiper-list .single-card {\n    max-height: auto !important; }\n    @media screen and (max-width: 730px) {\n      /* line 217, stdin */\n      .hiper-list .single-card {\n        max-height: 20px !important; } }\n  /* line 223, stdin */\n  .hiper-list .mdl-card__menu {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%; }\n    /* line 228, stdin */\n    .hiper-list .mdl-card__menu .mdl-button {\n      width: 100%; }\n      /* line 230, stdin */\n      .hiper-list .mdl-card__menu .mdl-button:hover {\n        background: transparent; }\n        /* line 232, stdin */\n        .hiper-list .mdl-card__menu .mdl-button:hover .material-icons {\n          -webkit-transform: scale(1.2);\n                  transform: scale(1.2); }\n      /* line 236, stdin */\n      .hiper-list .mdl-card__menu .mdl-button .material-icons {\n        font-size: 60px;\n        text-shadow: 1px 3px 8px black;\n        margin-top: -9px;\n        color: white; }\n")
 'use strict';
 
 var $$$ = require('jquery');
 var _marked = require('marked');
 module.exports = {
 	replace: true,
-	props: ['database', 'ready'],
+	props: ['database', 'ready', 'user'],
 	data: function data() {
 		return {
-			home: false
+			home: false,
+			banner: null
 		};
 	},
 	methods: {
@@ -1480,6 +2191,15 @@ module.exports = {
 			$$$('.' + id).removeClass('ativo');
 			var head = $$$('header');
 			head.removeClass('ativo');
+		},
+		changeBanner: function changeBanner(id) {
+			var self = this;
+			if (this.banner.id !== this.database[id].headers.id) {
+				this.banner = null;
+				setTimeout(function () {
+					self.banner = self.database[id].headers;
+				}, 1000);
+			}
 		}
 	},
 	computed: {
@@ -1493,6 +2213,17 @@ module.exports = {
 				}
 				return ids;
 			}
+		},
+		isSelect: function isSelect() {
+			var states = [];
+			for (var i = 0; i < this.database.length; i++) {
+				if (this.database[i].id === this.banner.id) {
+					states.push(true);
+				} else {
+					states.push(false);
+				}
+			}
+			return states;
 		}
 	},
 	attached: function attached() {
@@ -1551,6 +2282,11 @@ module.exports = {
 
 		this.ready = true;
 
+<<<<<<< HEAD
+=======
+		this.banner = this.database[0].headers;
+
+>>>>>>> guzz
 		componentHandler.upgradeDom();
 
 		jQuery('.hiper-list').slick({
@@ -1565,24 +2301,37 @@ module.exports = {
 					slidesToShow: 1,
 					slidesToScroll: 1
 				}
+<<<<<<< HEAD
+=======
+			}, {
+				breakpoint: 1440,
+				settings: {
+					slidesToShow: 3,
+					slidesToScroll: 3
+				}
+>>>>>>> guzz
 			}]
 		});
+
+		jQuery('.hiper-list').slick('slickGoTo', 0);
 	},
-	components: {},
+	components: {
+		'banner-conteiner': require('../components/banner-conteiner.vue')
+	},
 	filters: {
 		marked: function marked(value) {
 			return _marked(value);
 		}
 	}
 };
-;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div id=\"content\" style=\"margin-top: 64px\">\n\t\n\t<div class=\"mdl-grid banner-conteiner\">\n\t\t<div class=\"mdl-cell mdl-cell--6-col banner-data\">\n\n\t\t\t<div id=\"video-data\">\n\t\t\t\t<div id=\"video-title\">Título longo pra caramba de exemplo de um vídeo</div>\n\t\t\t\t\n\t\t\t\t<div id=\"video-length\">\n\t\t\t\t\t<i class=\"fa fa-clock-o icons\"></i> 01:15:25\n\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t<div id=\"video-qual\">\n\t\t\t\t\t<i class=\"material-icons icons\">videocam</i>\n\t\t\t\t\t<i class=\"material-icons icons\">hd</i>\n\t\t\t\t\t<i class=\"material-icons icons\" style=\"color: red\">hd</i>\n\t\t\t\t</div>\n\t\t\t\t\n\t\t\t\t<div id=\"video-acce\">\n\t\t\t\t\t<i class=\"fa fa-audio-description\"></i>\n\t\t\t\t\t<i class=\"fa fa-cc\"></i>\n\t\t\t\t\t<i class=\"fa fa-signing\"></i>\n\t\t\t\t</div>\n\t\t\t\n\t\t\t\t<div id=\"video-description\">\n\t\t\t\t\tEsta é uma descrição de exemplo de um vídeo que tem uma hora de duração, quinze minutos e vinte e cinco segundos. Alem disso ele conta com versões em alta qualidade (720p) e Full HD (1080p) e ainda conta com closed captions (legendas) e descrição do vídeo em audio.\n\t\t\t\t</div>\n\n\t\t\t\t<div id=\"video-perks\">\n\t\t\t\t\t<i class=\"material-icons icons\">check_circle</i> Perk 1 <br>\n\t\t\t\t\t<i class=\"material-icons icons\">check_circle</i> Perk 2 <br>\n\t\t\t\t\t<i class=\"material-icons icons\">check_circle</i> Perk 3 <br>\n\t\t\t\t</div>\n\n\t\t\t\t<div id=\"video-play\">\n\t\t\t\t  \t<a class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\" href=\"#\">\n\t\t\t  \t\t<i class=\"material-icons dot\">play_arrow</i>\n\t\t\t\t\t<i class=\"material-icons\">play_circle_outline</i>\n\t\t\t    \t</a>\n\t\t\t\t</div>\n\n\t\t\t\t<div class=\"clear\"> </div>\n\n\t\t\t</div>\n\n\t\t</div>\n\t\t\n\t\t<div class=\"mdl-cell mdl-cell--4-col banner-overlay\">\n\t\t</div>\n\t\t\n\t\t<div class=\"mdl-cell mdl-cell--2-col banner-owner\">\n\t\t\t\n\t\t\t<div id=\"video-owner\">\n\t\t\t\t<div>\n\t\t\t\tJardim Digital\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t</div>\n\n\t</div>\n\n\t<div class=\"mdl-grid hiper-list\">\n\n\t  <div class=\"mdl-cell mdl-cell--3-col mdl-cell--4-col-phone\" id=\"hip-{{hipId[$index]}}\" v-for=\"hipervideo in database\" transition=\"fade\">\n\t  \t<div class=\"demo-card-wide mdl-card mdl-shadow--2dp\">\n\t\t\t  <div class=\"mdl-card__title display-home\" :class=\"{ativo: home}\">\n\t\t\t    <h2 class=\"mdl-card__title-text\">{{hipervideo.headers.nome}}</h2>\n\t\t\t  </div>\n\t\t\t  <div class=\"mdl-card__supporting-text display-home\" :class=\"{ativo: home}\">\n\t\t\t    {{{ hipervideo.headers.descricao | marked }}}\n\t\t\t  </div>\n\t\t\t  <dir class=\"play-div\">\n\t\t\t  \t<img v-if=\"hipervideo.headers.img\" :src=\"hipervideo.headers.img\" class=\"play-img\">\n\t\t\t  \t<a class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\" href=\"/#/{{hipId[$index]}}\">\n\t\t\t  \t\t<i class=\"material-icons dot\">play_arrow</i>\n\t\t\t      <i class=\"material-icons\">play_circle_outline</i>\n\t\t\t    </a>\n\t\t\t  </dir>\n\t\t\t  <div class=\"mdl-card__actions mdl-card--border display-home\" :class=\"{ativo: !home}\" style=\"padding:0;\">\n\t\t\t    <a class=\"mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect\" href=\"/#/home/{{hipId[$index]}}\" style=\"width:100%;\">\n\t\t\t      {{hipervideo.headers.nome}}\n\t\t\t    </a>\n\t\t\t  </div>\n\t\t\t  <div class=\"mdl-card__menu\">\n\t\t\t    <a class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\" v-if=\"!home\" href=\"/#/home/{{hipId[$index]}}\">\n\t\t\t      <i class=\"material-icons\">add</i>\n\t\t\t    </a>\n\t\t\t    <a class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\" v-if=\"home\" href=\"/#/home\">\n\t\t\t      <i class=\"material-icons\">close</i>\n\t\t\t    </a>\n\t\t\t  </div>\n\t\t\t</div>\n\t  </div>\n\n\t</div>\n\t\n</div>\n"
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n<div id=\"content\" class=\"content\">\n\t\n\t<div class=\"mdl-grid banner-conteiner\">\n\t\t\n\t\t<banner-conteiner :banner.sync=\"banner\" v-if=\"banner\"></banner-conteiner>\n\t\t<div style=\"width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: -2; background: black\"></div>\n\n\t</div>\n\n\t<div class=\"mdl-grid hiper-list slider-cards\">\n\n\t  <div class=\"mdl-cell mdl-cell--3-col mdl-cell--4-col-phone slider-cards\" :class=\"{ select: banner !== null &amp;&amp; banner.id === database[$index].headers.id }\" id=\"hip-{{hipId[$index]}}\" v-for=\"hipervideo in database\" transition=\"fade\">\n\t  \t<div class=\"mdl-card mdl-shadow--2dp single-card\" style=\"background-size: 100% 100%;\" :style=\"{'background-image': 'url('+hipervideo.headers.img+')'}\">\n\t\t\t  <div class=\"mdl-card__title display-home\">\n\t\t\t    <h2 class=\"mdl-card__title-text\">{{hipervideo.headers.nome}}</h2>\n\t\t\t  </div>\n\t\t\t  <dir class=\"play-div\">\n\t\t\t  \t<!-- <img v-if=\"hipervideo.headers.img\" :src=\"hipervideo.headers.img\" class=\"play-img\"> -->\n\t\t\t  \t<a class=\"mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect\" href=\"/#/{{hipId[$index]}}\">\n\t\t\t  \t\t<i class=\"material-icons dot\">play_arrow</i>\n\t\t\t      <i class=\"material-icons\">play_circle_outline</i>\n\t\t\t    </a>\n\t\t\t  </dir>\n\t\t\t  <div class=\"mdl-card__menu\">\n\t\t\t    <button class=\"mdl-button mdl-js-button\" v-if=\"!home\" @click=\"changeBanner($index)\">\n\t\t\t      <i class=\"material-icons\">expand_less</i>\n\t\t\t    </button>\n\t\t\t  </div>\n\t\t\t</div>\n\t  </div>\n\n\t</div>\n\t\n</div>\n"
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   var id = "/media/bambuzal/Softwares/vue-models/hipervideo-model/app/vue/views/home-view.vue"
   module.hot.dispose(function () {
-    require("vueify-insert-css").cache["/* line 2, stdin */\n.mdl-card {\n  width: auto;\n  min-height: 270px;\n  -webkit-transition: all .3s ease;\n  -moz-transition: all .3s ease;\n  -ms-transition: all .3s ease;\n  -o-transition: all .3s ease;\n  transition: all .3s ease; }\n  @media screen and (max-width: 1366px) {\n    /* line 2, stdin */\n    .mdl-card {\n      min-height: 205px; } }\n\n/* line 14, stdin */\n.mdl-cell {\n  -webkit-transition: all .3s ease;\n  -moz-transition: all .3s ease;\n  -ms-transition: all .3s ease;\n  -o-transition: all .3s ease;\n  transition: all .3s ease; }\n  /* line 20, stdin */\n  .mdl-cell.ativo {\n    position: fixed;\n    top: 0;\n    z-index: 999999999;\n    right: 0;\n    width: 95%;\n    margin: 0;\n    display: block !important;\n    height: 100%; }\n    /* line 29, stdin */\n    .mdl-cell.ativo .mdl-card {\n      height: 100%; }\n\n/* line 34, stdin */\n.mdl-card__actions {\n  position: absolute;\n  bottom: 0; }\n\n/* line 38, stdin */\n.display-home {\n  display: none; }\n  /* line 40, stdin */\n  .display-home.ativo {\n    display: block;\n    background-color: white; }\n\n/* line 45, stdin */\n.play-div {\n  padding: 0;\n  margin: 73px auto; }\n  @media screen and (min-width: 1440px) {\n    /* line 45, stdin */\n    .play-div {\n      margin: 100px auto; } }\n  /* line 51, stdin */\n  .play-div .play-img {\n    position: absolute;\n    top: 0;\n    left: 0;\n    opacity: 1;\n    width: 100%; }\n  /* line 58, stdin */\n  .play-div .mdl-button {\n    -webkit-transition: all .1s ease;\n    -moz-transition: all .1s ease;\n    -ms-transition: all .1s ease;\n    -o-transition: all .1s ease;\n    transition: all .1s ease;\n    overflow: visible; }\n    /* line 65, stdin */\n    .play-div .mdl-button:hover {\n      background-color: transparent;\n      -webkit-transform: scale(1.1);\n              transform: scale(1.1); }\n      /* line 68, stdin */\n      .play-div .mdl-button:hover .dot {\n        color: red; }\n  /* line 73, stdin */\n  .play-div .material-icons {\n    font-size: 63px;\n    left: 40%; }\n    /* line 76, stdin */\n    .play-div .material-icons.dot {\n      font-size: 43px;\n      margin-left: 11px;\n      z-index: 1; }\n      @media screen and (min-width: 1440px) {\n        /* line 76, stdin */\n        .play-div .material-icons.dot {\n          font-size: 63px;\n          margin-left: 21px; } }\n    @media screen and (min-width: 1440px) {\n      /* line 73, stdin */\n      .play-div .material-icons {\n        font-size: 100px;\n        left: -60%; } }\n\n/* line 94, stdin */\n.icons {\n  font-size: 20px;\n  vertical-align: middle; }\n\n/* line 99, stdin */\n.clear {\n  clear: both; }\n\n/* line 106, stdin */\n.banner-conteiner {\n  -webkit-transition: all .4s ease .1s;\n  -moz-transition: all .4s ease .1s;\n  -ms-transition: all .4s ease .1s;\n  -o-transition: all .4s ease .1s;\n  transition: all .4s ease .1s;\n  height: 56%;\n  overflow: hidden;\n  background-image: url(\"http://i.imgur.com/wOWmkC7.jpg\"); }\n  /* line 115, stdin */\n  .banner-conteiner.aberto {\n    height: 0;\n    padding: 0; }\n\n/* line 122, stdin */\n.banner-data {\n  filter: alpha(opacity=100);\n  opacity: 1;\n  -moz-opacity: 1;\n  -webkit-opacity: 1;\n  color: white; }\n\n/* line 130, stdin */\n.banner-overlay {\n  filter: alpha(opacity=50);\n  opacity: 0.5;\n  -moz-opacity: 0.5;\n  -webkit-opacity: 0.5; }\n\n/* line 137, stdin */\n.banner-owner {\n  filter: alpha(opacity=100);\n  opacity: 1;\n  -moz-opacity: 1;\n  -webkit-opacity: 1; }\n\n/* line 147, stdin */\n#video-data {\n  width: 90%;\n  margin-left: 5%;\n  padding-top: 10px;\n  padding-bottom: 10px; }\n\n/* line 154, stdin */\n#video-title {\n  margin-bottom: 5px;\n  font-size: 30px;\n  text-align: center;\n  line-height: 30px; }\n\n/* line 161, stdin */\n#video-length {\n  width: 25%;\n  margin-left: 5%;\n  float: left; }\n\n/* line 167, stdin */\n#video-qual {\n  width: 25%;\n  text-align: center;\n  margin-left: 7.5%;\n  margin-right: 7.5%;\n  float: left; }\n\n/* line 175, stdin */\n#video-acce {\n  width: 25%;\n  margin-right: 5%;\n  text-align: right;\n  float: left; }\n\n/* line 182, stdin */\n#video-description {\n  clear: left;\n  margin-top: 10%;\n  margin-bottom: 5%; }\n\n/* line 188, stdin */\n#video-perks {\n  float: left;\n  width: 40%;\n  margin-left: 5%; }\n\n/* line 194, stdin */\n#video-play {\n  float: right;\n  width: 40%;\n  text-align: center;\n  margin-right: 5%; }\n\n/* line 201, stdin */\n#video-owner {\n  text-align: center;\n  color: white;\n  margin-top: 5%; }\n\n/* line 207, stdin */\n.hiper-list {\n  padding: 0 50px;\n  margin-bottom: 0; }\n  /* line 210, stdin */\n  .hiper-list .slick-slide {\n    margin-top: 16px;\n    /*\t\t\t&:hover {\n\t\t\t\ttransform: scale(1.1);\n\t\t    margin-left: 16px;\n\t\t    margin-right: 16px;\n\t\t\t}*/ }\n  /* line 218, stdin */\n  .hiper-list .slick-list {\n    margin-bottom: 0; }\n  /* line 221, stdin */\n  .hiper-list .list-h {\n    background: transparent;\n    height: 95%;\n    top: 8px;\n    position: absolute;\n    width: 40px;\n    color: black;\n    position: absolute;\n    border: none;\n    cursor: pointer; }\n    /* line 231, stdin */\n    .hiper-list .list-h:focus {\n      outline: 0; }\n    /* line 234, stdin */\n    .hiper-list .list-h .material-icons {\n      -webkit-transition: all .1s ease;\n      -moz-transition: all .1s ease;\n      -ms-transition: all .1s ease;\n      -o-transition: all .1s ease;\n      transition: all .1s ease;\n      font-size: 50px;\n      margin-left: -9px; }\n    /* line 244, stdin */\n    .hiper-list .list-h.slick-disabled .material-icons {\n      color: gainsboro; }\n    /* line 249, stdin */\n    .hiper-list .list-h:hover .material-icons {\n      -webkit-transform: scale(1.3);\n              transform: scale(1.3); }\n    /* line 253, stdin */\n    .hiper-list .list-h:hover.slick-disabled .material-icons {\n      -webkit-transform: scale(1);\n              transform: scale(1); }\n  /* line 259, stdin */\n  .hiper-list .list-prev {\n    left: 9px; }\n  /* line 262, stdin */\n  .hiper-list .list-next {\n    right: 9px; }\n"] = false
+    require("vueify-insert-css").cache["/* line 2, stdin */\n.mdl-card {\n  width: auto;\n  min-height: 150px;\n  -webkit-transition: all .3s ease;\n  -moz-transition: all .3s ease;\n  -ms-transition: all .3s ease;\n  -o-transition: all .3s ease;\n  transition: all .3s ease; }\n  @media screen and (max-width: 1366px) {\n    /* line 2, stdin */\n    .mdl-card {\n      min-height: 205px; } }\n\n/* line 14, stdin */\n.mdl-cell {\n  -webkit-transition: all .3s ease;\n  -moz-transition: all .3s ease;\n  -ms-transition: all .3s ease;\n  -o-transition: all .3s ease;\n  transition: all .3s ease; }\n  /* line 20, stdin */\n  .mdl-cell.ativo {\n    position: fixed;\n    top: 0;\n    z-index: 999999999;\n    right: 0;\n    width: 95%;\n    margin: 0;\n    display: block !important;\n    height: 100%; }\n    /* line 29, stdin */\n    .mdl-cell.ativo .mdl-card {\n      height: 100%; }\n\n/* line 34, stdin */\n.mdl-card__actions {\n  position: absolute;\n  bottom: 0; }\n\n/* line 38, stdin */\n.display-home {\n  display: none; }\n  /* line 40, stdin */\n  .display-home.ativo {\n    display: block;\n    background-color: white; }\n\n/* line 45, stdin */\n.play-div {\n  padding: 0;\n  margin: 73px auto; }\n  @media screen and (min-width: 1440px) {\n    /* line 45, stdin */\n    .play-div {\n      margin: 95px auto; } }\n  /* line 51, stdin */\n  .play-div .play-img {\n    position: absolute;\n    top: 0;\n    left: 0;\n    opacity: 1;\n    width: 100%; }\n  /* line 58, stdin */\n  .play-div .mdl-button {\n    -webkit-transition: all .1s ease;\n    -moz-transition: all .1s ease;\n    -ms-transition: all .1s ease;\n    -o-transition: all .1s ease;\n    transition: all .1s ease;\n    overflow: visible;\n    -webkit-transform: scale(0.7);\n            transform: scale(0.7); }\n    /* line 66, stdin */\n    .play-div .mdl-button:hover {\n      background-color: transparent;\n      -webkit-transform: scale(0.8);\n              transform: scale(0.8); }\n      /* line 69, stdin */\n      .play-div .mdl-button:hover .dot {\n        color: #ff5252; }\n  /* line 74, stdin */\n  .play-div .material-icons {\n    font-size: 63px;\n    left: 40%; }\n    /* line 77, stdin */\n    .play-div .material-icons.dot {\n      font-size: 43px;\n      margin-left: 11px;\n      z-index: 1; }\n      @media screen and (min-width: 1440px) {\n        /* line 77, stdin */\n        .play-div .material-icons.dot {\n          font-size: 68px;\n          margin-left: 18px; } }\n    @media screen and (min-width: 1440px) {\n      /* line 74, stdin */\n      .play-div .material-icons {\n        font-size: 100px;\n        left: -60%; } }\n\n/* line 93, stdin */\n.clear {\n  clear: both; }\n\n/* line 100, stdin */\n.banner-conteiner {\n  -webkit-transition: all .4s ease .1s;\n  -moz-transition: all .4s ease .1s;\n  -ms-transition: all .4s ease .1s;\n  -o-transition: all .4s ease .1s;\n  transition: all .4s ease .1s;\n  height: 60%;\n  overflow: hidden;\n  position: relative;\n  background: transparent; }\n  /* line 110, stdin */\n  .banner-conteiner.aberto {\n    height: 0;\n    padding: 0; }\n\n/* line 120, stdin */\n.content {\n  margin-top: 64px; }\n  @media screen and (max-width: 1023px) {\n    /* line 120, stdin */\n    .content {\n      margin-top: 56px; } }\n\n/* line 128, stdin */\n.hiper-list {\n  padding: 0 50px;\n  margin-bottom: 0; }\n  /* line 131, stdin */\n  .hiper-list .slick-slide {\n    margin-top: 16px; }\n    /* line 133, stdin */\n    .hiper-list .slick-slide .material-icons {\n      color: white;\n      -webkit-transition: all .2s ease;\n      -moz-transition: all .2s ease;\n      -ms-transition: all .2s ease;\n      -o-transition: all .2s ease;\n      transition: all .2s ease;\n      opacity: 0; }\n    /* line 143, stdin */\n    .hiper-list .slick-slide:hover .material-icons {\n      opacity: 1; }\n  /* line 148, stdin */\n  .hiper-list .slick-list {\n    margin-bottom: 0; }\n  /* line 151, stdin */\n  .hiper-list .list-h {\n    background: transparent;\n    height: 95%;\n    top: 8px;\n    position: absolute;\n    width: 40px;\n    color: gainsboro;\n    position: absolute;\n    border: none;\n    cursor: pointer; }\n    /* line 161, stdin */\n    .hiper-list .list-h:focus {\n      outline: 0; }\n    /* line 164, stdin */\n    .hiper-list .list-h .material-icons {\n      -webkit-transition: all .1s ease;\n      -moz-transition: all .1s ease;\n      -ms-transition: all .1s ease;\n      -o-transition: all .1s ease;\n      transition: all .1s ease;\n      font-size: 50px;\n      margin-left: -9px; }\n    /* line 174, stdin */\n    .hiper-list .list-h.slick-disabled .material-icons {\n      color: black;\n      opacity: .5; }\n    /* line 180, stdin */\n    .hiper-list .list-h:hover .material-icons {\n      -webkit-transform: scale(1.3);\n              transform: scale(1.3); }\n    /* line 184, stdin */\n    .hiper-list .list-h:hover.slick-disabled .material-icons {\n      -webkit-transform: scale(1);\n              transform: scale(1); }\n  /* line 190, stdin */\n  .hiper-list .list-prev {\n    left: 9px; }\n  /* line 193, stdin */\n  .hiper-list .list-next {\n    right: 9px; }\n  /* line 198, stdin */\n  .hiper-list .slider-cards.select .mdl-card {\n    border: 5px solid white; }\n    /* line 201, stdin */\n    .hiper-list .slider-cards.select .mdl-card .mdl-card__menu .mdl-button {\n      opacity: 0 !important;\n      cursor: default; }\n    /* line 207, stdin */\n    .hiper-list .slider-cards.select .mdl-card .play-div .material-icons {\n      opacity: 1 !important; }\n  @media screen and (max-width: 720px) {\n    /* line 196, stdin */\n    .hiper-list .slider-cards {\n      max-height: 140px; } }\n  /* line 217, stdin */\n  .hiper-list .single-card {\n    max-height: auto !important; }\n    @media screen and (max-width: 730px) {\n      /* line 217, stdin */\n      .hiper-list .single-card {\n        max-height: 20px !important; } }\n  /* line 223, stdin */\n  .hiper-list .mdl-card__menu {\n    position: absolute;\n    top: 0;\n    left: 0;\n    width: 100%; }\n    /* line 228, stdin */\n    .hiper-list .mdl-card__menu .mdl-button {\n      width: 100%; }\n      /* line 230, stdin */\n      .hiper-list .mdl-card__menu .mdl-button:hover {\n        background: transparent; }\n        /* line 232, stdin */\n        .hiper-list .mdl-card__menu .mdl-button:hover .material-icons {\n          -webkit-transform: scale(1.2);\n                  transform: scale(1.2); }\n      /* line 236, stdin */\n      .hiper-list .mdl-card__menu .mdl-button .material-icons {\n        font-size: 60px;\n        text-shadow: 1px 3px 8px black;\n        margin-top: -9px;\n        color: white; }\n"] = false
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
@@ -1591,8 +2340,8 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"jquery":17,"marked":19,"vue":47,"vue-hot-reload-api":44,"vueify-insert-css":48}],13:[function(require,module,exports){
-var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n#player {\n  height: 100%;\n  width: 100%;\n  position: absolute;\n  top: 0;\n  left: 0; }\n\n/* line 9, stdin */\n.sidebar {\n  width: 22%;\n  margin-top: 200px;\n  height: 100%; }\n  @media screen and (min-width: 1600px) {\n    /* line 9, stdin */\n    .sidebar {\n      width: 15%; } }\n  @media screen and (min-width: 1600px) {\n    /* line 16, stdin */\n    .sidebar.has-info {\n      width: 17.2%; } }\n\n/* line 22, stdin */\n.sidebar_content {\n  position: relative;\n  height: 100%;\n  z-index: 20; }\n\n/* line 27, stdin */\n.sidebar_back {\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0.5);\n  width: 300px;\n  height: 100%;\n  top: 0;\n  left: 0;\n  -webkit-transition: all 0.6s;\n  transition: all 0.6s;\n  -webkit-transform: translate3d(-300px, 0, 0);\n  -moz-transform: translate3d(-300px, 0, 0);\n  -o-transform: translate3d(-300px, 0, 0);\n  -ms-transform: translate3d(-300px, 0, 0);\n  transform: translate3d(-300px, 0, 0);\n  z-index: 10; }\n  /* line 41, stdin */\n  .sidebar.is-open .sidebar_back {\n    -webkit-transform: translate3d(0, 0, 0);\n    -moz-transform: translate3d(0, 0, 0);\n    -o-transform: translate3d(0, 0, 0);\n    -ms-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0); }\n  /* line 48, stdin */\n  .sidebar_back.info-open {\n    background-color: rgba(0, 0, 0, 0.8); }\n\n/* line 53, stdin */\n.sidebar-right {\n  position: absolute;\n  right: 0;\n  top: 57px;\n  width: 300px; }\n\n/* line 60, stdin */\n.infopanel {\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0.8);\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  z-index: 10;\n  -webkit-transition: all 0.6s;\n  transition: all 0.6s;\n  -webkit-transform: translate3d(127%, 0, 0);\n  -moz-transform: translate3d(127%, 0, 0);\n  -o-transform: translate3d(127%, 0, 0);\n  -ms-transform: translate3d(127%, 0, 0);\n  transform: translate3d(127%, 0, 0); }\n  /* line 74, stdin */\n  .infopanel.is-open {\n    -webkit-transform: translate3d(300px, 0, 0);\n    -moz-transform: translate3d(300px, 0, 0);\n    -o-transform: translate3d(300px, 0, 0);\n    -ms-transform: translate3d(300px, 0, 0);\n    transform: translate3d(300px, 0, 0); }\n  /* line 81, stdin */\n  .infopanel .border {\n    position: absolute;\n    height: 100%;\n    width: 10px;\n    top: 0;\n    left: 0; }\n  /* line 88, stdin */\n  .infopanel .back {\n    position: absolute;\n    top: 10%;\n    left: 79%;\n    color: #fff;\n    font-size: 24px; }\n\n/* line 97, stdin */\n.debug {\n  position: absolute;\n  width: 400px;\n  left: 50%;\n  top: 40%;\n  margin-left: -200px;\n  text-align: center; }\n  /* line 104, stdin */\n  .debug .btn {\n    cursor: pointer;\n    padding: 10px;\n    background: #ccc;\n    display: inline-block;\n    margin: 4px;\n    color: black;\n    font-size: 10px; }\n\n/* line 115, stdin */\n#video-controls {\n  -webkit-transition: bottom .3s ease;\n  -moz-transition: bottom .3s ease;\n  -ms-transition: bottom .3s ease;\n  -o-transition: bottom .3s ease;\n  transition: bottom .3s ease;\n  position: absolute;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.7);\n  width: 100%;\n  display: block;\n  z-index: 25; }\n  /* line 127, stdin */\n  #video-controls.hover {\n    bottom: -49px; }\n    /* line 129, stdin */\n    #video-controls.hover .rangeslider, #video-controls.hover .rangeslider__fill {\n      height: 3px; }\n    /* line 132, stdin */\n    #video-controls.hover .rangeslider {\n      top: -3px; }\n    /* line 135, stdin */\n    #video-controls.hover .rangeslider__fill {\n      top: 0px; }\n  /* line 139, stdin */\n  #video-controls.z-down {\n    z-index: 10; }\n\n/* line 144, stdin */\n.sidebar_opener {\n  -webkit-transition: all 0.3s ease;\n  -moz-transition: all 0.3s ease;\n  -ms-transition: all 0.3s ease;\n  -o-transition: all 0.3s ease;\n  transition: all 0.3s ease;\n  position: fixed;\n  top: 35%;\n  overflow: hidden;\n  left: -25px; }\n  /* line 154, stdin */\n  .sidebar_opener.cima {\n    left: 0; }\n  /* line 159, stdin */\n  .sidebar_opener:hover .sidebar_opener__inside .material-icons {\n    opacity: 1; }\n  /* line 164, stdin */\n  .sidebar_opener.sidebar-enter, .sidebar_opener.sidebar-leave {\n    left: -50px; }\n  /* line 167, stdin */\n  .sidebar_opener.sidebar-leave {\n    -webkit-transition: all 0.3s ease;\n    -moz-transition: all 0.3s ease;\n    -ms-transition: all 0.3s ease;\n    -o-transition: all 0.3s ease;\n    transition: all 0.3s ease; }\n  /* line 174, stdin */\n  .sidebar_opener .sidebar_opener__inside {\n    -webkit-transition: all 0.6s ease;\n    -moz-transition: all 0.6s ease;\n    -ms-transition: all 0.6s ease;\n    -o-transition: all 0.6s ease;\n    transition: all 0.6s ease;\n    display: inline-block;\n    width: 50px;\n    padding: 0;\n    line-height: 0;\n    cursor: pointer;\n    background: rgba(0, 0, 0, 0.5); }\n    /* line 186, stdin */\n    .sidebar_opener .sidebar_opener__inside .material-icons {\n      -webkit-transition: opacity .3s ease;\n      -moz-transition: opacity .3s ease;\n      -ms-transition: opacity .3s ease;\n      -o-transition: opacity .3s ease;\n      font-size: 90px;\n      margin-left: -25px;\n      color: white;\n      opacity: .5; }\n\n/* line 199, stdin */\n.infopanel {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  padding: 5% 20% 3% 3%;\n  width: 79%; }\n  @media screen and (min-width: 1600px) {\n    /* line 199, stdin */\n    .infopanel {\n      width: 85%; } }\n\n/* line 210, stdin */\n.is-cartela {\n  height: auto !important; }\n\n/* line 214, stdin */\n.sidebar_cartela {\n  -webkit-transition: all 0.5s ease 0.5s;\n  transition: all 0.5s ease 0.5s;\n  position: fixed;\n  bottom: 60px;\n  left: 0;\n  min-width: 40%; }\n  /* line 220, stdin */\n  .sidebar_cartela.expand-enter, .sidebar_cartela.expand-leave {\n    left: -800px; }\n\n/* line 225, stdin */\n.not-loading {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -150;\n  opacity: 0;\n  padding-top: 22%;\n  text-align: center;\n  background-color: rgba(50, 50, 50, 0.6);\n  -webkit-transition: opacity 0.5s;\n  transition: opacity 0.5s; }\n\n/* line 239, stdin */\n.loading {\n  opacity: 1;\n  color: white;\n  z-index: 150; }\n\n/* line 245, stdin */\n.pausado {\n  opacity: 0.3 !important; }\n\n/* line 249, stdin */\n#timeline {\n  position: relative;\n  width: 100%;\n  float: left; }\n  /* line 253, stdin */\n  #timeline .evento {\n    height: 100%;\n    background: #ff5252;\n    position: absolute;\n    z-index: 1;\n    cursor: pointer; }\n\n/* line 262, stdin */\n#vid-buttons {\n  position: relative;\n  width: 100%;\n  float: left; }\n  /* line 266, stdin */\n  #vid-buttons button {\n    -webkit-transition: opacity .3s ease;\n    -moz-transition: opacity .3s ease;\n    -ms-transition: opacity .3s ease;\n    -o-transition: opacity .3s ease;\n    transition: opacity .3s ease;\n    color: #607d8b;\n    opacity: .8;\n    height: 46px;\n    width: 46px; }\n    /* line 276, stdin */\n    #vid-buttons button:hover {\n      background-color: transparent;\n      opacity: 1; }\n  /* line 281, stdin */\n  #vid-buttons .material-icons {\n    font-size: 45px; }\n    /* line 283, stdin */\n    #vid-buttons .material-icons.margem {\n      margin-left: -7px; }\n    /* line 286, stdin */\n    #vid-buttons .material-icons.margem2 {\n      margin-left: -16px; }\n  /* line 290, stdin */\n  #vid-buttons .mdl-slider__container {\n    height: 42px; }\n  /* line 293, stdin */\n  #vid-buttons #volume {\n    width: 17%;\n    margin-left: 2%;\n    float: left; }\n")
+},{"../components/banner-conteiner.vue":2,"jquery":40,"marked":42,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],21:[function(require,module,exports){
+var __vueify_style__ = require("vueify-insert-css").insert("/* line 2, stdin */\n#player {\n  height: 100%;\n  width: 100%;\n  position: absolute;\n  top: 0;\n  left: 0; }\n\n/* line 9, stdin */\n.sidebar {\n  width: 22%;\n  margin-top: 48px;\n  height: 100%; }\n  @media screen and (min-width: 1600px) {\n    /* line 9, stdin */\n    .sidebar {\n      width: 15%; } }\n  @media screen and (min-width: 1600px) {\n    /* line 16, stdin */\n    .sidebar.has-info {\n      width: 15.9%; } }\n\n/* line 22, stdin */\n.sidebar_content {\n  position: relative;\n  height: 100%;\n  z-index: 20; }\n\n/* line 27, stdin */\n.sidebar_back {\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0.8);\n  width: 300px;\n  height: 99.7%;\n  top: 0;\n  left: 0;\n  -webkit-transition: all .6s, height .3s ease;\n  transition: all .6s, height .3s ease;\n  -webkit-transform: translate3d(-300px, 0, 0);\n  -moz-transform: translate3d(-300px, 0, 0);\n  -o-transform: translate3d(-300px, 0, 0);\n  -ms-transform: translate3d(-300px, 0, 0);\n  transform: translate3d(-300px, 0, 0);\n  z-index: 10; }\n  @media screen and (max-width: 1440px) {\n    /* line 27, stdin */\n    .sidebar_back {\n      height: 99.5%; } }\n  /* line 44, stdin */\n  .sidebar.is-open .sidebar_back {\n    -webkit-transform: translate3d(0, 0, 0);\n    -moz-transform: translate3d(0, 0, 0);\n    -o-transform: translate3d(0, 0, 0);\n    -ms-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0); }\n  /* line 51, stdin */\n  .sidebar_back.cont {\n    height: 100% !important; }\n  /* line 54, stdin */\n  .sidebar_back.info-open {\n    background-color: rgba(0, 0, 0, 0.8); }\n\n/* line 59, stdin */\n.sidebar-right {\n  position: absolute;\n  right: 0;\n  top: 57px;\n  width: 300px; }\n\n/* line 66, stdin */\n.infopanel {\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0.8);\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  z-index: 10;\n  -webkit-transition: all 0.6s;\n  transition: all 0.6s;\n  color: white;\n  -webkit-transform: translate3d(127%, 0, 0);\n  -moz-transform: translate3d(127%, 0, 0);\n  -o-transform: translate3d(127%, 0, 0);\n  -ms-transform: translate3d(127%, 0, 0);\n  transform: translate3d(127%, 0, 0); }\n  /* line 81, stdin */\n  .infopanel header {\n    background-color: rgba(0, 0, 0, 0.8);\n    color: white; }\n  /* line 85, stdin */\n  .infopanel.is-open {\n    -webkit-transform: translate3d(300px, 0, 0);\n    -moz-transform: translate3d(300px, 0, 0);\n    -o-transform: translate3d(300px, 0, 0);\n    -ms-transform: translate3d(300px, 0, 0);\n    transform: translate3d(300px, 0, 0); }\n  /* line 92, stdin */\n  .infopanel .mdl-layout__header-row {\n    height: 48px; }\n  /* line 95, stdin */\n  .infopanel .mdl-layout__tab-bar-container {\n    background-color: red;\n    height: 50px; }\n  /* line 99, stdin */\n  .infopanel .mdl-layout__tab-bar-button {\n    background-color: transparent; }\n  /* line 102, stdin */\n  .infopanel .mdl-layout__tab {\n    color: white !important;\n    opacity: .5;\n    height: 50px !important; }\n    /* line 106, stdin */\n    .infopanel .mdl-layout__tab.is-active {\n      opacity: 1; }\n      /* line 108, stdin */\n      .infopanel .mdl-layout__tab.is-active:after {\n        background: white !important; }\n  /* line 113, stdin */\n  .infopanel .border {\n    position: absolute;\n    z-index: 5;\n    height: 100%;\n    width: 5px;\n    top: 0;\n    left: 0; }\n  /* line 121, stdin */\n  .infopanel .back {\n    position: absolute;\n    top: 10%;\n    left: 79%;\n    color: #fff;\n    font-size: 24px; }\n\n/* line 130, stdin */\n.debug {\n  position: absolute;\n  width: 400px;\n  left: 50%;\n  top: 40%;\n  margin-left: -200px;\n  text-align: center; }\n  /* line 137, stdin */\n  .debug .btn {\n    cursor: pointer;\n    padding: 10px;\n    background: #ccc;\n    display: inline-block;\n    margin: 4px;\n    color: black;\n    font-size: 10px; }\n\n/* line 148, stdin */\n#video-controls {\n  -webkit-transition: bottom .3s ease;\n  -moz-transition: bottom .3s ease;\n  -ms-transition: bottom .3s ease;\n  -o-transition: bottom .3s ease;\n  transition: bottom .3s ease;\n  position: absolute;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.7);\n  width: 100%;\n  display: block;\n  z-index: 25; }\n  /* line 160, stdin */\n  #video-controls.hover {\n    bottom: -49px; }\n    /* line 162, stdin */\n    #video-controls.hover .rangeslider, #video-controls.hover .rangeslider__fill {\n      height: 3px; }\n    /* line 165, stdin */\n    #video-controls.hover .rangeslider {\n      top: -3px; }\n    /* line 168, stdin */\n    #video-controls.hover .rangeslider__fill {\n      top: 0px; }\n    /* line 171, stdin */\n    #video-controls.hover .evento {\n      top: -3px; }\n  /* line 175, stdin */\n  #video-controls.z-down {\n    z-index: 10; }\n\n/* line 180, stdin */\n.sidebar_opener {\n  -webkit-transition: all 0.3s ease;\n  -moz-transition: all 0.3s ease;\n  -ms-transition: all 0.3s ease;\n  -o-transition: all 0.3s ease;\n  transition: all 0.3s ease; }\n  /* line 186, stdin */\n  .sidebar_opener.cima {\n    left: 0; }\n  /* line 189, stdin */\n  .sidebar_opener.hide {\n    display: none; }\n  /* line 194, stdin */\n  .sidebar_opener:hover .sidebar_opener__inside .material-icons {\n    opacity: 1; }\n  /* line 199, stdin */\n  .sidebar_opener.sidebar-enter, .sidebar_opener.sidebar-leave {\n    left: -50px; }\n  /* line 202, stdin */\n  .sidebar_opener.sidebar-leave {\n    -webkit-transition: all 0.3s ease;\n    -moz-transition: all 0.3s ease;\n    -ms-transition: all 0.3s ease;\n    -o-transition: all 0.3s ease;\n    transition: all 0.3s ease; }\n  /* line 209, stdin */\n  .sidebar_opener .sidebar_opener__inside {\n    -webkit-transition: all 0.6s ease;\n    -moz-transition: all 0.6s ease;\n    -ms-transition: all 0.6s ease;\n    -o-transition: all 0.6s ease;\n    transition: all 0.6s ease;\n    display: inline-block;\n    padding: 0;\n    line-height: 0;\n    cursor: pointer;\n    background: rgba(0, 0, 0, 0.8); }\n    /* line 220, stdin */\n    .sidebar_opener .sidebar_opener__inside .material-icons {\n      -webkit-transition: opacity .3s ease;\n      -moz-transition: opacity .3s ease;\n      -ms-transition: opacity .3s ease;\n      -o-transition: opacity .3s ease;\n      font-size: 48px;\n      margin-left: 0;\n      color: white;\n      opacity: .5; }\n\n/* line 233, stdin */\n.infopanel {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  padding: 0;\n  width: 79%; }\n  @media screen and (min-width: 1600px) {\n    /* line 233, stdin */\n    .infopanel {\n      width: 85%; } }\n\n/* line 244, stdin */\n.is-cartela {\n  height: auto !important; }\n\n/* line 248, stdin */\n.sidebar_cartela {\n  -webkit-transition: all 0.5s ease 0.5s;\n  transition: all 0.5s ease 0.5s;\n  position: fixed;\n  bottom: 60px;\n  left: 0;\n  min-width: 40%; }\n  /* line 254, stdin */\n  .sidebar_cartela.expand-enter, .sidebar_cartela.expand-leave {\n    left: -800px; }\n\n/* line 259, stdin */\n.not-loading {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -150;\n  opacity: 0;\n  padding-top: 22%;\n  text-align: center;\n  background-color: rgba(50, 50, 50, 0.6);\n  -webkit-transition: opacity 0.5s;\n  transition: opacity 0.5s; }\n\n/* line 273, stdin */\n.loading {\n  opacity: 1;\n  color: white;\n  z-index: 150; }\n\n/* line 279, stdin */\n.pausado {\n  opacity: 0.3 !important; }\n\n/* line 283, stdin */\n#timeline {\n  position: relative;\n  width: 100%;\n  float: left; }\n  /* line 287, stdin */\n  #timeline .evento {\n    height: 100%;\n    position: absolute;\n    z-index: 1;\n    font-size: 20px;\n    cursor: pointer;\n    font-weight: 900;\n    background-color: rgba(247, 233, 63, 0.47);\n    padding: 4px;\n    box-sizing: border-box;\n    text-align: center; }\n    @media screen and (max-width: 1440px) {\n      /* line 287, stdin */\n      #timeline .evento {\n        font-size: 14px; } }\n  /* line 302, stdin */\n  #timeline .mdl-tooltip {\n    font-size: 14px; }\n\n/* line 307, stdin */\n#vid-buttons {\n  position: relative;\n  width: 100%;\n  float: left; }\n  /* line 311, stdin */\n  #vid-buttons button {\n    -webkit-transition: opacity .3s ease;\n    -moz-transition: opacity .3s ease;\n    -ms-transition: opacity .3s ease;\n    -o-transition: opacity .3s ease;\n    transition: opacity .3s ease;\n    /*color: rgb(96,125,139);*/\n    color: white;\n    opacity: .8;\n    height: 46px;\n    width: 46px; }\n    /* line 322, stdin */\n    #vid-buttons button:hover {\n      background-color: transparent;\n      opacity: 1; }\n  /* line 327, stdin */\n  #vid-buttons .material-icons {\n    font-size: 45px; }\n    /* line 329, stdin */\n    #vid-buttons .material-icons.margem {\n      margin-left: -7px; }\n    /* line 332, stdin */\n    #vid-buttons .material-icons.margem2 {\n      margin-left: -16px; }\n  /* line 336, stdin */\n  #vid-buttons .mdl-slider__container {\n    height: 42px; }\n  /* line 339, stdin */\n  #vid-buttons #volume {\n    width: 17%;\n    margin-left: 2%;\n    float: left; }\n    /* line 343, stdin */\n    #vid-buttons #volume .mdl-slider__background-upper {\n      background: rgba(255, 255, 255, 0.2); }\n")
 'use strict';
 
 var Vue = require('vue');
@@ -1603,7 +2352,7 @@ var perfectScrollbar = require('perfect-scrollbar');
 module.exports = {
 	// replace para pegar com v-with objetos do parent
 	replace: true,
-	props: ['params', 'db', 'qualidade', 'acessibilidade', 'ready'],
+	props: ['params', 'db', 'qualidade', 'acessibilidade', 'ready', 'user'],
 	data: function data() {
 		return {
 			events: null,
@@ -1615,8 +2364,10 @@ module.exports = {
 			conteudo: {},
 			seeking: false,
 			playing: true,
+			link: null,
 			volume: 0,
 			volume_icon: 'volume_up',
+			height: window.innerHeight,
 			video: {
 				popcorn: null,
 				time: 0,
@@ -1632,7 +2383,7 @@ module.exports = {
 			return this.contentBlocks.length >= 2 || this.contentBlocks.length > 0 && !this.contentBlocks[0].funcao;
 		},
 		hasInfo: function hasInfo() {
-			return this.params.route.length > 1 && this.params.route[1] == 'info';
+			return this.params.route.length > 1 && this.params.route[1] == 'info' || this.link !== null;
 		},
 		hasLibras: function hasLibras() {
 			return this.libras;
@@ -1655,10 +2406,12 @@ module.exports = {
 		}
 	},
 	created: function created() {
+		this.volume;
 		this.volume = this.$root.cookieVolume();
+		this.volume;
 	},
 	attached: function attached() {
-
+		// this.height = window.innerHeight - $$$('#video-controls').height()
 		var self = this;
 
 		// DATA
@@ -1686,8 +2439,27 @@ module.exports = {
 			}
 		}, false);
 
-		this.video.tag.addEventListener("play", function () {
+		document.addEventListener("webkitfullscreenchange", function () {
+			setTimeout(function () {
+				console.log('full screen web ' + window.innerHeight);
+				self.height = window.innerHeight;
+			}, 500);
+		});
+		document.addEventListener("mozfullscreenchange", function () {
+			setTimeout(function () {
+				console.log('full screen moz ' + window.innerHeight);
+				self.height = window.innerHeight;
+			}, 500);
+		});
+		document.addEventListener("fullscreenchange", function () {
+			setTimeout(function () {
+				console.log('full screen ' + window.innerHeight);
+				self.height = window.innerHeight;
+			}, 500);
+		});
 
+		this.video.tag.addEventListener("play", function () {
+			self.video.tag.volume = self.volume / 100;
 			if (!self.seeking) {
 				self.$broadcast('hipervideo-play');
 				$$$('#hipVid-' + self.params.video).removeClass('pausado');
@@ -1813,6 +2585,7 @@ module.exports = {
 			}
 			this.conteudo.title = node.title;
 			this.conteudo.id = node.id;
+			this.conteudo.card = node.card;
 			setTimeout(function () {
 				self.$broadcast('create-scrollbar');
 			}, 500);
@@ -1894,23 +2667,19 @@ module.exports = {
 		},
 		handleMouseMove: function handleMouseMove(event) {
 			var controles = document.getElementById('video-controls');
-			var side = document.getElementById('sidebar_click');
+			var side = document.getElementById('sidebar_back');
 			var player = document.getElementById('player');
 			event = event || window.event; // IE-ism
 			// event.clientX and event.clientY contain the mouse position
-			if (event.clientX < 400) {
-				side.className = "sidebar_opener clickable cima";
-			} else {
-				side.className = "sidebar_opener clickable";
-			}
-
-			if (event.clientY > player.clientHeight - 80) {
+			if (event.clientY > player.clientHeight - 140) {
 				if (this.playing) {
 					controles.className = "";
+					side.className = "sidebar_back";
 				}
 			} else {
 				if (this.playing) {
 					controles.className = "hover";
+					side.className = "sidebar_back cont";
 				}
 			}
 		},
@@ -1947,7 +2716,7 @@ module.exports = {
 			}
 		},
 		addBlock: function addBlock(event) {
-			console.log(event.id);
+			// console.log(event.id)
 
 			var node = _.findWhere(this.events, { "id": event.id });
 
@@ -2011,23 +2780,40 @@ module.exports = {
 		seekEvento: function seekEvento(id) {
 			var node = _.findWhere(this.events, { "id": id });
 			this.video.tag.currentTime = node.timecode.start;
+<<<<<<< HEAD
+=======
+		}
+	},
+	filters: {
+		maxSize: function maxSize(value, max) {
+			if (value.length > parseInt(max)) {
+				return value.slice(0, max) + "...";
+			} else {
+				return value;
+			}
+>>>>>>> guzz
 		}
 	},
 	components: {
 		'in-sidebar-block': require('../components/sidebar-block.vue'),
 		'in-topbar-slider': require('../components/topbar-slider.vue'),
 		'in-bg-video': require('../components/bg-video.vue'),
-		'in-sidebar-info': require('../components/sidebar-info.vue')
+		'in-sidebar-info': require('../components/sidebar-info.vue'),
+		'in-sidebar-link': require('../components/sidebar-link.vue')
 	}
 };
+<<<<<<< HEAD
 ;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div>\n\n\t\t<!-- VIDEO -->\n\t\t<div id=\"player\">\n\t\t\t<in-bg-video :db=\"db\" :video=\"video\" :qualidade=\"qualidade\" :acessibilidade=\"acessibilidade\" :playing.sync=\"playing\" v-ref:hipervideo=\"\"></in-bg-video>\n\n\t\t\t<div id=\"video-controls\" :class=\"{ hover: playing, 'z-down': hasInfo }\">\n\n\t\t\t\t<!-- NAV-VIDEO -->\n\t\t\t\t<nav id=\"timeline\">\n\t\t\t\t\t<div v-for=\"evento in db.eventos\">\n\t\t\t\t\t\t<div class=\"evento\" :id=\"evento.card\" @click=\"addBlockById(evento.id)\"></div>\n\t\t\t\t\t\t<div class=\"mdl-tooltip mdl-tooltip--top\" :for=\"evento.card\">{{evento.title}}</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<in-topbar-slider :db=\"db\"></in-topbar-slider>\n\t\t\t\t\t<input type=\"range\" id=\"seek-bar-{{params.video}}\" min=\"0\" max=\"1000\" data-rangeslider=\"\" style=\"display: none;\">\n\t\t\t\t</nav>\n\n\n\n\t\t\t\t<div id=\"vid-buttons\">\n\t\t\t\t\t<!-- Botão de Play -->\n\t\t\t\t\t<button class=\"mdl-button mdl-js-button mdl-button--icon mdl-button--colored\" style=\"float: left; margin-left: 10px;\" v-if=\"!playing\" @click=\"videoPlay\">\n\t\t\t  \t\t<i class=\"material-icons margem\">play_arrow</i>\n\t\t\t\t\t</button>\n\t\t\t\t\t<button class=\"mdl-button mdl-js-button mdl-button--icon mdl-button--colored\" style=\"float: left; margin-left: 10px;\" v-if=\"playing\" @click=\"videoPause\">\n\t\t\t  \t\t<i class=\"material-icons margem\">pause</i>\n\t\t\t\t\t</button>\n\t\t\t\t\t<!-- Botão de Play -->\n\t\t\t\t\t<div id=\"volume\">\n\t\t\t\t\t\t<button class=\"mdl-button mdl-js-button mdl-button--icon mdl-button--colored botoes-player\" style=\"float: left;\" @click=\"mute\">\n\t\t\t\t  \t\t<i class=\"material-icons margem\" :style=\"{ marginLeft: marginIcon }\">{{volume_icon}}</i>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<input id=\"volume_slider\" class=\"mdl-slider mdl-js-slider\" type=\"range\" min=\"0\" max=\"100\" :value=\"volume\" tabindex=\"0\">\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<!-- Botão de Play -->\n\t\t\t\t\t<button class=\"mdl-button mdl-js-button mdl-button--icon mdl-button--colored botoes-player\" style=\"float: right;\" @click=\"toggleFullScreen\">\n\t\t\t  \t\t<i class=\"material-icons margem2\">fullscreen</i>\n\t\t\t\t\t</button>\n\n\t\t\t\t</div>\n\n\n\n\t\t\t</div>\n\t\t</div>\n\t\t\n\t\t<!-- SIDEBAR -->\n\n\t\t<div class=\"sidebar\" :class=\"{'is-open': hasBlocks || hasInfo || fixedSidebar, 'has-info': hasInfo}\">\n\n\t\t\t<!-- CONTENT -->\n\n\t\t\t<div class=\"sidebar_content\">\n\t\t\t\t<in-sidebar-block v-for=\"content in contentBlocks\" :content=\"content\" :video=\"video\" :conteudo=\"conteudo\" :events=\"events\" transition=\"sidebar\"></in-sidebar-block>\n\t\t\t\t<div id=\"sidebar_click\" class=\"sidebar_opener clickable\" @click=\"openDefaultBlock\" v-show=\"!hasBlocks &amp;&amp; !fixedSidebar &amp;&amp; !hasInfo\" transition=\"sidebar\">\n\t\t\t\t\t<div class=\"sidebar_opener__inside\">\n\t\t\t\t\t\t<i class=\"material-icons\">chevron_right</i>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<!-- CARTELAS -->\n\n\t\t\t<!-- <div v-show=\"cartela\" class=\"sidebar_cartela\" transition=\"expand\">\n\t\t\t\t<div class=\"sidebar_block__header context-bg\" style=\"font-size: 100%;\">\n\t\t\t\t\t<div id=\"cartela_nome\">\n\t\t\t\t\t\t{{contentCartela.title | uppercase}}\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"sidebar_block__header\" style=\"background: #fff;\">\n\t\t\t\t\t<div id=\"cartela_funcao\">\n\t\t\t\t\t\t{{contentCartela.funcao}}\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div> -->\n\n\t\t\t<!-- BACKGROUND -->\n\n\t\t\t<div class=\"sidebar_back\" :class=\"{ 'info-open': hasInfo }\"></div>\n\t\t</div>\n\n\t\t<!-- INFO -->\n\t\n\t\t<div id=\"infopanel\" class=\"infopanel\" :class=\"{'is-open': hasInfo}\">\n\t    <in-sidebar-info :params=\"params\" :conteudo=\"conteudo\"></in-sidebar-info>\n\t  </div>\n\n\t\t<div id=\"loading\" class=\"not-loading\"><i class=\"fa fa-refresh fa-3x fa-spin\"></i></div>\n\t\n\t\t\n\t</div>\n"
+=======
+;(typeof module.exports === "function"? module.exports.options: module.exports).template = "\n\t<div>\n\n\t\t<!-- VIDEO -->\n\t\t<div id=\"player\">\n\t\t\t<in-bg-video :db=\"db\" :video=\"video\" :qualidade=\"qualidade\" :acessibilidade.sync=\"acessibilidade\" :playing.sync=\"playing\" v-ref:hipervideo=\"\"></in-bg-video>\n\n\t\t\t<div id=\"video-controls\" :class=\"{ hover: playing || hasInfo, 'z-down': hasInfo }\">\n\n\t\t\t\t<!-- NAV-VIDEO -->\n\t\t\t\t<nav id=\"timeline\">\n\t\t\t\t\t<div v-for=\"evento in db.eventos\">\n\t\t\t\t\t\t<div class=\"evento\" :id=\"evento.card\" @click=\"addBlockById(evento.id)\">{{evento.title | uppercase | maxSize 8}}</div>\n\t\t\t\t\t\t<div class=\"mdl-tooltip mdl-tooltip--top\" :for=\"evento.card\">{{evento.title}}</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<in-topbar-slider :db=\"db\"></in-topbar-slider>\n\t\t\t\t\t<input type=\"range\" id=\"seek-bar-{{params.video}}\" min=\"0\" max=\"1000\" data-rangeslider=\"\" style=\"display: none;\">\n\t\t\t\t</nav>\n\n\n\n\t\t\t\t<div id=\"vid-buttons\">\n\t\t\t\t\t<!-- Botão de Play -->\n\t\t\t\t\t<button class=\"mdl-button mdl-js-button mdl-button--icon mdl-button--colored\" style=\"float: left; margin-left: 10px;\" v-if=\"!playing\" @click=\"videoPlay\">\n\t\t\t  \t\t<i class=\"material-icons margem\">play_arrow</i>\n\t\t\t\t\t</button>\n\t\t\t\t\t<button class=\"mdl-button mdl-js-button mdl-button--icon mdl-button--colored\" style=\"float: left; margin-left: 10px;\" v-if=\"playing\" @click=\"videoPause\">\n\t\t\t  \t\t<i class=\"material-icons margem\">pause</i>\n\t\t\t\t\t</button>\n\t\t\t\t\t<!-- Botão de Play -->\n\t\t\t\t\t<div id=\"volume\">\n\t\t\t\t\t\t<button class=\"mdl-button mdl-js-button mdl-button--icon mdl-button--colored botoes-player\" style=\"float: left;\" @click=\"mute\">\n\t\t\t\t  \t\t<i class=\"material-icons margem\" :style=\"{ marginLeft: marginIcon }\">{{volume_icon}}</i>\n\t\t\t\t\t\t</button>\n\t\t\t\t\t\t<input id=\"volume_slider\" class=\"mdl-slider mdl-js-slider\" type=\"range\" min=\"0\" max=\"100\" :value=\"volume\" tabindex=\"0\">\n\t\t\t\t\t</div>\n\n\t\t\t\t\t<!-- Botão de Play -->\n\t\t\t\t\t<button class=\"mdl-button mdl-js-button mdl-button--icon mdl-button--colored botoes-player\" style=\"float: right;\" @click=\"toggleFullScreen\">\n\t\t\t  \t\t<i class=\"material-icons margem2\">fullscreen</i>\n\t\t\t\t\t</button>\n\n\t\t\t\t</div>\n\n\n\n\t\t\t</div>\n\t\t</div>\n\t\t\n\t\t<!-- SIDEBAR -->\n\n\t\t<div class=\"sidebar\" :class=\"{'is-open': hasBlocks || hasInfo || fixedSidebar, 'has-info': hasInfo}\">\n\n\t\t\t<!-- CONTENT -->\n\n\t\t\t<div class=\"sidebar_content\">\n\t\t\t\t<in-sidebar-block v-for=\"content in contentBlocks\" :content=\"content\" :video=\"video\" :conteudo=\"conteudo\" :events=\"events\" transition=\"sidebar\"></in-sidebar-block>\n\t\t\t\t<div id=\"sidebar_click\" class=\"sidebar_opener clickable\" @click=\"openDefaultBlock\" v-show=\"!hasBlocks &amp;&amp; !fixedSidebar\" transition=\"sidebar\" :class=\"{hide: hasInfo}\">\n\t\t\t\t\t<div class=\"sidebar_opener__inside\">\n\t\t\t\t\t\t<i class=\"material-icons\">chevron_right</i>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\n\t\t\t<!-- CARTELAS -->\n\n\t\t\t<!-- <div v-show=\"cartela\" class=\"sidebar_cartela\" transition=\"expand\">\n\t\t\t\t<div class=\"sidebar_block__header context-bg\" style=\"font-size: 100%;\">\n\t\t\t\t\t<div id=\"cartela_nome\">\n\t\t\t\t\t\t{{contentCartela.title | uppercase}}\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"sidebar_block__header\" style=\"background: #fff;\">\n\t\t\t\t\t<div id=\"cartela_funcao\">\n\t\t\t\t\t\t{{contentCartela.funcao}}\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div> -->\n\n\t\t\t<!-- BACKGROUND -->\n\n\t\t\t<div id=\"sidebar_back\" class=\"sidebar_back\" :style=\"{height: (height - 73) + 'px' }\" :class=\"{ cont: playing &amp;&amp; !hasInfo || !playing &amp;&amp; hasInfo, 'info-open': hasInfo }\"></div>\n\t\t</div>\n\n\t\t<!-- INFO -->\n\t\n\t\t<div id=\"infopanel\" class=\"infopanel\" :class=\"{'is-open': hasInfo}\">\n\t    <in-sidebar-link v-if=\"link !== null\" :link=\"link\" :user.sync=\"user\" transition=\"fade\"></in-sidebar-link>\n\t    <in-sidebar-info v-if=\"hasInfo\" :params=\"params\" :conteudo=\"conteudo\" :user.sync=\"user\"></in-sidebar-info>\n\t  </div>\n\n\t\t<div id=\"loading\" class=\"not-loading\"><i class=\"fa fa-refresh fa-3x fa-spin\"></i></div>\n\t\n\t\t\n\t</div>\n"
+>>>>>>> guzz
 if (module.hot) {(function () {  module.hot.accept()
   var hotAPI = require("vue-hot-reload-api")
   hotAPI.install(require("vue"), true)
   if (!hotAPI.compatible) return
   var id = "/media/bambuzal/Softwares/vue-models/hipervideo-model/app/vue/views/video-view.vue"
   module.hot.dispose(function () {
-    require("vueify-insert-css").cache["/* line 2, stdin */\n#player {\n  height: 100%;\n  width: 100%;\n  position: absolute;\n  top: 0;\n  left: 0; }\n\n/* line 9, stdin */\n.sidebar {\n  width: 22%;\n  margin-top: 200px;\n  height: 100%; }\n  @media screen and (min-width: 1600px) {\n    /* line 9, stdin */\n    .sidebar {\n      width: 15%; } }\n  @media screen and (min-width: 1600px) {\n    /* line 16, stdin */\n    .sidebar.has-info {\n      width: 17.2%; } }\n\n/* line 22, stdin */\n.sidebar_content {\n  position: relative;\n  height: 100%;\n  z-index: 20; }\n\n/* line 27, stdin */\n.sidebar_back {\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0.5);\n  width: 300px;\n  height: 100%;\n  top: 0;\n  left: 0;\n  -webkit-transition: all 0.6s;\n  transition: all 0.6s;\n  -webkit-transform: translate3d(-300px, 0, 0);\n  -moz-transform: translate3d(-300px, 0, 0);\n  -o-transform: translate3d(-300px, 0, 0);\n  -ms-transform: translate3d(-300px, 0, 0);\n  transform: translate3d(-300px, 0, 0);\n  z-index: 10; }\n  /* line 41, stdin */\n  .sidebar.is-open .sidebar_back {\n    -webkit-transform: translate3d(0, 0, 0);\n    -moz-transform: translate3d(0, 0, 0);\n    -o-transform: translate3d(0, 0, 0);\n    -ms-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0); }\n  /* line 48, stdin */\n  .sidebar_back.info-open {\n    background-color: rgba(0, 0, 0, 0.8); }\n\n/* line 53, stdin */\n.sidebar-right {\n  position: absolute;\n  right: 0;\n  top: 57px;\n  width: 300px; }\n\n/* line 60, stdin */\n.infopanel {\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0.8);\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  z-index: 10;\n  -webkit-transition: all 0.6s;\n  transition: all 0.6s;\n  -webkit-transform: translate3d(127%, 0, 0);\n  -moz-transform: translate3d(127%, 0, 0);\n  -o-transform: translate3d(127%, 0, 0);\n  -ms-transform: translate3d(127%, 0, 0);\n  transform: translate3d(127%, 0, 0); }\n  /* line 74, stdin */\n  .infopanel.is-open {\n    -webkit-transform: translate3d(300px, 0, 0);\n    -moz-transform: translate3d(300px, 0, 0);\n    -o-transform: translate3d(300px, 0, 0);\n    -ms-transform: translate3d(300px, 0, 0);\n    transform: translate3d(300px, 0, 0); }\n  /* line 81, stdin */\n  .infopanel .border {\n    position: absolute;\n    height: 100%;\n    width: 10px;\n    top: 0;\n    left: 0; }\n  /* line 88, stdin */\n  .infopanel .back {\n    position: absolute;\n    top: 10%;\n    left: 79%;\n    color: #fff;\n    font-size: 24px; }\n\n/* line 97, stdin */\n.debug {\n  position: absolute;\n  width: 400px;\n  left: 50%;\n  top: 40%;\n  margin-left: -200px;\n  text-align: center; }\n  /* line 104, stdin */\n  .debug .btn {\n    cursor: pointer;\n    padding: 10px;\n    background: #ccc;\n    display: inline-block;\n    margin: 4px;\n    color: black;\n    font-size: 10px; }\n\n/* line 115, stdin */\n#video-controls {\n  -webkit-transition: bottom .3s ease;\n  -moz-transition: bottom .3s ease;\n  -ms-transition: bottom .3s ease;\n  -o-transition: bottom .3s ease;\n  transition: bottom .3s ease;\n  position: absolute;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.7);\n  width: 100%;\n  display: block;\n  z-index: 25; }\n  /* line 127, stdin */\n  #video-controls.hover {\n    bottom: -49px; }\n    /* line 129, stdin */\n    #video-controls.hover .rangeslider, #video-controls.hover .rangeslider__fill {\n      height: 3px; }\n    /* line 132, stdin */\n    #video-controls.hover .rangeslider {\n      top: -3px; }\n    /* line 135, stdin */\n    #video-controls.hover .rangeslider__fill {\n      top: 0px; }\n  /* line 139, stdin */\n  #video-controls.z-down {\n    z-index: 10; }\n\n/* line 144, stdin */\n.sidebar_opener {\n  -webkit-transition: all 0.3s ease;\n  -moz-transition: all 0.3s ease;\n  -ms-transition: all 0.3s ease;\n  -o-transition: all 0.3s ease;\n  transition: all 0.3s ease;\n  position: fixed;\n  top: 35%;\n  overflow: hidden;\n  left: -25px; }\n  /* line 154, stdin */\n  .sidebar_opener.cima {\n    left: 0; }\n  /* line 159, stdin */\n  .sidebar_opener:hover .sidebar_opener__inside .material-icons {\n    opacity: 1; }\n  /* line 164, stdin */\n  .sidebar_opener.sidebar-enter, .sidebar_opener.sidebar-leave {\n    left: -50px; }\n  /* line 167, stdin */\n  .sidebar_opener.sidebar-leave {\n    -webkit-transition: all 0.3s ease;\n    -moz-transition: all 0.3s ease;\n    -ms-transition: all 0.3s ease;\n    -o-transition: all 0.3s ease;\n    transition: all 0.3s ease; }\n  /* line 174, stdin */\n  .sidebar_opener .sidebar_opener__inside {\n    -webkit-transition: all 0.6s ease;\n    -moz-transition: all 0.6s ease;\n    -ms-transition: all 0.6s ease;\n    -o-transition: all 0.6s ease;\n    transition: all 0.6s ease;\n    display: inline-block;\n    width: 50px;\n    padding: 0;\n    line-height: 0;\n    cursor: pointer;\n    background: rgba(0, 0, 0, 0.5); }\n    /* line 186, stdin */\n    .sidebar_opener .sidebar_opener__inside .material-icons {\n      -webkit-transition: opacity .3s ease;\n      -moz-transition: opacity .3s ease;\n      -ms-transition: opacity .3s ease;\n      -o-transition: opacity .3s ease;\n      font-size: 90px;\n      margin-left: -25px;\n      color: white;\n      opacity: .5; }\n\n/* line 199, stdin */\n.infopanel {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  padding: 5% 20% 3% 3%;\n  width: 79%; }\n  @media screen and (min-width: 1600px) {\n    /* line 199, stdin */\n    .infopanel {\n      width: 85%; } }\n\n/* line 210, stdin */\n.is-cartela {\n  height: auto !important; }\n\n/* line 214, stdin */\n.sidebar_cartela {\n  -webkit-transition: all 0.5s ease 0.5s;\n  transition: all 0.5s ease 0.5s;\n  position: fixed;\n  bottom: 60px;\n  left: 0;\n  min-width: 40%; }\n  /* line 220, stdin */\n  .sidebar_cartela.expand-enter, .sidebar_cartela.expand-leave {\n    left: -800px; }\n\n/* line 225, stdin */\n.not-loading {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -150;\n  opacity: 0;\n  padding-top: 22%;\n  text-align: center;\n  background-color: rgba(50, 50, 50, 0.6);\n  -webkit-transition: opacity 0.5s;\n  transition: opacity 0.5s; }\n\n/* line 239, stdin */\n.loading {\n  opacity: 1;\n  color: white;\n  z-index: 150; }\n\n/* line 245, stdin */\n.pausado {\n  opacity: 0.3 !important; }\n\n/* line 249, stdin */\n#timeline {\n  position: relative;\n  width: 100%;\n  float: left; }\n  /* line 253, stdin */\n  #timeline .evento {\n    height: 100%;\n    background: #ff5252;\n    position: absolute;\n    z-index: 1;\n    cursor: pointer; }\n\n/* line 262, stdin */\n#vid-buttons {\n  position: relative;\n  width: 100%;\n  float: left; }\n  /* line 266, stdin */\n  #vid-buttons button {\n    -webkit-transition: opacity .3s ease;\n    -moz-transition: opacity .3s ease;\n    -ms-transition: opacity .3s ease;\n    -o-transition: opacity .3s ease;\n    transition: opacity .3s ease;\n    color: #607d8b;\n    opacity: .8;\n    height: 46px;\n    width: 46px; }\n    /* line 276, stdin */\n    #vid-buttons button:hover {\n      background-color: transparent;\n      opacity: 1; }\n  /* line 281, stdin */\n  #vid-buttons .material-icons {\n    font-size: 45px; }\n    /* line 283, stdin */\n    #vid-buttons .material-icons.margem {\n      margin-left: -7px; }\n    /* line 286, stdin */\n    #vid-buttons .material-icons.margem2 {\n      margin-left: -16px; }\n  /* line 290, stdin */\n  #vid-buttons .mdl-slider__container {\n    height: 42px; }\n  /* line 293, stdin */\n  #vid-buttons #volume {\n    width: 17%;\n    margin-left: 2%;\n    float: left; }\n"] = false
+    require("vueify-insert-css").cache["/* line 2, stdin */\n#player {\n  height: 100%;\n  width: 100%;\n  position: absolute;\n  top: 0;\n  left: 0; }\n\n/* line 9, stdin */\n.sidebar {\n  width: 22%;\n  margin-top: 48px;\n  height: 100%; }\n  @media screen and (min-width: 1600px) {\n    /* line 9, stdin */\n    .sidebar {\n      width: 15%; } }\n  @media screen and (min-width: 1600px) {\n    /* line 16, stdin */\n    .sidebar.has-info {\n      width: 15.9%; } }\n\n/* line 22, stdin */\n.sidebar_content {\n  position: relative;\n  height: 100%;\n  z-index: 20; }\n\n/* line 27, stdin */\n.sidebar_back {\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0.8);\n  width: 300px;\n  height: 99.7%;\n  top: 0;\n  left: 0;\n  -webkit-transition: all .6s, height .3s ease;\n  transition: all .6s, height .3s ease;\n  -webkit-transform: translate3d(-300px, 0, 0);\n  -moz-transform: translate3d(-300px, 0, 0);\n  -o-transform: translate3d(-300px, 0, 0);\n  -ms-transform: translate3d(-300px, 0, 0);\n  transform: translate3d(-300px, 0, 0);\n  z-index: 10; }\n  @media screen and (max-width: 1440px) {\n    /* line 27, stdin */\n    .sidebar_back {\n      height: 99.5%; } }\n  /* line 44, stdin */\n  .sidebar.is-open .sidebar_back {\n    -webkit-transform: translate3d(0, 0, 0);\n    -moz-transform: translate3d(0, 0, 0);\n    -o-transform: translate3d(0, 0, 0);\n    -ms-transform: translate3d(0, 0, 0);\n    transform: translate3d(0, 0, 0); }\n  /* line 51, stdin */\n  .sidebar_back.cont {\n    height: 100% !important; }\n  /* line 54, stdin */\n  .sidebar_back.info-open {\n    background-color: rgba(0, 0, 0, 0.8); }\n\n/* line 59, stdin */\n.sidebar-right {\n  position: absolute;\n  right: 0;\n  top: 57px;\n  width: 300px; }\n\n/* line 66, stdin */\n.infopanel {\n  position: absolute;\n  background-color: rgba(0, 0, 0, 0.8);\n  width: 100%;\n  height: 100%;\n  top: 0;\n  left: 0;\n  z-index: 10;\n  -webkit-transition: all 0.6s;\n  transition: all 0.6s;\n  color: white;\n  -webkit-transform: translate3d(127%, 0, 0);\n  -moz-transform: translate3d(127%, 0, 0);\n  -o-transform: translate3d(127%, 0, 0);\n  -ms-transform: translate3d(127%, 0, 0);\n  transform: translate3d(127%, 0, 0); }\n  /* line 81, stdin */\n  .infopanel header {\n    background-color: rgba(0, 0, 0, 0.8);\n    color: white; }\n  /* line 85, stdin */\n  .infopanel.is-open {\n    -webkit-transform: translate3d(300px, 0, 0);\n    -moz-transform: translate3d(300px, 0, 0);\n    -o-transform: translate3d(300px, 0, 0);\n    -ms-transform: translate3d(300px, 0, 0);\n    transform: translate3d(300px, 0, 0); }\n  /* line 92, stdin */\n  .infopanel .mdl-layout__header-row {\n    height: 48px; }\n  /* line 95, stdin */\n  .infopanel .mdl-layout__tab-bar-container {\n    background-color: red;\n    height: 50px; }\n  /* line 99, stdin */\n  .infopanel .mdl-layout__tab-bar-button {\n    background-color: transparent; }\n  /* line 102, stdin */\n  .infopanel .mdl-layout__tab {\n    color: white !important;\n    opacity: .5;\n    height: 50px !important; }\n    /* line 106, stdin */\n    .infopanel .mdl-layout__tab.is-active {\n      opacity: 1; }\n      /* line 108, stdin */\n      .infopanel .mdl-layout__tab.is-active:after {\n        background: white !important; }\n  /* line 113, stdin */\n  .infopanel .border {\n    position: absolute;\n    z-index: 5;\n    height: 100%;\n    width: 5px;\n    top: 0;\n    left: 0; }\n  /* line 121, stdin */\n  .infopanel .back {\n    position: absolute;\n    top: 10%;\n    left: 79%;\n    color: #fff;\n    font-size: 24px; }\n\n/* line 130, stdin */\n.debug {\n  position: absolute;\n  width: 400px;\n  left: 50%;\n  top: 40%;\n  margin-left: -200px;\n  text-align: center; }\n  /* line 137, stdin */\n  .debug .btn {\n    cursor: pointer;\n    padding: 10px;\n    background: #ccc;\n    display: inline-block;\n    margin: 4px;\n    color: black;\n    font-size: 10px; }\n\n/* line 148, stdin */\n#video-controls {\n  -webkit-transition: bottom .3s ease;\n  -moz-transition: bottom .3s ease;\n  -ms-transition: bottom .3s ease;\n  -o-transition: bottom .3s ease;\n  transition: bottom .3s ease;\n  position: absolute;\n  bottom: 0;\n  background-color: rgba(0, 0, 0, 0.7);\n  width: 100%;\n  display: block;\n  z-index: 25; }\n  /* line 160, stdin */\n  #video-controls.hover {\n    bottom: -49px; }\n    /* line 162, stdin */\n    #video-controls.hover .rangeslider, #video-controls.hover .rangeslider__fill {\n      height: 3px; }\n    /* line 165, stdin */\n    #video-controls.hover .rangeslider {\n      top: -3px; }\n    /* line 168, stdin */\n    #video-controls.hover .rangeslider__fill {\n      top: 0px; }\n    /* line 171, stdin */\n    #video-controls.hover .evento {\n      top: -3px; }\n  /* line 175, stdin */\n  #video-controls.z-down {\n    z-index: 10; }\n\n/* line 180, stdin */\n.sidebar_opener {\n  -webkit-transition: all 0.3s ease;\n  -moz-transition: all 0.3s ease;\n  -ms-transition: all 0.3s ease;\n  -o-transition: all 0.3s ease;\n  transition: all 0.3s ease; }\n  /* line 186, stdin */\n  .sidebar_opener.cima {\n    left: 0; }\n  /* line 189, stdin */\n  .sidebar_opener.hide {\n    display: none; }\n  /* line 194, stdin */\n  .sidebar_opener:hover .sidebar_opener__inside .material-icons {\n    opacity: 1; }\n  /* line 199, stdin */\n  .sidebar_opener.sidebar-enter, .sidebar_opener.sidebar-leave {\n    left: -50px; }\n  /* line 202, stdin */\n  .sidebar_opener.sidebar-leave {\n    -webkit-transition: all 0.3s ease;\n    -moz-transition: all 0.3s ease;\n    -ms-transition: all 0.3s ease;\n    -o-transition: all 0.3s ease;\n    transition: all 0.3s ease; }\n  /* line 209, stdin */\n  .sidebar_opener .sidebar_opener__inside {\n    -webkit-transition: all 0.6s ease;\n    -moz-transition: all 0.6s ease;\n    -ms-transition: all 0.6s ease;\n    -o-transition: all 0.6s ease;\n    transition: all 0.6s ease;\n    display: inline-block;\n    padding: 0;\n    line-height: 0;\n    cursor: pointer;\n    background: rgba(0, 0, 0, 0.8); }\n    /* line 220, stdin */\n    .sidebar_opener .sidebar_opener__inside .material-icons {\n      -webkit-transition: opacity .3s ease;\n      -moz-transition: opacity .3s ease;\n      -ms-transition: opacity .3s ease;\n      -o-transition: opacity .3s ease;\n      font-size: 48px;\n      margin-left: 0;\n      color: white;\n      opacity: .5; }\n\n/* line 233, stdin */\n.infopanel {\n  -webkit-box-sizing: border-box;\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  padding: 0;\n  width: 79%; }\n  @media screen and (min-width: 1600px) {\n    /* line 233, stdin */\n    .infopanel {\n      width: 85%; } }\n\n/* line 244, stdin */\n.is-cartela {\n  height: auto !important; }\n\n/* line 248, stdin */\n.sidebar_cartela {\n  -webkit-transition: all 0.5s ease 0.5s;\n  transition: all 0.5s ease 0.5s;\n  position: fixed;\n  bottom: 60px;\n  left: 0;\n  min-width: 40%; }\n  /* line 254, stdin */\n  .sidebar_cartela.expand-enter, .sidebar_cartela.expand-leave {\n    left: -800px; }\n\n/* line 259, stdin */\n.not-loading {\n  position: fixed;\n  left: 0;\n  top: 0;\n  width: 100%;\n  height: 100%;\n  z-index: -150;\n  opacity: 0;\n  padding-top: 22%;\n  text-align: center;\n  background-color: rgba(50, 50, 50, 0.6);\n  -webkit-transition: opacity 0.5s;\n  transition: opacity 0.5s; }\n\n/* line 273, stdin */\n.loading {\n  opacity: 1;\n  color: white;\n  z-index: 150; }\n\n/* line 279, stdin */\n.pausado {\n  opacity: 0.3 !important; }\n\n/* line 283, stdin */\n#timeline {\n  position: relative;\n  width: 100%;\n  float: left; }\n  /* line 287, stdin */\n  #timeline .evento {\n    height: 100%;\n    position: absolute;\n    z-index: 1;\n    font-size: 20px;\n    cursor: pointer;\n    font-weight: 900;\n    background-color: rgba(247, 233, 63, 0.47);\n    padding: 4px;\n    box-sizing: border-box;\n    text-align: center; }\n    @media screen and (max-width: 1440px) {\n      /* line 287, stdin */\n      #timeline .evento {\n        font-size: 14px; } }\n  /* line 302, stdin */\n  #timeline .mdl-tooltip {\n    font-size: 14px; }\n\n/* line 307, stdin */\n#vid-buttons {\n  position: relative;\n  width: 100%;\n  float: left; }\n  /* line 311, stdin */\n  #vid-buttons button {\n    -webkit-transition: opacity .3s ease;\n    -moz-transition: opacity .3s ease;\n    -ms-transition: opacity .3s ease;\n    -o-transition: opacity .3s ease;\n    transition: opacity .3s ease;\n    /*color: rgb(96,125,139);*/\n    color: white;\n    opacity: .8;\n    height: 46px;\n    width: 46px; }\n    /* line 322, stdin */\n    #vid-buttons button:hover {\n      background-color: transparent;\n      opacity: 1; }\n  /* line 327, stdin */\n  #vid-buttons .material-icons {\n    font-size: 45px; }\n    /* line 329, stdin */\n    #vid-buttons .material-icons.margem {\n      margin-left: -7px; }\n    /* line 332, stdin */\n    #vid-buttons .material-icons.margem2 {\n      margin-left: -16px; }\n  /* line 336, stdin */\n  #vid-buttons .mdl-slider__container {\n    height: 42px; }\n  /* line 339, stdin */\n  #vid-buttons #volume {\n    width: 17%;\n    margin-left: 2%;\n    float: left; }\n    /* line 343, stdin */\n    #vid-buttons #volume .mdl-slider__background-upper {\n      background: rgba(255, 255, 255, 0.2); }\n"] = false
     document.head.removeChild(__vueify_style__)
   })
   if (!module.hot.data) {
@@ -2036,7 +2822,178 @@ if (module.hot) {(function () {  module.hot.accept()
     hotAPI.update(id, module.exports, module.exports.template)
   }
 })()}
-},{"../components/bg-video.vue":2,"../components/sidebar-block.vue":8,"../components/sidebar-info.vue":9,"../components/topbar-slider.vue":10,"jquery":17,"perfect-scrollbar":20,"underscore":43,"vue":47,"vue-hot-reload-api":44,"vueify-insert-css":48}],14:[function(require,module,exports){
+},{"../components/bg-video.vue":3,"../components/sidebar-block.vue":15,"../components/sidebar-info.vue":16,"../components/sidebar-link.vue":17,"../components/topbar-slider.vue":18,"jquery":40,"perfect-scrollbar":43,"underscore":66,"vue":70,"vue-hot-reload-api":67,"vueify-insert-css":71}],22:[function(require,module,exports){
+module.exports = { "default": require("core-js/library/fn/object/assign"), __esModule: true };
+},{"core-js/library/fn/object/assign":23}],23:[function(require,module,exports){
+require('../../modules/es6.object.assign');
+module.exports = require('../../modules/$.core').Object.assign;
+},{"../../modules/$.core":26,"../../modules/es6.object.assign":36}],24:[function(require,module,exports){
+module.exports = function(it){
+  if(typeof it != 'function')throw TypeError(it + ' is not a function!');
+  return it;
+};
+},{}],25:[function(require,module,exports){
+var toString = {}.toString;
+
+module.exports = function(it){
+  return toString.call(it).slice(8, -1);
+};
+},{}],26:[function(require,module,exports){
+var core = module.exports = {version: '1.2.6'};
+if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
+},{}],27:[function(require,module,exports){
+// optional / simple context binding
+var aFunction = require('./$.a-function');
+module.exports = function(fn, that, length){
+  aFunction(fn);
+  if(that === undefined)return fn;
+  switch(length){
+    case 1: return function(a){
+      return fn.call(that, a);
+    };
+    case 2: return function(a, b){
+      return fn.call(that, a, b);
+    };
+    case 3: return function(a, b, c){
+      return fn.call(that, a, b, c);
+    };
+  }
+  return function(/* ...args */){
+    return fn.apply(that, arguments);
+  };
+};
+},{"./$.a-function":24}],28:[function(require,module,exports){
+// 7.2.1 RequireObjectCoercible(argument)
+module.exports = function(it){
+  if(it == undefined)throw TypeError("Can't call method on  " + it);
+  return it;
+};
+},{}],29:[function(require,module,exports){
+var global    = require('./$.global')
+  , core      = require('./$.core')
+  , ctx       = require('./$.ctx')
+  , PROTOTYPE = 'prototype';
+
+var $export = function(type, name, source){
+  var IS_FORCED = type & $export.F
+    , IS_GLOBAL = type & $export.G
+    , IS_STATIC = type & $export.S
+    , IS_PROTO  = type & $export.P
+    , IS_BIND   = type & $export.B
+    , IS_WRAP   = type & $export.W
+    , exports   = IS_GLOBAL ? core : core[name] || (core[name] = {})
+    , target    = IS_GLOBAL ? global : IS_STATIC ? global[name] : (global[name] || {})[PROTOTYPE]
+    , key, own, out;
+  if(IS_GLOBAL)source = name;
+  for(key in source){
+    // contains in native
+    own = !IS_FORCED && target && key in target;
+    if(own && key in exports)continue;
+    // export native or passed
+    out = own ? target[key] : source[key];
+    // prevent global pollution for namespaces
+    exports[key] = IS_GLOBAL && typeof target[key] != 'function' ? source[key]
+    // bind timers to global for call from export context
+    : IS_BIND && own ? ctx(out, global)
+    // wrap global constructors for prevent change them in library
+    : IS_WRAP && target[key] == out ? (function(C){
+      var F = function(param){
+        return this instanceof C ? new C(param) : C(param);
+      };
+      F[PROTOTYPE] = C[PROTOTYPE];
+      return F;
+    // make static versions for prototype methods
+    })(out) : IS_PROTO && typeof out == 'function' ? ctx(Function.call, out) : out;
+    if(IS_PROTO)(exports[PROTOTYPE] || (exports[PROTOTYPE] = {}))[key] = out;
+  }
+};
+// type bitmap
+$export.F = 1;  // forced
+$export.G = 2;  // global
+$export.S = 4;  // static
+$export.P = 8;  // proto
+$export.B = 16; // bind
+$export.W = 32; // wrap
+module.exports = $export;
+},{"./$.core":26,"./$.ctx":27,"./$.global":31}],30:[function(require,module,exports){
+module.exports = function(exec){
+  try {
+    return !!exec();
+  } catch(e){
+    return true;
+  }
+};
+},{}],31:[function(require,module,exports){
+// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
+var global = module.exports = typeof window != 'undefined' && window.Math == Math
+  ? window : typeof self != 'undefined' && self.Math == Math ? self : Function('return this')();
+if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
+},{}],32:[function(require,module,exports){
+// fallback for non-array-like ES3 and non-enumerable old V8 strings
+var cof = require('./$.cof');
+module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
+  return cof(it) == 'String' ? it.split('') : Object(it);
+};
+},{"./$.cof":25}],33:[function(require,module,exports){
+var $Object = Object;
+module.exports = {
+  create:     $Object.create,
+  getProto:   $Object.getPrototypeOf,
+  isEnum:     {}.propertyIsEnumerable,
+  getDesc:    $Object.getOwnPropertyDescriptor,
+  setDesc:    $Object.defineProperty,
+  setDescs:   $Object.defineProperties,
+  getKeys:    $Object.keys,
+  getNames:   $Object.getOwnPropertyNames,
+  getSymbols: $Object.getOwnPropertySymbols,
+  each:       [].forEach
+};
+},{}],34:[function(require,module,exports){
+// 19.1.2.1 Object.assign(target, source, ...)
+var $        = require('./$')
+  , toObject = require('./$.to-object')
+  , IObject  = require('./$.iobject');
+
+// should work with symbols and should have deterministic property order (V8 bug)
+module.exports = require('./$.fails')(function(){
+  var a = Object.assign
+    , A = {}
+    , B = {}
+    , S = Symbol()
+    , K = 'abcdefghijklmnopqrst';
+  A[S] = 7;
+  K.split('').forEach(function(k){ B[k] = k; });
+  return a({}, A)[S] != 7 || Object.keys(a({}, B)).join('') != K;
+}) ? function assign(target, source){ // eslint-disable-line no-unused-vars
+  var T     = toObject(target)
+    , $$    = arguments
+    , $$len = $$.length
+    , index = 1
+    , getKeys    = $.getKeys
+    , getSymbols = $.getSymbols
+    , isEnum     = $.isEnum;
+  while($$len > index){
+    var S      = IObject($$[index++])
+      , keys   = getSymbols ? getKeys(S).concat(getSymbols(S)) : getKeys(S)
+      , length = keys.length
+      , j      = 0
+      , key;
+    while(length > j)if(isEnum.call(S, key = keys[j++]))T[key] = S[key];
+  }
+  return T;
+} : Object.assign;
+},{"./$":33,"./$.fails":30,"./$.iobject":32,"./$.to-object":35}],35:[function(require,module,exports){
+// 7.1.13 ToObject(argument)
+var defined = require('./$.defined');
+module.exports = function(it){
+  return Object(defined(it));
+};
+},{"./$.defined":28}],36:[function(require,module,exports){
+// 19.1.3.1 Object.assign(target, source)
+var $export = require('./$.export');
+
+$export($export.S + $export.F, 'Object', {assign: require('./$.object-assign')});
+},{"./$.export":29,"./$.object-assign":34}],37:[function(require,module,exports){
 /*
  * JavaScript MD5
  * https://github.com/blueimp/JavaScript-MD5
@@ -2317,7 +3274,7 @@ if (module.hot) {(function () {  module.hot.accept()
   }
 }(this))
 
-},{}],15:[function(require,module,exports){
+},{}],38:[function(require,module,exports){
 
 
 //
@@ -3043,7 +4000,7 @@ Router.prototype.mount = function(routes, path) {
 
 
 }(typeof exports === "object" ? exports : window));
-},{}],16:[function(require,module,exports){
+},{}],39:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -3108,7 +4065,7 @@ process.chdir = function (dir) {
     throw new Error('process.chdir is not supported');
 };
 
-},{}],17:[function(require,module,exports){
+},{}],40:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.2.4
  * http://jquery.com/
@@ -12924,7 +13881,7 @@ if ( !noGlobal ) {
 return jQuery;
 }));
 
-},{}],18:[function(require,module,exports){
+},{}],41:[function(require,module,exports){
 /*
  Leaflet, a JavaScript library for mobile-friendly interactive maps. http://leafletjs.com
  (c) 2010-2013, Vladimir Agafonkin
@@ -22093,7 +23050,7 @@ L.Map.include({
 
 
 }(window, document));
-},{}],19:[function(require,module,exports){
+},{}],42:[function(require,module,exports){
 (function (global){
 /**
  * marked - a markdown parser
@@ -23382,17 +24339,17 @@ if (typeof module !== 'undefined' && typeof exports === 'object') {
 }());
 
 }).call(this,typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{}],20:[function(require,module,exports){
+},{}],43:[function(require,module,exports){
 'use strict';
 
 module.exports = require('./src/js/main');
 
-},{"./src/js/main":28}],21:[function(require,module,exports){
+},{"./src/js/main":51}],44:[function(require,module,exports){
 'use strict';
 
 module.exports = require('./src/js/adaptor/jquery');
 
-},{"./src/js/adaptor/jquery":22}],22:[function(require,module,exports){
+},{"./src/js/adaptor/jquery":45}],45:[function(require,module,exports){
 'use strict';
 
 var ps = require('../main');
@@ -23435,7 +24392,7 @@ if (typeof define === 'function' && define.amd) {
 
 module.exports = mountJQuery;
 
-},{"../main":28,"../plugin/instances":39}],23:[function(require,module,exports){
+},{"../main":51,"../plugin/instances":62}],46:[function(require,module,exports){
 'use strict';
 
 function oldAdd(element, className) {
@@ -23479,7 +24436,7 @@ exports.list = function (element) {
   }
 };
 
-},{}],24:[function(require,module,exports){
+},{}],47:[function(require,module,exports){
 'use strict';
 
 var DOM = {};
@@ -23565,7 +24522,7 @@ DOM.queryChildren = function (element, selector) {
 
 module.exports = DOM;
 
-},{}],25:[function(require,module,exports){
+},{}],48:[function(require,module,exports){
 'use strict';
 
 var EventElement = function (element) {
@@ -23638,7 +24595,7 @@ EventManager.prototype.once = function (element, eventName, handler) {
 
 module.exports = EventManager;
 
-},{}],26:[function(require,module,exports){
+},{}],49:[function(require,module,exports){
 'use strict';
 
 module.exports = (function () {
@@ -23653,7 +24610,7 @@ module.exports = (function () {
   };
 })();
 
-},{}],27:[function(require,module,exports){
+},{}],50:[function(require,module,exports){
 'use strict';
 
 var cls = require('./class');
@@ -23738,7 +24695,7 @@ exports.env = {
   supportsIePointer: window.navigator.msMaxTouchPoints !== null
 };
 
-},{"./class":23,"./dom":24}],28:[function(require,module,exports){
+},{"./class":46,"./dom":47}],51:[function(require,module,exports){
 'use strict';
 
 var destroy = require('./plugin/destroy');
@@ -23751,7 +24708,7 @@ module.exports = {
   destroy: destroy
 };
 
-},{"./plugin/destroy":30,"./plugin/initialize":38,"./plugin/update":42}],29:[function(require,module,exports){
+},{"./plugin/destroy":53,"./plugin/initialize":61,"./plugin/update":65}],52:[function(require,module,exports){
 'use strict';
 
 module.exports = {
@@ -23770,7 +24727,7 @@ module.exports = {
   theme: 'default'
 };
 
-},{}],30:[function(require,module,exports){
+},{}],53:[function(require,module,exports){
 'use strict';
 
 var _ = require('../lib/helper');
@@ -23794,7 +24751,7 @@ module.exports = function (element) {
   instances.remove(element);
 };
 
-},{"../lib/dom":24,"../lib/helper":27,"./instances":39}],31:[function(require,module,exports){
+},{"../lib/dom":47,"../lib/helper":50,"./instances":62}],54:[function(require,module,exports){
 'use strict';
 
 var _ = require('../../lib/helper');
@@ -23856,7 +24813,7 @@ module.exports = function (element) {
   bindClickRailHandler(element, i);
 };
 
-},{"../../lib/helper":27,"../instances":39,"../update-geometry":40,"../update-scroll":41}],32:[function(require,module,exports){
+},{"../../lib/helper":50,"../instances":62,"../update-geometry":63,"../update-scroll":64}],55:[function(require,module,exports){
 'use strict';
 
 var _ = require('../../lib/helper');
@@ -23961,7 +24918,7 @@ module.exports = function (element) {
   bindMouseScrollYHandler(element, i);
 };
 
-},{"../../lib/dom":24,"../../lib/helper":27,"../instances":39,"../update-geometry":40,"../update-scroll":41}],33:[function(require,module,exports){
+},{"../../lib/dom":47,"../../lib/helper":50,"../instances":62,"../update-geometry":63,"../update-scroll":64}],56:[function(require,module,exports){
 'use strict';
 
 var _ = require('../../lib/helper');
@@ -24093,7 +25050,7 @@ module.exports = function (element) {
   bindKeyboardHandler(element, i);
 };
 
-},{"../../lib/dom":24,"../../lib/helper":27,"../instances":39,"../update-geometry":40,"../update-scroll":41}],34:[function(require,module,exports){
+},{"../../lib/dom":47,"../../lib/helper":50,"../instances":62,"../update-geometry":63,"../update-scroll":64}],57:[function(require,module,exports){
 'use strict';
 
 var instances = require('../instances');
@@ -24231,7 +25188,7 @@ module.exports = function (element) {
   bindMouseWheelHandler(element, i);
 };
 
-},{"../instances":39,"../update-geometry":40,"../update-scroll":41}],35:[function(require,module,exports){
+},{"../instances":62,"../update-geometry":63,"../update-scroll":64}],58:[function(require,module,exports){
 'use strict';
 
 var instances = require('../instances');
@@ -24248,7 +25205,7 @@ module.exports = function (element) {
   bindNativeScrollHandler(element, i);
 };
 
-},{"../instances":39,"../update-geometry":40}],36:[function(require,module,exports){
+},{"../instances":62,"../update-geometry":63}],59:[function(require,module,exports){
 'use strict';
 
 var _ = require('../../lib/helper');
@@ -24359,7 +25316,7 @@ module.exports = function (element) {
   bindSelectionHandler(element, i);
 };
 
-},{"../../lib/helper":27,"../instances":39,"../update-geometry":40,"../update-scroll":41}],37:[function(require,module,exports){
+},{"../../lib/helper":50,"../instances":62,"../update-geometry":63,"../update-scroll":64}],60:[function(require,module,exports){
 'use strict';
 
 var _ = require('../../lib/helper');
@@ -24537,7 +25494,7 @@ module.exports = function (element) {
   bindTouchHandler(element, i, _.env.supportsTouch, _.env.supportsIePointer);
 };
 
-},{"../../lib/helper":27,"../instances":39,"../update-geometry":40,"../update-scroll":41}],38:[function(require,module,exports){
+},{"../../lib/helper":50,"../instances":62,"../update-geometry":63,"../update-scroll":64}],61:[function(require,module,exports){
 'use strict';
 
 var _ = require('../lib/helper');
@@ -24576,7 +25533,7 @@ module.exports = function (element, userSettings) {
   updateGeometry(element);
 };
 
-},{"../lib/class":23,"../lib/helper":27,"./handler/click-rail":31,"./handler/drag-scrollbar":32,"./handler/keyboard":33,"./handler/mouse-wheel":34,"./handler/native-scroll":35,"./handler/selection":36,"./handler/touch":37,"./instances":39,"./update-geometry":40}],39:[function(require,module,exports){
+},{"../lib/class":46,"../lib/helper":50,"./handler/click-rail":54,"./handler/drag-scrollbar":55,"./handler/keyboard":56,"./handler/mouse-wheel":57,"./handler/native-scroll":58,"./handler/selection":59,"./handler/touch":60,"./instances":62,"./update-geometry":63}],62:[function(require,module,exports){
 'use strict';
 
 var _ = require('../lib/helper');
@@ -24685,7 +25642,7 @@ exports.get = function (element) {
   return instances[getId(element)];
 };
 
-},{"../lib/class":23,"../lib/dom":24,"../lib/event-manager":25,"../lib/guid":26,"../lib/helper":27,"./default-setting":29}],40:[function(require,module,exports){
+},{"../lib/class":46,"../lib/dom":47,"../lib/event-manager":48,"../lib/guid":49,"../lib/helper":50,"./default-setting":52}],63:[function(require,module,exports){
 'use strict';
 
 var _ = require('../lib/helper');
@@ -24813,7 +25770,7 @@ module.exports = function (element) {
   }
 };
 
-},{"../lib/class":23,"../lib/dom":24,"../lib/helper":27,"./instances":39,"./update-scroll":41}],41:[function(require,module,exports){
+},{"../lib/class":46,"../lib/dom":47,"../lib/helper":50,"./instances":62,"./update-scroll":64}],64:[function(require,module,exports){
 'use strict';
 
 var instances = require('./instances');
@@ -24927,7 +25884,7 @@ module.exports = function (element, axis, value) {
 
 };
 
-},{"./instances":39}],42:[function(require,module,exports){
+},{"./instances":62}],65:[function(require,module,exports){
 'use strict';
 
 var _ = require('../lib/helper');
@@ -24966,7 +25923,7 @@ module.exports = function (element) {
   dom.css(i.scrollbarYRail, 'display', '');
 };
 
-},{"../lib/dom":24,"../lib/helper":27,"./instances":39,"./update-geometry":40,"./update-scroll":41}],43:[function(require,module,exports){
+},{"../lib/dom":47,"../lib/helper":50,"./instances":62,"./update-geometry":63,"./update-scroll":64}],66:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
@@ -26516,7 +27473,7 @@ module.exports = function (element) {
   }
 }.call(this));
 
-},{}],44:[function(require,module,exports){
+},{}],67:[function(require,module,exports){
 var Vue // late bind
 var map = Object.create(null)
 var shimmed = false
@@ -26816,7 +27773,7 @@ function format (id) {
   return id.match(/[^\/]+\.vue$/)[0]
 }
 
-},{}],45:[function(require,module,exports){
+},{}],68:[function(require,module,exports){
 /*! Hammer.JS - v2.0.7 - 2016-04-22
  * http://hammerjs.github.io/
  *
@@ -29461,7 +30418,7 @@ if (typeof define === 'function' && define.amd) {
 
 })(window, document, 'Hammer');
 
-},{}],46:[function(require,module,exports){
+},{}],69:[function(require,module,exports){
 ;(function () {
 
   var vueTouch = {}
@@ -29627,7 +30584,7 @@ if (typeof define === 'function' && define.amd) {
 
 })()
 
-},{"hammerjs":45}],47:[function(require,module,exports){
+},{"hammerjs":68}],70:[function(require,module,exports){
 (function (process,global){
 /*!
  * Vue.js v1.0.24
@@ -39660,7 +40617,7 @@ setTimeout(function () {
 
 module.exports = Vue;
 }).call(this,require("oMfpAn"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"oMfpAn":16}],48:[function(require,module,exports){
+},{"oMfpAn":39}],71:[function(require,module,exports){
 var inserted = exports.cache = {}
 
 exports.insert = function (css) {
@@ -39680,4 +40637,4 @@ exports.insert = function (css) {
   return elem
 }
 
-},{}]},{},[11])
+},{}]},{},[19])

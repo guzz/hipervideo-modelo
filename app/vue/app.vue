@@ -1,4 +1,5 @@
 <style lang="scss">
+	$bg: red;
 	.view {
 		height: 100%;
 		&.is-video {
@@ -6,7 +7,7 @@
 		}
 	}
 	.context-bg {
-		background-color: rgb(96,125,139);
+		background-color: $bg;
 	}
 	.app_load {
 		position: fixed;
@@ -34,6 +35,7 @@
 		    -ms-transition: height .6s ease;
 		     -o-transition: height .6s ease;
 		        transition: height .6s ease;
+		color: white;
 		&.home-menu {
 			width: 5%;
 	    	min-height: 0;
@@ -77,8 +79,7 @@
 		}
 	}
 	.mdl-layout__drawer {
-		overflow: hidden;
-		overflow: hidden;
+		overflow-x: hidden;
 		transform: translateX(-100%);
 		.mdl-cell--12-col {
 			width: 100%;
@@ -116,8 +117,8 @@
 	/* estilo do botão conecte-se */
 	.connecte-se {
 		width: 100%;
-		height: 100px;
-    	font-size: 200%;
+		height: 45px;
+    	font-size: 150%;
     	@media screen and (max-width: 800px){
 			font-size: 120%!important;
 		}
@@ -153,19 +154,17 @@
 		}
 	}
 	.mdl-layout__drawer-button {
-		-webkit-transition: height .3s ease;
-		   -moz-transition: height .3s ease;
-		    -ms-transition: height .3s ease;
-		     -o-transition: height .3s ease;
-		        transition: height .3s ease;
-		.home-open & {
-			background: rgb(96,125,139);
-		    margin: 0;
-		    padding: 10px;
-		    height: 97%;
-	    	@media screen and (min-width: 1440px) {
-				padding: 20px;
-    			height: 95.5%;
+		-webkit-transition: all .6s ease;
+		   -moz-transition: all .6s ease;
+		    -ms-transition: all .6s ease;
+		     -o-transition: all .6s ease;
+		        transition: all .6s ease;
+		color: white;
+		.is-video & {
+			margin: 0;
+			background-color: rgba(0,0,0,.1);
+			&:hover {
+				background-color: rgba(0,0,0,.5);
 			}
 		}
 	}
@@ -176,8 +175,11 @@
 
 	.drawer-cards {
 		width: 90%;
-		margin-bottom: 4%;
+		margin: 5px auto;
 		min-height: auto!important;
+		@media screen and (max-width: 550px) {
+				max-height: 180px!important;
+			}
 	}
 
 	// nada
@@ -185,7 +187,7 @@
 	.mdl-layout__container {
 		top: 0;
 		left: 0;
-		background-color: white;
+		background-color: rgba(0,0,0,.9);
 	}
 
 	.qual-div1 {
@@ -214,9 +216,9 @@
 	<div class="app_load"  v-if="!ready" transition="fade">
 		<div id="p1" class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
 	</div>
-		<div id="full" allowfullscreen="true">
+		<div id="full" allowfullscreen="true" :class="[className]">
 			<div class="mdl-layout mdl-js-layout" :class="{ 'home-open': home }">
-				<header class="mdl-layout__header mdl-layout__header--waterfall header-top" :class="{ 'home-menu': home }" v-if="!isVideo" transition="grow"  style="position: absolute; background-color: rgba(0, 0, 0, .5);">
+				<header class="mdl-layout__header mdl-layout__header--waterfall header-top" :class="{ 'home-menu': home }" v-if="!isVideo" transition="grow"  style="position: absolute; background-color: rgba(0, 0, 0, 1);">
 			    <!-- Top row, always visible -->
 			    <div class="mdl-layout__header-row">
 			      <!-- Title -->
@@ -248,6 +250,7 @@
 		  								<div class="user-avatar">
 
 										<button @click="connectTrello" v-if="!isConnected" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored connecte-se">
+											<i class="fa fa-trello" aria-hidden="true"></i>
 										  CONECTE-SE
 										</button>
 										
@@ -259,6 +262,7 @@
 											<p class="user-name" v-if="isConnected" transition="fade">@{{user.nome}}</p>
 									    	<p class="user-info" v-if="isConnected" transition="fade">{{user.email}}</p>
 										</div>
+										<button @click="disconnect" v-if="isConnected" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">DISCONECT</button>
 
 		  					</div>
   						</div>
@@ -312,7 +316,7 @@
 											    </span>
 											    <span class="mdl-list__item-secondary-action">
 												    <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="list-switch-1"  id="label-switch-1">
-											    	<input type="checkbox" id="list-switch-1" class="mdl-switch__input" :checked="isLibras" @click="acessLibras"/>
+											    	<input type="checkbox" id="list-switch-1" class="mdl-switch__input" :disabled="hasLibras" :checked="isLibras" @click="acessLibras"/>
 											    	</label>
 											    </span>
 											</li>
@@ -322,7 +326,7 @@
 											    </span>
 											    <span class="mdl-list__item-secondary-action">
 											        <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="list-switch-2"  id="label-switch-2">
-											        <input type="checkbox" id="list-switch-2" class="mdl-switch__input" :checked="isAudio" @click="acessAudio"/>
+											        <input type="checkbox" id="list-switch-2" class="mdl-switch__input" :disabled="hasAudio" :checked="isAudio" @click="acessAudio"/>
 											        </label>
 											    </span>
 											</li>
@@ -332,18 +336,18 @@
 		  					</div>
   						</div>
 
-  						<button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab">
-  						<a href="/#/home" @click="drawer = false">	<i class="material-icons">chevron_left</i>	</a>
-						</button>
-						<span>Voltar ao início</span>
+  						<button v-if="view !== home-view" @click="getTo('#/')" class="mdl-button mdl-js-button" style="width: 100%;">
+	  						<i class="material-icons">chevron_left</i>
+	  						<span>Voltar ao início</span>
+							</button>
 
-				</div>
+						</div>
 
 					
-			  </div>
+			 		</div>
 			  </div>
 			  <div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button" @click="openDrawer"><i class="material-icons">menu</i></div>
-			  <main class="mdl-layout__content view" :is="view" transition="fade" :class="[className]" :db="db" :database="database" :params="params" :qualidade="qualidade" :acessibilidade="acessibilidade" :ready.sync="ready" v-ref:view >
+			  <main class="mdl-layout__content view" :is="view" transition="fade" :class="[className]" :db="db" :database="database" :params="params" :qualidade="qualidade" :acessibilidade.sync="acessibilidade" :ready.sync="ready" :user.sync="user" v-ref:view >
 
 			  </main>
 			  <div class="mdl-layout__obfuscator" :class="{'is-visible': drawer}" @click="openDrawer"></div>
@@ -379,7 +383,8 @@
 				email: "",
 				img: "",
 				board: "",
-				connected: false
+				connected: false,
+				data: {}
 			},
 			params: {
 				video: null,
@@ -388,10 +393,10 @@
 		},
 		watch : {
 			qualidade: function (qualidade) {
-				document.cookie = "qualidade = " + qualidade;
+				document.cookie = "qualidade=" + qualidade;
 			},
 			acessibilidade: function (val) {
-				document.cookie = "acessibilidade = " + val;
+				document.cookie = "acessibilidade=" + val;
 			}
 		},
 		computed: {
@@ -418,16 +423,50 @@
       },
       isVideo: function() {
       	return this.$data.view === 'video-view'
+      },
+      hasAudio: function() {
+      	if (this.db && this.db.headers.acessibilidade.audio) {
+      		return false
+      		componentHandler.upgradeDom()
+      	} else {
+      		return true
+      		componentHandler.upgradeDom()
+      	}
+      },
+      hasLibras: function() {
+      	if (this.db && this.db.headers.acessibilidade.libras) {
+      		return false
+      		componentHandler.upgradeDom()
+      	} else {
+      		return true
+      		componentHandler.upgradeDom()
+      	}
       }
 		},
 		methods: {
+			getTo: function(loc) {
+				window.location.hash = loc
+				this.drawer = false
+			},
+			disconnect: function() {
+				this.user = {
+					nome: "",
+					email: "",
+					img: "",
+					board: "",
+					connected: false
+				}
+				document.cookie = "user=false";
+				localStorage.removeItem('trello_token')
+			},
 			connectTrello: function () {
 				var self = this
 				var opt = {
 					type: "popup",
 					name: "hipevideo",
+					persist: false,
 					scope:  { read: true, write: true, account: true },
-					expiration: "never",
+					expiration: "1hour",
 					success: function () {
 						self.user.connected = true
 						document.cookie = "user=true"
@@ -481,6 +520,9 @@
       	} else if (!obj.target.checked) {
       		this.acessibilidade = "normal"
       	}
+      },
+      acessLegenda: function (obj) {
+      	console.log(obj)
       },
       getCookie: function(cname) {
 		    var name = cname + "=";

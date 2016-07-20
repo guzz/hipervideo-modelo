@@ -24,167 +24,89 @@
     }
   }
 
-  .video-list {
-    & img {
-      position: relative;
-      float: left;
-      margin-right: 10px;
-      width: 220px;
-    }
-    .slick-next {
-      right: -25px !important;
-    }
-    .slick-prev {
-      left: -25px !important;
+  .mdl-layout__tab {
+    padding: 0 24px 0 32px;
+    &.is-hidden {
+      display: none;
     }
   }
 
-  .mulher-bg {
-    background-color: #ed1e79;
-  }
-
-  .adolescente-bg {
-    background-color: #00a300;
-  }
-
-  .crianca-bg {
-    background-color: #0cc;
-  }
-
-  .prisional-bg {
-    background-color: #f00;
-  }
-
-  .deficiencia-bg {
-    background-color: #00c;
-  }
 
 </style>
 
 <template>
   <div style="height: 100%;">
-  <div class="border context-bg"></div>
-  <div id="conteudo_info">
+    <div class="border context-bg"></div>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header context-bg">
+        <div class="mdl-layout__header-row">
+          <!-- Add spacer, to align navigation to the right -->
+          <div class="mdl-layout-spacer"></div>
+          <!-- Navigation. We hide it in small screens. -->
+          <nav class="mdl-navigation mdl-layout--large-screen-only">
+            <a class="" style="color: rgb(66,66,66);" :href="'#/' + params.video"><i style="font-size: 35px; float: right; color: white;" class="material-icons">close</i></a>
+          </nav>
 
-    <in-mapa :conteudo="conteudo" v-if="conteudo && hasMap"></in-mapa>
+        </div>
+        <div class="mdl-layout__tab-bar context-bg">
+          <a v-for="cont in conteudo" href="" @click.prevent="changeTab($key)" class="mdl-layout__tab" :class="{'is-active': $key === tab, 'is-hidden': $key === 'id' || $key === 'title' || $key === 'card'}">
+            <span><i class="material-icons" style="position: absolute; left: 0; top: 12px;">{{icon[$key]}}</i></span>
+            {{$key}}
+          </a>
+        </div>
+      </header>
+      <main class="mdl-layout__content" id="content_main" style="height: 100%;">
+        <div class="page-content" style="height: 100%;">
+          <div class="mdl-grid" style="height: 100%; padding: 0;">
+            <div class="mdl-cell mdl-cell--12-col" style="height: 100%; margin: 0;">
+              <div id="conteudo_info" style="padding:0;height: 100%;">
 
-    <!-- <in-databars v-for="stat in conteudo.stats" :stat="stat" v-if="conteudo && hasDatabars"></in-databars> -->
+                <div :is="tab" transition="fade" :conteudo="conteudo" :user.sync="user" v-ref:tab></div>
 
-    <h2 v-if="conteudo && conteudo.title"> 
-      {{conteudo.title}} 
-    </h2>
-    <div class="info-texto">
-      {{{html_texto | marked}}}
-    </div>
-    
-    <h3 v-if="conteudo && conteudo.imagens"> IMAGENS </h3>
-    <div class="image-list"></div>
-    <h3 v-if="conteudo && conteudo.video_list"> VÍDEOS </h3>
-    <div class="video-list"></div>
-    <h3 v-if="conteudo && conteudo.arquivos"> LINKS </h3>
-    <div class="link context-bg" v-for="cont in conteudo.arquivos">
-      <a :href="cont.link" target="_blank" class="context-bg">
-        {{cont.nome | uppercase}}
-      </a>
-    </div>
-    <h3 v-if="conteudo && conteudo.discursoes"> DISCUSSÃO </h3>
-    <div class="link context-bg" v-for="cont in conteudo.discursoes">
-      <a :href="cont.link" target="_blank" class="context-bg">
-        {{cont.nome | uppercase}}
-      </a>
-    </div>
-    <div class="link" :class="conteudo.icon + '-bg'" v-if="conteudo && conteudo.hipervideo">
-      <a :href="conteudo.hipervideo.link" :class="conteudo.icon + '-bg'">
-        {{conteudo.hipervideo.nome | uppercase}}
-      </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
     </div>
   </div>
-  <a class="back" :href="'#/' + params.video">voltar ao vídeo</a>
-  </div>
-</template>
+</template> 
 
 <script>
   var Vue = require('vue')
   var $$$ = require('jquery')
   var perfectScrollbar = require('perfect-scrollbar')
-  var marked = require('marked')
 
   module.exports = {
 
     replace: true,
-    props: ['params', 'conteudo'],
+    props: ['params', 'conteudo', 'user'],
     data: function(){
       return {
-        html_texto: '',
-        videoIndex: 0,
-        imageIndex: 0
+        tab: 'texto',
+        icon: {
+          texto: 'format_align_left',
+          links: 'link',
+          videos: 'video_library',
+          imagens: 'photo_library',
+          mapa: 'map',
+          graficos: 'pie_chart',
+          comentarios: 'forum'
+        }
       }
     },
     computed: {
-      hasDatabars: function(){
-        return this.conteudo.stats !== undefined
-      },
-      hasMap: function(){
-        return this.conteudo.mapa !== undefined
-      }
+      
     },
     attached: function() {
       var self = this
-
-      jQuery('.image-list').slick({
-        infinite: false,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        adaptiveHeight: true
-      });
-
-      jQuery('.video-list').slick({
-        infinite: false,
-        slidesToShow: 3,
-        slidesToScroll: 3
-      })
 
       this.$on('create-scrollbar', function() {
         $$$('#conteudo_info').perfectScrollbar({
           suppressScrollX: true
         });
 
-        if (self.conteudo.texto !== "") {
-          self.html_texto = self.conteudo.texto;
-        } else {
-          self.html_texto = self.$parent.component.fields.excerpt
-        }
-
-        Trello.get("/cards/"+self.$parent.db.eventos[parseInt(self.conteudo.id)].card+"/attachments", function(attach) {
-          // console.log(attach)
-          if (attach.length > 0) {
-            for (var i = attach.length - 1; i >= 0; i--) {
-              jQuery('.image-list').slick('slickAdd','<img src="' + attach[i].url + '">');
-              self.imageIndex ++;
-            };
-          }
-        })        
-
-        if (self.$parent.conteudo.video_list) {
-          var playlistUrl = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=25&playlistId=' + self.conteudo.video_list + '&key=AIzaSyBmFsHCZeHcrFIb9Fskr718noTVpqRysKc';
-          var videoURL= 'http://www.youtube.com/watch?v=';
-          $$$.getJSON(playlistUrl, function(data) {
-            // console.log(data);
-            var list_data=[];
-            $$$.each(data.items, function(i, item) {
-              var video_data = {};
-              video_data.title = item.snippet.title;
-              video_data.id = item.snippet.resourceId.videoId;
-              video_data.url = videoURL + video_data.id;
-              list_data.push(video_data);
-            });
-            for (var i = list_data.length - 1; i >= 0; i--) {
-              jQuery('.video-list').slick('slickAdd','<div><a href="'+ list_data[i].url +'" target="_blank" title="'+ list_data[i].title +'" style="text-decoration: none; text-align: center;" class="popup-iframe"><img alt="'+ list_data[i].title +'" src="http://img.youtube.com/vi/'+ list_data[i].id +'/0.jpg"</a><p>' + list_data[i].title + '</p></div>');
-              self.videoIndex ++;
-              jQuery('.popup-iframe').magnificPopup({type:'iframe'});
-            };
-          })
-        }
+        self.getImages()
 
         $$$('#conteudo_info').perfectScrollbar('update');
         
@@ -192,16 +114,6 @@
 
       this.$on('destroy-scrollbar', function() {
         $$$('#conteudo_info').perfectScrollbar('destroy');
-        for (var i = 0; i < this.imageIndex; i++) {
-          jQuery('.image-list').slick('slickRemove', 0);
-        }
-        // console.log('videoIndex no destroy ' + this.videoIndex);
-        for (var i = 0; i < this.videoIndex + 1; i++) {
-          // console.log('no destroy i = '+ i + ' e videoIndex = ' + this.videoIndex);
-          jQuery('.video-list').slick('slickRemove', 0);
-        }
-        this.imageIndex = 0;
-        this.videoIndex = 0;
       })
 
       this.$on('so-scrollbar', function() {
@@ -209,20 +121,85 @@
           suppressScrollX: true
         });
       })
+      componentHandler.upgradeDom()
       
     },
     beforeDestroy: function(){
       this.$off('create-scrollbar')
       this.$off('destroy-scrollbar')
     },
-
+    methods: {
+      changeTab: function(tab) {
+        this.tab = tab
+      },
+      getImages: function() {
+        var self = this
+        Trello.get("/cards/"+this.$parent.db.eventos[parseInt(this.conteudo.id)].card+"/attachments", function(attach) {
+          // console.log(attach)
+          if (attach.length > 0) {
+            self.conteudo = Object.assign({}, self.conteudo, {
+              imagens: [],
+              comentarios: []
+            })
+            // self.conteudo.imagens = []
+            // self.conteudo.comentarios = []
+            for (var i = attach.length - 1; i >= 0; i--) {
+              self.conteudo.imagens.push(attach[i].url)
+            };
+            self.getComments()
+          } else {
+            self.conteudo = Object.assign({}, self.conteudo, {
+              comentarios: []
+            })
+            // self.conteudo.comentarios = []
+            self.getComments()
+          }
+        })
+      },
+      getComments: function() {
+        var self = this
+        Trello.get("/cards/"+self.$parent.db.eventos[parseInt(self.conteudo.id)].card+"/actions", function(comment) {
+          if (comment.length > 0) {
+            var usr_atual = {
+              id: '',
+              i: -1
+            }
+            for (var i = comment.length - 1; i >= 0; i--) {
+              if (comment[i].type === 'commentCard') {
+                var c = {
+                  text: [],
+                  usr: {
+                    foto: 'https://trello-avatars.s3.amazonaws.com/'+ comment[i].memberCreator.avatarHash +'/30.png',
+                    nome: comment[i].memberCreator.username,
+                    id: comment[i].memberCreator.id
+                  }
+                }
+                if (usr_atual.id === comment[i].memberCreator.id) {
+                  self.conteudo.comentarios[usr_atual.i].text.push(comment[i].data.text)
+                } else {
+                  c.text.push(comment[i].data.text)
+                  self.conteudo.comentarios.push(c)
+                  usr_atual.id = c.usr.id
+                  usr_atual.i += 1
+                }
+              }
+            };
+          }
+        })
+      }
+    },
     components: {
-      'in-databars': require('../components/content-databars.vue'),
-      'in-mapa': require('../components/content-map.vue')
+      'texto': require('../components/content-texto.vue'),
+      'videos': require('../components/content-videos.vue'),
+      'imagens': require('../components/content-imagens.vue'),
+      'links': require('../components/content-links.vue'),
+      'graficos': require('../components/content-databars.vue'),
+      'comentarios': require('../components/content-comentarios.vue'),
+      'mapa': require('../components/content-map.vue')
     },
 
     filters: {
-      'marked': marked
+
     }
 
   }

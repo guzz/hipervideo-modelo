@@ -10,7 +10,27 @@
 		}
 		.sidebar.has-info & {
 			width: 100%;
-			max-height: 48px;
+		}
+		.mdl-cell--10-col {
+			padding: 0;
+		}
+		.mdl-button {
+			min-width: 0;
+			padding: 0;
+			&.no-back {
+				&:hover {
+					background: transparent;
+				}
+			}
+		}
+		.index {
+			margin: auto;
+			.mdl-button {
+				margin-left: 4px;
+			}
+			.material-icons {
+				font-size: 10px;
+			}
 		}
 	}
 	#cartela_nome, #cartela_funcao{
@@ -29,8 +49,11 @@
 		position: relative;
 		color: #fff;
 		padding: 10px;
-		height: 28px;
+		max-height: 50px; 
 		line-height: 28px;
+		&.open {
+			width: 100%;
+		}
 	}
 	.sidebar_block__content {
 		overflow: hidden;
@@ -41,7 +64,6 @@
     font-size: 14px;
     font-weight: 300;
     line-height: 1.4em;
-    width: 85%;
     letter-spacing: 0;
 		transition: all 0.3s ease;
 		color: white;
@@ -102,11 +124,25 @@
 			}
 		}
 	}
+	.nav-icons {
+		margin-top: -100px; 
+		height: 0;
+		.material-icons {
+			font-size: 60px;
+		}
+		.mdl-button {
+			height: 55px;
+			width: 100%; 
+		}
+		.mdl-tooltip {
+			font-size: 14px;
+		}
+	}
 </style>
 
 <template>
-	<div class="sidebar_block" transition="blc">
-		<div class="sidebar_block__header context-bg">
+	<div style="padding: 0;" class="sidebar_block mdl-grid" transition="blc">
+		<div style="margin: 0;" :class="{ open: conteudo !== null }" class="mdl-cell mdl-cell--12-col sidebar_block__header context-bg">
 			{{content.title | uppercase}}
 			<svg width="28" height="28" class="timer clickable" @click="onTimerClick" :class="{fixed: content.start === null}">
 				<circle class="base" cx="14" cy="14" r="12"></circle>
@@ -117,20 +153,44 @@
 				</g>
 			</svg>
 		</div>
-		<div id="sidebar_block__content" class="sidebar_block__content">
+		<div style="margin-top: -70px; padding-right: 15px;" id="sidebar_block__content" class="mdl-cell mdl-cell--10-col sidebar_block__content">
 			<div :is="content.type" :fields="content.fields"></div>
 		</div>
-		<p v-if="!content.ap" style="padding-left: 10px;"><strong><a style="font-weight: 900; text-decoration: none;" :href="'#/' + content.videoID + '/info/' + content.id">SAIBA MAIS</a></strong></p>
-		<button v-if="!content.ap" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored" @click="parentBlock(content.id - 1)" :disabled="eventoStart">
-			<i class="material-icons">chevron_left</i>
-		</button>
-		<button v-if="!content.ap" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" @click="seekVideo(content.id)" :disabled="isAp || eventoAt">
-			Ir para ponto no video
-		</button>
-		<button v-if="!content.ap" class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored" @click="parentBlock(content.id + 1)" :disabled="eventoEnd">
-			<i class="material-icons">chevron_right</i>
-		</button>
-		<p v-if="!content.ap" style="color:white; text-align: center;">{{content.id + 1}} / {{numEvents}}</p>
+		<div style="margin-top: -75px; height: 0;" class="mdl-cell mdl-cell--10-col">
+			<p v-if="!content.ap" v-show="conteudo.id === undefined" style=""><strong><a style="font-weight: 900; text-decoration: none;" :href="'#/' + content.videoID + '/info/' + content.id">SAIBA MAIS</a></strong></p>
+			<p v-if="!content.ap" v-show="conteudo.id !== undefined"  style=""><strong><a style="font-weight: 900; text-decoration: none;" :href="'#/' + content.videoID">VOLTAR</a></strong></p>
+		</div>
+		<div style="" class="mdl-cell mdl-cell--10-col mdl-grid nav-icons">
+			<div class="mdl-cell mdl-cell--2-col" style="padding: 0;">
+				<button v-if="!content.ap" id="evento_prev" class="mdl-button mdl-js-button mdl-button--colored no-back" @click="parentBlock(content.id - 1)" :disabled="eventoStart">
+					<i class="material-icons" style="margin-left: -19px;">chevron_left</i>
+				</button>
+				<div class="mdl-tooltip mdl-tooltip--top" for="evento_prev">Evento anterior</div>
+			</div>
+			<div class="mdl-cell mdl-cell--8-col" style="padding: 0;">
+				<button v-if="!content.ap" id="evento_now" class="mdl-button mdl-js-button mdl-button--colored no-back" @click="seekVideo(content.id)" :disabled="isAp || eventoAt" style="width: 100%;">
+					<i class="material-icons">open_in_browser</i>
+				</button>
+				<div class="mdl-tooltip mdl-tooltip--top" for="evento_now">Ir para ponto do vídeo</div>
+			</div>
+			<div class="mdl-cell mdl-cell--2-col" style="padding: 0;">
+				<button v-if="!content.ap" id="evento_next" class="mdl-button mdl-js-button mdl-button--colored no-back" @click="parentBlock(content.id + 1)" :disabled="eventoEnd">
+					<i class="material-icons" style="margin-left: -19px;">chevron_right</i>
+				</button>
+				<div class="mdl-tooltip mdl-tooltip--top" for="evento_next">Próximo evento</div>
+			</div>
+		</div>
+		<div style="margin-top: -140px; height: 0;" class="mdl-cell mdl-cell--10-col mdl-grid">
+			<div class="mdl-cell mdl-cell--12-col">
+				<div class="index" :style="{width: (events.length * 7) + '%'}">
+					<button class="mdl-button mdl-js-button mdl-button--colored no-back" v-for="e in events"  href="" @click.prevent="parentBlock($index)" :disabled="eventoNow[$index]">
+						<i class="material-icons">lens</i>
+					</button>
+				</div>
+				<!-- <p v-if="!content.ap" style="color:white; text-align: center;">{{content.id + 1}} / {{numEvents}}</p> -->
+			</div>
+		</div>
+		
 	</div>
 </template>
 
@@ -163,6 +223,17 @@
 			eventoAt: function() {
 				return this.content.start !== null
 			},
+			eventoNow: function() {
+				var list = []
+				for (var i = 0; i < this.events.length; i++) {
+					if (this.content.id === this.events[i].id) {
+						list.push(true)
+					} else {
+						list.push(false)
+					}
+				}
+				return list
+			},
 			isAp: function() {
 				if (this.content.ap !== undefined) {
 					return true
@@ -172,12 +243,20 @@
 			},
 			numEvents: function() {
 				return this.events.length
+			},
+			hasConteudo: function() {
+				if (this.conteudo !== {}) {
+					return true
+				} else {
+					return false
+				}
 			}
 		},
 		attached: function() {
 			$$$('.sidebar_block__content').perfectScrollbar({
 				suppressScrollX: true
 			});
+			componentHandler.upgradeDom()
 		},
 		methods: {
 			onTimerClick: function(){

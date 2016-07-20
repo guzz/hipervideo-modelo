@@ -8,14 +8,14 @@
 	}
 	.sidebar {
 		width: 22%;
-		margin-top: 200px;
+		margin-top: 48px;
 		height: 100%;
 		@media screen and (min-width: 1600px) {
 			width: 15%;
 		}
 		&.has-info {
 			@media screen and (min-width: 1600px) {
-				width: 17.2%;
+				width: 15.9%;
 			}
 		}
 	}
@@ -26,24 +26,30 @@
 	}
 	.sidebar_back {
 		position: absolute;
-		background-color: rgba(0,0,0,.5);
+		background-color: rgba(0,0,0,.8);
 		width: 300px;
-		height: 100%;
+		height: 99.7%;
 		top: 0;
 		left: 0;
-		transition: all 0.6s;
+		transition: all .6s, height .3s ease;
 		-webkit-transform: translate3d(-300px,0,0);
 		-moz-transform: translate3d(-300px,0,0);
 		-o-transform: translate3d(-300px,0,0);
 		-ms-transform: translate3d(-300px,0,0);
 		transform: translate3d(-300px,0,0);
 		z-index: 10;
+		@media screen and (max-width: 1440px) {
+			height: 99.5%;
+		}
 		.sidebar.is-open & {
 			-webkit-transform: translate3d(0,0,0);
 			-moz-transform: translate3d(0,0,0);
 			-o-transform: translate3d(0,0,0);
 			-ms-transform: translate3d(0,0,0);
 			transform: translate3d(0,0,0);
+		}
+		&.cont {
+			height: 100% !important;
 		}
 		&.info-open {
 			background-color: rgba(0, 0, 0, 0.8);
@@ -66,11 +72,16 @@
 		left: 0;
 		z-index: 10;
 		transition: all 0.6s;
+		color: white;
 		-webkit-transform: translate3d(127%,0,0);
 		-moz-transform: translate3d(127%,0,0);
 		-o-transform: translate3d(127%,0,0);
 		-ms-transform: translate3d(127%,0,0);
 		transform: translate3d(127%,0,0);
+		header {
+			background-color: rgba(0, 0, 0, 0.8);
+			color: white;
+		}
 		&.is-open {
 			-webkit-transform: translate3d(300px,0,0);
 			-moz-transform: translate3d(300px,0,0);
@@ -78,10 +89,32 @@
 			-ms-transform: translate3d(300px,0,0);
 			transform: translate3d(300px,0,0);
 		}
+		.mdl-layout__header-row {
+			height: 48px;
+		}
+		.mdl-layout__tab-bar-container {
+			background-color: red;
+			height: 50px;
+		}
+		.mdl-layout__tab-bar-button {
+			background-color: transparent;
+		}
+		.mdl-layout__tab {
+			color: white !important;
+			opacity: .5;
+			height: 50px !important;
+			&.is-active {
+				opacity: 1;
+				&:after {
+					background: white !important;
+				}
+			}
+		}
 		.border {
 			position: absolute;
+			z-index: 5;
 			height: 100%;
-			width: 10px;
+			width: 5px;
 			top: 0;
 			left: 0;
 		}
@@ -135,6 +168,9 @@
 	    .rangeslider__fill {
     		top: 0px;
 	    }
+	    .evento {
+				top: -3px;
+			}
 	  }
 	  &.z-down {
 	  	z-index: 10;
@@ -147,12 +183,11 @@
 		    -ms-transition: all 0.3s ease;
 		     -o-transition: all 0.3s ease;
 		        transition: all 0.3s ease;
-		position: fixed;
-		top: 35%;
-		overflow: hidden;
-		left: -25px;
 		&.cima {
 			left: 0;
+		}
+		&.hide {
+			display: none;
 		}
 		&:hover {
 			.sidebar_opener__inside {
@@ -178,18 +213,17 @@
 			     -o-transition: all 0.6s ease;
 			        transition: all 0.6s ease;
 			display: inline-block;
-			width: 50px;
 			padding: 0;
 			line-height: 0;
 			cursor: pointer;
-			background: rgba(0,0,0,0.5);
+			background: rgba(0,0,0,0.8);
 			.material-icons {
 				-webkit-transition: opacity .3s ease;
 				   -moz-transition: opacity .3s ease;
 				    -ms-transition: opacity .3s ease;
 				     -o-transition: opacity .3s ease;
-				font-size: 90px;
-		    margin-left: -25px;
+				font-size: 48px;
+		    margin-left: 0;
 		    color: white;
 		    opacity: .5;
 			}
@@ -200,7 +234,7 @@
 		-webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
 		box-sizing: border-box;
-		padding: 5% 20% 3% 3%;
+		padding: 0;
 		width: 79%;
 		@media screen and (min-width: 1600px) {
 			width: 85%;
@@ -252,10 +286,21 @@
     float: left;
     .evento {
     	height: 100%;
-	    background: rgb(255,82,82);
 	    position: absolute;
 	    z-index: 1;
+	    font-size: 20px;
 	    cursor: pointer;
+	    font-weight: 900;
+	    background-color: rgba(247, 233, 63, 0.47);
+	    padding: 4px;
+	    box-sizing: border-box;
+	    text-align: center;
+	    @media screen and (max-width: 1440px) {
+				font-size: 14px;
+			}
+    }
+    .mdl-tooltip {
+    	font-size: 14px;
     }
 	}
 
@@ -269,7 +314,8 @@
 			    -ms-transition: opacity .3s ease;
 			     -o-transition: opacity .3s ease;
 			        transition: opacity .3s ease;
-			color: rgb(96,125,139);
+			/*color: rgb(96,125,139);*/
+			color: white;
 			opacity: .8;
 	    height: 46px;
 	    width: 46px;
@@ -294,6 +340,9 @@
 			width: 17%;
 	    margin-left: 2%;
 	    float: left;
+	    .mdl-slider__background-upper {
+	    	background: rgba(255, 255, 255, 0.2)
+	    }
 		}
 	}
 
@@ -305,14 +354,14 @@
 
 		<!-- VIDEO -->
 		<div id="player">
-			<in-bg-video :db="db" :video="video" :qualidade="qualidade" :acessibilidade="acessibilidade" :playing.sync="playing" v-ref:hipervideo></in-bg-video>
+			<in-bg-video :db="db" :video="video" :qualidade="qualidade" :acessibilidade.sync="acessibilidade" :playing.sync="playing" v-ref:hipervideo></in-bg-video>
 
-			<div id="video-controls" :class="{ hover: playing, 'z-down': hasInfo }">
+			<div id="video-controls" :class="{ hover: playing || hasInfo, 'z-down': hasInfo }">
 
 				<!-- NAV-VIDEO -->
 				<nav id="timeline">
 					<div v-for="evento in db.eventos">
-						<div class="evento" :id="evento.card" @click="addBlockById(evento.id)"></div>
+						<div class="evento" :id="evento.card" @click="addBlockById(evento.id)">{{evento.title | uppercase | maxSize 8}}</div>
 						<div class="mdl-tooltip mdl-tooltip--top" :for="evento.card">{{evento.title}}</div>
 					</div >
 					<in-topbar-slider :db="db"></in-topbar-slider>
@@ -357,7 +406,7 @@
 
 			<div class="sidebar_content">
 				<in-sidebar-block v-for="content in contentBlocks" :content="content" :video="video" :conteudo="conteudo" :events="events" transition="sidebar"></in-sidebar-block>
-				<div id="sidebar_click" class="sidebar_opener clickable" @click="openDefaultBlock" v-show="!hasBlocks && !fixedSidebar && !hasInfo" transition="sidebar">
+				<div id="sidebar_click" class="sidebar_opener clickable" @click="openDefaultBlock" v-show="!hasBlocks && !fixedSidebar" transition="sidebar" :class="{hide: hasInfo}">
 					<div class="sidebar_opener__inside">
 						<i class="material-icons">chevron_right</i>
 					</div>
@@ -381,13 +430,14 @@
 
 			<!-- BACKGROUND -->
 
-			<div class="sidebar_back" :class="{ 'info-open': hasInfo }"></div>
+			<div id="sidebar_back" class="sidebar_back" :style="{height: (height - 73) + 'px' }" :class="{ cont: playing && !hasInfo || !playing && hasInfo, 'info-open': hasInfo }"></div>
 		</div>
 
 		<!-- INFO -->
 	
 		<div id="infopanel" class="infopanel" :class="{'is-open': hasInfo}">
-	    <in-sidebar-info :params="params" :conteudo="conteudo"></in-sidebar-info>
+	    <in-sidebar-link v-if="link !== null" :link="link" :user.sync="user" transition="fade"></in-sidebar-link>
+	    <in-sidebar-info v-if="hasInfo" :params="params" :conteudo="conteudo" :user.sync="user"></in-sidebar-info>
 	  </div>
 
 		<div id="loading" class="not-loading"><i class="fa fa-refresh fa-3x fa-spin"></i></div>
@@ -406,7 +456,7 @@
 	module.exports = {
 		// replace para pegar com v-with objetos do parent
 		replace: true,
-		props: ['params', 'db', 'qualidade', 'acessibilidade', 'ready'],
+		props: ['params', 'db', 'qualidade', 'acessibilidade', 'ready', 'user'],
 		data: function(){
 			return {
 				events: null,
@@ -418,8 +468,10 @@
 				conteudo: {},
 				seeking: false,
 				playing: true,
+				link: null,
 				volume: 0,
 				volume_icon: 'volume_up',
+				height: window.innerHeight,
 				video: {
 					popcorn: null,
 					time: 0,
@@ -435,7 +487,7 @@
 				return this.contentBlocks.length >= 2 || this.contentBlocks.length > 0 && !this.contentBlocks[0].funcao
 			},
 			hasInfo: function(){
-				return this.params.route.length > 1 && this.params.route[1] == 'info'
+				return this.params.route.length > 1 && this.params.route[1] == 'info' || this.link !== null
 			},
 			hasLibras: function() {
 				return this.libras
@@ -458,10 +510,12 @@
 			}
 		},
 		created: function() {
+			this.volume
 			this.volume = this.$root.cookieVolume()
+			this.volume
 		},
 		attached: function() {
-
+			// this.height = window.innerHeight - $$$('#video-controls').height()
 			var self = this
 
 			// DATA
@@ -490,8 +544,27 @@
 
 			}, false );
 
-			this.video.tag.addEventListener( "play", function() {
+			document.addEventListener("webkitfullscreenchange", function() {
+				setTimeout(function() {
+					console.log('full screen web ' + window.innerHeight)
+					self.height = window.innerHeight
+				}, 500)
+			})
+			document.addEventListener("mozfullscreenchange", function() {
+				setTimeout(function() {
+					console.log('full screen moz ' + window.innerHeight)
+					self.height = window.innerHeight
+				}, 500)
+			})
+			document.addEventListener("fullscreenchange", function() {
+				setTimeout(function() {
+					console.log('full screen ' + window.innerHeight)
+					self.height = window.innerHeight
+				}, 500)
+			})
 
+			this.video.tag.addEventListener( "play", function() {
+				self.video.tag.volume = self.volume / 100
 				if (!self.seeking) {
 					self.$broadcast('hipervideo-play')
 					$$$('#hipVid-' + self.params.video).removeClass('pausado')
@@ -627,6 +700,7 @@
 				}
 				this.conteudo.title = node.title;
 				this.conteudo.id = node.id;
+				this.conteudo.card = node.card;
 				setTimeout(function() {
 					self.$broadcast('create-scrollbar')
 				}, 500)
@@ -708,23 +782,19 @@
 			},
 			handleMouseMove: function(event) {
 				var controles = document.getElementById('video-controls');
-				var side = document.getElementById('sidebar_click');
+				var side = document.getElementById('sidebar_back');
 				var player = document.getElementById('player');
 				event = event || window.event; // IE-ism
 				// event.clientX and event.clientY contain the mouse position
-				if (event.clientX < 400) {
-					side.className = "sidebar_opener clickable cima"
-				} else {
-					side.className = "sidebar_opener clickable"
-				}
-
-				if (event.clientY > player.clientHeight - 80) {
+				if (event.clientY > player.clientHeight - 140) {
 					if (this.playing) {
 						controles.className = "";
+						side.className = "sidebar_back";
 					}
 				} else {
 					if (this.playing) {
 						controles.className = "hover";
+						side.className = "sidebar_back cont";
 					}
 				}
 			},
@@ -761,7 +831,7 @@
 				}
 			},
 			addBlock: function(event){
-				console.log(event.id)
+				// console.log(event.id)
 				
 				var node = _.findWhere(this.events,{"id": event.id})
 
@@ -828,11 +898,21 @@
 				this.video.tag.currentTime = node.timecode.start
 			}
 		},
+		filters: {
+			maxSize: function(value, max) {
+				if (value.length > parseInt(max)) {
+					return value.slice(0, max) + "..."
+				} else {
+					return value
+				}
+			}
+		},
 		components: {
 			'in-sidebar-block': require('../components/sidebar-block.vue'),
 			'in-topbar-slider': require('../components/topbar-slider.vue'),
 			'in-bg-video': require('../components/bg-video.vue'),
-			'in-sidebar-info': require('../components/sidebar-info.vue')
+			'in-sidebar-info': require('../components/sidebar-info.vue'),
+			'in-sidebar-link': require('../components/sidebar-link.vue')
 		}
 	}
 </script>

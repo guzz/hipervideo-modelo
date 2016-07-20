@@ -1,8 +1,10 @@
 <style lang="scss">
   .content_mapa {
     position: relative;
+    height: 100%;
     width: 100%;
-    height: 400px;
+    padding: 0;
+    margin: 0;
     background: #333;
   }
   .leaflet-top, .leaflet-bottom {
@@ -45,6 +47,11 @@
       L.Icon.Default.imagePath = 'img/leaflet';
 
       this.loadData();
+
+      this._mapa.on('click', function(e) {
+        console.log(e)
+      })
+
     },
 
     methods: {
@@ -79,7 +86,7 @@
 
             for (var i = 0; i < entries.length; i++) {
               // console.log(entries[i].lat);
-              markers.push(L.marker([parseFloat(entries[i].lat), parseFloat(entries[i].lon)]).bindPopup('<a href="' + entries[i].site + '" target="_blank">' + entries[i].nome + '</a>'))
+              markers.push(L.marker([parseFloat(entries[i].lat), parseFloat(entries[i].lon)]).bindPopup('<a href="' + entries[i].site + '" target="_blank" class="mapa-link">' + entries[i].nome + '</a>'))
             }
 
             L.layerGroup(markers).addTo(self._mapa);
@@ -91,6 +98,12 @@
           }).complete(function() {
 
             // console.log('completed mapa-spreadsheet load!')
+            setTimeout(function() {
+              $$$('.mapa-link').on('click', function(e) {
+                e.preventDefault()
+                self.$parent.$parent.link = e.currentTarget.href
+              })
+            }, 1000)
 
           })
         } else if(typeof this.conteudo.mapa.locais === 'object') {
