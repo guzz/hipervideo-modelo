@@ -2454,9 +2454,8 @@ module.exports = {
 		}, false);
 
 		this.video.tag.addEventListener("ended", function () {
-			console.log(self.seeking);
 
-			creditos.className = 'finalizado';
+			window.location.hash = "#/" + self.params.video + "/info/" + (self.events.length - 1);
 			self.videoPause();
 		}, false);
 
