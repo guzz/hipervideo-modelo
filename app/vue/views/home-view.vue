@@ -417,8 +417,6 @@
         			slidesToShow: 1,
         			slidesToScroll: 1
         		}
-<<<<<<< HEAD
-=======
         	},
         	{
         		breakpoint: 1440,
@@ -426,7 +424,6 @@
         			slidesToShow: 3,
         			slidesToScroll: 3
         		}
->>>>>>> guzz
         	}
         ]
       })
