@@ -1028,7 +1028,7 @@ module.exports = {
               t.nome = data.hybridGraph.title;
               t.img = data.hybridGraph.image;
               t.desc = data.hybridGraph.description;
-              t.link = data.hybridGraph.url;
+              t.link = self.conteudo.links[i].link;
             }
             self.link_cards.push(t);
           }
