@@ -31,7 +31,7 @@
         <div class="page-content" style="height: 100%;">
           <div class="mdl-grid" style="height: 100%; padding: 0;">
             <div class="mdl-cell mdl-cell--12-col" style="height: 100%; margin: 0;">
-              <div id="conteudo_info" style="padding:0;height: 100%;">
+              <div id="conteudo_info" style="padding:0;height: 100%;background: white;">
                 <iframe style="height: 100%;" :src="link"></iframe>
               </div>
             </div>
