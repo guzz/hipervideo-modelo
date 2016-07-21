@@ -36,6 +36,14 @@
 
     replace: true,
     props: ['conteudo'],
+    watch: {
+      conteudo: {
+        handler: function(val, oldVal) {
+          this.videos = []
+          this.loadVideos()
+        }
+      }
+    },
     data: function(){
       return {
         videos: []
@@ -45,29 +53,35 @@
       
     },
     attached: function() {
-      var self = this
-
-      var playlistUrl = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=25&playlistId=' + this.conteudo.videos + '&key=AIzaSyCwNv14d5bNQ4MwaodqT6z45-6A5y4kzus';
-      var videoURL= 'http://www.youtube.com/watch?v=';
-      $$$.getJSON(playlistUrl, function(data) {
-        // console.log(data);
-        $$$.each(data.items, function(i, item) {
-          // console.log(item)
-          var video_data = {};
-          video_data.title = item.snippet.title;
-          video_data.id = item.snippet.resourceId.videoId;
-          video_data.url = videoURL + video_data.id;
-          self.videos.push(video_data);
-        });
-      })
-
-      setTimeout(function() {
-        jQuery('.popup-iframe').magnificPopup({type:'iframe'});
-      }, 1000)
-      
+      this.loadVideos()
     },
     beforeDestroy: function(){
 
+    },
+
+    methods: {
+      loadVideos: function() {
+        console.log('load videos')
+        var self = this
+
+        var playlistUrl = 'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=25&playlistId=' + this.conteudo.videos + '&key=AIzaSyCwNv14d5bNQ4MwaodqT6z45-6A5y4kzus';
+        var videoURL= 'http://www.youtube.com/watch?v=';
+        $$$.getJSON(playlistUrl, function(data) {
+          // console.log(data);
+          $$$.each(data.items, function(i, item) {
+            // console.log(item)
+            var video_data = {};
+            video_data.title = item.snippet.title;
+            video_data.id = item.snippet.resourceId.videoId;
+            video_data.url = videoURL + video_data.id;
+            self.videos.push(video_data);
+          });
+        })
+
+        setTimeout(function() {
+          jQuery('.popup-iframe').magnificPopup({type:'iframe'});
+        }, 1000)
+      }
     },
 
     components: {

@@ -17,6 +17,9 @@
   #list_links {
     .mdl-card {
       min-height: 350px;
+      @media screen and (max-width: 1366px) {
+        min-height: 205px;
+      }
     }
 
   }

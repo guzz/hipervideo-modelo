@@ -24,6 +24,18 @@
 
     replace: true,
     props: ['conteudo'],
+    watch: {
+      conteudo: {
+        handler: function(val, oldVal) {
+          self=this
+          $$$('#text-content a').on('click', function(e) {
+            e.preventDefault()
+            self.$parent.$parent.link = e.currentTarget.href
+          })
+        },
+        deep: true
+      }
+    },
     data: function(){
       return {
       }

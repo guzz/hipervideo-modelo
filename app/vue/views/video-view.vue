@@ -298,7 +298,7 @@
 	    box-sizing: border-box;
 	    text-align: center;
 	    @media screen and (max-width: 1440px) {
-				font-size: 10px;
+				font-size: 12px;
 			}
     }
     .mdl-tooltip {
@@ -812,7 +812,7 @@
 				}
 			},
 			toggleFullScreen: function() {
-				var a = document.getElementById('full')
+				var a = document.getElementById('body')
 				if (!document.mozFullScreen && !document.webkitIsFullScreen) {
 					if (a.mozRequestFullScreen) {
 						console.log('cancel full moz')

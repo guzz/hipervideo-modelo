@@ -138,6 +138,13 @@
 			font-size: 14px;
 		}
 	}
+	.events-index {
+		margin-top: -140px; 
+		height: 0;
+		@media screen and (max-width: 1440px) {
+			margin-top: -115px;
+		}
+	}
 </style>
 
 <template>
@@ -180,7 +187,7 @@
 				<div class="mdl-tooltip mdl-tooltip--top" for="evento_next">Próximo evento</div>
 			</div>
 		</div>
-		<div style="margin-top: -140px; height: 0;" class="mdl-cell mdl-cell--10-col mdl-grid">
+		<div style="" class="mdl-cell mdl-cell--10-col mdl-grid events-index">
 			<div class="mdl-cell mdl-cell--12-col">
 				<div class="index" :style="{width: (events.length * 7) + '%'}">
 					<button class="mdl-button mdl-js-button mdl-button--colored no-back" v-for="e in events"  href="" @click.prevent="parentBlock($index)" :disabled="eventoNow[$index]">

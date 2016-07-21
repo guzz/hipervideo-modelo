@@ -56,6 +56,7 @@
 		opacity: 1;
 	}
 	.fade-enter, .fade-leave {
+		transition: opacity .6s ease;
 		opacity: 0;
 		position: absolute;
 		width: 100%;
