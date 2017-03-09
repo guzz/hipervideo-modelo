@@ -5,13 +5,11 @@ var router = express.Router();
 /* GET vueapp index */
 router.get('/', function(req, res) {
   var ua = req.headers['user-agent']
-  res.render('index', {});
-  // if (/mobile/i.test(ua)) {
-  //   res.render('mobile', {});
-  // } else {
-    
-  //   console.log('teste-index');
-  // }
+  if (/mobile/i.test(ua)) {
+    res.redirect('https://hipervideo.jardimdigital.com.br');
+  } else {
+    res.render('index', {});
+  }
 });
 
 module.exports = router;
