@@ -194,6 +194,9 @@
 			right: 9px;
 		}
 		.slider-cards {
+			&.mdl-cell {
+				cursor: pointer;
+			}
 			&.select {
 				.mdl-card {
 					border: 5px solid white;
@@ -257,23 +260,23 @@
 
 	<div class="mdl-grid hiper-list slider-cards">
 
-	  <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone slider-cards" :class="{ select: banner !== null && banner.id === database[$index].headers.id }" id="hip-{{hipId[$index]}}" v-for="hipervideo in database" transition="fade">
+	  <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-phone slider-cards" :class="{ select: banner !== null && banner.id === database[$index].headers.id }" id="hip-{{hipId[$index]}}" v-for="hipervideo in database" transition="fade" @click="changeBanner($index)">
 	  	<div class="mdl-card mdl-shadow--2dp single-card" style="background-size: 100% 100%;" :style="{'background-image': 'url('+hipervideo.headers.img+')'}">
 			  <div class="mdl-card__title display-home">
 			    <h2 class="mdl-card__title-text">{{hipervideo.headers.nome}}</h2>
 			  </div>
 			  <dir class="play-div">
 			  	<!-- <img v-if="hipervideo.headers.img" :src="hipervideo.headers.img" class="play-img"> -->
-			  	<a class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" href="/#/{{hipId[$index]}}">
+			  	<!-- <a class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect" href="/#/{{hipId[$index]}}">
 			  		<i class="material-icons dot">play_arrow</i>
 			      <i class="material-icons">play_circle_outline</i>
-			    </a>
+			    </a> -->
 			  </dir>
-			  <div class="mdl-card__menu">
+			  <!-- <div class="mdl-card__menu">
 			    <button class="mdl-button mdl-js-button" v-if="!home" @click="changeBanner($index)">
 			      <i class="material-icons">expand_less</i>
 			    </button>
-			  </div>
+			  </div> -->
 			</div>
 	  </div>
 
@@ -345,13 +348,15 @@
 		attached: function () {
 			this.$dispatch('home-view-ready');
 			$$$('body').removeClass("tocando");
-			
-			var browser = useragent.browser
-			var version = useragent.version.split('.')
+			var userAgent = window.navigator.userAgent
+			var browser = userAgent.includes('Chrome') ? 'Chrome' : userAgent.includes('Firefox') ? 'Firefox' : 'Other'
+			var version = userAgent.split(browser)[1].split('/')[1].split('.')[0]
+			console.log(version)
+			console.log(browser)
 
-			var cond0 = browser.search("Chrome") === -1
-			var cond1 = browser.search("Firefox") !== -1 && Number(version[0]) < 23
-			var cond2 = browser.search("Chrome") !== -1 && Number(version[0]) < 29
+			var cond0 = browser !== "Chrome" && browser !== "Firefox" 
+			var cond1 = browser === "Firefox" && Number(version) < 23
+			var cond2 = browser === "Chrome" && Number(version) < 29
 			
 			var snackbarContainer = document.querySelector('#demo-snackbar-example')
 

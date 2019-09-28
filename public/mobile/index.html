@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Hipervideo Demo</title>
+    <link rel="icon" href="favicon.ico"type="image/ico">
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.deep_purple-red.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.0.1/leaflet.css">
+    <link rel="stylesheet" href="dist/build.css">
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script type="text/javascript">
+      var mobile = window.navigator.userAgent.toLocaleLowerCase().includes('mobile')
+      if (!mobile) {
+        window.location = window.location.origin
+      }
+    </script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="https://use.fontawesome.com/20fab9cb24.js"></script>
+    <script src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="https://api.trello.com/1/client.js?key=47ba9fe4f814b2a8ebaaa862a6c86a74"></script>
+    <script src="popcorn.js"></script>
+    <script src="dist/build.js"></script>
+    <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+  </body>
+</html>

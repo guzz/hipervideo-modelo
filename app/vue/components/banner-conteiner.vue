@@ -257,13 +257,13 @@
   
   <div v-if="banner" class="mdl-cell mdl-cell--2-col mdl-cell--4-col-phone banner-owner banner-cont" transition="sli">
     
-    <div id="video-owner">
+    <!-- <div id="video-owner">
       <div>
       <a :href="banner.owner.url" target="_blank" transition="fade">
       <img class="img-owner" :src="banner.owner.img" transition="fade">
       </a>
       </div>
-    </div>
+    </div> -->
 
   </div>
   <div v-if="banner" style="width: 100%; height: 100%; position: absolute; top: 0; left: 0; z-index: -1; background-size: 100%;" transition="fade" :style="{'background-image': 'url('+banner.capa+')'}"></div>

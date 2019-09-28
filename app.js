@@ -8,12 +8,9 @@ var bodyParser = require('body-parser');
 var sassMiddleware = require('node-sass-middleware');
 var livereload = require('connect-livereload');
 var useragent = require('express-useragent');
+var index = require('./app/routes/index')
 var fs = require('fs');
 var router = express.Router();
-
-var routes = {
-    index: require(path.join(__dirname, 'app/routes/index'))
-};
 
 var app = express();
 
@@ -39,7 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/modules', express.static(path.join(__dirname, 'node_modules')));
 app.use(useragent.express());
 
-app.use('/', routes.index);
+app.use('/', index);
 // app.use('/users', routes.users);
 // app.use('/vue', routes.vue);
 

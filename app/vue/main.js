@@ -7,6 +7,8 @@
 	Vue.config.debug = true
 	Vue.use(VueTouch)
 
+	console.log(window)
+
 	// ROUTES
 
 	var routes = {
