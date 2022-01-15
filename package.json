@@ -24,7 +24,7 @@
     "jquery": "^2.2.4",
     "leaflet": "^0.7.7",
     "magnific-popup": "^1.0.0",
-    "marked": "^0.3.5",
+    "marked": "^4.0.10",
     "morgan": "^1.6.1",
     "node-sass": "^3.4.2",
     "node-sass-middleware": "^0.9.7",
