@@ -42,7 +42,7 @@
   },
   "devDependencies": {
     "babel-runtime": "^5.8.29",
-    "gulp": "^3.9.0",
+    "gulp": "^4.0.2",
     "gulp-browserify": "^0.5.1",
     "gulp-clean": "^0.3.1",
     "gulp-concat-css": "^2.2.0",
@@ -66,7 +66,7 @@
     "through2": "^2.0.0",
     "uglify-js": "^2.5.0",
     "vue-hot-reload-api": "^1.2.1",
-    "vueify": "^5.0.0",
+    "vueify": "^9.4.1",
     "vueify-insert-css": "^1.0.0",
     "watchify": "^3.5.0"
   }
