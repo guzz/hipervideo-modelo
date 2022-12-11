@@ -17,7 +17,7 @@
     "cookie-parser": "^1.4.0",
     "debug": "^2.2.0",
     "director": "^1.2.8",
-    "express": "^4.13.3",
+    "express": "^4.17.3",
     "express-useragent": "^0.2.0",
     "fs": "0.0.2",
     "jade": "^1.11.0",
